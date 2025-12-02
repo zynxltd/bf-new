@@ -603,15 +603,32 @@
 }
 
 /* Hide empty product cards or cards with missing content */
-.product-card:empty,
-.product-card:not(:has(.product-image img[src])),
-.product-card:not(:has(.product-details)) {
+.product-card:empty {
     display: none !important;
 }
 
 /* Ensure product card has minimum content */
 .product-card {
     min-height: 400px;
+}
+
+/* Hide product cards that don't have proper structure */
+.products-content .row > [class*="col-"]:empty {
+    display: none !important;
+}
+
+/* Ensure images are properly displayed */
+.product-image img {
+    display: block;
+    visibility: visible;
+}
+
+/* Hide broken or missing images gracefully */
+.product-image:not(:has(img)) {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect fill="%23e9ecef" width="200" height="200"/><text fill="%23999" x="50%25" y="50%25" text-anchor="middle" dy=".3em" font-family="Arial" font-size="14">No Image</text></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .product-details {
