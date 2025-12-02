@@ -33,8 +33,9 @@
                 <div class="col-md-7">
                     <div class="header-texts tab-center mobile-center">
                         <h2 class="wow fadeInUp" data-wow-duration=".5s">Superior Plant Food Plus</h2>
-                        <p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Our best-ever formulation for use all round the garden for more flowers, more fruit, better roots and better shoots.</p><p class="lead wow fadeInUp">Available in 3 sizes, 1.25kg, 500g or 50g trial sachet</p>
-                        <h3 class="heading-light wow fadeInUp" data-wow-duration=".5s">Click below to buy it from one of our stockists</h3>
+                        <p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Our best-ever formulation for use all round the garden for more flowers, more fruit, better roots and better shoots.</p>
+                        <p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">Available in 3 sizes, 1.25kg, 500g or 50g trial sachet</p>
+                        <h3 class="heading-light wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s">Click below to buy it from one of our stockists</h3>
                         <ul class="buttons">
                             <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
                             <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
@@ -364,7 +365,10 @@ From May to September feed your plants twice a week while watering.</p>
                                 <span class="badge">750g</span>
                                 <span class="badge">NPK Balanced</span>
                             </div>
-                            <a href="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" class="button button-primary" target="_blank" rel="noopener">Buy Now</a>
+                            <ul class="product-buttons">
+                                <li><a href="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+ultimate+rose+bloom+booster" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -382,7 +386,10 @@ From May to September feed your plants twice a week while watering.</p>
                                 <span class="badge">250g</span>
                                 <span class="badge">Water Retaining</span>
                             </div>
-                            <a href="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g" class="button button-primary" target="_blank" rel="noopener">Buy Now</a>
+                            <ul class="product-buttons">
+                                <li><a href="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+swell+gel+and+feed" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -400,7 +407,10 @@ From May to September feed your plants twice a week while watering.</p>
                                 <span class="badge">500g</span>
                                 <span class="badge">NPK 18:18:24</span>
                             </div>
-                            <a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g" class="button button-primary" target="_blank" rel="noopener">Buy Now</a>
+                            <ul class="product-buttons">
+                                <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -418,7 +428,10 @@ From May to September feed your plants twice a week while watering.</p>
                                 <span class="badge">150g</span>
                                 <span class="badge">Citrus Specific</span>
                             </div>
-                            <a href="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" class="button button-primary" target="_blank" rel="noopener">Buy Now</a>
+                            <ul class="product-buttons">
+                                <li><a href="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+citrus+feed" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -436,7 +449,10 @@ From May to September feed your plants twice a week while watering.</p>
                                 <span class="badge">900g</span>
                                 <span class="badge">Acer Specific</span>
                             </div>
-                            <a href="https://www.yougarden.com/item-p-100105/blooming-fast-acer-feed-900g" class="button button-primary" target="_blank" rel="noopener">Buy Now</a>
+                            <ul class="product-buttons">
+                                <li><a href="https://www.yougarden.com/item-p-100105/blooming-fast-acer-feed-900g" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+acer+feed" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -454,7 +470,10 @@ From May to September feed your plants twice a week while watering.</p>
                                 <span class="badge">900g</span>
                                 <span class="badge">Clematis Specific</span>
                             </div>
-                            <a href="https://www.yougarden.com/item-p-100106/blooming-fast-clematis-feed-900g" class="button button-primary" target="_blank" rel="noopener">Buy Now</a>
+                            <ul class="product-buttons">
+                                <li><a href="https://www.yougarden.com/item-p-100106/blooming-fast-clematis-feed-900g" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+clematis+feed" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -472,7 +491,10 @@ From May to September feed your plants twice a week while watering.</p>
                                 <span class="badge">1.5kg</span>
                                 <span class="badge">Organic</span>
                             </div>
-                            <a href="https://www.yougarden.com/item-p-100046/blooming-fast-fish-blood-and-bone-1-5kg-tub" class="button button-primary" target="_blank" rel="noopener">Buy Now</a>
+                            <ul class="product-buttons">
+                                <li><a href="https://www.yougarden.com/item-p-100046/blooming-fast-fish-blood-and-bone-1-5kg-tub" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+fish+blood+and+bone" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
