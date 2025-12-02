@@ -879,7 +879,11 @@
 .products-section {
     position: relative;
     overflow: hidden;
-    background: #f8f9fa;
+}
+
+.products-section.gradiant-background {
+    background-image: -o-linear-gradient(157deg, #70D969 0%, #19B2EB 100%);
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
 }
 
 /* Add curved top pattern matching hero bottom */

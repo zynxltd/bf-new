@@ -180,7 +180,7 @@
 
 
 <!-- Start .products-section  -->
-<div id="products" class="products-section section pt-120 pb-120 products-curved-top">
+<div id="products" class="products-section section gradiant-background pt-120 pb-120 products-curved-top">
     <div class="container">
         <div class="section-head heading-light text-center">
             <div class="row">
