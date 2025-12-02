@@ -1308,6 +1308,8 @@
     padding-right: 15px;
     width: 100% !important;
     max-width: 900px;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .faq-section .faq-alt .col-md-offset-1 {
@@ -1320,6 +1322,11 @@
     float: none !important;
     width: 100% !important;
     max-width: 900px;
+}
+
+.faq-section .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 /* FAQ Sidebar - 1/4 column */
