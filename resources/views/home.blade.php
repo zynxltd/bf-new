@@ -32,13 +32,23 @@
             <div class="row row-vm">
                 <div class="col-md-7">
                     <div class="header-texts tab-center mobile-center">
-                        <h2 class="wow fadeInUp" data-wow-duration=".5s">Superior Plant Food Plus</h2>
-                        <p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Our best-ever formulation for use all round the garden for more flowers, more fruit, better roots and better shoots.</p>
-                        <p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">Available in 3 sizes, 1.25kg, 500g or 50g trial sachet</p>
-                        <h3 class="heading-light wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s">Click below to buy it from one of our stockists</h3>
+                        <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
+                            <span>Premium Quality</span>
+                        </div>
+                        <h2 class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">Superior Plant Food Plus</h2>
+                        <p class="lead hero-description wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">Our best-ever formulation for use all round the garden for <strong>more flowers</strong>, <strong>more fruit</strong>, <strong>better roots</strong> and <strong>better shoots</strong>.</p>
+                        <div class="hero-sizes wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
+                            <span class="size-label">Available in 3 sizes:</span>
+                            <div class="size-badges">
+                                <span class="size-badge">1.25kg</span>
+                                <span class="size-badge">500g</span>
+                                <span class="size-badge">50g Trial</span>
+                            </div>
+                        </div>
+                        <h3 class="heading-light hero-cta wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">Click below to buy it from one of our stockists</h3>
                         <ul class="buttons">
-                            <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                            <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                            <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
                         </ul>
                     </div>
                 </div><!-- .col -->
