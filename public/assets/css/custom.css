@@ -1303,18 +1303,21 @@
 
 /* Add carb pattern to bottom of videos section */
 .videos-section-bottom-curved::after {
-    display: block;
+    display: block !important;
     content: '';
-    height: 150px;
+    height: 200px;
     width: 100%;
     background: url(../images/carb.png) bottom no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-color: #f8f9fa;
+    filter: grayscale(100%) brightness(0.85);
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     left: 0;
     right: 0;
     z-index: 1;
     pointer-events: none;
+    transform: rotate(180deg);
 }
 
 /* FAQ Section Enhancements */
