@@ -1409,14 +1409,18 @@
 .faq-curved-top::before {
     display: block !important;
     content: '';
-    height: 150px;
+    height: 200px;
     width: 100%;
     background: url(../images/carb.png) top no-repeat;
     background-size: cover;
     background-color: #f8f9fa;
-    filter: grayscale(100%) brightness(0.9);
+    filter: grayscale(100%) brightness(0.85);
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
     left: 0;
     right: 0;
     z-index: 2;
