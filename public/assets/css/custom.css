@@ -873,6 +873,12 @@
     right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(25, 178, 235, 0.3), transparent);
+    z-index: 2;
+}
+
+.faq-section .container {
+    position: relative;
+    z-index: 2;
 }
 
 /* Additional Section Enhancements */
