@@ -885,18 +885,40 @@ $(document).ready(function() {
         if (videos) {
             // Get the raw attribute value to avoid jQuery's automatic decoding
             var rawVideos = $card.attr('data-product-videos');
+            var decodedVideos = '';
+            
             if (rawVideos) {
-                // Create a temporary element to decode HTML entities
-                var tempDiv = document.createElement('div');
-                tempDiv.textContent = rawVideos;
-                var decodedVideos = tempDiv.innerHTML;
-                $('#modalProductVideosContent').html(decodedVideos);
-                $('.product-modal-videos').show();
-            } else {
-                // Fallback: try using the data() value directly
-                $('#modalProductVideosContent').html(videos);
-                $('.product-modal-videos').show();
+                // Create a temporary textarea element to decode HTML entities
+                // This is the most reliable way to decode HTML entities
+                var textarea = document.createElement('textarea');
+                textarea.innerHTML = rawVideos;
+                decodedVideos = textarea.value;
+                
+                // If still contains entities, try another method
+                if (decodedVideos.indexOf('&lt;') !== -1 || decodedVideos.indexOf('&quot;') !== -1) {
+                    // Use a div with textContent to set, then innerHTML to get decoded
+                    var tempDiv = document.createElement('div');
+                    tempDiv.textContent = rawVideos;
+                    decodedVideos = tempDiv.innerHTML;
+                }
+            } else if (typeof videos === 'string') {
+                // Fallback: try to decode the videos string directly
+                var textarea = document.createElement('textarea');
+                textarea.innerHTML = videos;
+                decodedVideos = textarea.value;
+                
+                if (decodedVideos.indexOf('&lt;') !== -1 || decodedVideos.indexOf('&quot;') !== -1) {
+                    var tempDiv = document.createElement('div');
+                    tempDiv.textContent = videos;
+                    decodedVideos = tempDiv.innerHTML;
+                } else {
+                    decodedVideos = videos;
+                }
             }
+            
+            // Set the decoded HTML content
+            $('#modalProductVideosContent').html(decodedVideos);
+            $('.product-modal-videos').show();
         } else {
             $('.product-modal-videos').hide();
         }
