@@ -21,8 +21,22 @@
     
     @yield('content')
     
-    <!-- Preloader !remove please if you do not want -->
-    <div id="preloader"><div id="status">&nbsp;</div></div> 
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <div class="logo-text">
+                    <span class="blooming">Blooming</span>
+                    <span class="fast">Fast</span>
+                </div>
+                <div class="preloader-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Preloader End -->
     
     <!-- Google Map Script -->

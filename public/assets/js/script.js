@@ -161,9 +161,13 @@
 	var $preload = $('#preloader');
 	if ($preload.length > 0) {
 		$(window).on('load', function() {
-		  $preload.children().fadeOut(300);
-		  $preload.delay(150).fadeOut(500);
-		  $('body').delay(100).css({'overflow':'visible'});
+		  setTimeout(function() {
+			$preload.addClass('fade-out');
+			setTimeout(function() {
+				$preload.remove();
+				$('body').css({'overflow':'visible'});
+			}, 500);
+		  }, 500);
 		});
 	}
 	
