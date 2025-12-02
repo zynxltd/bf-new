@@ -79,6 +79,13 @@
     margin-top: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 15px !important;
+    height: auto;
+}
+
+/* Ensure hero content starts below logo */
+.header-section {
+    padding-top: 0;
+    margin-top: 0;
 }
 
 .navbar-brand .logo {
@@ -301,7 +308,7 @@
 .header-content {
     position: relative;
     z-index: 5;
-    padding: 80px 0 60px 0;
+    padding: 140px 0 60px 0;
 }
 
 .header-section .col-md-5 {
