@@ -55,6 +55,15 @@
 		offset: 90
 	});
 	
+	// Add scroll class to navigation for glass effect
+	$win.on('scroll', function() {
+		if ($win.scrollTop() > 50) {
+			$('#navigation').addClass('scrolled');
+		} else {
+			$('#navigation').removeClass('scrolled');
+		}
+	});
+	
 	//magnificPopup	Video
 	var $video_play = $('.video-play');
 	if ($video_play.length > 0 ) {
