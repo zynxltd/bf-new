@@ -64,7 +64,7 @@
 
 
 <!-- Start .about-section  -->
-<div id="about" class="about-section section pb-90 white-bg half-header-about">
+<div id="about" class="about-section section pb-90 white-bg half-header-about about-section-bottom-curved">
     <div class="container tab-fix">
         <div class="section-head text-center">
             <div class="row">
