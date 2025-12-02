@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@php
+use Illuminate\Support\Str;
+@endphp
+
 @section('title', 'Blooming Fast Plant Foods')
 
 @section('content')
@@ -814,60 +818,42 @@ From May to September feed your plants twice a week while watering.</p>
 
         <div class="row">
             @php
-                $latestArticles = [
-                    [
-                        'slug' => 'complete-guide-to-plant-fertilizers',
-                        'title' => 'The Complete Guide to Plant Fertilizers: Understanding NPK and Essential Nutrients',
-                        'excerpt' => 'Discover everything you need to know about plant fertilizers, from understanding NPK ratios to choosing the right nutrients for your garden.',
-                        'image' => asset('images/superiorV4.png'),
-                        'date' => '2024-12-15',
-                        'category' => 'Gardening Tips',
-                        'reading_time' => 12
-                    ],
-                    [
-                        'slug' => 'maximizing-plant-growth-with-superior-fertilizers',
-                        'title' => 'Maximizing Plant Growth: How Superior Fertilizers Transform Your Garden',
-                        'excerpt' => 'Learn how professional-grade fertilizers can dramatically improve your garden\'s performance. From root development to flower production.',
-                        'image' => asset('images/bloom-booster-p1.jpg'),
-                        'date' => '2024-12-10',
-                        'category' => 'Plant Care',
-                        'reading_time' => 10
-                    ],
-                    [
-                        'slug' => 'complete-guide-to-plant-fertilizers',
-                        'title' => 'The Complete Guide to Plant Fertilizers: Understanding NPK and Essential Nutrients',
-                        'excerpt' => 'Discover everything you need to know about plant fertilizers, from understanding NPK ratios to choosing the right nutrients for your garden.',
-                        'image' => asset('images/superiorV4.png'),
-                        'date' => '2024-12-15',
-                        'category' => 'Gardening Tips',
-                        'reading_time' => 12
-                    ]
-                ];
+                $latestArticles = \App\Models\Blog::where('is_published', true)
+                    ->orderBy('published_date', 'desc')
+                    ->orderBy('sort_order', 'asc')
+                    ->take(3)
+                    ->get();
             @endphp
 
-            @foreach(array_slice($latestArticles, 0, 3) as $article)
+            @forelse($latestArticles as $article)
             <div class="col-md-4 mb-40">
                 <article class="blog-card white-bg">
                     <div class="blog-image">
-                        <a href="{{ route('blog.show', $article['slug']) }}">
-                            <img src="{{ $article['image'] }}" alt="{{ $article['title'] }}" class="img-responsive" />
+                        <a href="{{ route('blog.show', $article->slug) }}">
+                            <img src="{{ $article->image ? asset($article->image) : asset('images/superiorV4.png') }}" alt="{{ $article->title }}" class="img-responsive" />
                         </a>
-                        <div class="blog-category">{{ $article['category'] }}</div>
+                        @if($article->category)
+                        <div class="blog-category">{{ $article->category }}</div>
+                        @endif
                     </div>
                     <div class="blog-content p-30">
                         <div class="blog-meta mb-15">
-                            <span class="blog-date"><i class="fa fa-calendar"></i> {{ date('F j, Y', strtotime($article['date'])) }}</span>
-                            <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $article['reading_time'] }} min read</span>
+                            <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date->format('F j, Y') }}</span>
+                            <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $article->reading_time }} min read</span>
                         </div>
                         <h3 class="blog-title mb-15">
-                            <a href="{{ route('blog.show', $article['slug']) }}">{{ $article['title'] }}</a>
+                            <a href="{{ route('blog.show', $article->slug) }}">{{ $article->title }}</a>
                         </h3>
-                        <p class="blog-excerpt mb-20">{{ $article['excerpt'] }}</p>
-                        <a href="{{ route('blog.show', $article['slug']) }}" class="button button-primary">Read Guide</a>
+                        <p class="blog-excerpt mb-20">{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 150) }}</p>
+                        <a href="{{ route('blog.show', $article->slug) }}" class="button button-primary">Read Guide</a>
                     </div>
                 </article>
             </div>
-            @endforeach
+            @empty
+            <div class="col-md-12">
+                <p class="text-center">No guides available yet. Check back soon!</p>
+            </div>
+            @endforelse
         </div>
 
         <div class="text-center mt-40">

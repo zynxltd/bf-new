@@ -1,36 +1,19 @@
 @extends('layouts.app')
 
 @php
-    $articles = [
-        'complete-guide-to-plant-fertilizers' => [
-            'title' => 'The Complete Guide to Plant Fertilizers: Understanding NPK and Essential Nutrients',
-            'date' => '2024-12-15',
-            'category' => 'Gardening Tips',
-            'image' => asset('images/superiorV4.png'),
-            'content' => view('blog.articles.complete-guide-to-plant-fertilizers')->render()
-        ],
-        'maximizing-plant-growth-with-superior-fertilizers' => [
-            'title' => 'Maximizing Plant Growth: How Superior Fertilizers Transform Your Garden',
-            'date' => '2024-12-10',
-            'category' => 'Plant Care',
-            'image' => asset('images/bloom-booster-p1.jpg'),
-            'content' => view('blog.articles.maximizing-plant-growth')->render()
-        ]
-    ];
-    
     $slug = request()->route('slug');
-    $article = $articles[$slug] ?? null;
+    $article = \App\Models\Blog::where('slug', $slug)
+        ->where('is_published', true)
+        ->first();
     
     if (!$article) {
         abort(404);
     }
     
-    // Calculate reading time (average 200 words per minute)
-    $wordCount = str_word_count(strip_tags($article['content']));
-    $readingTime = max(1, ceil($wordCount / 200));
+    $readingTime = $article->reading_time ?? max(1, ceil(str_word_count(strip_tags($article->content)) / 200));
     
     // Generate table of contents from headings and add IDs to headings
-    $content = $article['content'];
+    $content = $article->content;
     preg_match_all('/<h([2-3])[^>]*>(.*?)<\/h[2-3]>/i', $content, $headings, PREG_SET_ORDER);
     $toc = [];
     
@@ -52,10 +35,10 @@
         }
     }
     
-    $article['content'] = $content;
+    $article->content = $content;
 @endphp
 
-@section('title', $article['title'] . ' - Blooming Fast Blog')
+@section('title', $article->title . ' - Blooming Fast Blog')
 
 @section('content')
 <!-- Start .blog-post-section -->
@@ -66,14 +49,16 @@
                 <!-- Blog Post Header -->
                 <header class="blog-post-header mb-40">
                     <div class="blog-meta mb-20">
-                        <span class="blog-category-badge">{{ $article['category'] }}</span>
-                        <span class="blog-date"><i class="fa fa-calendar"></i> {{ date('F j, Y', strtotime($article['date'])) }}</span>
+                        @if($article->category)
+                        <span class="blog-category-badge">{{ $article->category }}</span>
+                        @endif
+                        <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date->format('F j, Y') }}</span>
                         <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $readingTime }} min read</span>
                     </div>
-                    <h1 class="blog-post-title">{{ $article['title'] }}</h1>
-                    @if(isset($article['image']))
+                    <h1 class="blog-post-title">{{ $article->title }}</h1>
+                    @if($article->image)
                     <div class="blog-featured-image mt-30 mb-30">
-                        <img src="{{ $article['image'] }}" alt="{{ $article['title'] }}" class="img-responsive" />
+                        <img src="{{ asset($article->image) }}" alt="{{ $article->title }}" class="img-responsive" />
                     </div>
                     @endif
                 </header>
@@ -82,7 +67,7 @@
                     <!-- Main Content -->
                     <div class="col-md-9">
                         <article class="blog-post-content">
-                            {!! $article['content'] !!}
+                            {!! $article->content !!}
                         </article>
                     </div>
 

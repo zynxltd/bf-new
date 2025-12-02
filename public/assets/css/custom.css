@@ -4069,6 +4069,7 @@ html {
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 500px;
 }
 
 .blog-card:hover {
@@ -4108,9 +4109,10 @@ html {
 }
 
 .blog-content {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    min-height: 250px;
 }
 
 .blog-meta {
@@ -4153,8 +4155,9 @@ html {
     color: #666;
     font-size: 16px;
     line-height: 1.7;
-    flex: 1;
+    flex: 1 1 auto;
     margin-bottom: 20px;
+    min-height: 60px;
 }
 
 /* Blog Post Styles */
