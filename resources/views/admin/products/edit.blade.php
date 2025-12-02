@@ -6,8 +6,16 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
-            <h1>Edit Product</h1>
-            <a href="{{ route('admin.products.index') }}" class="btn btn-secondary mb-3">Back to Products</a>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h1>Edit Product</h1>
+                <div>
+                    <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Back to Products</a>
+                    <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-secondary">Logout</button>
+                    </form>
+                </div>
+            </div>
 
             <form action="{{ route('admin.products.update', $product) }}" method="POST">
                 @csrf

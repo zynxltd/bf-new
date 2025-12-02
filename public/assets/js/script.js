@@ -64,6 +64,11 @@
 		}
 	});
 	
+	// Trigger on page load if already scrolled
+	if ($win.scrollTop() > 50) {
+		$('#navigation').addClass('scrolled');
+	}
+	
 	//magnificPopup	Video
 	var $video_play = $('.video-play');
 	if ($video_play.length > 0 ) {
