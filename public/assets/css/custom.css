@@ -2284,6 +2284,53 @@ html {
     margin-bottom: 20px;
 }
 
+.product-modal-details {
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.product-detail-item {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.product-detail-item strong {
+    color: #333;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.product-features-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0 0 0;
+}
+
+.product-features-list li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    color: #555;
+    line-height: 1.6;
+}
+
+.product-features-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #19B2EB;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#modalProductApplicationText {
+    color: #555;
+    line-height: 1.7;
+    margin-top: 8px;
+}
+
 .product-modal-specs {
     margin-bottom: 25px;
 }
