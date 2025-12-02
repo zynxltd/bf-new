@@ -1906,6 +1906,29 @@
         font-size: 28px;
     }
     
+    .about-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .about-buttons .button-primary,
+    .about-buttons .button-secondary {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .about-section .txt-entry::before {
+        display: none;
+    }
+    
+    .about-section .txt-entry .lead::before {
+        display: none;
+    }
+    
+    .about-section .txt-entry .lead {
+        padding-left: 0;
+    }
+    
     .section-head::after {
         width: 40px;
         height: 3px;
