@@ -76,6 +76,7 @@
 .header-section {
     position: relative;
     overflow: hidden;
+    /* Background gradient preserved from theme */
 }
 
 .header-texts {
