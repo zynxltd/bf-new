@@ -1025,6 +1025,7 @@
     background: #ffffff;
     overflow: hidden;
     animation: fadeInUp 1s ease-out;
+    padding-bottom: 120px !important;
 }
 
 .customer-reviews-section .section-head {
@@ -1047,7 +1048,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: -1 !important;
     pointer-events: none;
 }
 
