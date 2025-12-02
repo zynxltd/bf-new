@@ -848,6 +848,23 @@
     background: #f8f9fa;
 }
 
+/* Add curved top pattern matching hero bottom */
+.faq-curved-top::before {
+    display: block;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: url(../images/carb.png) bottom no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: rotate(180deg);
+    transform-origin: center;
+}
+
 .faq-section::before {
     content: '';
     position: absolute;
