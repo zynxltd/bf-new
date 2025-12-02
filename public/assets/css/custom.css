@@ -783,6 +783,23 @@
     z-index: 2;
 }
 
+/* Add carb pattern to top of about section */
+.about-section-top-curved::before {
+    display: block !important;
+    content: '';
+    height: 150px;
+    width: 100%;
+    background: url(../images/carb.png) top no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
 /* Add carb pattern to bottom of about section */
 .about-section-bottom-curved::after {
     display: block !important;
