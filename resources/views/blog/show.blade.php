@@ -29,17 +29,30 @@
     $wordCount = str_word_count(strip_tags($article['content']));
     $readingTime = max(1, ceil($wordCount / 200));
     
-    // Generate table of contents from headings
-    preg_match_all('/<h[2-3][^>]*>(.*?)<\/h[2-3]>/i', $article['content'], $headings);
+    // Generate table of contents from headings and add IDs to headings
+    $content = $article['content'];
+    preg_match_all('/<h([2-3])[^>]*>(.*?)<\/h[2-3]>/i', $content, $headings, PREG_SET_ORDER);
     $toc = [];
-    foreach ($headings[1] as $index => $heading) {
+    
+    foreach ($headings as $index => $match) {
+        $level = $match[1];
+        $headingText = strip_tags($match[2]);
         $id = 'heading-' . ($index + 1);
         $toc[] = [
             'id' => $id,
-            'text' => strip_tags($heading),
-            'level' => substr($headings[0][$index], 1, 1)
+            'text' => $headingText,
+            'level' => $level
         ];
+        
+        // Add ID to heading in content if not already present
+        $fullMatch = $match[0];
+        if (strpos($fullMatch, 'id=') === false) {
+            $replacement = str_replace('<h' . $level, '<h' . $level . ' id="' . $id . '"', $fullMatch);
+            $content = str_replace($fullMatch, $replacement, $content);
+        }
     }
+    
+    $article['content'] = $content;
 @endphp
 
 @section('title', $article['title'] . ' - Blooming Fast Blog')
