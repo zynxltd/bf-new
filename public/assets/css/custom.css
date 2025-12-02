@@ -1548,12 +1548,14 @@
     margin-bottom: 8px;
     margin-top: 0;
     line-height: 1.3;
+    color: #333;
 }
 
 .single-features p {
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 0;
+    color: #666;
 }
 
 /* Fix icon size and alignment - Consistent top-left positioning for all cards */
