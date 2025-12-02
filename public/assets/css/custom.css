@@ -2592,7 +2592,18 @@ html {
 }
 
 .product-modal-buttons .product-buttons {
-    justify-content: flex-start;
+    justify-content: stretch;
+    width: 100%;
+}
+
+.product-modal-buttons .product-buttons li {
+    flex: 1 1 50%;
+}
+
+.product-modal-buttons .product-button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 @media (max-width: 767px) {
