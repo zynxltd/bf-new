@@ -80,7 +80,7 @@
                     <div class="col-md-4">
                         <div class="form-group mb-3">
                             <label for="published_date">Published Date *</label>
-                            <input type="date" class="form-control @error('published_date') is-invalid @enderror" id="published_date" name="published_date" value="{{ old('published_date', '2024-12-15') }}" required>
+                            <input type="date" class="form-control @error('published_date') is-invalid @enderror" id="published_date" name="published_date" value="{{ old('published_date', '2025-12-01') }}" required>
                             @error('published_date')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
