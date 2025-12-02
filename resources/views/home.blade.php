@@ -102,6 +102,16 @@
             </div><!-- .col -->
         </div><!-- .row -->
         
+        <!-- Feefo Reviews Section -->
+        <div class="row mt-60">
+            <div class="col-md-12">
+                <div class="about-feefo-reviews text-center">
+                    <h3 class="mb-30">What Our Customers Say</h3>
+                    <div id="about-feefo-reviews-widget"></div>
+                </div>
+            </div>
+        </div><!-- .row -->
+        
     </div><!-- .container -->
 </div><!-- .about-section  -->
 
@@ -1094,6 +1104,38 @@ $(document).ready(function() {
         // Show modal
         $('#productModal').modal('show');
     });
+    
+    // Load Feefo reviews widget in About section
+    function loadAboutFeefoReviews() {
+        // Use the Superior Soluble Fertiliser product for reviews
+        var feefoProductUrl = 'https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g';
+        
+        // Create iframe for Feefo reviews
+        var iframeHtml = '<iframe src="' + feefoProductUrl + '" width="100%" height="600" frameborder="0" style="border: none; min-height: 400px;"></iframe>';
+        
+        // Alternative: Use Feefo widget if available
+        var widgetHtml = '<div class="feefo-review-widget" data-feefo-product-id="100062"></div>';
+        $('#about-feefo-reviews-widget').html(widgetHtml);
+        
+        // Load Feefo widget script if not already loaded
+        if (typeof window.feefoWidgetLoaded === 'undefined') {
+            var feefoScript = document.createElement('script');
+            feefoScript.src = 'https://api.feefo.com/api/javascript/bloomingfast';
+            feefoScript.async = true;
+            feefoScript.onload = function() {
+                if (typeof Feefo !== 'undefined') {
+                    Feefo.init();
+                }
+            };
+            document.head.appendChild(feefoScript);
+            window.feefoWidgetLoaded = true;
+        } else if (typeof Feefo !== 'undefined') {
+            Feefo.init();
+        }
+    }
+    
+    // Load Feefo reviews when page is ready
+    loadAboutFeefoReviews();
 });
 </script>
 @endpush
