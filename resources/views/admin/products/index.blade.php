@@ -10,6 +10,7 @@
                 <h1>Products Management</h1>
                 <div>
                     <a href="{{ route('admin.products.create') }}" class="btn btn-primary">Add New Product</a>
+                    <a href="{{ route('admin.blogs.index') }}" class="btn btn-info">Manage Blogs</a>
                     <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
                         @csrf
                         <button type="submit" class="btn btn-secondary">Logout</button>
