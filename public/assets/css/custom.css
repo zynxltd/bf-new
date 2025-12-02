@@ -266,13 +266,14 @@
         max-width: 90%;
         margin-top: 0;
         padding: 20px 40px 30px 40px;
-        background: rgba(255, 255, 255, 0.95);
+        background: #ffffff !important;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: 0 0 20px 20px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         position: relative;
         overflow: visible;
+        z-index: 999999998;
     }
 
     .navigation.scrolled .navbar-collapse::after {

@@ -8,7 +8,13 @@
         <div class="col-md-12">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1>Products Management</h1>
-                <a href="{{ route('admin.products.create') }}" class="btn btn-primary">Add New Product</a>
+                <div>
+                    <a href="{{ route('admin.products.create') }}" class="btn btn-primary">Add New Product</a>
+                    <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-secondary">Logout</button>
+                    </form>
+                </div>
             </div>
 
             @if(session('success'))
