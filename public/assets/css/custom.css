@@ -1316,7 +1316,8 @@
 .faq-section .container {
     padding-left: 15px !important;
     padding-right: 15px !important;
-    max-width: 1200px;
+    max-width: 100% !important;
+    width: 100% !important;
 }
 
 /* FAQ Image Sidebar */
