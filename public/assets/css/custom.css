@@ -1276,10 +1276,15 @@
 /* FAQ Section Enhancements */
 .faq-section {
     position: relative;
-    background: #f8f9fa;
+    background: #ffffff !important;
     z-index: 1;
     margin-top: -150px;
     padding-top: 150px;
+    padding-bottom: 100px;
+}
+
+.faq-section.white-bg {
+    background: #ffffff !important;
 }
 
 .faq-section .faq-alt {
@@ -1289,8 +1294,7 @@
 .faq-section .faq-alt .row {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    display: flex;
-    justify-content: center;
+    align-items: flex-start;
 }
 
 .faq-section .faq-alt .row.tab-fix {
@@ -1300,53 +1304,39 @@
     width: 100% !important;
 }
 
-.faq-section .faq-alt .col-md-10 {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 100% !important;
-    max-width: 900px;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.faq-section .faq-alt .col-md-offset-1 {
-    margin-left: 0 !important;
-}
-
-.faq-section .faq-alt .row > [class*="col-md-10"] {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    float: none !important;
-    width: 100% !important;
-    max-width: 900px;
-}
-
 .faq-section .container {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    max-width: 1200px;
 }
 
 /* FAQ Image Sidebar */
 .faq-section .faq-image-sidebar {
-    padding: 20px;
+    padding: 20px 20px 20px 0;
     text-align: center;
+    position: sticky;
+    top: 120px;
 }
 
 .faq-section .faq-image-sidebar img {
     width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     object-fit: cover;
-    max-height: 600px;
+    max-height: 700px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-section .faq-image-sidebar img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 /* FAQ Content - Right Column */
 .faq-section .faq-alt .col-md-8 {
-    padding-left: 30px;
+    padding-left: 40px;
+    padding-right: 15px;
 }
 
 /* Remove tab-fix constraints for 2-column layout */
@@ -1411,6 +1401,18 @@
 .faq-section .section-head {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 50px;
+}
+
+.faq-section .section-head h2 {
+    margin-bottom: 20px;
+}
+
+.faq-section .section-head .lead {
+    font-size: 18px;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* Additional Section Enhancements */
