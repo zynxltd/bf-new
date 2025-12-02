@@ -1016,7 +1016,7 @@
 
 .about-section .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* Customer Reviews Section */
@@ -1126,7 +1126,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: -1 !important;
     pointer-events: none;
     transform: rotate(180deg);
 }
