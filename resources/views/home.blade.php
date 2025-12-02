@@ -102,16 +102,6 @@
             </div><!-- .col -->
         </div><!-- .row -->
         
-        <!-- Feefo Reviews Section -->
-        <div class="row mt-60">
-            <div class="col-md-12">
-                <div class="about-feefo-reviews text-center">
-                    <h3 class="mb-30">What Our Customers Say</h3>
-                    <div id="about-feefo-reviews-widget"></div>
-                </div>
-            </div>
-        </div><!-- .row -->
-        
     </div><!-- .container -->
 </div><!-- .about-section  -->
 
@@ -187,6 +177,20 @@
         </div><!-- .features-content -->
     </div><!-- .container -->
 </div><!-- .features-section  -->
+
+<!-- Start .customer-reviews-section  -->
+<div class="customer-reviews-section section white-bg pt-80 pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="customer-reviews-content text-center">
+                    <h3 class="mb-30">What Our Customers Say</h3>
+                    <div id="customer-reviews-widget"></div>
+                </div>
+            </div>
+        </div><!-- .row -->
+    </div><!-- .container -->
+</div><!-- .customer-reviews-section  -->
 
 
 
@@ -1122,7 +1126,7 @@ $(document).ready(function() {
         
         // Alternative: Use Feefo widget if available
         var widgetHtml = '<div class="feefo-review-widget" data-feefo-product-id="100062"></div>';
-        $('#about-feefo-reviews-widget').html(widgetHtml);
+        $('#customer-reviews-widget').html(widgetHtml);
         
         // Load Feefo widget script if not already loaded
         if (typeof window.feefoWidgetLoaded === 'undefined') {
