@@ -94,8 +94,9 @@
                     <p class="lead">Supplied in a resealable pouch, Superior Plant Food Plus is easy to dissolve in water, giving fast-acting results as it is delivered straight to the plant's roots and leaves.</p>
                     <p>Superior by name and Superior by nature, the only fertiliser you need for your garden for more flowers and more fruit, as well as better roots and shoots too. You can transform the performance of your plants with regular feeding throughout the main growing season.</p>
                     <p>Simple to use, just add one 5g scoop, included in the pack, to a gallon of water (4.5 litres) or a standard watering can full, and simply water on weekly during the growing season.</p>
-                    <div class="mt-30">
+                    <div class="mt-30 about-buttons">
                         <a href="#products" class="button button-primary">View All Products</a>
+                        <a href="#videos" class="button button-secondary">View Videos</a>
                     </div>
                 </div>
             </div><!-- .col -->
