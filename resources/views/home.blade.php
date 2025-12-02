@@ -345,7 +345,7 @@
 </div><!-- .products-section  -->
 
 <!-- Start .videos-section  -->
-<div id="videos" class="videos-section section white-bg pt-120 pb-120 videos-curved-top">
+<div id="videos" class="videos-section section white-bg pt-120 pb-120 videos-curved-top videos-section-bottom-curved">
     <div class="container">
         <div class="section-head text-center">
             <div class="row">

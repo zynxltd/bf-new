@@ -1124,6 +1124,22 @@
     flex: 1;
 }
 
+/* Add carb pattern to bottom of videos section */
+.videos-section-bottom-curved::after {
+    display: block;
+    content: '';
+    height: 150px;
+    width: 100%;
+    background: url(../images/carb.png) bottom no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
 /* FAQ Section Enhancements */
 .faq-section {
     position: relative;
