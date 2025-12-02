@@ -912,6 +912,372 @@
     width: 100%;
 }
 
+/* Additional Content Enhancements */
+
+/* About Section - Enhanced List Items */
+.about-section .section-head ul {
+    background: rgba(25, 178, 235, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    border-left: 4px solid #19B2EB;
+}
+
+.about-section .section-head ul li {
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.about-section .section-head ul li:last-child {
+    margin-bottom: 0;
+}
+
+.about-section .section-head ul li:hover {
+    box-shadow: 0 4px 15px rgba(25, 178, 235, 0.15);
+    transform: translateX(5px);
+}
+
+/* Enhanced Video Container */
+.about-section .video {
+    position: relative;
+    cursor: pointer;
+}
+
+.about-section .video-overlay {
+    transition: opacity 0.3s ease;
+}
+
+.about-section .video:hover .video-overlay {
+    opacity: 0.8;
+}
+
+.about-section .video-play {
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.about-section .video:hover .video-play {
+    transform: scale(1.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced Features Section */
+.features-section .features-content {
+    position: relative;
+}
+
+.features-section .features-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.features-section .single-features {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.features-section .single-features:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(10px);
+}
+
+.features-section .features-list {
+    position: relative;
+    z-index: 2;
+}
+
+.features-section img {
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+.features-section:hover img {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Enhanced Product Cards */
+.product-card {
+    position: relative;
+    overflow: visible;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(135deg, #19B2EB, #70D969);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.product-card:hover::before {
+    opacity: 0.1;
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(25, 178, 235, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-image::after {
+    opacity: 1;
+}
+
+.product-title {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #19B2EB, #70D969);
+    border-radius: 2px;
+}
+
+/* Enhanced FAQ Section */
+.faq-section .panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-section .panel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: linear-gradient(180deg, #19B2EB, #70D969);
+    transition: width 0.3s ease;
+}
+
+.faq-section .panel:hover::before {
+    width: 4px;
+}
+
+.faq-section .panel-title a[aria-expanded="true"] {
+    background: linear-gradient(90deg, rgba(25, 178, 235, 0.05), transparent);
+}
+
+.faq-section .panel-body {
+    position: relative;
+}
+
+.faq-section .panel-body::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #19B2EB;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faq-section .panel-collapse.in .panel-body::before {
+    opacity: 1;
+}
+
+/* Enhanced Footer */
+.footer-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-section::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pulse 6s ease-in-out infinite;
+}
+
+.footer-brand {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-section h5 {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.footer-section h5::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 1px;
+}
+
+/* Enhanced Section Dividers */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(25, 178, 235, 0.3), transparent);
+    opacity: 0.5;
+}
+
+.gradiant-background.section::before {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+/* Enhanced Button Primary in About Section */
+.about-section .button-primary {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(25, 178, 235, 0.3);
+}
+
+.about-section .button-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.about-section .button-primary:hover::after {
+    width: 400px;
+    height: 400px;
+}
+
+.about-section .button-primary span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Product Buttons */
+.product-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(25, 178, 235, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.product-button:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+.product-button img {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Text Entry */
+.about-section .txt-entry {
+    position: relative;
+}
+
+.about-section .txt-entry::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: -30px;
+    font-size: 80px;
+    color: rgba(25, 178, 235, 0.1);
+    font-family: Georgia, serif;
+    line-height: 1;
+    font-weight: bold;
+}
+
+/* Enhanced Section Headings with Icons */
+.section-head h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-head h2::before {
+    content: '';
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #19B2EB, #70D969);
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.white-bg .section-head h2::before {
+    background: linear-gradient(90deg, #19B2EB, #70D969);
+}
+
+.gradiant-background .section-head h2::before {
+    background: rgba(255, 255, 255, 0.5);
+}
+
 /* Responsive Enhancements */
 @media (max-width: 991px) {
     .section {
@@ -924,6 +1290,14 @@
     
     .section-head .lead {
         font-size: 18px;
+    }
+    
+    .about-section .section-head ul {
+        padding: 20px;
+    }
+    
+    .features-section .single-features {
+        padding: 15px;
     }
 }
 
@@ -938,6 +1312,15 @@
     
     .section-head::after {
         width: 40px;
+        height: 3px;
+    }
+    
+    .about-section .txt-entry::before {
+        display: none;
+    }
+    
+    .section-head h2::before {
+        width: 30px;
         height: 3px;
     }
 }
