@@ -1329,15 +1329,23 @@
     padding-right: 0 !important;
 }
 
-/* FAQ Sidebar - 1/4 column */
-.faq-section .faq-sidebar {
+/* FAQ Image Sidebar */
+.faq-section .faq-image-sidebar {
     padding: 20px;
-    position: sticky;
-    top: 100px;
+    text-align: center;
 }
 
-/* FAQ Content - 3/4 column */
-.faq-section .faq-alt .col-md-9 {
+.faq-section .faq-image-sidebar img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    max-height: 600px;
+}
+
+/* FAQ Content - Right Column */
+.faq-section .faq-alt .col-md-8 {
     padding-left: 30px;
 }
 
