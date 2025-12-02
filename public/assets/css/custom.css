@@ -381,15 +381,7 @@
 
 /* Hero Badge/Highlight */
 .header-texts::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -25px;
-    width: 5px;
-    height: 80px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
-    border-radius: 3px;
-    animation: slideInLeft 0.8s ease-out;
+    display: none;
 }
 
 @keyframes slideInLeft {
