@@ -1274,11 +1274,17 @@
     float: none !important;
     padding-left: 15px;
     padding-right: 15px;
+    width: 83.33333333%;
 }
 
 .faq-section .faq-alt .col-md-offset-1 {
+    margin-left: 0 !important;
+}
+
+.faq-section .faq-alt .row > [class*="col-md-10"] {
     margin-left: auto !important;
     margin-right: auto !important;
+    float: none !important;
 }
 
 .faq-image {
