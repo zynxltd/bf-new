@@ -328,6 +328,8 @@
     justify-content: center;
     background: #f8f9fa;
     padding: 20px;
+    overflow: hidden;
+    position: relative;
 }
 
 .product-image img {
@@ -764,6 +766,16 @@
 
 .product-card:hover .product-image {
     transform: scale(1.05);
+}
+
+.product-image img {
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
 }
 
 .product-title {
