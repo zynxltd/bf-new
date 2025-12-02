@@ -41,11 +41,42 @@
 @section('title', $article->title . ' - Blooming Fast Blog')
 
 @section('content')
+<!-- Navigation -->
+<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <img class="logo logo-light" src="{{ asset('images/logo.png') }}" alt="logo" />
+                    <img class="logo logo-color" src="{{ asset('images/logo.png') }}" alt="logo" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="site-collapse-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ route('home') }}#home" class="nav-item">Home</a></li>
+                    <li><a href="{{ route('home') }}#about" class="nav-item">About</a></li>
+                    <li><a href="{{ route('home') }}#features" class="nav-item">Features</a></li>
+                    <li><a href="{{ route('home') }}#products" class="nav-item">Products</a></li>
+                    <li><a href="{{ route('home') }}#videos" class="nav-item">Videos</a></li>
+                    <li><a href="{{ route('home') }}#faq" class="nav-item">FAQ</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
 <!-- Start .blog-post-section -->
 <div class="blog-post-section section white-bg pt-120 pb-120">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-12">
                 <!-- Blog Post Header -->
                 <header class="blog-post-header mb-40">
                     <div class="blog-meta mb-20">
@@ -64,37 +95,11 @@
                 </header>
 
                 <div class="row">
-                    <!-- Main Content -->
-                    <div class="col-md-9">
+                    <!-- Main Content - Full Width -->
+                    <div class="col-md-10 col-md-offset-1">
                         <article class="blog-post-content">
                             {!! $article->content !!}
                         </article>
-                    </div>
-
-                    <!-- Sidebar with Table of Contents -->
-                    <div class="col-md-3">
-                        <aside class="blog-sidebar">
-                            @if(count($toc) > 0)
-                            <div class="toc-widget">
-                                <h3 class="toc-title">Table of Contents</h3>
-                                <nav class="toc-nav">
-                                    <ul>
-                                        @foreach($toc as $item)
-                                        <li class="toc-level-{{ $item['level'] }}">
-                                            <a href="#{{ $item['id'] }}">{{ $item['text'] }}</a>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </nav>
-                            </div>
-                            @endif
-
-                            <div class="blog-cta-widget mt-30">
-                                <h4>Shop Our Products</h4>
-                                <p>Discover our range of premium plant foods and fertilizers</p>
-                                <a href="#products" class="button button-primary">View Products</a>
-                            </div>
-                        </aside>
                     </div>
                 </div>
 
@@ -109,5 +114,8 @@
     </div>
 </div>
 <!-- End .blog-post-section -->
+
+<!-- Footer -->
+@include('partials.footer')
 @endsection
 

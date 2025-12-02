@@ -7,6 +7,37 @@ use Illuminate\Support\Str;
 @section('title', 'Blog - Blooming Fast Plant Foods')
 
 @section('content')
+<!-- Navigation -->
+<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <img class="logo logo-light" src="{{ asset('images/logo.png') }}" alt="logo" />
+                    <img class="logo logo-color" src="{{ asset('images/logo.png') }}" alt="logo" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="site-collapse-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ route('home') }}#home" class="nav-item">Home</a></li>
+                    <li><a href="{{ route('home') }}#about" class="nav-item">About</a></li>
+                    <li><a href="{{ route('home') }}#features" class="nav-item">Features</a></li>
+                    <li><a href="{{ route('home') }}#products" class="nav-item">Products</a></li>
+                    <li><a href="{{ route('home') }}#videos" class="nav-item">Videos</a></li>
+                    <li><a href="{{ route('home') }}#faq" class="nav-item">FAQ</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
 <!-- Start .blog-section -->
 <div class="blog-section section white-bg pt-120 pb-120">
     <div class="container">
@@ -60,5 +91,8 @@ use Illuminate\Support\Str;
     </div>
 </div>
 <!-- End .blog-section -->
+
+<!-- Footer -->
+@include('partials.footer')
 @endsection
 
