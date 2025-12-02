@@ -1,0 +1,451 @@
+/* Custom Styles for Enhanced Sections and Product Cards */
+
+/* Product Cards */
+.product-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+.product-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.product-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.product-specs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-specs .badge {
+    display: inline-block;
+    padding: 5px 12px;
+    background: #e9ecef;
+    color: #495057;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.product-card .button {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+}
+
+/* Enhanced Section Styling */
+.about-section .txt-entry p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.about-section .txt-entry .lead {
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
+}
+
+.section-head .lead {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.features-section .section-head .lead {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Products Section */
+.products-section {
+    /* Uses original gradiant-background class from theme */
+}
+
+.products-section .section-head {
+    margin-bottom: 40px;
+}
+
+/* Button Enhancements */
+.button-primary {
+    background: #19B2EB;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(25, 178, 235, 0.4);
+    background: #00cbff;
+    color: white;
+    text-decoration: none;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.p-30 {
+    padding: 30px;
+}
+
+.pt-60 {
+    padding-top: 60px;
+}
+
+.pt-120 {
+    padding-top: 120px;
+}
+
+.pb-120 {
+    padding-bottom: 120px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-card {
+        margin-bottom: 30px;
+    }
+    
+    .product-image {
+        height: 200px;
+    }
+}
+
+/* Enhanced FAQ Section */
+.faq-section {
+    background: #f8f9fa;
+}
+
+.faq-section .section-head {
+    margin-bottom: 60px;
+}
+
+.faq-section .section-head h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.faq-section .panel-group {
+    margin-bottom: 0;
+}
+
+.faq-section .panel {
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: white;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-section .panel:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.faq-section .panel-heading {
+    background: white;
+    border: none;
+    padding: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.faq-section .panel-title a {
+    display: block;
+    padding: 20px 25px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.faq-section .panel-title a:hover,
+.faq-section .panel-title a:focus {
+    color: #19B2EB;
+    text-decoration: none;
+}
+
+.faq-section .panel-title a[aria-expanded="true"] {
+    color: #19B2EB;
+    background: #f0f9ff;
+}
+
+.faq-section .panel-body {
+    padding: 20px 25px;
+    color: #666;
+    line-height: 1.8;
+    background: white;
+    border-top: 1px solid #f0f0f0;
+}
+
+.faq-section .panel-body p {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+.faq-section .plus-minus {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-section .plus-minus span {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: #19B2EB;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.faq-section .plus-minus span:after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    background: #19B2EB;
+    transform: rotate(90deg);
+    transition: all 0.3s ease;
+}
+
+.faq-section .panel-title a[aria-expanded="true"] .plus-minus span:after {
+    transform: rotate(0deg);
+}
+
+/* Enhanced Features Section */
+.single-features {
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.single-features:hover {
+    transform: translateX(5px);
+}
+
+.single-features h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.single-features p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Enhanced Footer Section */
+.footer-section {
+    /* Uses original gradiant-background class from theme */
+    position: relative;
+}
+
+.footer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-brand p {
+    font-size: 14px;
+    line-height: 1.8;
+    opacity: 0.9;
+    margin-top: 15px;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 12px;
+}
+
+.footer-links-list a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links-list a:hover {
+    color: white;
+    padding-left: 5px;
+    text-decoration: none;
+}
+
+.footer-section h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-social {
+    margin-top: 30px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.social-links li {
+    margin: 0;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    color: white;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+.border-top-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-logo {
+    max-width: 200px;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
+.pt-80 {
+    padding-top: 80px;
+}
+
+.pb-40 {
+    padding-bottom: 40px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+/* Smooth scroll for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-section .col-md-4,
+    .footer-section .col-md-3,
+    .footer-section .col-md-2 {
+        margin-bottom: 40px;
+    }
+    
+    .footer-section h5 {
+        font-size: 16px;
+    }
+    
+    .faq-section .section-head h2 {
+        font-size: 28px;
+    }
+    
+    .faq-section .panel-title a {
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+    
+    .faq-section .panel-body {
+        padding: 15px 20px;
+    }
+}
+
