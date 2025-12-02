@@ -2378,7 +2378,10 @@ html {
     transform: rotate(180deg);
 }
 
-.product-modal-full-description .well {
+.product-modal-full-description .well,
+.product-modal-videos .well,
+.product-modal-reviews .well,
+.product-modal-delivery .well {
     margin-top: 10px;
     background: #f8f9fa;
     border: 1px solid #e0e0e0;
@@ -2387,6 +2390,74 @@ html {
     font-size: 15px;
     line-height: 1.7;
     color: #555;
+}
+
+.product-modal-videos a,
+.product-modal-reviews a,
+.product-modal-delivery a {
+    color: #19B2EB;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.product-modal-videos a:hover,
+.product-modal-videos a:focus,
+.product-modal-reviews a:hover,
+.product-modal-reviews a:focus,
+.product-modal-delivery a:hover,
+.product-modal-delivery a:focus {
+    color: #70D969;
+    text-decoration: none;
+}
+
+.product-modal-videos a i,
+.product-modal-reviews a i,
+.product-modal-delivery a i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.product-modal-videos a[aria-expanded="true"] i,
+.product-modal-reviews a[aria-expanded="true"] i,
+.product-modal-delivery a[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.product-modal-videos .embed-responsive {
+    margin-top: 10px;
+}
+
+.product-modal-reviews .review-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.product-modal-reviews .review-item:last-child {
+    border-bottom: none;
+}
+
+.product-modal-reviews .review-rating {
+    color: #FFD700;
+    margin-bottom: 8px;
+}
+
+.product-modal-reviews .review-author {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-modal-reviews .review-date {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.product-modal-reviews .review-text {
+    color: #555;
+    line-height: 1.6;
 }
 
 .product-modal-details {
