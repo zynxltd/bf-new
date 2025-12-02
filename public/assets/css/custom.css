@@ -75,7 +75,7 @@
 /* Logo z-index fix and remove white space */
 .navbar-brand {
     position: relative;
-    z-index: 100000 !important;
+    z-index: 999999 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 15px !important;
@@ -90,24 +90,28 @@
 
 .navbar-brand .logo {
     position: relative;
-    z-index: 100000 !important;
+    z-index: 999999 !important;
 }
 
 .navigation {
     position: fixed !important;
-    z-index: 99999 !important;
+    z-index: 999998 !important;
     top: 0 !important;
     padding-top: 0 !important;
 }
 
 .navbar {
     position: relative;
-    z-index: 99999 !important;
+    z-index: 999998 !important;
 }
 
 .navbar-header {
     position: relative;
-    z-index: 100000 !important;
+    z-index: 999999 !important;
+}
+
+.navbar-default {
+    z-index: 999998 !important;
 }
 
 /* Fix hero section position on scroll */
