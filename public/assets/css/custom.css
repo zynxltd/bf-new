@@ -502,34 +502,50 @@
 .about-section .section-head ul {
     list-style: none;
     padding: 0;
-    margin: 30px 0 0 0;
+    margin: 40px 0 0 0;
     text-align: left;
+    display: grid;
+    gap: 15px;
 }
 
 .about-section .section-head ul li {
-    padding: 12px 0;
+    padding: 18px 20px;
     font-size: 16px;
-    line-height: 1.6;
-    color: #555;
+    line-height: 1.7;
+    color: #444;
     position: relative;
-    padding-left: 30px;
+    padding-left: 50px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #19B2EB;
+    transition: all 0.3s ease;
 }
 
 .about-section .section-head ul li::before {
     content: '✓';
     position: absolute;
-    left: 0;
+    left: 18px;
+    top: 18px;
     color: #19B2EB;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(25, 178, 235, 0.1);
+    border-radius: 50%;
 }
 
 .about-section .section-head ul li span {
     font-weight: 700;
     color: #19B2EB;
     text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 0.5px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-right: 8px;
 }
 
 .about-section .txt-entry {
@@ -914,31 +930,17 @@
 
 /* Additional Content Enhancements */
 
-/* About Section - Enhanced List Items */
-.about-section .section-head ul {
-    background: rgba(25, 178, 235, 0.05);
-    padding: 30px;
-    border-radius: 12px;
-    margin-top: 40px;
-    border-left: 4px solid #19B2EB;
-}
-
-.about-section .section-head ul li {
-    background: white;
-    padding: 15px 20px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
-
-.about-section .section-head ul li:last-child {
-    margin-bottom: 0;
-}
-
+/* About Section - Enhanced List Items - Cleaner Design */
 .about-section .section-head ul li:hover {
-    box-shadow: 0 4px 15px rgba(25, 178, 235, 0.15);
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(25, 178, 235, 0.15);
     transform: translateX(5px);
+    border-left-color: #70D969;
+}
+
+.about-section .section-head ul li:hover::before {
+    background: rgba(25, 178, 235, 0.2);
+    transform: scale(1.1);
 }
 
 /* Enhanced Video Container */
