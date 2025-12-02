@@ -976,6 +976,15 @@
 .products-section .product-card {
     position: relative;
     z-index: 1;
+    background: transparent !important;
+}
+
+.products-section .product-card.white-bg {
+    background: transparent !important;
+}
+
+.products-section .product-card .product-details {
+    background: transparent !important;
 }
 
 /* Add carb pattern to bottom of products section */
