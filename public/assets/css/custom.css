@@ -2287,16 +2287,19 @@
 
 .faq-section .panel {
     border: none;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     background: white;
     overflow: hidden;
     transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 }
 
 .faq-section .panel:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border-left-color: #19B2EB;
+    transform: translateX(5px);
 }
 
 .faq-section .panel-heading {
@@ -2308,13 +2311,14 @@
 
 .faq-section .panel-title a {
     display: block;
-    padding: 20px 25px;
+    padding: 22px 25px;
     color: #333;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     text-decoration: none;
     position: relative;
     transition: all 0.3s ease;
+    line-height: 1.5;
 }
 
 .faq-section .panel-title a:hover,
