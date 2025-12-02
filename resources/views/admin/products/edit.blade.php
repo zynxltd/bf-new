@@ -101,7 +101,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="yg_link">YouGarden Link</label>
-                            <input type="url" class="form-control" id="yg_link" name="yg_link" value="{{ old('yg_link', $product->yg_link) }}">
+                            <input type="url" class="form-control" id="yg_link" name="yg_link" value="{{ old('yg_link', $product->yg_link) }}" placeholder="https://www.yougarden.com/item-p-100062/...">
                         </div>
                     </div>
                     <div class="col-md-6">

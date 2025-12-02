@@ -3408,6 +3408,17 @@ html {
         background-color: rgba(255, 255, 255, 0.1);
     }
     
+    /* Hide navigation links on desktop */
+    @media (min-width: 768px) {
+        .navbar-collapse {
+            display: none !important;
+        }
+        
+        .navbar-toggle {
+            display: none !important;
+        }
+    }
+    
     /* Mobile navigation menu - Enhanced styling */
     .navbar-collapse {
         border-top: 1px solid rgba(255, 255, 255, 0.2);
