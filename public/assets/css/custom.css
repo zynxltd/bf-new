@@ -418,6 +418,36 @@
         margin: 0 auto;
         display: block;
     }
+    
+    .hero-badge {
+        font-size: 11px;
+        padding: 6px 16px;
+        margin-bottom: 15px;
+    }
+    
+    .hero-description {
+        font-size: 18px !important;
+    }
+    
+    .hero-sizes {
+        margin: 20px 0;
+        padding: 15px 0;
+    }
+    
+    .size-label {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+    
+    .size-badge {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+    
+    .hero-cta {
+        font-size: 15px !important;
+        margin-top: 20px !important;
+    }
 }
 
 /* Product Cards */
