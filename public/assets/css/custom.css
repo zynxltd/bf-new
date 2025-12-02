@@ -856,7 +856,7 @@
     left: 0;
     right: 0;
     z-index: 2;
-    transform: rotate(180deg);
+    transform: scaleY(-1);
     transform-origin: top center;
 }
 
