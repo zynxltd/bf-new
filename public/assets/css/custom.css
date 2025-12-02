@@ -1424,8 +1424,8 @@
     width: 100%;
     background: url(../images/carb.png) top no-repeat;
     background-size: cover;
-    background-color: #ffffff;
-    filter: none;
+    background-color: #f8f9fa;
+    filter: grayscale(100%) brightness(0.85);
     position: absolute;
     top: 0;
     left: 0;
