@@ -1456,20 +1456,14 @@ body {
 }
 
 .about-section .txt-entry {
-    padding: 20px 0;
+    padding: 30px 0;
     position: relative;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .about-section .txt-entry::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -20px;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(180deg, #19B2EB, #70D969);
-    border-radius: 2px;
-    opacity: 0.3;
+    display: none;
 }
 
 .about-section .txt-entry p {
@@ -1481,39 +1475,43 @@ body {
 }
 
 .about-section .txt-entry .lead {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     color: #333;
-    line-height: 1.8;
+    line-height: 1.9;
     position: relative;
-    padding-left: 20px;
+    padding-left: 0;
+    margin-bottom: 25px;
 }
 
 .about-section .txt-entry .lead::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: #19B2EB;
-    font-weight: bold;
+    display: none;
 }
 
 .about-section .video {
     position: relative;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-section .video:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
 .about-section .video img {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.4s ease;
+}
+
+.about-section .video:hover img {
+    transform: scale(1.05);
 }
 
 /* Features Section Enhancements */
@@ -2889,9 +2887,11 @@ body {
 /* About Section Buttons Container */
 .about-buttons {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .about-buttons .button {

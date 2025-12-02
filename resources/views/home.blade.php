@@ -97,20 +97,26 @@ use Illuminate\Support\Str;
                 </div>
             </div>
         </div><!-- .section-head -->
-        <div class="row tab-center mobile-center">
-            <div class="col-md-6">
-                <div class="video wow fadeInLeft" data-wow-duration=".5s">
+        
+        <!-- Video on Top -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="video wow fadeInUp" data-wow-duration=".5s" style="margin-bottom: 40px;">
                     <img src="{{ asset('images/video.png') }}" alt="about-video" />
                     <div class="video-overlay gradiant-background"></div>
                     <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
                 </div>
             </div><!-- .col -->
-            <div class="col-md-6">
-                <div class="txt-entry">
+        </div><!-- .row -->
+        
+        <!-- Paragraph and Buttons Below -->
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="txt-entry text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">
                     <p class="lead">Supplied in a resealable pouch, Superior Plant Food Plus is easy to dissolve in water, giving fast-acting results as it is delivered straight to the plant's roots and leaves.</p>
                     <p>Superior by name and Superior by nature, the only fertiliser you need for your garden for more flowers and more fruit, as well as better roots and shoots too. You can transform the performance of your plants with regular feeding throughout the main growing season.</p>
                     <p>Simple to use, just add one 5g scoop, included in the pack, to a gallon of water (4.5 litres) or a standard watering can full, and simply water on weekly during the growing season.</p>
-                    <div class="mt-30 about-buttons">
+                    <div class="mt-40 about-buttons">
                         <a href="#products" class="button button-primary">View All Products</a>
                         <a href="#videos" class="button button-secondary">View Videos</a>
                     </div>
