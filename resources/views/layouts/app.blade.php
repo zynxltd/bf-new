@@ -25,10 +25,7 @@
     <div id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">
-                <div class="logo-text">
-                    <span class="blooming">Blooming</span>
-                    <span class="fast">Fast</span>
-                </div>
+                <img src="{{ asset('images/logo.png') }}" alt="Blooming Fast Logo" class="preloader-logo-img" />
                 <div class="preloader-dots">
                     <span></span>
                     <span></span>

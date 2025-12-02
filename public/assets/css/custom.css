@@ -26,32 +26,19 @@
 
 .preloader-logo {
     position: relative;
-}
-
-.logo-text {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+}
+
+.preloader-logo-img {
+    max-width: 200px;
+    width: auto;
+    height: auto;
     margin-bottom: 30px;
-}
-
-.logo-text .blooming {
-    font-size: 48px;
-    font-weight: 700;
-    color: #ffffff;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     animation: fadeInScale 1s ease-out;
-    letter-spacing: 2px;
-}
-
-.logo-text .fast {
-    font-size: 36px;
-    font-weight: 600;
-    color: #ffffff;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    animation: fadeInScale 1s ease-out 0.2s both;
-    letter-spacing: 1px;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3));
 }
 
 .preloader-dots {
@@ -106,12 +93,8 @@
 
 /* Mobile Preloader */
 @media (max-width: 767px) {
-    .logo-text .blooming {
-        font-size: 36px;
-    }
-    
-    .logo-text .fast {
-        font-size: 28px;
+    .preloader-logo-img {
+        max-width: 150px;
     }
     
     .preloader-dots span {
@@ -1774,21 +1757,7 @@
 
 /* Add carb pattern to bottom of videos section */
 .videos-section-bottom-curved::after {
-    display: block !important;
-    content: '';
-    height: 200px;
-    width: 100%;
-    background: url(../images/carb.png) bottom no-repeat;
-    background-size: cover;
-    background-color: #f8f9fa;
-    filter: grayscale(100%) brightness(0.85);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    pointer-events: none;
-    transform: rotate(180deg);
+    display: none !important;
 }
 
 /* FAQ Section Enhancements */
