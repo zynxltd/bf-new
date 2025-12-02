@@ -1740,8 +1740,8 @@
     width: 100%;
     background: url(../images/carb.png) bottom no-repeat;
     background-size: cover;
-    background-color: #ffffff;
-    filter: none;
+    background-color: #f8f9fa;
+    filter: grayscale(100%) brightness(0.85);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -3211,14 +3211,17 @@ html {
         width: auto;
     }
     
-    /* Size badges stack on mobile */
+    /* Size badges horizontal on mobile */
     .size-badges {
-        flex-direction: column;
+        flex-direction: row !important;
         gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .size-badge {
-        width: 100%;
+        width: auto;
+        flex: 0 1 auto;
         justify-content: center;
     }
     
@@ -3285,8 +3288,21 @@ html {
     /* Curved patterns adjust on mobile */
     .features-curved-top::before,
     .products-curved-top::before,
-    .faq-curved-top::before {
-        height: 80px;
+    .faq-curved-top::before,
+    .videos-curved-top::before,
+    .customer-reviews-curved-top::before,
+    .about-section-top-curved::before {
+        height: 80px !important;
+        background-size: cover !important;
+    }
+    
+    .features-section-bottom-curved::after,
+    .products-section-bottom-curved::after,
+    .videos-section-bottom-curved::after,
+    .customer-reviews-curved-bottom::after,
+    .about-section-bottom-curved::after {
+        height: 80px !important;
+        background-size: cover !important;
     }
     
     .features-section::before,
