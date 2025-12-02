@@ -778,11 +778,11 @@
 }
 
 /* Add carb pattern to bottom of features section */
-.features-section {
+.features-section-bottom-curved {
     position: relative;
 }
 
-.features-section-bottom-curved::after {
+.features-section-bottom-curved::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -793,6 +793,7 @@
     background: url(../images/carb.png) bottom no-repeat;
     background-size: cover;
     z-index: 1;
+    pointer-events: none;
 }
 
 /* Ensure features section uses same gradient background as hero */
