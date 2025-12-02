@@ -195,7 +195,7 @@
             <div class="row">
                 <!-- Product Card 1: Bloom Booster -->
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-product-title="Ultimate Rose Bloom Booster" data-product-image="{{ asset('images/bloom-booster-p1.jpg') }}" data-product-description="Complete fertiliser specially formulated for roses. Promotes bigger, better blooms and healthy growth." data-product-specs="750g, NPK Balanced" data-product-yg="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+ultimate+rose+bloom+booster" data-product-npk="Balanced NPK" data-product-features="Specially formulated for roses|Promotes bigger, better blooms|Encourages healthy growth|Complete fertiliser with all essential nutrients" data-product-application="Apply around the base of roses during the growing season. Mix with water and apply weekly for best results." data-product-makes="750g pack">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-product-title="Ultimate Rose Bloom Booster" data-product-image="{{ asset('images/bloom-booster-p1.jpg') }}" data-product-image-2="{{ asset('images/bloom-booster-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Complete fertiliser specially formulated for roses. Promotes bigger, better blooms and healthy growth." data-product-specs="750g, NPK Balanced" data-product-yg="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+ultimate+rose+bloom+booster" data-product-npk="Balanced NPK" data-product-features="Specially formulated for roses|Promotes bigger, better blooms|Encourages healthy growth|Complete fertiliser with all essential nutrients" data-product-application="Apply around the base of roses during the growing season. Mix with water and apply weekly for best results." data-product-makes="750g pack">
                         <div class="product-image mb-20">
                             <img src="{{ asset('images/bloom-booster-p1.jpg') }}" alt="Ultimate Rose Bloom Booster" class="img-responsive" />
                         </div>
@@ -216,7 +216,7 @@
                 
                 <!-- Product Card 2: Swell Gell & Feed -->
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".1s" data-product-title="Swell Gell & Feed" data-product-image="{{ asset('images/swellgell-1.jpg') }}" data-product-description="Revolutionary water-retaining gel with built-in plant food. Reduces watering frequency while feeding your plants." data-product-specs="250g, Water Retaining" data-product-yg="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+swell+gel+and+feed" data-product-npk="With Plant Growth Stimulant" data-product-features="Water-retaining gel technology|Built-in plant food|Reduces watering frequency|Promotes healthy root development|Ideal for containers and hanging baskets" data-product-application="Mix with compost when planting or apply as a top dressing. The gel absorbs water and releases it gradually to plants." data-product-makes="250g pack">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".1s" data-product-title="Swell Gell & Feed" data-product-image="{{ asset('images/swellgell-1.jpg') }}" data-product-image-2="{{ asset('images/swellgell-1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Revolutionary water-retaining gel with built-in plant food. Reduces watering frequency while feeding your plants." data-product-specs="250g, Water Retaining" data-product-yg="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+swell+gel+and+feed" data-product-npk="With Plant Growth Stimulant" data-product-features="Water-retaining gel technology|Built-in plant food|Reduces watering frequency|Promotes healthy root development|Ideal for containers and hanging baskets" data-product-application="Mix with compost when planting or apply as a top dressing. The gel absorbs water and releases it gradually to plants." data-product-makes="250g pack">
                         <div class="product-image mb-20">
                             <img src="{{ asset('images/swellgell-1.jpg') }}" alt="Swell Gell & Feed" class="img-responsive" />
                         </div>
@@ -237,7 +237,7 @@
                 
                 <!-- Product Card 3: Superior Soluble Fertiliser -->
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".2s" data-product-title="Superior Soluble Fertiliser" data-product-image="{{ asset('images/superiorV4.png') }}" data-product-description="Our best-ever formulation for use all round the garden. More flowers, more fruit, better roots and shoots." data-product-specs="500g, NPK 18:18:24" data-product-yg="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g" data-product-amazon="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" data-product-npk="18:18:24" data-product-features="Packed with Potash for flowers, fruits and veg|Jammed with nitrogen and phosphorous|Brimming with 7 vital trace elements|Plus Humic Acid to boost your plants|Fast acting and long lasting" data-product-application="Add one 5g scoop (included) to a gallon of water (4.5 litres) or a standard watering can. Water on weekly during the growing season." data-product-makes="Makes approx 500 litres from a 500g bag">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".2s" data-product-title="Superior Soluble Fertiliser" data-product-image="{{ asset('images/superiorV4.png') }}" data-product-image-2="{{ asset('images/superiorback.png') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Our best-ever formulation for use all round the garden. More flowers, more fruit, better roots and shoots." data-product-specs="500g, NPK 18:18:24" data-product-yg="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g" data-product-amazon="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" data-product-npk="18:18:24" data-product-features="Packed with Potash for flowers, fruits and veg|Jammed with nitrogen and phosphorous|Brimming with 7 vital trace elements|Plus Humic Acid to boost your plants|Fast acting and long lasting" data-product-application="Add one 5g scoop (included) to a gallon of water (4.5 litres) or a standard watering can. Water on weekly during the growing season." data-product-makes="Makes approx 500 litres from a 500g bag">
                         <div class="product-image mb-20">
                             <img src="{{ asset('images/superiorV4.png') }}" alt="Superior Soluble Fertiliser" class="img-responsive" />
                         </div>
@@ -258,7 +258,7 @@
                 
                 <!-- Product Card 4: Citrus Feed -->
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".3s" data-product-title="Citrus Feed" data-product-image="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-description="Specially formulated for citrus trees and plants. Promotes healthy growth, better fruit production and vibrant foliage." data-product-specs="150g, Citrus Specific" data-product-yg="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+citrus+feed" data-product-npk="Citrus Specific Formula" data-product-features="Specially formulated for citrus trees|Promotes healthy growth|Better fruit production|Vibrant foliage|Ideal for lemons, oranges, limes and other citrus" data-product-application="Apply during the growing season. Mix with water according to instructions and apply to the base of citrus plants regularly." data-product-makes="150g pack">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".3s" data-product-title="Citrus Feed" data-product-image="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-image-2="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Specially formulated for citrus trees and plants. Promotes healthy growth, better fruit production and vibrant foliage." data-product-specs="150g, Citrus Specific" data-product-yg="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+citrus+feed" data-product-npk="Citrus Specific Formula" data-product-features="Specially formulated for citrus trees|Promotes healthy growth|Better fruit production|Vibrant foliage|Ideal for lemons, oranges, limes and other citrus" data-product-application="Apply during the growing season. Mix with water according to instructions and apply to the base of citrus plants regularly." data-product-makes="150g pack">
                         <div class="product-image mb-20">
                             <img src="{{ asset('images/cirtus-feed-p1.jpg') }}" alt="Citrus Feed" class="img-responsive" />
                         </div>
@@ -279,7 +279,7 @@
                 
                 <!-- Product Card 5: Acer Feed -->
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".4s" data-product-title="Acer Feed" data-product-image="{{ asset('images/acer-feed-p1.jpg') }}" data-product-description="Perfect nutrition for Japanese maples and acer trees. Enhances leaf colour and promotes healthy growth." data-product-specs="900g, Acer Specific" data-product-yg="https://www.yougarden.com/item-p-100105/blooming-fast-acer-feed-900g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+acer+feed" data-product-npk="Acer Specific Formula" data-product-features="Perfect for Japanese maples|Enhances leaf colour|Promotes healthy growth|Specially balanced for acers|Improves autumn colour display" data-product-application="Apply around the base of acer trees during the growing season. Water in well after application." data-product-makes="900g pack">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".4s" data-product-title="Acer Feed" data-product-image="{{ asset('images/acer-feed-p1.jpg') }}" data-product-image-2="{{ asset('images/acer-feed-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Perfect nutrition for Japanese maples and acer trees. Enhances leaf colour and promotes healthy growth." data-product-specs="900g, Acer Specific" data-product-yg="https://www.yougarden.com/item-p-100105/blooming-fast-acer-feed-900g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+acer+feed" data-product-npk="Acer Specific Formula" data-product-features="Perfect for Japanese maples|Enhances leaf colour|Promotes healthy growth|Specially balanced for acers|Improves autumn colour display" data-product-application="Apply around the base of acer trees during the growing season. Water in well after application." data-product-makes="900g pack">
                         <div class="product-image mb-20">
                             <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" />
                         </div>
@@ -300,7 +300,7 @@
                 
                 <!-- Product Card 6: Clematis Feed -->
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".5s" data-product-title="Clematis Feed" data-product-image="{{ asset('images/clematis-feed-p1.jpg') }}" data-product-description="Specialised feed for clematis plants. Encourages abundant flowering and strong, healthy growth." data-product-specs="900g, Clematis Specific" data-product-yg="https://www.yougarden.com/item-p-100106/blooming-fast-clematis-feed-900g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+clematis+feed" data-product-npk="5-5-10 + 2.5% MgO" data-product-features="Rich in potassium for richer colours|More blooms and longer-lasting displays|Promotes strong, healthy growth|Suitable for borders, trellises and patio planters|Proven results within one growing season" data-product-application="New Plants: Apply 35-50g around the plant base when growth is strong. Established Plants: Apply 35-50g in March and repeat every three months during the growing season." data-product-makes="900g pack">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".5s" data-product-title="Clematis Feed" data-product-image="{{ asset('images/clematis-feed-p1.jpg') }}" data-product-image-2="{{ asset('images/clematis-feed-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Specialised feed for clematis plants. Encourages abundant flowering and strong, healthy growth." data-product-specs="900g, Clematis Specific" data-product-yg="https://www.yougarden.com/item-p-100106/blooming-fast-clematis-feed-900g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+clematis+feed" data-product-npk="5-5-10 + 2.5% MgO" data-product-features="Rich in potassium for richer colours|More blooms and longer-lasting displays|Promotes strong, healthy growth|Suitable for borders, trellises and patio planters|Proven results within one growing season" data-product-application="New Plants: Apply 35-50g around the plant base when growth is strong. Established Plants: Apply 35-50g in March and repeat every three months during the growing season." data-product-makes="900g pack">
                         <div class="product-image mb-20">
                             <img src="{{ asset('images/clematis-feed-p1.jpg') }}" alt="Clematis Feed" class="img-responsive" />
                         </div>
@@ -321,7 +321,7 @@
                 
                 <!-- Product Card 7: Fish Blood & Bone -->
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".6s" data-product-title="Fish Blood & Bone" data-product-image="{{ asset('images/fish-blood-p1.jpg') }}" data-product-description="Traditional organic fertiliser rich in nitrogen, phosphorus and potassium. Perfect for all-round garden use." data-product-specs="1.5kg, Organic" data-product-yg="https://www.yougarden.com/item-p-100046/blooming-fast-fish-blood-and-bone-1-5kg-tub" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+fish+blood+and+bone" data-product-npk="Natural NPK" data-product-features="Traditional organic fertiliser|Rich in nitrogen, phosphorus and potassium|Encourages strong root development|Vibrant blooms|Ideal for all-round garden use|Natural and organic" data-product-application="New Plants: Incorporate into the soil before planting. Established Plants: Apply as a top dressing around the base of plants and water in." data-product-makes="1.5kg tub">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".6s" data-product-title="Fish Blood & Bone" data-product-image="{{ asset('images/fish-blood-p1.jpg') }}" data-product-image-2="{{ asset('images/fish-blood-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Traditional organic fertiliser rich in nitrogen, phosphorus and potassium. Perfect for all-round garden use." data-product-specs="1.5kg, Organic" data-product-yg="https://www.yougarden.com/item-p-100046/blooming-fast-fish-blood-and-bone-1-5kg-tub" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+fish+blood+and+bone" data-product-npk="Natural NPK" data-product-features="Traditional organic fertiliser|Rich in nitrogen, phosphorus and potassium|Encourages strong root development|Vibrant blooms|Ideal for all-round garden use|Natural and organic" data-product-application="New Plants: Incorporate into the soil before planting. Established Plants: Apply as a top dressing around the base of plants and water in." data-product-makes="1.5kg tub">
                         <div class="product-image mb-20">
                             <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" />
                         </div>
@@ -357,8 +357,24 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-5">
-                        <div class="product-modal-image">
-                            <img id="modalProductImage" src="" alt="" class="img-responsive" />
+                        <div id="productModalCarousel" class="carousel slide product-modal-carousel" data-ride="carousel" data-interval="false">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators" id="modalCarouselIndicators">
+                            </ol>
+                            
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox" id="modalCarouselInner">
+                            </div>
+                            
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#productModalCarousel" role="button" data-slide="prev" id="modalCarouselPrev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#productModalCarousel" role="button" data-slide="next" id="modalCarouselNext">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -644,6 +660,8 @@ $(document).ready(function() {
         var $card = $(this);
         var title = $card.data('product-title');
         var image = $card.data('product-image');
+        var image2 = $card.data('product-image-2');
+        var video = $card.data('product-video');
         var description = $card.data('product-description');
         var specs = $card.data('product-specs');
         var ygLink = $card.data('product-yg');
@@ -655,10 +673,71 @@ $(document).ready(function() {
         
         // Populate basic modal fields
         $('#modalProductTitle').text(title);
-        $('#modalProductImage').attr('src', image).attr('alt', title);
         $('#modalProductDescription').text(description);
         $('#modalProductYG').attr('href', ygLink);
         $('#modalProductAmazon').attr('href', amazonLink);
+        
+        // Build carousel items
+        var carouselInner = $('#modalCarouselInner');
+        var carouselIndicators = $('#modalCarouselIndicators');
+        carouselInner.empty();
+        carouselIndicators.empty();
+        
+        var itemIndex = 0;
+        
+        // Add first image
+        if (image) {
+            var activeClass = itemIndex === 0 ? 'active' : '';
+            carouselInner.append(
+                '<div class="item ' + activeClass + '">' +
+                '<img src="' + image + '" alt="' + title + '" class="img-responsive" />' +
+                '</div>'
+            );
+            carouselIndicators.append(
+                '<li data-target="#productModalCarousel" data-slide-to="' + itemIndex + '" class="' + activeClass + '"></li>'
+            );
+            itemIndex++;
+        }
+        
+        // Add second image if available
+        if (image2) {
+            var activeClass = itemIndex === 0 ? 'active' : '';
+            carouselInner.append(
+                '<div class="item ' + activeClass + '">' +
+                '<img src="' + image2 + '" alt="' + title + '" class="img-responsive" />' +
+                '</div>'
+            );
+            carouselIndicators.append(
+                '<li data-target="#productModalCarousel" data-slide-to="' + itemIndex + '" class="' + activeClass + '"></li>'
+            );
+            itemIndex++;
+        }
+        
+        // Add video if available
+        if (video) {
+            var activeClass = itemIndex === 0 ? 'active' : '';
+            carouselInner.append(
+                '<div class="item ' + activeClass + '">' +
+                '<div class="embed-responsive embed-responsive-16by9">' +
+                '<iframe class="embed-responsive-item" src="' + video + '" allowfullscreen></iframe>' +
+                '</div>' +
+                '</div>'
+            );
+            carouselIndicators.append(
+                '<li data-target="#productModalCarousel" data-slide-to="' + itemIndex + '" class="' + activeClass + '"></li>'
+            );
+            itemIndex++;
+        }
+        
+        // Show/hide carousel controls based on number of items
+        if (itemIndex > 1) {
+            $('#modalCarouselPrev, #modalCarouselNext').show();
+        } else {
+            $('#modalCarouselPrev, #modalCarouselNext').hide();
+        }
+        
+        // Reset carousel to first slide
+        $('#productModalCarousel').carousel(0);
         
         // Parse and display specs
         var specsArray = specs.split(', ');
