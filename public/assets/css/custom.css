@@ -103,7 +103,7 @@
 /* Logo z-index fix and remove white space */
 .navbar-brand {
     position: relative;
-    z-index: 99999999 !important;
+    z-index: 999999999 !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 15px !important;
