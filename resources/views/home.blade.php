@@ -356,7 +356,7 @@ From May to September feed your plants twice a week while watering.</p>
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="product-card white-bg text-center wow fadeInUp" data-wow-duration=".5s">
                         <div class="product-image mb-20">
-                            <img src="https://www.yougarden.com/ItemImages/300/100/100196_1.jpg" alt="Ultimate Rose Bloom Booster" class="img-responsive" onerror="this.src='{{ asset('images/superiorV4.png') }}'" />
+                            <img src="{{ asset('images/bloom-booster-p1.jpg') }}" alt="Ultimate Rose Bloom Booster" class="img-responsive" />
                         </div>
                         <div class="product-details p-30">
                             <h4 class="product-title mb-15">Ultimate Rose Bloom Booster</h4>
@@ -377,7 +377,7 @@ From May to September feed your plants twice a week while watering.</p>
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="product-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">
                         <div class="product-image mb-20">
-                            <img src="https://www.yougarden.com/ItemImages/300/100/100118_1.jpg" alt="Swell Gell & Feed" class="img-responsive" onerror="this.src='{{ asset('images/superiorV4.png') }}'" />
+                            <img src="{{ asset('images/swellgell-1.jpg') }}" alt="Swell Gell & Feed" class="img-responsive" />
                         </div>
                         <div class="product-details p-30">
                             <h4 class="product-title mb-15">Swell Gell & Feed</h4>
@@ -419,7 +419,7 @@ From May to September feed your plants twice a week while watering.</p>
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="product-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
                         <div class="product-image mb-20">
-                            <img src="https://www.yougarden.com/ItemImages/300/100/100016_1.jpg" alt="Citrus Feed" class="img-responsive" onerror="this.src='{{ asset('images/superiorV4.png') }}'" />
+                            <img src="{{ asset('images/cirtus-feed-p1.jpg') }}" alt="Citrus Feed" class="img-responsive" />
                         </div>
                         <div class="product-details p-30">
                             <h4 class="product-title mb-15">Citrus Feed</h4>
@@ -440,7 +440,7 @@ From May to September feed your plants twice a week while watering.</p>
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="product-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">
                         <div class="product-image mb-20">
-                            <img src="https://www.yougarden.com/ItemImages/300/100/100105_1.jpg" alt="Acer Feed" class="img-responsive" onerror="this.src='{{ asset('images/superiorV4.png') }}'" />
+                            <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" />
                         </div>
                         <div class="product-details p-30">
                             <h4 class="product-title mb-15">Acer Feed</h4>
@@ -461,7 +461,7 @@ From May to September feed your plants twice a week while watering.</p>
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="product-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s">
                         <div class="product-image mb-20">
-                            <img src="https://www.yougarden.com/ItemImages/300/100/100106_1.jpg" alt="Clematis Feed" class="img-responsive" onerror="this.src='{{ asset('images/superiorV4.png') }}'" />
+                            <img src="{{ asset('images/clematis-feed-p1.jpg') }}" alt="Clematis Feed" class="img-responsive" />
                         </div>
                         <div class="product-details p-30">
                             <h4 class="product-title mb-15">Clematis Feed</h4>
@@ -482,7 +482,7 @@ From May to September feed your plants twice a week while watering.</p>
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="product-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
                         <div class="product-image mb-20">
-                            <img src="https://www.yougarden.com/ItemImages/300/100/100046_1.jpg" alt="Fish Blood & Bone" class="img-responsive" onerror="this.src='{{ asset('images/superiorV4.png') }}'" />
+                            <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" />
                         </div>
                         <div class="product-details p-30">
                             <h4 class="product-title mb-15">Fish Blood & Bone</h4>
