@@ -690,7 +690,11 @@
 
 @media (max-width: 767px) {
     .header-texts h2 {
-        font-size: 28px;
+        font-size: 34px;
+    }
+    
+    .hero-title-gradient {
+        font-size: 34px !important;
     }
     
     .header-texts .lead {
@@ -1333,29 +1337,59 @@
 }
 
 .features-section .single-features {
-    animation: fadeInUp 1s ease-out both;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease-out both;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(30px);
 }
 
 .features-section .single-features:nth-child(1) {
-    animation-delay: 0.3s;
+    animation-delay: 0.2s;
 }
 
 .features-section .single-features:nth-child(2) {
-    animation-delay: 0.4s;
+    animation-delay: 0.3s;
 }
 
 .features-section .single-features:nth-child(3) {
-    animation-delay: 0.5s;
+    animation-delay: 0.4s;
 }
 
 .features-section .single-features:nth-child(4) {
+    animation-delay: 0.5s;
+}
+
+.features-section .single-features:nth-child(5) {
     animation-delay: 0.6s;
 }
 
+.features-section .single-features:nth-child(6) {
+    animation-delay: 0.7s;
+}
+
+.features-section .single-features:nth-child(7) {
+    animation-delay: 0.8s;
+}
+
+.features-section .single-features:nth-child(8) {
+    animation-delay: 0.9s;
+}
+
 .features-section .single-features:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.features-section .single-features .ti,
+.features-section .single-features .fa {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.features-section .single-features:hover .ti,
+.features-section .single-features:hover .fa {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(25, 178, 235, 0.4);
 }
     margin-bottom: 0;
     padding-bottom: 150px;
@@ -3456,7 +3490,11 @@ html {
 /* Small mobile devices */
 @media (max-width: 480px) {
     .header-texts h2 {
-        font-size: 24px;
+        font-size: 30px;
+    }
+    
+    .hero-title-gradient {
+        font-size: 30px !important;
     }
     
     .hero-description {
