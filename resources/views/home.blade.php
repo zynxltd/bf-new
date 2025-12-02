@@ -96,7 +96,7 @@
 
 
 <!-- Start .features-section  -->
-<div id="features" class="features-section section gradiant-background header-curbed">
+<div id="features" class="features-section section gradiant-background header-curbed features-curved-top">
     <div class="container tab-fix">
         <div class="section-head heading-light text-center">
             <div class="row">
