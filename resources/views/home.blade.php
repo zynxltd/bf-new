@@ -631,14 +631,8 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
         </div><!-- .section-head -->
         <div class="faq-alt">
             <div class="row">
-                <!-- Left Column - Image -->
-                <div class="col-md-4">
-                    <div class="faq-image-sidebar">
-                        <img src="{{ asset('images/superiorV4.png') }}" alt="Beautiful flowers" class="img-responsive" />
-                    </div>
-                </div>
-                <!-- Right Column - FAQ Content -->
-                <div class="col-md-8">
+                <!-- FAQ Content -->
+                <div class="col-md-10 col-md-offset-1">
                     <!-- Accordion -->
                     <div class="panel-group accordion" id="faq-new-accordion" role="tablist" aria-multiselectable="true">
                         <!-- each panel for accordion -->
