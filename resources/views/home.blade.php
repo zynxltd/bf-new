@@ -258,7 +258,7 @@
                 
                 <!-- Product Card 4: Citrus Feed -->
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".3s" data-product-title="Citrus Feed" data-product-image="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-image-2="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Specially formulated for citrus trees and plants. Promotes healthy growth, better fruit production and vibrant foliage." data-product-full-description="Citrus Feed is specially formulated to meet the unique nutritional needs of citrus trees and plants. Whether you're growing lemons, oranges, limes, grapefruits, or other citrus varieties, this targeted fertiliser provides the perfect balance of nutrients to promote healthy growth, better fruit production, and vibrant, glossy foliage. Citrus plants have specific requirements, and this feed ensures they receive exactly what they need to thrive. Apply during the growing season by mixing with water according to instructions and applying to the base of your citrus plants regularly. You'll notice improved fruit quality, increased yields, and healthier, more attractive plants." data-product-specs="150g, Citrus Specific" data-product-yg="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+citrus+feed" data-product-npk="Citrus Specific Formula" data-product-features="Specially formulated for citrus trees|Promotes healthy growth|Better fruit production|Vibrant foliage|Ideal for lemons, oranges, limes and other citrus" data-product-application="Apply during the growing season. Mix with water according to instructions and apply to the base of citrus plants regularly." data-product-makes="150g pack">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".3s" data-product-title="Citrus Feed" data-product-image="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-image-2="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Specially formulated for citrus trees and plants. Promotes healthy growth, better fruit production and vibrant foliage." data-product-full-description="Citrus Feed is specially formulated to meet the unique nutritional needs of citrus trees and plants. Whether you're growing lemons, oranges, limes, grapefruits, or other citrus varieties, this targeted fertiliser provides the perfect balance of nutrients to promote healthy growth, better fruit production, and vibrant, glossy foliage. Citrus plants have specific requirements, and this feed ensures they receive exactly what they need to thrive. Apply during the growing season by mixing with water according to instructions and applying to the base of your citrus plants regularly. You'll notice improved fruit quality, increased yields, and healthier, more attractive plants." data-product-videos="{{ htmlspecialchars('<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" src=\"https://player.vimeo.com/video/170471588\" allowfullscreen></iframe></div>', ENT_QUOTES) }}" data-product-reviews="{{ htmlspecialchars('<div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">James W.</div><div class=\"review-date\">2 weeks ago</div><div class=\"review-text\">My lemon tree is producing amazing fruit! Great feed for citrus.</div></div><div class=\"review-item\"><div class=\"review-rating\">★★★★☆</div><div class=\"review-author\">Emma L.</div><div class=\"review-date\">1 month ago</div><div class=\"review-text\">Perfect for my orange and lime trees. Healthy growth and better fruit.</div></div>', ENT_QUOTES) }}" data-product-delivery="Standard Delivery: £4.95 (3-5 working days) | Express Delivery: £7.95 (1-2 working days) | Free Delivery on orders over £50. All orders are dispatched within 1-2 working days. Delivery to UK mainland only. For international delivery, please contact us." data-product-specs="150g, Citrus Specific" data-product-yg="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+citrus+feed" data-product-npk="Citrus Specific Formula" data-product-features="Specially formulated for citrus trees|Promotes healthy growth|Better fruit production|Vibrant foliage|Ideal for lemons, oranges, limes and other citrus" data-product-application="Apply during the growing season. Mix with water according to instructions and apply to the base of citrus plants regularly." data-product-makes="150g pack">
                         <div class="product-image mb-20">
                             <img src="{{ asset('images/cirtus-feed-p1.jpg') }}" alt="Citrus Feed" class="img-responsive" />
                         </div>
@@ -862,7 +862,11 @@ $(document).ready(function() {
         
         // Populate videos if available
         if (videos) {
-            $('#modalProductVideosContent').html(videos);
+            // Create a temporary element to decode HTML entities
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = videos;
+            var decodedVideos = tempDiv.innerHTML;
+            $('#modalProductVideosContent').html(decodedVideos);
             $('.product-modal-videos').show();
         } else {
             $('.product-modal-videos').hide();
@@ -905,8 +909,11 @@ $(document).ready(function() {
                     $('#feefo-reviews-widget').html(iframeHtml);
                     $('.product-modal-reviews').show();
                 } else {
-                    // Legacy HTML reviews (fallback)
-                    $('#modalProductReviewsContent').html(reviews);
+                    // Legacy HTML reviews (fallback) - decode HTML entities if escaped
+                    var tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = reviews;
+                    var decodedReviews = tempDiv.innerHTML;
+                    $('#modalProductReviewsContent').html(decodedReviews);
                     $('.product-modal-reviews').show();
                 }
             }
