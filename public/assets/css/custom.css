@@ -1216,7 +1216,7 @@
 
 .features-section .section-head p {
     color: rgba(255, 255, 255, 0.85);
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
 }
 
@@ -2589,7 +2589,7 @@
 }
 
 .single-features p {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.6;
     margin-bottom: 0;
     color: #666;
@@ -2873,7 +2873,7 @@ html {
     }
     
     .features-section .single-features p {
-        font-size: 13px;
+        font-size: 18px;
     }
     
     /* Products Section Mobile */
@@ -2993,7 +2993,7 @@ html {
     }
     
     .features-section .single-features p {
-        font-size: 12px;
+        font-size: 18px;
     }
 }
 
