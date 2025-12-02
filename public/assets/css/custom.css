@@ -118,7 +118,7 @@
 
 .navbar-brand .logo {
     position: relative;
-    z-index: 99999999 !important;
+    z-index: 999999999 !important;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -787,6 +787,23 @@
 .customer-reviews-section {
     position: relative;
     background: #ffffff;
+    overflow: hidden;
+}
+
+.customer-reviews-curved-top::before {
+    display: block !important;
+    content: '';
+    height: 150px;
+    width: 100%;
+    background: url(../images/carb.png) top no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .customer-reviews-content {

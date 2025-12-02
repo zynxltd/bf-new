@@ -107,7 +107,7 @@
 
 
 <!-- Start .features-section  -->
-<div id="features" class="features-section section gradiant-background header-curbed features-curved-top features-section-bottom-curved">
+<div id="features" class="features-section section gradiant-background header-curbed features-curved-top">
     <div class="container tab-fix">
         <div class="section-head heading-light text-center">
             <div class="row">
@@ -179,7 +179,7 @@
 </div><!-- .features-section  -->
 
 <!-- Start .customer-reviews-section  -->
-<div class="customer-reviews-section section white-bg pt-80 pb-80">
+<div class="customer-reviews-section customer-reviews-curved-top section white-bg pt-80 pb-80">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
