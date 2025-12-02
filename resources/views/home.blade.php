@@ -339,7 +339,7 @@ From May to September feed your plants twice a week while watering.</p>
 </div><!-- .faq-section  -->
 
 <!-- Start .products-section  -->
-<div id="products" class="products-section section gradiant-background pt-120 pb-120">
+<div id="products" class="products-section section gradiant-background pt-120 pb-120 products-curved-top">
     <div class="container">
         <div class="section-head heading-light text-center">
             <div class="row">

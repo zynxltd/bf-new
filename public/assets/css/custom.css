@@ -645,6 +645,22 @@
     overflow: hidden;
 }
 
+/* Add curved top pattern matching hero bottom */
+.products-curved-top::before {
+    display: block;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: url(../images/carb.png) top no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transform: rotate(180deg);
+}
+
 .products-section::before {
     content: '';
     position: absolute;
