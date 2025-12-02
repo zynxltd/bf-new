@@ -76,8 +76,7 @@
 .navbar-brand {
     position: relative;
     z-index: 99999999 !important;
-    margin-top: 20px !important;
-    margin-bottom: 20px !important;
+    margin-top: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 15px !important;
     height: auto;
@@ -92,6 +91,13 @@
 .navbar-brand .logo {
     position: relative;
     z-index: 99999999 !important;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.logo.logo-light {
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .navigation {
