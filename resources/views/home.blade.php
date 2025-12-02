@@ -179,7 +179,7 @@
 </div><!-- .features-section  -->
 
 <!-- Start .customer-reviews-section  -->
-<div class="customer-reviews-section customer-reviews-curved-top section white-bg pt-80 pb-80">
+<div class="customer-reviews-section customer-reviews-curved-top customer-reviews-curved-bottom section white-bg pt-80 pb-80">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

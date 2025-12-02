@@ -807,6 +807,23 @@
     pointer-events: none;
 }
 
+.customer-reviews-curved-bottom::after {
+    display: block !important;
+    content: '';
+    height: 200px;
+    width: 100%;
+    background: url(../images/carb.png) bottom no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+    transform: rotate(180deg);
+}
+
 .customer-reviews-content {
     padding: 40px 0;
 }
