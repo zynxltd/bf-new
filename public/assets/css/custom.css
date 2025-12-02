@@ -72,10 +72,13 @@
     }
 }
 
-/* Logo z-index fix */
+/* Logo z-index fix and remove white space */
 .navbar-brand {
     position: relative;
     z-index: 9999 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 15px !important;
 }
 
 .navbar-brand .logo {
@@ -84,13 +87,22 @@
 }
 
 .navigation {
-    position: relative;
+    position: fixed !important;
     z-index: 9998 !important;
+    top: 0 !important;
+    padding-top: 0 !important;
 }
 
 .navbar {
     position: relative;
     z-index: 9998 !important;
+}
+
+/* Fix hero section position on scroll */
+.header-section {
+    position: relative;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
 }
 
 /* Enhanced Hero Content - Background preserved from original theme */
@@ -763,6 +775,24 @@
     height: 150px;
     background: #f8f9fa;
     z-index: 0;
+}
+
+/* Add carb pattern to bottom of features section */
+.features-section {
+    position: relative;
+}
+
+.features-section-bottom-curved::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    width: 100%;
+    background: url(../images/carb.png) bottom no-repeat;
+    background-size: cover;
+    z-index: 1;
 }
 
 /* Ensure features section uses same gradient background as hero */
