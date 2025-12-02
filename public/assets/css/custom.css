@@ -920,26 +920,14 @@
     position: relative;
     overflow: visible;
     margin-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 150px;
     margin-top: -150px;
     padding-top: 150px;
 }
 
-/* Add grey bottom to features section */
-.features-section::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background: #f8f9fa;
-    z-index: 0;
-}
-
 /* Add carb pattern to bottom of features section - matching hero exactly */
 .features-section-bottom-curved::after {
-    display: block;
+    display: block !important;
     content: '';
     height: 150px;
     width: 100%;
@@ -949,7 +937,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
     transform: scaleY(-1);
 }
