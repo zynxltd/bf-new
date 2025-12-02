@@ -984,7 +984,7 @@
 .about-section {
     background: #ffffff;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     padding-top: 80px;
     padding-bottom: 100px;
     z-index: 1;
@@ -1016,7 +1016,22 @@
 
 .about-section .container {
     position: relative;
-    z-index: 2;
+    z-index: 10;
+}
+
+.about-section .txt-entry {
+    position: relative;
+    z-index: 10;
+}
+
+.about-section .video {
+    position: relative;
+    z-index: 10;
+}
+
+.about-section .about-buttons {
+    position: relative;
+    z-index: 10;
 }
 
 /* Customer Reviews Section */
@@ -1122,6 +1137,8 @@
     background: url(../images/carb.png) bottom no-repeat;
     background-size: cover;
     background-color: transparent;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%), url(../images/carb.png);
+    background-blend-mode: overlay;
     position: absolute;
     bottom: 0;
     left: 0;
