@@ -1982,3 +1982,187 @@ html {
     }
 }
 
+/* Comprehensive Mobile Optimizations */
+@media (max-width: 767px) {
+    /* Hero Section Mobile */
+    .header-content {
+        padding: 60px 0 40px 0;
+    }
+    
+    .header-texts {
+        padding: 20px 0;
+    }
+    
+    /* Hero buttons stack on mobile */
+    .header-section .buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .header-section .button {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+    }
+    
+    /* Size badges stack on mobile */
+    .size-badges {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .size-badge {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* About Section Mobile */
+    .about-section .section-head ul {
+        padding: 0;
+    }
+    
+    .about-section .section-head ul li {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    /* Features Section Mobile */
+    .features-section .features-content {
+        padding-bottom: 60px;
+    }
+    
+    .features-section .single-features {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .features-section .single-features h4 {
+        font-size: 16px;
+    }
+    
+    .features-section .single-features p {
+        font-size: 13px;
+    }
+    
+    /* Products Section Mobile */
+    .products-section .section-head {
+        margin-bottom: 30px;
+    }
+    
+    .product-card {
+        margin-bottom: 30px;
+    }
+    
+    .product-image {
+        height: 200px;
+    }
+    
+    .product-title {
+        font-size: 18px;
+    }
+    
+    .product-description {
+        font-size: 13px;
+    }
+    
+    .product-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .product-button {
+        width: 100%;
+        max-width: 100%;
+        min-width: auto;
+    }
+    
+    /* Curved patterns adjust on mobile */
+    .features-curved-top::before,
+    .products-curved-top::before,
+    .faq-curved-top::before {
+        height: 80px;
+    }
+    
+    .features-section::before,
+    .products-section::before {
+        height: 80px;
+    }
+    
+    /* Footer Mobile */
+    .footer-section {
+        padding: 60px 0 30px 0;
+    }
+    
+    .footer-links-list {
+        margin-bottom: 20px;
+    }
+    
+    /* Ensure images are responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Better spacing for sections */
+    .section {
+        padding: 40px 0 !important;
+    }
+    
+    .pt-120 {
+        padding-top: 40px !important;
+    }
+    
+    .pb-120 {
+        padding-bottom: 40px !important;
+    }
+    
+    /* Navigation mobile */
+    .navbar-brand {
+        padding: 10px 15px;
+    }
+    
+    .navbar-brand img {
+        max-height: 50px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .header-texts h2 {
+        font-size: 24px;
+    }
+    
+    .hero-description {
+        font-size: 16px !important;
+    }
+    
+    .section-head h2 {
+        font-size: 24px;
+    }
+    
+    .section-head .lead {
+        font-size: 16px;
+    }
+    
+    .product-card {
+        margin-bottom: 25px;
+    }
+    
+    .product-image {
+        height: 180px;
+    }
+    
+    .features-section .single-features {
+        padding: 12px;
+    }
+    
+    .features-section .single-features h4 {
+        font-size: 15px;
+    }
+    
+    .features-section .single-features p {
+        font-size: 12px;
+    }
+}
+
