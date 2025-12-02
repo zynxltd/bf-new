@@ -813,6 +813,9 @@
         display: inline-block;
         width: auto;
         max-width: fit-content;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .hero-content-mobile .hero-title-gradient {
@@ -3374,6 +3377,9 @@ html {
         display: inline-block;
         width: auto;
         max-width: fit-content;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .hero-content-mobile .hero-title-gradient {
