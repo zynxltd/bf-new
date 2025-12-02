@@ -834,7 +834,6 @@
     right: 0;
     z-index: 1;
     pointer-events: none;
-    transform: scaleY(-1);
 }
 
 /* Ensure features section uses same gradient background as hero */
