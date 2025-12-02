@@ -180,8 +180,8 @@
 			setTimeout(function() {
 				$preload.remove();
 				$('body').css({'overflow':'visible'});
-			}, 500);
-		  }, 500);
+			}, 200);
+		  }, 100);
 		});
 	}
 	
