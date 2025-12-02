@@ -1,7 +1,11 @@
 // When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
+function initMap() {
+	// Check if map element exists before initializing
+	var mapElement = document.getElementById('gMap');
+	if (!mapElement) {
+		return; // Exit if map element doesn't exist
+	}
 
-function init() {
 	// Basic options for a simple Google Map
 	// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 	var mapOptions = {
@@ -16,10 +20,6 @@ function init() {
 		styles: []
 	};
 
-	// Get the HTML DOM element that will contain your map 
-	// We are using a div with id="gMap" seen below in the <body>
-	var mapElement = document.getElementById('gMap');
-
 	var map = new google.maps.Map(mapElement, mapOptions);
 	
 	// Let's also add a marker while we're at it
@@ -30,5 +30,17 @@ function init() {
 		position: new google.maps.LatLng(33.4465154, -86.7318209), 
 		// Change those co-ordinates to yours, to change your location with given location.
 		icon: '' // null = default icon
+	});
+}
+
+// Initialize map when Google Maps API is loaded
+if (typeof google !== 'undefined' && google.maps) {
+	google.maps.event.addDomListener(window, 'load', initMap);
+} else {
+	// Wait for Google Maps API to load
+	window.addEventListener('load', function() {
+		if (typeof google !== 'undefined' && google.maps) {
+			initMap();
+		}
 	});
 }

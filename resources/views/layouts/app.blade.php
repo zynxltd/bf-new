@@ -14,7 +14,7 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/theme-blue-green.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     @stack('styles')
 </head>
 <body style="overflow: hidden;">
@@ -36,9 +36,11 @@
     </div>
     <!-- Preloader End -->
     
-    <!-- Google Map Script -->
-    <script src="https://maps.google.com/maps/api/js?key=AIzaSyD6cxB4idvB67_Mz1ScQn-_nBJmltUaS-g"></script> 
-    <script src="{{ asset('assets/js/googleMap.js') }}"></script>
+    <!-- Google Map Script - Only load if map element exists -->
+    @if(View::hasSection('google-map'))
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyD6cxB4idvB67_Mz1ScQn-_nBJmltUaS-g&loading=async" async defer></script> 
+    <script src="{{ asset('assets/js/googleMap.js') }}" defer></script>
+    @endif
 
     <!-- JavaScript
     ================================================== -->

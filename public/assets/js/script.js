@@ -171,17 +171,36 @@
 	  }
 	}
 	
-	// Preloader
+	// Preloader with fallback timeout
 	var $preload = $('#preloader');
 	if ($preload.length > 0) {
-		$(window).on('load', function() {
-		  setTimeout(function() {
+		var hidePreloader = function() {
 			$preload.addClass('fade-out');
 			setTimeout(function() {
 				$preload.remove();
 				$('body').css({'overflow':'visible'});
 			}, 200);
-		  }, 100);
+		};
+		
+		// Hide on window load
+		$(window).on('load', function() {
+			setTimeout(hidePreloader, 100);
+		});
+		
+		// Fallback: Hide after max 2 seconds even if load event doesn't fire
+		setTimeout(function() {
+			if ($preload.length > 0 && $preload.is(':visible')) {
+				hidePreloader();
+			}
+		}, 2000);
+		
+		// Also hide when DOM is ready (faster fallback)
+		$(document).ready(function() {
+			setTimeout(function() {
+				if ($preload.length > 0 && $preload.is(':visible') && document.readyState === 'complete') {
+					hidePreloader();
+				}
+			}, 500);
 		});
 	}
 	
