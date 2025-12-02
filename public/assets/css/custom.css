@@ -2351,6 +2351,44 @@ html {
     margin-bottom: 20px;
 }
 
+.product-modal-full-description {
+    margin-bottom: 20px;
+}
+
+.product-modal-full-description a {
+    color: #19B2EB;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.product-modal-full-description a:hover,
+.product-modal-full-description a:focus {
+    color: #70D969;
+    text-decoration: none;
+}
+
+.product-modal-full-description a i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.product-modal-full-description a[aria-expanded="true"] i {
+    transform: rotate(180deg);
+}
+
+.product-modal-full-description .well {
+    margin-top: 10px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
 .product-modal-details {
     margin-top: 25px;
     padding-top: 25px;
