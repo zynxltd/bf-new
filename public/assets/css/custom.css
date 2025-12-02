@@ -707,6 +707,41 @@
         display: block;
     }
     
+    /* Mobile hero layout - reorder badge above title */
+    .hero-content-mobile {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-content-mobile .hero-badge {
+        order: 1;
+        margin-top: 0 !important;
+        margin-bottom: 15px;
+        font-size: 11px;
+        padding: 6px 16px;
+    }
+    
+    .hero-content-mobile .hero-title-gradient {
+        order: 2;
+        margin-top: 0 !important;
+    }
+    
+    .hero-content-mobile .hero-description {
+        order: 3;
+    }
+    
+    .hero-content-mobile .hero-sizes {
+        order: 4;
+    }
+    
+    .hero-content-mobile .hero-cta {
+        order: 5;
+    }
+    
+    .hero-content-mobile .buttons {
+        order: 6;
+    }
+    
     .hero-badge {
         font-size: 11px;
         padding: 6px 16px;
@@ -3125,17 +3160,20 @@ html {
         padding: 20px 0;
     }
     
-    /* Hero buttons stack on mobile */
+    /* Hero buttons horizontal on mobile */
     .header-section .buttons {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: center;
         gap: 15px;
+        flex-wrap: wrap;
     }
     
     .header-section .button {
-        width: 100%;
-        max-width: 100%;
-        min-width: auto;
+        flex: 0 1 auto;
+        min-width: 140px;
+        max-width: 180px;
+        width: auto;
     }
     
     /* Size badges stack on mobile */
@@ -3254,8 +3292,71 @@ html {
         padding: 10px 15px;
     }
     
+    .navbar-brand .logo {
+        max-height: 60px !important;
+        width: auto !important;
+        height: auto !important;
+    }
+    
     .navbar-brand img {
-        max-height: 50px;
+        max-height: 60px !important;
+        width: auto !important;
+    }
+}
+
+/* Mobile navbar logo size */
+@media (max-width: 767px) {
+    .navbar-brand .logo {
+        max-height: 70px !important;
+        width: auto !important;
+        height: auto !important;
+    }
+    
+    .navbar-brand img {
+        max-height: 70px !important;
+        width: auto !important;
+    }
+    
+    /* Hamburger menu styling */
+    .navbar-toggle {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        padding: 9px 10px;
+        margin-top: 8px;
+        margin-right: 15px;
+    }
+    
+    .navbar-toggle .icon-bar {
+        background-color: #fff;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+        display: block;
+        margin: 4px 0;
+    }
+    
+    .navbar-toggle:hover,
+    .navbar-toggle:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Mobile navigation menu */
+    .navbar-collapse {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+    
+    .navbar-nav > li > a {
+        color: #fff !important;
+        padding: 12px 15px;
+        text-align: center;
+    }
+    
+    .navbar-nav > li > a:hover,
+    .navbar-nav > li > a:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff !important;
     }
 }
 

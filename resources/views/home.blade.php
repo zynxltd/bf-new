@@ -23,6 +23,17 @@
                         <img class="logo logo-color" src="{{ asset('images/logo.png') }}" alt="logo" />
                     </a>
                 </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="site-collapse-nav">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#home" class="nav-item">Home</a></li>
+                        <li><a href="#about" class="nav-item">About</a></li>
+                        <li><a href="#features" class="nav-item">Features</a></li>
+                        <li><a href="#products" class="nav-item">Products</a></li>
+                        <li><a href="#videos" class="nav-item">Videos</a></li>
+                        <li><a href="#faq" class="nav-item">FAQ</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
         </nav>
     </div><!-- .navigation -->
@@ -31,7 +42,7 @@
         <div class="container">
             <div class="row row-vm">
                 <div class="col-md-7">
-                    <div class="header-texts tab-center mobile-center">
+                    <div class="header-texts tab-center mobile-center hero-content-mobile">
                         <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
                             <span>Premium Quality</span>
                         </div>
