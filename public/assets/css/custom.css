@@ -827,12 +827,13 @@
     height: 150px;
     width: 100%;
     background: url(../images/carb.png) bottom no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     position: absolute;
     bottom: -1px;
     left: 0;
     right: 0;
     z-index: 1;
+    pointer-events: none;
 }
 
 /* Ensure features section uses same gradient background as hero */
@@ -976,10 +977,27 @@
     z-index: 1;
 }
 
+/* Add carb pattern to bottom of products section */
+.products-section-bottom-curved::after {
+    display: block;
+    content: '';
+    height: 150px;
+    width: 100%;
+    background: url(../images/carb.png) bottom no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
 /* FAQ Section Enhancements */
 .faq-section {
     position: relative;
     background: #f8f9fa;
+    z-index: 1;
 }
 
 /* Add curved top pattern matching hero bottom */
@@ -1012,7 +1030,7 @@
 
 .faq-section .container {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 /* Additional Section Enhancements */
