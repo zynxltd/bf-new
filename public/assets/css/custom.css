@@ -1250,6 +1250,23 @@
     padding-top: 150px;
 }
 
+.faq-section .faq-alt {
+    width: 100%;
+}
+
+.faq-section .faq-alt .row {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.faq-section .faq-alt .col-md-10 {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+
 .faq-image {
     text-align: center;
     padding: 20px 0;
