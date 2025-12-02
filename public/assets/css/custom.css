@@ -751,17 +751,17 @@
 .features-curved-top::before {
     display: block;
     content: '';
-    height: 100%;
+    height: 120px;
     width: 100%;
     background: url(../images/carb.png) bottom no-repeat;
-    background-size: contain;
+    background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 2;
     transform: rotate(180deg);
-    transform-origin: center;
+    transform-origin: top center;
 }
 
 .features-section::before {
@@ -770,13 +770,13 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 100%;
+    height: 120px;
     width: 100%;
     background: url(../images/carb.png) bottom no-repeat;
-    background-size: contain;
-    z-index: 1;
+    background-size: cover;
+    z-index: 2;
     transform: rotate(180deg);
-    transform-origin: center;
+    transform-origin: top center;
 }
 
 .features-section .section-head .lead {
@@ -792,8 +792,13 @@
 
 .features-section .features-content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     padding-bottom: 100px;
+}
+
+.features-section .container {
+    position: relative;
+    z-index: 3;
 }
 
 .features-section img {
