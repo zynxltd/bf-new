@@ -1264,6 +1264,8 @@
 .faq-section .faq-alt .row.tab-fix {
     margin-left: 0 !important;
     margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
 }
 
 .faq-section .faq-alt .col-md-10 {
