@@ -503,6 +503,20 @@
     flex-direction: column;
 }
 
+/* Hide any data attributes that might display as text */
+.product-card[data-product-reviews],
+.product-card[data-product-videos],
+.product-card[data-product-delivery],
+.product-card[data-product-full-description] {
+    font-size: 0;
+    line-height: 0;
+}
+
+.product-card::after {
+    content: '';
+    display: none;
+}
+
 /* Clickable product cards */
 .product-card-clickable {
     cursor: pointer;
