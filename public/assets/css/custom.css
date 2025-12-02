@@ -1397,12 +1397,31 @@
 }
 
 .about-section .section-head ul li span {
-    font-weight: 700;
-    color: #19B2EB;
+    font-weight: 800;
+    background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 1px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
     display: inline-block;
+    margin-right: 8px;
+    position: relative;
+    padding-right: 12px;
+}
+
+.about-section .section-head ul li span::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
+    border-radius: 50%;
     margin-right: 6px;
 }
 
