@@ -276,14 +276,27 @@ body {
         margin-top: 0;
         padding: 20px 40px 30px 40px;
         background: #ffffff !important;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
         border-radius: 0 0 20px 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
         position: relative;
         overflow: visible;
         z-index: 999999998;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Force background visibility on scroll */
+    .navigation.scrolled .navbar-collapse::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #ffffff !important;
+        border-radius: 0 0 20px 20px;
+        z-index: -1;
     }
 
     .navigation.scrolled .navbar-collapse::after {
