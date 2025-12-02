@@ -599,6 +599,19 @@
     width: auto;
     height: auto;
     object-fit: contain;
+    display: block;
+}
+
+/* Hide empty product cards or cards with missing content */
+.product-card:empty,
+.product-card:not(:has(.product-image img[src])),
+.product-card:not(:has(.product-details)) {
+    display: none !important;
+}
+
+/* Ensure product card has minimum content */
+.product-card {
+    min-height: 400px;
 }
 
 .product-details {
