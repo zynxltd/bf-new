@@ -173,6 +173,14 @@
     line-height: 1.15;
     margin-bottom: 30px;
     color: #fff;
+}
+
+.hero-title-gradient {
+    background: linear-gradient(180deg, #ffffff 0%, #e8e8e8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     text-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
     letter-spacing: -1px;
     position: relative;

@@ -35,7 +35,7 @@
                         <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
                             <span>Premium Quality</span>
                         </div>
-                        <h2 class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">Superior Plant Food Plus</h2>
+                        <h2 class="hero-title-gradient wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">Superior Plant Food Plus</h2>
                         <p class="lead hero-description wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">Our best-ever formulation for use all round the garden for <strong>more flowers</strong>, <strong>more fruit</strong>, <strong>better roots</strong> and <strong>better shoots</strong>.</p>
                         <div class="hero-sizes wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
                             <span class="size-label">Available in 3 sizes:</span>
