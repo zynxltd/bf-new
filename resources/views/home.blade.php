@@ -84,11 +84,11 @@
                     <h2 class="heading">About <span>Superior Plant Food PLUS</span></h2>
                     <p class="lead">For stunning displays of first-class flowers and vegetables, this superior plant food is a high potency, professional grade fertiliser for use all year round in your garden, simply mix with water for incredible results.</p>
                     <ul>
-                        <li class="one"> <span>PACKED</span> with Potash for flowers, fruits and veg</li>
-                        <li class="one"> <span>JAMMED</span> with nitrogen and phosphorous for healthy leaves, shoots and roots</li>
-                        <li class="one"> <span>BRIMMING</span> with 7 vital trace elements for maximum health</li>
-                        <li class="one"> Plus we've added the magic ingredient – Humic Acid – to BOOST your plants</li>
-                        <li class="one"> Fast acting and long lasting – the best results for your money, makes approx 500 litres from a 500g bag</li>
+                        <li class="one"> <span><strong>PACKED</strong></span> with Potash for flowers, fruits and veg</li>
+                        <li class="one"> <span><strong>JAMMED</strong></span> with nitrogen and phosphorous for healthy leaves, shoots and roots</li>
+                        <li class="one"> <span><strong>BRIMMING</strong></span> with 7 vital trace elements for maximum health</li>
+                        <li class="one"> <strong>Plus</strong> we've added the magic ingredient – Humic Acid – to BOOST your plants</li>
+                        <li class="one"> <strong>Fast</strong> acting and long lasting – the best results for your money, makes approx 500 litres from a 500g bag</li>
                     </ul>
                 </div>
             </div>
@@ -800,6 +800,83 @@ From May to September feed your plants twice a week while watering.</p>
     </div><!-- .container  -->
 </div><!-- .faq-section  -->
 
+<!-- Start .guides-section  -->
+<div id="guides" class="guides-section section white-bg pt-120 pb-120">
+    <div class="container">
+        <div class="section-head text-center mb-60">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="heading">Latest <span>Guides</span></h2>
+                    <p class="lead">Expert gardening guides and tips to help you achieve the best results in your garden</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @php
+                $latestArticles = [
+                    [
+                        'slug' => 'complete-guide-to-plant-fertilizers',
+                        'title' => 'The Complete Guide to Plant Fertilizers: Understanding NPK and Essential Nutrients',
+                        'excerpt' => 'Discover everything you need to know about plant fertilizers, from understanding NPK ratios to choosing the right nutrients for your garden.',
+                        'image' => asset('images/superiorV4.png'),
+                        'date' => '2024-12-15',
+                        'category' => 'Gardening Tips',
+                        'reading_time' => 12
+                    ],
+                    [
+                        'slug' => 'maximizing-plant-growth-with-superior-fertilizers',
+                        'title' => 'Maximizing Plant Growth: How Superior Fertilizers Transform Your Garden',
+                        'excerpt' => 'Learn how professional-grade fertilizers can dramatically improve your garden\'s performance. From root development to flower production.',
+                        'image' => asset('images/bloom-booster-p1.jpg'),
+                        'date' => '2024-12-10',
+                        'category' => 'Plant Care',
+                        'reading_time' => 10
+                    ],
+                    [
+                        'slug' => 'complete-guide-to-plant-fertilizers',
+                        'title' => 'The Complete Guide to Plant Fertilizers: Understanding NPK and Essential Nutrients',
+                        'excerpt' => 'Discover everything you need to know about plant fertilizers, from understanding NPK ratios to choosing the right nutrients for your garden.',
+                        'image' => asset('images/superiorV4.png'),
+                        'date' => '2024-12-15',
+                        'category' => 'Gardening Tips',
+                        'reading_time' => 12
+                    ]
+                ];
+            @endphp
+
+            @foreach(array_slice($latestArticles, 0, 3) as $article)
+            <div class="col-md-4 mb-40">
+                <article class="blog-card white-bg">
+                    <div class="blog-image">
+                        <a href="{{ route('blog.show', $article['slug']) }}">
+                            <img src="{{ $article['image'] }}" alt="{{ $article['title'] }}" class="img-responsive" />
+                        </a>
+                        <div class="blog-category">{{ $article['category'] }}</div>
+                    </div>
+                    <div class="blog-content p-30">
+                        <div class="blog-meta mb-15">
+                            <span class="blog-date"><i class="fa fa-calendar"></i> {{ date('F j, Y', strtotime($article['date'])) }}</span>
+                            <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $article['reading_time'] }} min read</span>
+                        </div>
+                        <h3 class="blog-title mb-15">
+                            <a href="{{ route('blog.show', $article['slug']) }}">{{ $article['title'] }}</a>
+                        </h3>
+                        <p class="blog-excerpt mb-20">{{ $article['excerpt'] }}</p>
+                        <a href="{{ route('blog.show', $article['slug']) }}" class="button button-primary">Read Guide</a>
+                    </div>
+                </article>
+            </div>
+            @endforeach
+        </div>
+
+        <div class="text-center mt-40">
+            <a href="{{ route('blog.index') }}" class="button button-secondary">View All Guides</a>
+        </div>
+    </div>
+</div>
+<!-- End .guides-section  -->
+
 <!-- Start .footer-section  -->
 <div class="footer-section gradiant-background section pt-80 pb-40">
     <div class="container">
@@ -820,7 +897,9 @@ From May to September feed your plants twice a week while watering.</p>
                     <li><a href="#about" class="heading-light">About</a></li>
                     <li><a href="#features" class="heading-light">Features</a></li>
                     <li><a href="#products" class="heading-light">Products</a></li>
+                    <li><a href="#videos" class="heading-light">Videos</a></li>
                     <li><a href="#faq" class="heading-light">FAQ</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="heading-light">Blog & Guides</a></li>
                 </ul>
             </div><!-- .col -->
             
@@ -859,6 +938,19 @@ From May to September feed your plants twice a week while watering.</p>
             <div class="col-md-12">
                 <div class="footer-bottom text-center pt-40 border-top-footer">
                     <p class="heading-light mb-0">Copyright © {{ date('Y') }} Blooming Fast. All rights reserved.</p>
+                    @auth
+                    <p class="heading-light mt-10 mb-0">
+                        <a href="{{ route('admin.products.index') }}" class="heading-light" style="text-decoration: underline;">Admin Dashboard</a> | 
+                        <a href="{{ route('admin.logout') }}" class="heading-light" style="text-decoration: underline;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </p>
+                    @else
+                    <p class="heading-light mt-10 mb-0">
+                        <a href="{{ route('admin.login') }}" class="heading-light" style="text-decoration: underline;">Admin Login</a>
+                    </p>
+                    @endauth
                 </div>
             </div><!-- .col -->
         </div><!-- .row -->

@@ -268,7 +268,7 @@
         max-width: 90%;
         margin-top: 0;
         padding: 20px 40px 30px 40px;
-        background: rgba(255, 255, 255, 0.98) !important;
+        background: #ffffff !important;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: 0 0 20px 20px;
@@ -276,7 +276,7 @@
         position: relative;
         overflow: visible;
         z-index: 999999998;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .navigation.scrolled .navbar-collapse::after {
@@ -843,6 +843,9 @@
         display: inline-block;
         width: auto;
         max-width: fit-content;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .hero-description {
@@ -4367,6 +4370,30 @@ html {
     }
     
     .blog-card {
+        margin-bottom: 30px;
+    }
+}
+
+/* Guides Section Styles */
+.guides-section {
+    background: #ffffff;
+    padding: 80px 0;
+}
+
+.guides-section .blog-card {
+    height: 100%;
+}
+
+.guides-section .blog-title {
+    font-size: 20px;
+}
+
+@media (max-width: 767px) {
+    .guides-section {
+        padding: 60px 0;
+    }
+    
+    .guides-section .blog-card {
         margin-bottom: 30px;
     }
 }
