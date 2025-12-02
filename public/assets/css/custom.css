@@ -226,6 +226,16 @@
     margin-bottom: 10px;
 }
 
+/* Desktop logo size - slightly bigger */
+@media (min-width: 768px) {
+    .navbar-brand .logo,
+    .navbar-brand img {
+        max-height: 110px !important;
+        width: auto !important;
+        height: auto !important;
+    }
+}
+
 .logo.logo-light {
     margin-top: 4px;
     margin-bottom: 4px;
