@@ -2782,7 +2782,7 @@ html {
     }
     
     .product-modal-buttons .product-buttons {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
     }
     
