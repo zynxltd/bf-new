@@ -883,12 +883,20 @@ $(document).ready(function() {
         
         // Populate videos if available
         if (videos) {
-            // Create a temporary element to decode HTML entities
-            var tempDiv = document.createElement('div');
-            tempDiv.innerHTML = videos;
-            var decodedVideos = tempDiv.innerHTML;
-            $('#modalProductVideosContent').html(decodedVideos);
-            $('.product-modal-videos').show();
+            // Get the raw attribute value to avoid jQuery's automatic decoding
+            var rawVideos = $card.attr('data-product-videos');
+            if (rawVideos) {
+                // Create a temporary element to decode HTML entities
+                var tempDiv = document.createElement('div');
+                tempDiv.textContent = rawVideos;
+                var decodedVideos = tempDiv.innerHTML;
+                $('#modalProductVideosContent').html(decodedVideos);
+                $('.product-modal-videos').show();
+            } else {
+                // Fallback: try using the data() value directly
+                $('#modalProductVideosContent').html(videos);
+                $('.product-modal-videos').show();
+            }
         } else {
             $('.product-modal-videos').hide();
         }
