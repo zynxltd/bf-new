@@ -619,7 +619,7 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
 </div>
 
 <!-- Start .faq-section-new  -->
-<div id="faq" class="faq-section section white-bg pt-120 pb-120">
+<div id="faq" class="faq-section faq-curved-top section pt-120 pb-120">
     <div class="container">
         <div class="section-head text-center mb-60">
             <div class="row">
