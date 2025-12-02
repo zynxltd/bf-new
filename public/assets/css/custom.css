@@ -1285,11 +1285,9 @@
 /* FAQ Section Enhancements */
 .faq-section {
     position: relative;
-    background: #ffffff !important;
+    background: #f8f9fa !important;
     z-index: 1;
-    margin-top: -150px;
-    padding-top: 150px;
-    padding-bottom: 100px;
+    overflow: hidden;
 }
 
 .faq-section.white-bg {
