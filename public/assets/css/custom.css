@@ -3160,6 +3160,41 @@ html {
         padding: 20px 0;
     }
     
+    /* Mobile hero layout - reorder badge above title */
+    .hero-content-mobile {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-content-mobile .hero-badge {
+        order: 1;
+        margin-top: 0 !important;
+        margin-bottom: 15px;
+        font-size: 11px;
+        padding: 6px 16px;
+    }
+    
+    .hero-content-mobile .hero-title-gradient {
+        order: 2;
+        margin-top: 0 !important;
+    }
+    
+    .hero-content-mobile .hero-description {
+        order: 3;
+    }
+    
+    .hero-content-mobile .hero-sizes {
+        order: 4;
+    }
+    
+    .hero-content-mobile .hero-cta {
+        order: 5;
+    }
+    
+    .hero-content-mobile .buttons {
+        order: 6;
+    }
+    
     /* Hero buttons horizontal on mobile */
     .header-section .buttons {
         flex-direction: row !important;
