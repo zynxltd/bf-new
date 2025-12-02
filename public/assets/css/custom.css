@@ -76,12 +76,7 @@
 .header-section {
     position: relative;
     overflow: hidden;
-}
-
-/* Ensure hero background gradient is not overridden */
-.header-section.gradiant-background {
-    background-image: -o-linear-gradient(157deg, #70D969 0%, #19B2EB 100%);
-    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
+    /* Background uses original gradiant-background class from theme */
 }
 
 .header-texts {
