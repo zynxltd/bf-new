@@ -1134,19 +1134,35 @@
     content: '';
     height: 150px;
     width: 100%;
-    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
-    background-image: url(../images/carb.png);
-    background-position: bottom;
-    background-repeat: no-repeat;
+    background: url(../images/carb.png) bottom no-repeat;
     background-size: cover;
-    background-blend-mode: multiply;
+    background-color: transparent;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: -1 !important;
+    z-index: 0 !important;
     pointer-events: none;
     transform: rotate(180deg);
+    opacity: 0.3;
+    filter: hue-rotate(0deg) saturate(1.2);
+}
+
+.about-section-bottom-curved {
+    position: relative;
+}
+
+.about-section-bottom-curved::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    width: 100%;
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .about-section::before {
