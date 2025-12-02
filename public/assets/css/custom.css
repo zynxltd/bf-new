@@ -2605,6 +2605,17 @@ html {
     .faq-section .panel-body {
         padding: 15px 20px;
     }
+    
+    /* FAQ Image Sidebar Mobile */
+    .faq-section .faq-image-sidebar {
+        margin-bottom: 30px;
+        padding: 0;
+    }
+    
+    .faq-section .faq-alt .col-md-8 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
 /* Comprehensive Mobile Optimizations */
