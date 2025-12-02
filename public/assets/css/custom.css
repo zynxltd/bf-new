@@ -1149,6 +1149,18 @@
     padding-top: 150px;
 }
 
+.faq-image {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.faq-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
 /* Add curved top pattern matching hero bottom */
 .faq-curved-top::before {
     display: block;

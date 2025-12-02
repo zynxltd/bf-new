@@ -596,7 +596,14 @@
         </div><!-- .section-head -->
         <div class="faq-alt">
             <div class="row tab-fix">
-                <div class="col-md-10 col-md-offset-1">
+                <!-- Left Column - Image -->
+                <div class="col-md-5">
+                    <div class="faq-image wow fadeInLeft" data-wow-duration=".5s">
+                        <img src="{{ asset('images/superiorV4.png') }}" alt="Superior Plant Food" class="img-responsive" />
+                    </div>
+                </div>
+                <!-- Right Column - Accordion -->
+                <div class="col-md-7">
                     <!-- Accordion -->
                     <div class="panel-group accordion" id="another" role="tablist" aria-multiselectable="true">
                         <!-- each panel for accordion -->
@@ -746,7 +753,7 @@ From May to September feed your plants twice a week while watering.</p>
                         </div>
                         
                     </div><!-- Accordion #end -->
-                </div><!-- .col  -->
+                </div><!-- .col-md-7  -->
             </div><!-- .row  -->
         </div><!-- .faq  -->
     </div><!-- .container  -->
