@@ -2742,6 +2742,8 @@ html {
 .product-modal-buttons .product-buttons {
     justify-content: stretch;
     width: 100%;
+    flex-direction: row;
+    display: flex;
 }
 
 .product-modal-buttons .product-buttons li {
