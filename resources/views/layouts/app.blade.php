@@ -36,6 +36,46 @@
     </div>
     <!-- Preloader End -->
     
+    <!-- Inline preloader script - runs immediately without jQuery -->
+    <script>
+    (function() {
+        var preloader = document.getElementById('preloader');
+        var hidden = false;
+        var hide = function() {
+            if (hidden || !preloader) return;
+            hidden = true;
+            preloader.classList.add('fade-out');
+            setTimeout(function() {
+                if (preloader && preloader.parentNode) {
+                    preloader.remove();
+                }
+                document.body.style.overflow = 'visible';
+            }, 150);
+        };
+        
+        // Hide after 300ms maximum
+        setTimeout(hide, 300);
+        
+        // Hide on load
+        if (document.readyState === 'complete') {
+            setTimeout(hide, 50);
+        } else {
+            window.addEventListener('load', function() {
+                setTimeout(hide, 50);
+            });
+        }
+        
+        // Hide when DOM ready
+        if (document.readyState !== 'loading') {
+            setTimeout(hide, 200);
+        } else {
+            document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(hide, 200);
+            });
+        }
+    })();
+    </script>
+    
     <!-- Google Map Script - Only load if map element exists -->
     @if(View::hasSection('google-map'))
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyD6cxB4idvB67_Mz1ScQn-_nBJmltUaS-g&loading=async" async defer></script> 
