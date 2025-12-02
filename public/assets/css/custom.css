@@ -925,7 +925,7 @@
     padding-top: 150px;
 }
 
-/* Add carb pattern to bottom of features section - matching hero exactly */
+/* Add carb pattern to bottom of features section - white and flipped upside down */
 .features-section-bottom-curved::after {
     display: block !important;
     content: '';
@@ -933,13 +933,15 @@
     width: 100%;
     background: url(../images/carb.png) bottom no-repeat;
     background-size: cover;
+    background-color: #ffffff;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     z-index: 2;
     pointer-events: none;
-    transform: scaleY(-1);
+    transform: rotate(180deg);
+    filter: brightness(0) invert(1);
 }
 
 /* Ensure features section uses same gradient background as hero */
