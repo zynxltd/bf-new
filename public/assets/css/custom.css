@@ -1062,7 +1062,7 @@
 /* Enhanced Product Cards */
 .product-card {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .product-card::before {
