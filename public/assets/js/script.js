@@ -171,37 +171,43 @@
 	  }
 	}
 	
-	// Preloader with fallback timeout
+	// Preloader with aggressive fallback timeouts
 	var $preload = $('#preloader');
-	if ($preload.length > 0) {
-		var hidePreloader = function() {
-			$preload.addClass('fade-out');
+	var preloaderHidden = false;
+	
+	var hidePreloader = function() {
+		if (preloaderHidden) return;
+		preloaderHidden = true;
+		
+		var preloader = document.getElementById('preloader');
+		if (preloader) {
+			preloader.classList.add('fade-out');
 			setTimeout(function() {
-				$preload.remove();
+				if (preloader && preloader.parentNode) {
+					preloader.remove();
+				}
+				document.body.style.overflow = 'visible';
 				$('body').css({'overflow':'visible'});
-			}, 200);
-		};
+			}, 150);
+		}
+	};
+	
+	if ($preload.length > 0) {
+		// Immediate fallback - hide after 300ms no matter what
+		setTimeout(hidePreloader, 300);
 		
 		// Hide on window load
 		$(window).on('load', function() {
-			setTimeout(hidePreloader, 100);
+			setTimeout(hidePreloader, 50);
 		});
 		
-		// Fallback: Hide after max 2 seconds even if load event doesn't fire
-		setTimeout(function() {
-			if ($preload.length > 0 && $preload.is(':visible')) {
-				hidePreloader();
-			}
-		}, 2000);
-		
-		// Also hide when DOM is ready (faster fallback)
+		// Also hide when DOM is ready
 		$(document).ready(function() {
-			setTimeout(function() {
-				if ($preload.length > 0 && $preload.is(':visible') && document.readyState === 'complete') {
-					hidePreloader();
-				}
-			}, 500);
+			setTimeout(hidePreloader, 200);
 		});
+		
+		// Final fallback after 1 second
+		setTimeout(hidePreloader, 1000);
 	}
 	
 	//WOW init
