@@ -634,7 +634,7 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
                 <!-- Left Column - Image -->
                 <div class="col-md-4">
                     <div class="faq-image-sidebar">
-                        <img src="{{ asset('images/faq-flowers.jpg') }}" alt="Beautiful flowers" class="img-responsive" />
+                        <img src="{{ asset('images/superiorV4.png') }}" alt="Beautiful flowers" class="img-responsive" />
                     </div>
                 </div>
                 <!-- Right Column - FAQ Content -->
