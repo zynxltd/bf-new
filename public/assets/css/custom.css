@@ -319,7 +319,7 @@
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.3),
         transparent
     );
     transform: skewX(-20deg);
@@ -419,6 +419,44 @@
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.95);
     animation: fadeInUp 0.6s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: badgeShine 3s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-badge span {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes badgeShine {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 150%;
+    }
+    100% {
+        left: 150%;
+    }
 }
 
 .hero-badge span {
