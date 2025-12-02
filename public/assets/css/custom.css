@@ -2353,12 +2353,12 @@ html {
         font-size: 13px;
     }
     
-    .product-buttons {
+    .product-buttons:not(.product-modal-buttons .product-buttons) {
         flex-direction: column;
         gap: 10px;
     }
     
-    .product-button {
+    .product-button:not(.product-modal-buttons .product-button) {
         width: 100%;
         max-width: 100%;
         min-width: auto;
@@ -2750,12 +2750,14 @@ html {
 .product-modal-buttons .product-buttons {
     justify-content: stretch;
     width: 100%;
-    flex-direction: row;
-    display: flex;
+    flex-direction: row !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
 }
 
 .product-modal-buttons .product-buttons li {
     flex: 1 1 50%;
+    margin: 0;
 }
 
 .product-modal-buttons .product-button {
@@ -2782,8 +2784,13 @@ html {
     }
     
     .product-modal-buttons .product-buttons {
-        flex-direction: row;
+        flex-direction: row !important;
         gap: 10px;
+        flex-wrap: nowrap !important;
+    }
+    
+    .product-modal-buttons .product-buttons li {
+        flex: 1 1 50% !important;
     }
     
     .product-modal-buttons .product-button {
