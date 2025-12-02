@@ -119,8 +119,8 @@
 .navbar-brand .logo {
     position: relative;
     z-index: 99999999 !important;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .logo.logo-light {
