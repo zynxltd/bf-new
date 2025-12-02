@@ -72,6 +72,13 @@
     }
 }
 
+/* Logo z-index fix */
+.navbar-brand,
+.navbar-brand .logo {
+    position: relative;
+    z-index: 9999 !important;
+}
+
 /* Enhanced Hero Content - Background preserved from original theme */
 .header-section {
     position: relative;
@@ -720,6 +727,18 @@
 .features-section {
     position: relative;
     overflow: hidden;
+}
+
+/* Add grey bottom to features section */
+.features-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: #f8f9fa;
+    z-index: 0;
 }
 
 /* Ensure features section uses same gradient background as hero */
