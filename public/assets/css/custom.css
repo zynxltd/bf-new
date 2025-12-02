@@ -1384,7 +1384,7 @@
 .products-section {
     position: relative;
     overflow: visible;
-    z-index: 1;
+    z-index: 0;
     margin-top: -200px;
     padding-top: 200px;
     animation: fadeInUp 1s ease-out;
@@ -1449,7 +1449,7 @@
     top: -1px;
     left: 0;
     right: 0;
-    z-index: 0 !important;
+    z-index: -1 !important;
     pointer-events: none;
 }
 
