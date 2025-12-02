@@ -834,8 +834,13 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    height: 100%;
+    width: 100%;
+    background: url(../images/carb.png) bottom no-repeat;
+    background-size: contain;
+    z-index: 1;
+    transform: rotate(180deg);
+    transform-origin: center;
 }
 
 .products-section .section-head .lead {
