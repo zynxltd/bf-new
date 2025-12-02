@@ -3587,9 +3587,9 @@ html {
         background-color: rgba(255, 255, 255, 0.1);
     }
     
-    /* Hide navigation links on desktop */
+    /* Hide navigation links on desktop by default, show on scroll */
     @media (min-width: 768px) {
-        .navbar-collapse {
+        .navbar-collapse:not(.navigation.scrolled .navbar-collapse) {
             display: none !important;
         }
         
