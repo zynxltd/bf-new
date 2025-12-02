@@ -413,6 +413,8 @@
                             </a>
                             <div class="collapse" id="modalProductReviews">
                                 <div class="well" id="modalProductReviewsContent">
+                                    <!-- Feefo Reviews Widget will be loaded here -->
+                                    <div id="feefo-reviews-widget" data-feefo-product-id=""></div>
                                 </div>
                             </div>
                         </div>
@@ -743,10 +745,48 @@ $(document).ready(function() {
             $('.product-modal-videos').hide();
         }
         
-        // Populate reviews if available
+        // Populate Feefo reviews if available
         if (reviews) {
-            $('#modalProductReviewsContent').html(reviews);
-            $('.product-modal-reviews').show();
+            // Clear previous content
+            $('#modalProductReviewsContent').html('<div id="feefo-reviews-widget"></div>');
+            
+            // If reviews is a Feefo product ID (format: feefo:PRODUCT_ID), load Feefo widget
+            if (reviews.startsWith('feefo:')) {
+                var feefoProductId = reviews.replace('feefo:', '');
+                var feefoWidget = '<div class="feefo-review-widget" data-feefo-product-id="' + feefoProductId + '"></div>';
+                $('#feefo-reviews-widget').html(feefoWidget);
+                
+                // Load Feefo widget script if not already loaded
+                if (typeof window.feefoWidgetLoaded === 'undefined') {
+                    var feefoScript = document.createElement('script');
+                    feefoScript.src = 'https://api.feefo.com/api/javascript/bloomingfast';
+                    feefoScript.async = true;
+                    feefoScript.onload = function() {
+                        if (typeof Feefo !== 'undefined') {
+                            Feefo.init();
+                        }
+                    };
+                    document.head.appendChild(feefoScript);
+                    window.feefoWidgetLoaded = true;
+                } else if (typeof Feefo !== 'undefined') {
+                    Feefo.init();
+                }
+                
+                $('.product-modal-reviews').show();
+            } else {
+                // Fallback: Use iframe embed for Feefo reviews
+                // Format: feefo-embed:WIDGET_URL
+                if (reviews.startsWith('feefo-embed:')) {
+                    var embedUrl = reviews.replace('feefo-embed:', '');
+                    var iframeHtml = '<iframe src="' + embedUrl + '" width="100%" height="600" frameborder="0" style="border: none;"></iframe>';
+                    $('#feefo-reviews-widget').html(iframeHtml);
+                    $('.product-modal-reviews').show();
+                } else {
+                    // Legacy HTML reviews (fallback)
+                    $('#modalProductReviewsContent').html(reviews);
+                    $('.product-modal-reviews').show();
+                }
+            }
         } else {
             $('.product-modal-reviews').hide();
         }
