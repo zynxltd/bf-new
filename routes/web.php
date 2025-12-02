@@ -8,6 +8,15 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// Blog Routes
+Route::get('/blog', function () {
+    return view('blog.index');
+})->name('blog.index');
+
+Route::get('/blog/{slug}', function ($slug) {
+    return view('blog.show', compact('slug'));
+})->name('blog.show');
+
 // Admin Authentication Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
