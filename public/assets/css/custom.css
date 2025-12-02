@@ -1290,6 +1290,29 @@
     max-width: 900px;
 }
 
+/* FAQ Sidebar - 1/4 column */
+.faq-section .faq-sidebar {
+    padding: 20px;
+    position: sticky;
+    top: 100px;
+}
+
+/* FAQ Content - 3/4 column */
+.faq-section .faq-alt .col-md-9 {
+    padding-left: 30px;
+}
+
+/* Remove tab-fix constraints for 2-column layout */
+.faq-section .faq-alt .row:not(.tab-fix) {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.faq-section .faq-alt .row.tab-fix {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
 .faq-image {
     text-align: center;
     padding: 20px 0;

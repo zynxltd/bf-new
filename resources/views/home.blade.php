@@ -605,7 +605,7 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
 </div>
 
 <!-- Start .faq-section-new  -->
-<div id="faq-new" class="faq-section section white-bg pt-120 pb-120">
+<div id="faq" class="faq-section section white-bg pt-120 pb-120">
     <div class="container">
         <div class="section-head text-center mb-60">
             <div class="row">
@@ -616,8 +616,15 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
             </div>
         </div><!-- .section-head -->
         <div class="faq-alt">
-            <div class="row tab-fix">
-                <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <!-- Left Column - 1/4 -->
+                <div class="col-md-3">
+                    <div class="faq-sidebar">
+                        <!-- Add sidebar content here if needed -->
+                    </div>
+                </div>
+                <!-- Right Column - 3/4 -->
+                <div class="col-md-9">
                     <!-- Accordion -->
                     <div class="panel-group accordion" id="faq-new-accordion" role="tablist" aria-multiselectable="true">
                         <!-- each panel for accordion -->
@@ -767,11 +774,11 @@ From May to September feed your plants twice a week while watering.</p>
                         </div>
                         
                     </div><!-- Accordion #end -->
-                </div><!-- .col  -->
+                </div><!-- .col-md-9  -->
             </div><!-- .row  -->
         </div><!-- .faq  -->
     </div><!-- .container  -->
-</div><!-- .faq-section-new  -->
+</div><!-- .faq-section  -->
 
 <!-- Start .footer-section  -->
 <div class="footer-section gradiant-background section pt-80 pb-40">
