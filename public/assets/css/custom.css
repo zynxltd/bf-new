@@ -789,19 +789,19 @@
     z-index: 0;
 }
 
-/* Add carb pattern to bottom of features section */
+/* Add carb pattern to bottom of features section - matching hero exactly */
 .features-section-bottom-curved::after {
+    display: block;
     content: '';
+    height: 100%;
+    width: 100%;
+    background: url(../images/carb.png) bottom no-repeat;
+    background-size: contain;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 120px;
-    width: 100%;
-    background: url(../images/carb.png) bottom no-repeat;
-    background-size: cover;
-    z-index: 2;
-    pointer-events: none;
+    z-index: 1;
 }
 
 /* Ensure features section uses same gradient background as hero */
