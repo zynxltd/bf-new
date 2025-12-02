@@ -145,6 +145,121 @@
     animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
+/* Hero Badge */
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.95);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-badge span {
+    position: relative;
+    padding-left: 20px;
+}
+
+.hero-badge span::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFD700;
+    font-size: 14px;
+}
+
+/* Enhanced hero description */
+.hero-description {
+    font-size: 22px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 25px !important;
+    color: rgba(255, 255, 255, 0.98) !important;
+    font-weight: 400 !important;
+}
+
+.hero-description strong {
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+}
+
+.hero-description strong::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 1px;
+}
+
+/* Hero sizes section */
+.hero-sizes {
+    margin: 30px 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.size-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.size-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.size-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
+}
+
+.size-badge:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero CTA heading */
+.hero-cta {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    margin-top: 30px !important;
+    margin-bottom: 25px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    letter-spacing: 0.3px;
+}
+
 .header-content {
     position: relative;
     z-index: 5;
