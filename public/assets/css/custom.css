@@ -783,6 +783,30 @@
     z-index: 2;
 }
 
+/* About Section Feefo Reviews */
+.about-feefo-reviews {
+    margin-top: 60px;
+    padding: 40px 0;
+}
+
+.about-feefo-reviews h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#about-feefo-reviews-widget {
+    min-height: 400px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#about-feefo-reviews-widget iframe {
+    border-radius: 8px;
+}
+
 /* Add carb pattern to top of about section */
 .about-section-top-curved::before {
     display: block !important;
