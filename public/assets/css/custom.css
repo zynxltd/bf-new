@@ -38,7 +38,7 @@
     height: auto;
     margin-bottom: 30px;
     animation: fadeInScale 1s ease-out;
-    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3));
+    filter: brightness(0) invert(1) drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3));
 }
 
 .preloader-dots {
@@ -1665,6 +1665,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 450px;
 }
 
 .video-card:hover {
@@ -1675,11 +1676,14 @@
 .video-thumbnail {
     position: relative;
     height: 250px;
+    min-height: 250px;
+    max-height: 250px;
     overflow: hidden;
     background: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .video-thumbnail img {
@@ -1736,9 +1740,10 @@
 }
 
 .video-details {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    min-height: 200px;
 }
 
 .video-title {
