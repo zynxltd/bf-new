@@ -27,7 +27,7 @@
         </nav>
     </div><!-- .navigation -->
     
-    <div class="header-content pt-120">
+    <div class="header-content">
         <div class="container">
             <div class="row row-vm">
                 <div class="col-md-7">
