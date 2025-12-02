@@ -32,6 +32,7 @@
                         <li><a href="#products" class="nav-item">Products</a></li>
                         <li><a href="#videos" class="nav-item">Videos</a></li>
                         <li><a href="#faq" class="nav-item">FAQ</a></li>
+                        <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
