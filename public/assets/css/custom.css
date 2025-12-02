@@ -1433,18 +1433,6 @@
     z-index: 2;
     pointer-events: none;
 }
-    right: 0;
-    z-index: 2;
-    pointer-events: none;
-    background-size: contain;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    transform: rotate(180deg);
-    transform-origin: center;
-}
 
 .faq-section::before {
     content: '';
