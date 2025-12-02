@@ -9,10 +9,12 @@
     height: 100%;
     background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
     z-index: 999999;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    visibility: visible;
+    opacity: 1;
 }
 
 #preloader.fade-out {
@@ -266,7 +268,7 @@
         max-width: 90%;
         margin-top: 0;
         padding: 20px 40px 30px 40px;
-        background: #ffffff !important;
+        background: rgba(255, 255, 255, 0.98) !important;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: 0 0 20px 20px;
@@ -274,6 +276,7 @@
         position: relative;
         overflow: visible;
         z-index: 999999998;
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .navigation.scrolled .navbar-collapse::after {
@@ -1720,7 +1723,7 @@
     top: -1px;
     left: 0;
     right: 0;
-    z-index: -1 !important;
+    z-index: -10 !important;
     pointer-events: none;
 }
 

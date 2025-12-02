@@ -17,7 +17,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     @stack('styles')
 </head>
-<body>
+<body style="overflow: hidden;">
     
     @yield('content')
     
