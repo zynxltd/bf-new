@@ -1255,16 +1255,28 @@
 }
 
 .faq-section .faq-alt .row {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     display: flex;
     justify-content: center;
 }
 
+.faq-section .faq-alt .row.tab-fix {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
 .faq-section .faq-alt .col-md-10 {
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.faq-section .faq-alt .col-md-offset-1 {
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .faq-image {
