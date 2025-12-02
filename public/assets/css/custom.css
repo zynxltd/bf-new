@@ -73,10 +73,24 @@
 }
 
 /* Logo z-index fix */
-.navbar-brand,
+.navbar-brand {
+    position: relative;
+    z-index: 9999 !important;
+}
+
 .navbar-brand .logo {
     position: relative;
     z-index: 9999 !important;
+}
+
+.navigation {
+    position: relative;
+    z-index: 9998 !important;
+}
+
+.navbar {
+    position: relative;
+    z-index: 9998 !important;
 }
 
 /* Enhanced Hero Content - Background preserved from original theme */
@@ -466,6 +480,16 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+/* Clickable product cards */
+.product-card-clickable {
+    cursor: pointer;
+}
+
+.product-card-clickable:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .product-card:hover {
@@ -2163,6 +2187,94 @@ html {
     
     .features-section .single-features p {
         font-size: 12px;
+    }
+}
+
+/* Product Modal Styles */
+#productModal .modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+#productModal .modal-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding: 20px 30px;
+}
+
+#productModal .modal-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+#productModal .modal-body {
+    padding: 30px;
+}
+
+.product-modal-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-modal-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-modal-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.product-modal-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.product-modal-specs {
+    margin-bottom: 25px;
+}
+
+.product-modal-buttons {
+    margin-top: 30px;
+}
+
+.product-modal-buttons .product-buttons {
+    justify-content: flex-start;
+}
+
+@media (max-width: 767px) {
+    #productModal .modal-dialog {
+        margin: 10px;
+    }
+    
+    #productModal .modal-body {
+        padding: 20px;
+    }
+    
+    .product-modal-title {
+        font-size: 22px;
+    }
+    
+    .product-modal-description {
+        font-size: 14px;
+    }
+    
+    .product-modal-buttons .product-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .product-modal-buttons .product-button {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
