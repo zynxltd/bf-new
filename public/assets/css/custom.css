@@ -783,27 +783,36 @@
     z-index: 2;
 }
 
-/* About Section Feefo Reviews */
-.about-feefo-reviews {
-    margin-top: 60px;
+/* Customer Reviews Section */
+.customer-reviews-section {
+    position: relative;
+    background: #ffffff;
+}
+
+.customer-reviews-content {
     padding: 40px 0;
 }
 
-.about-feefo-reviews h3 {
-    font-size: 32px;
+.customer-reviews-content h3 {
+    font-size: 36px;
     font-weight: 600;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
-#about-feefo-reviews-widget {
+.customer-reviews-content h3 span {
+    color: #19B2EB;
+}
+
+#customer-reviews-widget {
     min-height: 400px;
     background: #f8f9fa;
-    border-radius: 8px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-#about-feefo-reviews-widget iframe {
+#customer-reviews-widget iframe {
     border-radius: 8px;
 }
 
