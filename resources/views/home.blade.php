@@ -356,7 +356,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-12">
                         <div id="productModalCarousel" class="carousel slide product-modal-carousel" data-ride="carousel" data-interval="false">
                             <!-- Indicators -->
                             <ol class="carousel-indicators" id="modalCarouselIndicators">
@@ -377,7 +377,9 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-7">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <h3 id="modalProductTitle" class="product-modal-title"></h3>
                         <p id="modalProductDescription" class="product-modal-description"></p>
                         <div id="modalProductSpecs" class="product-modal-specs mb-20"></div>
