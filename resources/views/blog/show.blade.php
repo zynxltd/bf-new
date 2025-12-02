@@ -94,9 +94,40 @@
                     @endif
                 </header>
 
+                <!-- Reading Progress Bar -->
+                <div class="reading-progress-container">
+                    <div class="reading-progress-bar" id="readingProgress"></div>
+                </div>
+
                 <div class="row">
-                    <!-- Main Content - Full Width -->
-                    <div class="col-md-10 col-md-offset-1">
+                    <!-- Sidebar with Table of Contents -->
+                    @if(count($toc) > 0)
+                    <div class="col-md-3">
+                        <aside class="blog-sidebar">
+                            <div class="toc-widget">
+                                <h3 class="toc-title">Table of Contents</h3>
+                                <nav class="toc-nav">
+                                    <ul>
+                                        @foreach($toc as $item)
+                                        <li class="toc-level-{{ $item['level'] }}">
+                                            <a href="#{{ $item['id'] }}">{{ $item['text'] }}</a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </nav>
+                            </div>
+
+                            <div class="blog-cta-widget mt-30">
+                                <h4>Shop Our Products</h4>
+                                <p>Discover our range of premium plant foods and fertilizers</p>
+                                <a href="{{ route('home') }}#products" class="button button-primary">View Products</a>
+                            </div>
+                        </aside>
+                    </div>
+                    @endif
+
+                    <!-- Main Content -->
+                    <div class="{{ count($toc) > 0 ? 'col-md-9' : 'col-md-10 col-md-offset-1' }}">
                         <article class="blog-post-content">
                             {!! $article->content !!}
                         </article>
@@ -117,5 +148,45 @@
 
 <!-- Footer -->
 @include('partials.footer')
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    // Reading progress indicator
+    var $progressBar = $('#readingProgress');
+    var $article = $('.blog-post-content');
+    
+    if ($progressBar.length && $article.length) {
+        var articleTop = $article.offset().top;
+        var articleHeight = $article.outerHeight();
+        var windowHeight = $(window).height();
+        var documentHeight = $(document).height();
+        
+        $(window).on('scroll', function() {
+            var scrollTop = $(window).scrollTop();
+            var scrollPercent = 0;
+            
+            if (scrollTop >= articleTop) {
+                var scrolled = scrollTop - articleTop;
+                scrollPercent = Math.min((scrolled / articleHeight) * 100, 100);
+            }
+            
+            $progressBar.css('width', scrollPercent + '%');
+        });
+    }
+    
+    // Smooth scroll for TOC links
+    $('.toc-nav a').on('click', function(e) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: target.offset().top - 100
+            }, 600);
+        }
+    });
+});
+</script>
+@endpush
 @endsection
 

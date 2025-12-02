@@ -56,25 +56,23 @@
 	});
 	
 	// Add scroll class to navigation for glass effect
-	$win.on('scroll load', function() {
+	function updateNavigationScroll() {
 		if ($win.scrollTop() > 50) {
 			$('#navigation').addClass('scrolled');
 		} else {
 			$('#navigation').removeClass('scrolled');
 		}
-	});
+	}
+	
+	$win.on('scroll', updateNavigationScroll);
+	$win.on('load', updateNavigationScroll);
 	
 	// Trigger on page load if already scrolled
 	$(document).ready(function() {
-		if ($win.scrollTop() > 50) {
-			$('#navigation').addClass('scrolled');
-		}
+		updateNavigationScroll();
 		// Also check after a short delay to ensure it works
-		setTimeout(function() {
-			if ($win.scrollTop() > 50) {
-				$('#navigation').addClass('scrolled');
-			}
-		}, 100);
+		setTimeout(updateNavigationScroll, 100);
+		setTimeout(updateNavigationScroll, 300);
 	});
 	
 	//magnificPopup	Video
