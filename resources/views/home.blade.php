@@ -616,15 +616,8 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
             </div>
         </div><!-- .section-head -->
         <div class="faq-alt">
-            <div class="row">
-                <!-- Left Column - 1/4 -->
-                <div class="col-md-3">
-                    <div class="faq-sidebar">
-                        <!-- Add sidebar content here if needed -->
-                    </div>
-                </div>
-                <!-- Right Column - 3/4 -->
-                <div class="col-md-9">
+            <div class="row tab-fix">
+                <div class="col-md-10 col-md-offset-1">
                     <!-- Accordion -->
                     <div class="panel-group accordion" id="faq-new-accordion" role="tablist" aria-multiselectable="true">
                         <!-- each panel for accordion -->
@@ -774,7 +767,7 @@ From May to September feed your plants twice a week while watering.</p>
                         </div>
                         
                     </div><!-- Accordion #end -->
-                </div><!-- .col-md-9  -->
+                </div><!-- .col  -->
             </div><!-- .row  -->
         </div><!-- .faq  -->
     </div><!-- .container  -->
