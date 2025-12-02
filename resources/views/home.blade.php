@@ -344,6 +344,129 @@
     </div><!-- .container -->
 </div><!-- .products-section  -->
 
+<!-- Start .videos-section  -->
+<div id="videos" class="videos-section section white-bg pt-120 pb-120 videos-curved-top">
+    <div class="container">
+        <div class="section-head text-center">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 class="heading">Product <span>Videos</span></h2>
+                    <p class="lead">Watch our product videos to learn more about how to use our plant foods and fertilisers for the best results in your garden.</p>
+                </div>
+            </div>
+        </div><!-- .section-head -->
+        
+        <div class="videos-content pt-60">
+            <div class="row">
+                <!-- Video 1: Superior Soluble Fertiliser -->
+                <div class="col-md-4 col-sm-6 mb-40">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s">
+                        <div class="video-thumbnail">
+                            <img src="{{ asset('images/superiorV4.png') }}" alt="Superior Soluble Fertiliser" class="img-responsive" />
+                            <div class="video-overlay gradiant-background"></div>
+                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                        </div>
+                        <div class="video-details p-30">
+                            <h4 class="video-title mb-15">Superior Soluble Fertiliser</h4>
+                            <p class="video-description">Learn how to use our best-ever formulation for incredible results in your garden.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2: Ultimate Rose Bloom Booster -->
+                <div class="col-md-4 col-sm-6 mb-40">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">
+                        <div class="video-thumbnail">
+                            <img src="{{ asset('images/bloom-booster-p1.jpg') }}" alt="Ultimate Rose Bloom Booster" class="img-responsive" />
+                            <div class="video-overlay gradiant-background"></div>
+                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                        </div>
+                        <div class="video-details p-30">
+                            <h4 class="video-title mb-15">Ultimate Rose Bloom Booster</h4>
+                            <p class="video-description">Discover how to get bigger, better blooms from your roses with this complete fertiliser.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3: Swell Gell & Feed -->
+                <div class="col-md-4 col-sm-6 mb-40">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">
+                        <div class="video-thumbnail">
+                            <img src="{{ asset('images/swellgell-1.jpg') }}" alt="Swell Gell & Feed" class="img-responsive" />
+                            <div class="video-overlay gradiant-background"></div>
+                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                        </div>
+                        <div class="video-details p-30">
+                            <h4 class="video-title mb-15">Swell Gell & Feed</h4>
+                            <p class="video-description">See how this revolutionary water-retaining gel reduces watering while feeding your plants.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 4: Citrus Feed -->
+                <div class="col-md-4 col-sm-6 mb-40">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
+                        <div class="video-thumbnail">
+                            <img src="{{ asset('images/cirtus-feed-p1.jpg') }}" alt="Citrus Feed" class="img-responsive" />
+                            <div class="video-overlay gradiant-background"></div>
+                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                        </div>
+                        <div class="video-details p-30">
+                            <h4 class="video-title mb-15">Citrus Feed</h4>
+                            <p class="video-description">Learn how to care for your citrus trees and plants with this specially formulated feed.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 5: Acer Feed -->
+                <div class="col-md-4 col-sm-6 mb-40">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">
+                        <div class="video-thumbnail">
+                            <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" />
+                            <div class="video-overlay gradiant-background"></div>
+                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                        </div>
+                        <div class="video-details p-30">
+                            <h4 class="video-title mb-15">Acer Feed</h4>
+                            <p class="video-description">Find out how to enhance the beautiful colours of your Japanese maples and acer trees.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 6: Clematis Feed -->
+                <div class="col-md-4 col-sm-6 mb-40">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s">
+                        <div class="video-thumbnail">
+                            <img src="{{ asset('images/clematis-feed-p1.jpg') }}" alt="Clematis Feed" class="img-responsive" />
+                            <div class="video-overlay gradiant-background"></div>
+                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                        </div>
+                        <div class="video-details p-30">
+                            <h4 class="video-title mb-15">Clematis Feed</h4>
+                            <p class="video-description">Watch how to encourage abundant flowering in your clematis plants.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 7: Fish Blood & Bone -->
+                <div class="col-md-4 col-sm-6 mb-40">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
+                        <div class="video-thumbnail">
+                            <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" />
+                            <div class="video-overlay gradiant-background"></div>
+                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                        </div>
+                        <div class="video-details p-30">
+                            <h4 class="video-title mb-15">Fish Blood & Bone</h4>
+                            <p class="video-description">Learn about this traditional organic fertiliser perfect for all-round garden use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .row -->
+        </div><!-- .videos-content -->
+    </div><!-- .container -->
+</div><!-- .videos-section  -->
+
 <!-- Product Quick View Modal -->
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel">
     <div class="modal-dialog modal-lg" role="document">
