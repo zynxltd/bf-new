@@ -2409,30 +2409,80 @@ html {
     margin-bottom: 20px;
 }
 
-.product-modal-full-description {
-    margin-bottom: 20px;
+/* Enhanced Collapsible Tabs Styling */
+.product-modal-full-description,
+.product-modal-videos,
+.product-modal-reviews,
+.product-modal-delivery {
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
-.product-modal-full-description a {
-    color: #19B2EB;
+.product-modal-full-description:hover,
+.product-modal-videos:hover,
+.product-modal-reviews:hover,
+.product-modal-delivery:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #19B2EB;
+}
+
+.product-modal-full-description a,
+.product-modal-videos a,
+.product-modal-reviews a,
+.product-modal-delivery a {
+    color: #333;
     text-decoration: none;
-    display: inline-block;
-    padding: 8px 0;
-    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
 .product-modal-full-description a:hover,
-.product-modal-full-description a:focus {
-    color: #70D969;
+.product-modal-videos a:hover,
+.product-modal-reviews a:hover,
+.product-modal-delivery a:hover,
+.product-modal-full-description a:focus,
+.product-modal-videos a:focus,
+.product-modal-reviews a:focus,
+.product-modal-delivery a:focus {
+    background: linear-gradient(135deg, #19B2EB 0%, #70D969 100%);
+    color: #fff;
     text-decoration: none;
 }
 
-.product-modal-full-description a i {
-    margin-left: 5px;
-    transition: transform 0.3s ease;
+.product-modal-full-description a[aria-expanded="true"],
+.product-modal-videos a[aria-expanded="true"],
+.product-modal-reviews a[aria-expanded="true"],
+.product-modal-delivery a[aria-expanded="true"] {
+    background: linear-gradient(135deg, #19B2EB 0%, #70D969 100%);
+    color: #fff;
 }
 
-.product-modal-full-description a[aria-expanded="true"] i {
+.product-modal-full-description a i,
+.product-modal-videos a i,
+.product-modal-reviews a i,
+.product-modal-delivery a i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    font-size: 14px;
+}
+
+.product-modal-full-description a[aria-expanded="true"] i,
+.product-modal-videos a[aria-expanded="true"] i,
+.product-modal-reviews a[aria-expanded="true"] i,
+.product-modal-delivery a[aria-expanded="true"] i {
     transform: rotate(180deg);
 }
 
@@ -2440,47 +2490,15 @@ html {
 .product-modal-videos .well,
 .product-modal-reviews .well,
 .product-modal-delivery .well {
-    margin-top: 10px;
-    background: #f8f9fa;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 15px;
+    margin-top: 0;
+    background: #fff;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    border-radius: 0;
+    padding: 20px;
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.8;
     color: #555;
-}
-
-.product-modal-videos a,
-.product-modal-reviews a,
-.product-modal-delivery a {
-    color: #19B2EB;
-    text-decoration: none;
-    display: inline-block;
-    padding: 8px 0;
-    transition: color 0.3s ease;
-}
-
-.product-modal-videos a:hover,
-.product-modal-videos a:focus,
-.product-modal-reviews a:hover,
-.product-modal-reviews a:focus,
-.product-modal-delivery a:hover,
-.product-modal-delivery a:focus {
-    color: #70D969;
-    text-decoration: none;
-}
-
-.product-modal-videos a i,
-.product-modal-reviews a i,
-.product-modal-delivery a i {
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.product-modal-videos a[aria-expanded="true"] i,
-.product-modal-reviews a[aria-expanded="true"] i,
-.product-modal-delivery a[aria-expanded="true"] i {
-    transform: rotate(180deg);
 }
 
 .product-modal-videos .embed-responsive {
