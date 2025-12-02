@@ -130,7 +130,7 @@
 
 .navigation {
     position: fixed !important;
-    z-index: 99999998 !important;
+    z-index: 999999999 !important;
     top: 0 !important;
     padding-top: 0 !important;
 }
