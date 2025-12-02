@@ -718,7 +718,10 @@
         margin-top: 0 !important;
         margin-bottom: 15px;
         font-size: 11px;
-        padding: 6px 16px;
+        padding: 6px 12px;
+        display: inline-block;
+        width: auto;
+        max-width: fit-content;
     }
     
     .hero-content-mobile .hero-title-gradient {
@@ -3174,7 +3177,10 @@ html {
         margin-top: 0 !important;
         margin-bottom: 15px;
         font-size: 11px;
-        padding: 6px 16px;
+        padding: 6px 12px;
+        display: inline-block;
+        width: auto;
+        max-width: fit-content;
     }
     
     .hero-content-mobile .hero-title-gradient {
