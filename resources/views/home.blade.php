@@ -94,7 +94,7 @@ use Illuminate\Support\Str;
                         </ul>
                         <!-- Feefo Rating Badge -->
                         <div class="hero-feefo-badge wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
-                            <a href="https://www.feefo.com/en-GB/reviews/bloomingfast" target="_blank" rel="noopener noreferrer" class="hero-feefo-link">
+                            <a href="#customer-reviews" class="hero-feefo-link">
                                 <div id="feefo-badge-hero" class="feefo-badge-widget">
                                     <div class="feefo-fallback-badge" style="display: block;">
                                         <div class="feefo-fallback-content">
@@ -141,19 +141,19 @@ use Illuminate\Support\Str;
                             <div class="about-feature-title"><strong>PACKED</strong></div>
                             <div class="about-feature-content">with Potash for flowers, fruits and veg</div>
                         </li>
-                        <li class="about-feature-stacked-item" data-animation-delay="100">
+                        <li class="about-feature-stacked-item" data-animation-delay="150">
                             <div class="about-feature-title"><strong>JAMMED</strong></div>
                             <div class="about-feature-content">with nitrogen and phosphorous for healthy leaves, shoots and roots</div>
                         </li>
-                        <li class="about-feature-stacked-item" data-animation-delay="200">
+                        <li class="about-feature-stacked-item" data-animation-delay="300">
                             <div class="about-feature-title"><strong>BRIMMING</strong></div>
                             <div class="about-feature-content">with 7 vital trace elements for maximum health</div>
                         </li>
-                        <li class="about-feature-stacked-item" data-animation-delay="300">
+                        <li class="about-feature-stacked-item" data-animation-delay="450">
                             <div class="about-feature-title"><strong>Plus</strong></div>
                             <div class="about-feature-content">we've added the magic ingredient – Humic Acid – to BOOST your plants</div>
                         </li>
-                        <li class="about-feature-stacked-item" data-animation-delay="400">
+                        <li class="about-feature-stacked-item" data-animation-delay="600">
                             <div class="about-feature-title"><strong>Fast</strong></div>
                             <div class="about-feature-content">acting and long lasting – the best results for your money, makes approx 500 litres from a 500g bag</div>
                         </li>
@@ -165,7 +165,7 @@ use Illuminate\Support\Str;
         <!-- Video on Top -->
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <div class="video wow fadeInUp" data-wow-duration=".5s" style="margin-bottom: 40px;">
+                <div class="video about-section-video" style="margin-bottom: 40px;">
                     <img src="{{ asset('images/video.png') }}" alt="about-video" />
                     <div class="video-overlay gradiant-background"></div>
                     <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
@@ -292,19 +292,20 @@ use Illuminate\Support\Str;
 </div><!-- .features-section  -->
 
 <!-- Start .customer-reviews-section  -->
-<div class="customer-reviews-section customer-reviews-curved-top customer-reviews-curved-bottom section white-bg pt-80 pb-80">
+<div id="customer-reviews" class="customer-reviews-section customer-reviews-curved-top customer-reviews-curved-bottom section white-bg pt-80 pb-80">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="customer-reviews-content text-center">
-                    <h3 class="mb-50">What Our Customers Say</h3>
+                <div class="customer-reviews-content">
+                    <h3 class="mb-50 text-center">What Our Customers Say</h3>
                     
-                    <!-- Feefo Reviews Widget -->
-                    <div class="feefo-widget-container mb-40">
-                        <div id="feefo-reviews-widget-testimonials" class="feefo-reviews-widget">
-                            <iframe src="https://www.feefo.com/en-GB/reviews/bloomingfast" width="100%" height="800" frameborder="0" style="border: none; min-height: 600px; border-radius: 12px;"></iframe>
-                </div>
-            </div>
+                    <!-- Feefo Service Review Carousel Widget (Desktop - YouGarden Format) -->
+                    <div id="feefo-service-review-carousel-widgetId" class="feefo-review-carousel-widget-service feefo-desktop-widget" data-merchant-identifier="you-garden"></div>
+                    
+                    <!-- Feefo Product Review Widget (Mobile Only) -->
+                    <div class="feefo-mobile-widget">
+                        <div id="feefo-product-review-widgetId" class="feefo-review-widget-product" data-product-sku="630050" data-feefo-initialized="true" style="flex: 1 1 auto;"></div>
+                    </div>
                     
                     <!-- Testimonials Carousel (Hidden - Fallback) -->
                     <div id="testimonialsCarousel" class="carousel slide testimonials-carousel" style="display: none;" data-ride="carousel" data-interval="5000">
@@ -368,8 +369,8 @@ use Illuminate\Support\Str;
                             <span class="sr-only">Next</span>
                         </a>
                         </div>
-                            </div>
-                        </div>
+                </div>
+            </div>
         </div><!-- .row -->
     </div><!-- .container -->
 </div><!-- .customer-reviews-section  -->
@@ -384,8 +385,8 @@ use Illuminate\Support\Str;
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="heading heading-light">Our Complete Product Range</h2>
                     <p class="lead">Discover our full range of premium plant foods and fertilisers, each specially formulated for specific plant needs.</p>
-                        </div>
-                            </div>
+                </div>
+            </div>
         </div><!-- .section-head -->
         
         <div class="products-content pt-60">
@@ -410,7 +411,8 @@ use Illuminate\Support\Str;
                          data-product-npk="{{ $product->npk ?? '' }}"
                          data-product-features="{{ $product->features ?? '' }}"
                          data-product-application="{{ htmlspecialchars($product->application ?? '', ENT_QUOTES) }}"
-                         data-product-makes="{{ $product->makes ?? '' }}">
+                         data-product-makes="{{ $product->makes ?? '' }}"
+                         data-product-sku="{{ $product->sku ?? '' }}">
                         <div class="product-image mb-20">
                             @if($index < 2)
                             <span class="best-seller-badge">Best Seller</span>
@@ -424,11 +426,91 @@ use Illuminate\Support\Str;
                             <div class="product-specs mb-20">
                                 @php
                                     $specs = explode(',', $product->specs);
+                                    // Filter out badges that are just numbers or too short/meaningless
+                                    $specs = array_filter(array_map('trim', $specs), function($spec) {
+                                        $spec = trim($spec);
+                                        // Skip if it's just a number (like "12")
+                                        if (preg_match('/^\d+$/', $spec)) {
+                                            return false;
+                                        }
+                                        // Skip if it's too short and meaningless
+                                        if (strlen($spec) < 3) {
+                                            return false;
+                                        }
+                                        return true;
+                                    });
+                                    // Limit to max 2 badges
+                                    $specs = array_slice($specs, 0, 2);
+                                    
+                                    // Function to shorten badge text to 5-15 characters
+                                    $shortenBadge = function($text) {
+                                        $text = trim($text);
+                                        
+                                        // Common abbreviations
+                                        $abbreviations = [
+                                            'supplied as' => '',
+                                            'supplied' => '',
+                                            'as a' => '',
+                                            'as' => '',
+                                            'a' => '',
+                                            'resealable' => 'Reseal',
+                                            'resealable' => 'Reseal',
+                                            'which treats' => '',
+                                            'which' => '',
+                                            'treats' => '',
+                                            'about' => '~',
+                                            'or so' => '',
+                                            'or' => '',
+                                            'so' => '',
+                                            'standard' => 'Std',
+                                            'grams' => 'g',
+                                            'gram' => 'g',
+                                            'kilograms' => 'kg',
+                                            'kilogram' => 'kg',
+                                            'litres' => 'L',
+                                            'litre' => 'L',
+                                            'millilitres' => 'ml',
+                                            'millilitre' => 'ml',
+                                        ];
+                                        
+                                        // Replace common words/phrases
+                                        foreach ($abbreviations as $full => $short) {
+                                            $text = preg_replace('/\b' . preg_quote($full, '/') . '\b/i', $short, $text);
+                                        }
+                                        
+                                        // Remove extra spaces and clean up
+                                        $text = preg_replace('/\s+/', ' ', $text);
+                                        $text = trim($text);
+                                        
+                                        // Extract key information (numbers, units, important words)
+                                        // Try to get first meaningful word or number
+                                        if (preg_match('/\d+\s*(g|kg|L|ml|cm|m)/i', $text, $matches)) {
+                                            $text = $matches[0];
+                                        } elseif (preg_match('/\d+/', $text, $matches)) {
+                                            $text = $matches[0];
+                                        } else {
+                                            // Get first word if no numbers
+                                            $words = explode(' ', $text);
+                                            $text = !empty($words[0]) ? $words[0] : $text;
+                                        }
+                                        
+                                        // Limit to 15 characters max, ensure at least 5 if possible
+                                        if (strlen($text) > 15) {
+                                            $text = substr($text, 0, 15);
+                                        }
+                                        
+                                        // If too short, try to add context
+                                        if (strlen($text) < 5 && preg_match('/\d+/', $text)) {
+                                            // Keep as is if it has a number
+                                        }
+                                        
+                                        return $text;
+                                    };
                                 @endphp
                                 @foreach($specs as $spec)
-                                    <span class="badge">{{ trim($spec) }}</span>
+                                    <span class="badge">{{ $shortenBadge($spec) }}</span>
                                 @endforeach
-                            </div>
+                        </div>
                             @endif
                             <ul class="product-buttons">
                                 @if($product->yg_link)
@@ -438,17 +520,23 @@ use Illuminate\Support\Str;
                                 <li><a href="{{ $product->amazon_link }}" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
                                 @endif
                             </ul>
+                            @if($product->sku)
+                            <!-- Feefo Review Badge (Desktop Only) -->
+                            <div class="product-review-badge-desktop">
+                                <div class="feefo-review-badge-wrapper-product" data-product-sku="{{ $product->sku }}"></div>
                         </div>
+                            @endif
                     </div>
                 </div>
+                        </div>
                 @empty
                 <div class="col-md-12">
                     <div class="text-center" style="padding: 60px 20px; color: rgba(255, 255, 255, 0.9);">
                         <i class="fa fa-leaf" style="font-size: 64px; margin-bottom: 20px; display: block; opacity: 0.7;"></i>
                         <h3 style="color: rgba(255, 255, 255, 0.95); margin-bottom: 15px;">No products available yet</h3>
                         <p style="font-size: 18px; margin-bottom: 30px;">Check back soon for our range of premium plant foods!</p>
-                        </div>
                             </div>
+                        </div>
                 @endforelse
             </div><!-- .row -->
         </div><!-- .products-content -->
@@ -616,8 +704,8 @@ use Illuminate\Support\Str;
                             </a>
                             <div class="collapse" id="modalProductReviews">
                                 <div class="well" id="modalProductReviewsContent">
-                                    <!-- Feefo Reviews Widget will be loaded here -->
-                                    <div id="feefo-reviews-widget" data-feefo-product-id=""></div>
+                                    <!-- Feefo Reviews Widgets will be loaded here -->
+                                    <div id="feefo-product-review-widgetId" class="feefo-review-widget-product" data-feefo-initialized="true" style="flex: 1 1 auto;"></div>
                                 </div>
                             </div>
                         </div>
@@ -868,7 +956,7 @@ From May to September feed your plants twice a week while watering.</p>
                     </div>
                     <div class="blog-content p-30">
                         <div class="blog-meta mb-15">
-                            <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date ? $article->published_date->format('F j, Y') : 'Not published' }}</span>
+                            <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date ? $article->published_date->format('F jS, Y') : 'Not published' }}</span>
                             @if($article->reading_time)
                             <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $article->reading_time }} min read</span>
                             @endif
@@ -1006,6 +1094,7 @@ $(document).ready(function() {
         var features = $card.data('product-features');
         var application = $card.data('product-application');
         var makes = $card.data('product-makes');
+        var sku = $card.data('product-sku');
         
         // Populate basic modal fields
         $('#modalProductTitle').text(title);
@@ -1066,9 +1155,108 @@ $(document).ready(function() {
         }
         
         // Populate Feefo reviews if available
-        if (reviews) {
+        // Check for SKU first (for Ultimate Rose Bloom Booster SKU: 100196 or other products with SKU)
+        // Fallback: Check product title for specific products
+        if (!sku && title) {
+            var titleLower = title.toLowerCase();
+            if (titleLower.includes('ultimate rose bloom booster')) {
+                sku = '100196';
+            } else if (titleLower.includes('swellgel') || titleLower.includes('swell gel') || titleLower.includes('swellgell')) {
+                sku = '100118';
+            } else if (titleLower.includes('superior soluble fertiliser') || titleLower.includes('superior soluble')) {
+                sku = '100062';
+            } else if (titleLower.includes('citrus feed') || titleLower.includes('citrus')) {
+                sku = '100016';
+            } else if (titleLower.includes('acer feed') || titleLower.includes('acer')) {
+                sku = '100105';
+            } else if (titleLower.includes('clematis feed') || titleLower.includes('clematis')) {
+                sku = '100106';
+            } else if (titleLower.includes('fish blood') || titleLower.includes('fish blood and bone')) {
+                sku = '100046';
+            }
+        }
+        
+        if (sku) {
+            // Clear previous content and use Feefo widget format with unique ID
+            var widgetId = 'feefo-product-review-widgetId-modal-' + sku;
+            var feefoWidget = '<div id="' + widgetId + '" class="feefo-review-widget-product" data-product-sku="' + sku + '" style="flex: 1 1 auto; min-height: 200px;"></div>';
+            
+            $('#modalProductReviewsContent').html(feefoWidget);
+            
+            // Store SKU for later initialization
+            window.currentProductSKU = sku;
+            
+            // Function to initialize Feefo widgets
+            var initFeefoWidgets = function() {
+                if (typeof Feefo !== 'undefined') {
+                    try {
+                        // Ensure widgets are in DOM before initializing
+                        var widgetElement = $('#' + widgetId);
+                        if (widgetElement.length > 0) {
+                            console.log('Initializing Feefo widget for SKU:', sku, 'Widget ID:', widgetId);
+                            
+                            // Initialize Feefo
+                            Feefo.init();
+                            
+                            // Re-initialize after a delay to ensure widgets render
+                            setTimeout(function() {
+                                if (typeof Feefo !== 'undefined') {
+                                    Feefo.init();
+                                }
+                            }, 500);
+                            
+                            // One more initialization after widget should be loaded
+                            setTimeout(function() {
+                                if (typeof Feefo !== 'undefined') {
+                                    Feefo.init();
+                                }
+                            }, 1500);
+                        }
+                    } catch (e) {
+                        console.error('Feefo initialization error:', e);
+                    }
+                } else {
+                    // Wait for Feefo to be available (max 10 seconds)
+                    var attempts = 0;
+                    var checkFeefo = setInterval(function() {
+                        attempts++;
+                        if (typeof Feefo !== 'undefined' || attempts > 50) {
+                            clearInterval(checkFeefo);
+                            if (typeof Feefo !== 'undefined') {
+                                initFeefoWidgets();
+                            }
+                        }
+                    }, 200);
+                }
+            };
+            
+            // Initialize widgets when reviews section is expanded (Bootstrap 3/4 compatible)
+            $('#modalProductReviews').off('shown.bs.collapse shown').on('shown.bs.collapse shown', function() {
+                console.log('Reviews section expanded, initializing Feefo widget');
+                setTimeout(function() {
+                    initFeefoWidgets();
+                }, 300);
+            });
+            
+            // Also initialize when modal is shown
+            $('#productModal').one('shown.bs.modal', function() {
+                console.log('Modal shown, initializing Feefo widget');
+                setTimeout(function() {
+                    initFeefoWidgets();
+                }, 1000);
+            });
+            
+            // Feefo widgets are loaded via feefo_widgets_loader.js in the layout
+            // Wait for Feefo to be available and initialize
+            setTimeout(function() {
+                initFeefoWidgets();
+            }, 1000);
+            
+            // Always show reviews section if we have a SKU
+            $('.product-modal-reviews').show();
+        } else if (reviews) {
             // Clear previous content
-            $('#modalProductReviewsContent').html('<div id="feefo-reviews-widget"></div>');
+            $('#modalProductReviewsContent').html('<div id="feefo-product-review-widgetId" class="feefo-review-widget-product" data-feefo-initialized="true" style="flex: 1 1 auto;"></div>');
             
             // If reviews is a Feefo product ID (format: feefo:PRODUCT_ID), load Feefo widget
             if (reviews.startsWith('feefo:')) {
@@ -1187,11 +1375,88 @@ $(document).ready(function() {
         // Reset carousel to first slide
         $('#productModalCarousel').carousel(0);
         
+        // Function to shorten badge text to 5-15 characters
+        function shortenBadge(text) {
+            text = text.trim();
+            
+            // Common abbreviations
+            var abbreviations = {
+                'supplied as': '',
+                'supplied': '',
+                'as a': '',
+                'as': '',
+                'a': '',
+                'resealable': 'Reseal',
+                'which treats': '',
+                'which': '',
+                'treats': '',
+                'about': '~',
+                'or so': '',
+                'or': '',
+                'so': '',
+                'standard': 'Std',
+                'grams': 'g',
+                'gram': 'g',
+                'kilograms': 'kg',
+                'kilogram': 'kg',
+                'litres': 'L',
+                'litre': 'L',
+                'millilitres': 'ml',
+                'millilitre': 'ml'
+            };
+            
+            // Replace common words/phrases
+            for (var full in abbreviations) {
+                var regex = new RegExp('\\b' + full + '\\b', 'gi');
+                text = text.replace(regex, abbreviations[full]);
+            }
+            
+            // Remove extra spaces and clean up
+            text = text.replace(/\s+/g, ' ');
+            text = text.trim();
+            
+            // Extract key information (numbers, units, important words)
+            var numberMatch = text.match(/\d+\s*(g|kg|L|ml|cm|m)/i);
+            if (numberMatch) {
+                text = numberMatch[0];
+            } else {
+                var numberOnly = text.match(/\d+/);
+                if (numberOnly) {
+                    text = numberOnly[0];
+                } else {
+                    // Get first word if no numbers
+                    var words = text.split(' ');
+                    text = words[0] || text;
+                }
+            }
+            
+            // Limit to 15 characters max
+            if (text.length > 15) {
+                text = text.substring(0, 15);
+            }
+            
+            return text;
+        }
+        
         // Parse and display specs
-        var specsArray = specs.split(', ');
+        var specsArray = specs.split(',').map(function(s) { return s.trim(); }).filter(function(s) { 
+            // Filter out badges that are just numbers or too short/meaningless
+            if (s.length === 0) return false;
+            // Skip if it's just a number (like "12")
+            if (/^\d+$/.test(s)) {
+                return false;
+            }
+            // Skip if it's too short and meaningless
+            if (s.length < 3) {
+                return false;
+            }
+            return true;
+        });
+        // Limit to max 2 badges
+        specsArray = specsArray.slice(0, 2);
         var specsHtml = '<div class="product-specs">';
         specsArray.forEach(function(spec) {
-            specsHtml += '<span class="badge">' + spec.trim() + '</span> ';
+            specsHtml += '<span class="badge">' + shortenBadge(spec) + '</span> ';
         });
         specsHtml += '</div>';
         $('#modalProductSpecs').html(specsHtml);
@@ -1206,10 +1471,30 @@ $(document).ready(function() {
         
         // Populate features if available
         if (features) {
-            var featuresArray = features.split('|');
+            // Split by newline, bullet point, or pipe separator
+            var featuresArray = [];
+            if (features.indexOf('\n') !== -1) {
+                // Split by newlines
+                featuresArray = features.split('\n').filter(function(f) { return f.trim().length > 0; });
+            } else if (features.indexOf('•') !== -1) {
+                // Split by bullet points
+                featuresArray = features.split('•').filter(function(f) { return f.trim().length > 0; });
+            } else if (features.indexOf('|') !== -1) {
+                // Split by pipe
+                featuresArray = features.split('|').filter(function(f) { return f.trim().length > 0; });
+            } else {
+                // Single feature
+                featuresArray = [features];
+            }
+            
             var featuresHtml = '';
             featuresArray.forEach(function(feature) {
-                featuresHtml += '<li>' + feature.trim() + '</li>';
+                var cleanFeature = feature.trim();
+                // Remove leading bullet if still present
+                cleanFeature = cleanFeature.replace(/^[•\-\*]\s*/, '');
+                if (cleanFeature.length > 0) {
+                    featuresHtml += '<li>' + cleanFeature + '</li>';
+                }
             });
             $('#modalProductFeaturesList').html(featuresHtml);
             $('#modalProductFeatures').show();
@@ -1237,18 +1522,31 @@ $(document).ready(function() {
         $('#productModal').modal('show');
     });
     
-    // Load Feefo reviews widget in About section
-    function loadAboutFeefoReviews() {
-        // Use the Superior Soluble Fertiliser product for reviews
-        var feefoProductUrl = 'https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g';
-        
-        // Create iframe for Feefo reviews
-        var iframeHtml = '<iframe src="' + feefoProductUrl + '" width="100%" height="600" frameborder="0" style="border: none; min-height: 400px;"></iframe>';
-        
-        // Alternative: Use Feefo widget if available
-        var widgetHtml = '<div class="feefo-review-widget" data-feefo-product-id="100062"></div>';
-        $('#customer-reviews-widget').html(widgetHtml);
-        
+    // Reinitialize Feefo widgets when modal is fully shown
+    $('#productModal').on('shown.bs.modal', function() {
+        // Reinitialize Feefo widgets after modal is fully displayed
+        var reinitFeefo = function() {
+            if (typeof Feefo !== 'undefined') {
+                try {
+                    Feefo.init();
+                    // Also initialize when reviews section is expanded
+                    setTimeout(function() {
+                        if (typeof Feefo !== 'undefined') {
+                            Feefo.init();
+                        }
+                    }, 500);
+                } catch (e) {
+                    console.error('Feefo reinitialization error:', e);
+                }
+            } else {
+                setTimeout(reinitFeefo, 200);
+            }
+        };
+        setTimeout(reinitFeefo, 500);
+    });
+    
+    // Load Feefo product review widget script
+    function loadFeefoProductReviewWidget() {
         // Load Feefo widget script if not already loaded
         if (typeof window.feefoWidgetLoaded === 'undefined') {
             var feefoScript = document.createElement('script');
@@ -1266,8 +1564,49 @@ $(document).ready(function() {
         }
     }
     
-    // Load Feefo reviews when page is ready
-    loadAboutFeefoReviews();
+    // Load Feefo widget script when page is ready
+    loadFeefoProductReviewWidget();
+    
+    // Initialize Feefo widgets in testimonials section
+    function initTestimonialsFeefoWidgets() {
+        // The Feefo script should already be loaded from the layout
+        // Wait for it to be available and initialize
+        function checkAndInit() {
+            if (typeof Feefo !== 'undefined') {
+                // Initialize Feefo widgets
+                Feefo.init();
+                // Re-initialize after a delay to ensure widgets are rendered
+                setTimeout(function() {
+                    if (typeof Feefo !== 'undefined') {
+                        Feefo.init();
+                    }
+                }, 1000);
+            } else {
+                // Check if script is loaded, if not wait a bit more
+                setTimeout(checkAndInit, 200);
+            }
+        }
+        
+        // Start checking after page load
+        $(document).ready(function() {
+            // Wait a bit for scripts to load
+            setTimeout(checkAndInit, 1000);
+        });
+    }
+    
+    // Initialize testimonials Feefo widgets
+    initTestimonialsFeefoWidgets();
+    
+    // Smooth scroll for anchor links
+    $('a[href^="#"]').on('click', function(e) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+            e.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top - 100
+            }, 800, 'swing');
+        }
+    });
     
     // Load Feefo badge in hero section
     function loadHeroFeefoBadge() {
@@ -1318,33 +1657,167 @@ $(document).ready(function() {
     // Load Feefo badge when page is ready
     loadHeroFeefoBadge();
     
-    // Stacked animation for About section features - DISABLED
-    // function animateStackedItems() {
-    //     const items = document.querySelectorAll('.about-feature-stacked-item');
-    //     const observerOptions = {
-    //         threshold: 0.1,
-    //         rootMargin: '0px 0px -50px 0px'
-    //     };
-    //     
-    //     const observer = new IntersectionObserver(function(entries) {
-    //         entries.forEach((entry, index) => {
-    //             if (entry.isIntersecting) {
-    //                 const delay = entry.target.getAttribute('data-animation-delay') || 0;
-    //                 setTimeout(() => {
-    //                     entry.target.classList.add('animate-in');
-    //                 }, parseInt(delay));
-    //                 observer.unobserve(entry.target);
-    //             }
-    //         });
-    //     }, observerOptions);
-    //     
-    //     items.forEach(item => {
-    //         observer.observe(item);
-    //     });
-    // }
-    // 
-    // // Initialize stacked animation
-    // animateStackedItems();
+    // Scroll-triggered slide-in animation for About section features (Mobile only)
+    function animateStackedItems() {
+        // Only run on mobile devices
+        if (window.innerWidth > 767) {
+            // On desktop, ensure items are visible
+            const items = document.querySelectorAll('.about-feature-stacked-item');
+            items.forEach(item => {
+                item.classList.add('animate-in');
+            });
+            return;
+        }
+        
+        const items = document.querySelectorAll('.about-feature-stacked-item');
+        if (items.length === 0) return;
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const delay = parseInt(entry.target.getAttribute('data-animation-delay')) || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('animate-in');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        items.forEach(item => {
+            observer.observe(item);
+        });
+    }
+    
+    // Re-run on window resize to handle orientation changes
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            // Re-initialize animations if switching between mobile/desktop
+            const items = document.querySelectorAll('.about-feature-stacked-item');
+            if (window.innerWidth <= 767) {
+                // Mobile: reset and re-animate
+                items.forEach(item => {
+                    item.classList.remove('animate-in');
+                });
+                animateStackedItems();
+            } else {
+                // Desktop: ensure visible
+                items.forEach(item => {
+                    item.classList.add('animate-in');
+                });
+            }
+        }, 250);
+    });
+    
+    // Scroll-triggered animation for About section video
+    function animateAboutVideo() {
+        const video = document.querySelector('.about-section-video');
+        if (!video) return;
+        
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate-in');
+                    }, 200);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        observer.observe(video);
+    }
+    
+    // Scroll-triggered animation for "What's in our Superior Plant Food" section
+    function animateFeaturesSection() {
+        const section = document.querySelector('.features-section');
+        if (!section) return;
+        
+        // Animate section title
+        const sectionHead = section.querySelector('.section-head');
+        const cards = section.querySelectorAll('.feature-nutrient-card');
+        const productImage = section.querySelector('.features-product-image');
+        
+        // Check if already in view on page load
+        const rect = section.getBoundingClientRect();
+        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isInView && !sectionHead.classList.contains('animate-in')) {
+            // Section is already visible, trigger animation immediately
+            setTimeout(() => {
+                if (sectionHead) {
+                    sectionHead.classList.add('animate-in');
+                }
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('animate-in');
+                    }, 300 + (index * 100));
+                });
+                if (productImage) {
+                    setTimeout(() => {
+                        productImage.classList.add('animate-in');
+                    }, 500);
+                }
+            }, 100);
+        }
+        
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Animate title first
+                    if (sectionHead && !sectionHead.classList.contains('animate-in')) {
+                        setTimeout(() => {
+                            sectionHead.classList.add('animate-in');
+                        }, 100);
+                    }
+                    
+                    // Animate cards with staggered delay
+                    cards.forEach((card, index) => {
+                        if (!card.classList.contains('animate-in')) {
+                            setTimeout(() => {
+                                card.classList.add('animate-in');
+                            }, 300 + (index * 100));
+                        }
+                    });
+                    
+                    // Animate product image
+                    if (productImage && !productImage.classList.contains('animate-in')) {
+                        setTimeout(() => {
+                            productImage.classList.add('animate-in');
+                        }, 500);
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        observer.observe(section);
+    }
+    
+    // Initialize animations when DOM is ready
+    $(document).ready(function() {
+        animateStackedItems();
+        animateAboutVideo();
+        animateFeaturesSection();
+    });
     
     // Testimonials carousel - show multiple items with partial visibility
     function initTestimonialsCarousel() {

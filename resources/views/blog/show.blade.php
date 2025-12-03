@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @php
+    use Illuminate\Support\Str;
     $slug = request()->route('slug');
     $article = \App\Models\Blog::where('slug', $slug)
         ->where('is_published', true)
@@ -39,6 +40,101 @@
 @endphp
 
 @section('title', $article->title . ' - Blooming Fast Blog')
+
+@push('meta')
+<!-- SEO Meta Tags -->
+<meta name="description" content="{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 160) }}">
+<meta name="keywords" content="gardening, plant food, fertiliser, {{ $article->category ?? '' }}, Blooming Fast">
+<meta name="author" content="Blooming Fast">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ url()->current() }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:title" content="{{ $article->title }}">
+<meta property="og:description" content="{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 200) }}">
+@if($article->image)
+<meta property="og:image" content="{{ asset($article->image) }}">
+@endif
+<meta property="og:site_name" content="Blooming Fast">
+<meta property="article:published_time" content="{{ $article->published_date->toIso8601String() }}">
+<meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}">
+@if($article->category)
+<meta property="article:section" content="{{ $article->category }}">
+@endif
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $article->title }}">
+<meta name="twitter:description" content="{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 200) }}">
+@if($article->image)
+<meta name="twitter:image" content="{{ asset($article->image) }}">
+@endif
+
+<!-- Article Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ addslashes($article->title) }}",
+  "description": "{{ addslashes($article->excerpt ?? Str::limit(strip_tags($article->content), 200)) }}",
+  "image": "{{ $article->image ? asset($article->image) : asset('images/superiorV4.png') }}",
+  "datePublished": "{{ $article->published_date->toIso8601String() }}",
+  "dateModified": "{{ $article->updated_at->toIso8601String() }}",
+  "author": {
+    "@type": "Organization",
+    "name": "Blooming Fast",
+    "url": "{{ url('/') }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Blooming Fast",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ asset('images/logo.png') }}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ url()->current() }}"
+  },
+  @if($article->category)
+  "articleSection": "{{ $article->category }}",
+  @endif
+  "wordCount": {{ str_word_count(strip_tags($article->content)) }},
+  "timeRequired": "PT{{ $readingTime }}M"
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ url('/') }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "{{ route('blog.index') }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ addslashes($article->title) }}",
+      "item": "{{ url()->current() }}"
+    }
+  ]
+}
+</script>
+@endpush
 
 @section('content')
 <!-- Navigation -->
@@ -83,7 +179,7 @@
                         @if($article->category)
                         <span class="blog-category-badge">{{ $article->category }}</span>
                         @endif
-                        <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date->format('F j, Y') }}</span>
+                        <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date->format('F jS, Y') }}</span>
                         <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $readingTime }} min read</span>
                     </div>
                     <h1 class="blog-post-title">{{ $article->title }}</h1>
@@ -128,8 +224,16 @@
 
                     <!-- Main Content -->
                     <div class="{{ count($toc) > 0 ? 'col-md-9' : 'col-md-10 col-md-offset-1' }}">
-                        <article class="blog-post-content">
-                            {!! $article->content !!}
+                        <article class="blog-post-content" itemscope itemtype="https://schema.org/Article">
+                            <meta itemprop="headline" content="{{ htmlspecialchars($article->title) }}">
+                            <meta itemprop="datePublished" content="{{ $article->published_date->toIso8601String() }}">
+                            <meta itemprop="dateModified" content="{{ $article->updated_at->toIso8601String() }}">
+                            @if($article->image)
+                            <meta itemprop="image" content="{{ asset($article->image) }}">
+                            @endif
+                            <div itemprop="articleBody">
+                                {!! $article->content !!}
+                            </div>
                         </article>
                     </div>
                 </div>

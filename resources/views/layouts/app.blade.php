@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
     <!-- Site Title  -->
     <title>@yield('title', 'Blooming Fast Plant Foods')</title>
+    @stack('meta')
     <!-- Vendor Bundle CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/vendor.bundle.css') }}">
     <!-- Custom styles for this template -->
@@ -19,6 +20,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Feefo Widget Stylesheets -->
+    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/service-carousel-service-carousel-jsx.css">
+    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/product-stars-widget-product-stars-widget-jsx.css">
     @stack('styles')
 </head>
 <body style="overflow: hidden;">
@@ -91,6 +95,14 @@
     
     <script src="{{ asset('assets/js/jquery.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    
+    <!-- Feefo Widget Scripts -->
+    <script async="async" src="//register.feefo.com//feefo-widget-v2/js/feefo-widget.js" type="text/javascript"></script>
+    <script async="async" src="https://api.feefo.com/feefo-widgets-data/loader/widgets/you-garden" type="text/javascript"></script>
+    <script type="text/javascript" id="feefo-loader-lib" src="https://register.feefo.com/feefo-widgets-app/feefo_widgets_loader.js"></script>
+    <script type="text/javascript" id="reevoo_badges" src="https://register.feefo.com/badge-ui/feefo_adaptive_badges.js"></script>
+    <!-- Main Feefo Widget Script -->
+    <script src="https://api.feefo.com/api/javascript/you-garden" async></script>
     
     @stack('scripts')
 </body>
