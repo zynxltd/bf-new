@@ -73,10 +73,28 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="badge_1"><strong>Badge 1</strong> (max 10 characters)</label>
+                            <input type="text" class="form-control-admin" id="badge_1" name="badge_1" value="{{ old('badge_1', $product->badge_1 ?? '') }}" placeholder="1.5kg" maxlength="10">
+                            <small class="form-text text-muted">First badge shown on product card</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="badge_2"><strong>Badge 2</strong> (max 10 characters)</label>
+                            <input type="text" class="form-control-admin" id="badge_2" name="badge_2" value="{{ old('badge_2', $product->badge_2 ?? '') }}" placeholder="Resealable" maxlength="10">
+                            <small class="form-text text-muted">Second badge shown on product card</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-4">
                         <div class="form-group-admin">
-                            <label class="form-label-admin" for="specs">Specs</label>
-                            <input type="text" class="form-control-admin" id="specs" name="specs" value="{{ old('specs', $product->specs) }}" placeholder="500g, NPK 18:18:24">
+                            <label class="form-label-admin" for="sku">SKU (Product Code)</label>
+                            <input type="text" class="form-control-admin" id="sku" name="sku" value="{{ old('sku', $product->sku ?? '') }}" placeholder="100196">
+                            <small class="form-text text-muted">For Feefo reviews widget</small>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -139,8 +157,6 @@
 
                 <button type="submit" class="btn-admin btn-admin-primary">Update Product</button>
             </form>
-        </div>
-    </div>
 </div>
 @endsection
 

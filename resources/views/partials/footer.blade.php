@@ -28,10 +28,10 @@
             <div class="col-md-3 col-sm-6 mb-40">
                 <h5 class="heading-light mb-20">Our Products</h5>
                 <ul class="footer-links-list">
-                    <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g" class="heading-light" target="_blank" rel="noopener">Superior Soluble Fertiliser</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" class="heading-light" target="_blank" rel="noopener">Rose Bloom Booster</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g" class="heading-light" target="_blank" rel="noopener">Swell Gell & Feed</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" class="heading-light" target="_blank" rel="noopener">Citrus Feed</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Superior Soluble Fertiliser</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Rose Bloom Booster</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Swell Gell & Feed</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Citrus Feed</a></li>
                     <li><a href="{{ route('home') }}#products" class="heading-light">View All Products</a></li>
                 </ul>
             </div><!-- .col -->
@@ -40,7 +40,7 @@
             <div class="col-md-3 col-sm-6 mb-40">
                 <h5 class="heading-light mb-20">Where to Buy</h5>
                 <ul class="footer-links-list">
-                    <li><a href="https://www.yougarden.com" class="heading-light" target="_blank" rel="noopener">YouGarden</a></li>
+                    <li><a href="https://www.yougarden.com?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">YouGarden</a></li>
                     <li><a href="https://www.amazon.co.uk" class="heading-light" target="_blank" rel="noopener">Amazon</a></li>
                 </ul>
                 <div class="footer-social mt-30">

@@ -74,37 +74,41 @@
 
 <!-- Article Schema.org JSON-LD -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "{{ addslashes($article->title) }}",
-  "description": "{{ addslashes($article->excerpt ?? Str::limit(strip_tags($article->content), 200)) }}",
-  "image": "{{ $article->image ? asset($article->image) : asset('images/superiorV4.png') }}",
-  "datePublished": "{{ $article->published_date->toIso8601String() }}",
-  "dateModified": "{{ $article->updated_at->toIso8601String() }}",
-  "author": {
-    "@type": "Organization",
-    "name": "Blooming Fast",
-    "url": "{{ url('/') }}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Blooming Fast",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ asset('images/logo.png') }}"
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ url()->current() }}"
-  },
-  @if($article->category)
-  "articleSection": "{{ $article->category }}",
-  @endif
-  "wordCount": {{ str_word_count(strip_tags($article->content)) }},
-  "timeRequired": "PT{{ $readingTime }}M"
+@php
+$schema = [
+  "@context" => "https://schema.org",
+  "@type" => "Article",
+  "headline" => $article->title,
+  "description" => $article->excerpt ?? Str::limit(strip_tags($article->content), 200),
+  "image" => $article->image ? asset($article->image) : asset('images/superiorV4.png'),
+  "datePublished" => $article->published_date->toIso8601String(),
+  "dateModified" => $article->updated_at->toIso8601String(),
+  "author" => [
+    "@type" => "Organization",
+    "name" => "Blooming Fast",
+    "url" => url('/')
+  ],
+  "publisher" => [
+    "@type" => "Organization",
+    "name" => "Blooming Fast",
+    "logo" => [
+      "@type" => "ImageObject",
+      "url" => asset('images/logo.png')
+    ]
+  ],
+  "mainEntityOfPage" => [
+    "@type" => "WebPage",
+    "@id" => url()->current()
+  ],
+  "wordCount" => str_word_count(strip_tags($article->content)),
+  "timeRequired" => "PT" . $readingTime . "M"
+];
+
+if ($article->category) {
+  $schema["articleSection"] = $article->category;
 }
+@endphp
+{!! json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
 
 <!-- Breadcrumb Schema -->

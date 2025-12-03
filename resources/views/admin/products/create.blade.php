@@ -76,10 +76,28 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group-admin">
+                            <label for="badge_1" class="form-label-admin"><strong>Badge 1</strong> (max 10 characters)</label>
+                            <input type="text" class="form-control-admin" id="badge_1" name="badge_1" value="{{ old('badge_1') }}" placeholder="1.5kg" maxlength="10">
+                            <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">First badge shown on product card</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group-admin">
+                            <label for="badge_2" class="form-label-admin"><strong>Badge 2</strong> (max 10 characters)</label>
+                            <input type="text" class="form-control-admin" id="badge_2" name="badge_2" value="{{ old('badge_2') }}" placeholder="Resealable" maxlength="10">
+                            <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">Second badge shown on product card</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-4">
                         <div class="form-group-admin">
-                            <label for="specs" class="form-label-admin">Specs</label>
-                            <input type="text" class="form-control-admin" id="specs" name="specs" value="{{ old('specs') }}" placeholder="500g, NPK 18:18:24">
+                            <label for="sku" class="form-label-admin">SKU (Product Code)</label>
+                            <input type="text" class="form-control-admin" id="sku" name="sku" value="{{ old('sku') }}" placeholder="100196">
+                            <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">For Feefo reviews widget</small>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -149,4 +167,5 @@
             </form>
 </div>
 @endsection
+
 

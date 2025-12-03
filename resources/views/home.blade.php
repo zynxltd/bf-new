@@ -89,7 +89,7 @@ use Illuminate\Support\Str;
                         </div>
                         <h3 class="heading-light hero-cta wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">Click below to buy it from one of our stockists</h3>
                         <ul class="buttons">
-                            <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                            <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser?source=bloomingfast.com" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
                             <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
                         </ul>
                         <!-- Feefo Rating Badge -->
@@ -305,7 +305,7 @@ use Illuminate\Support\Str;
                     <!-- Feefo Product Review Widget (Mobile Only) -->
                     <div class="feefo-mobile-widget">
                         <div id="feefo-product-review-widgetId" class="feefo-review-widget-product" data-product-sku="630050" data-feefo-initialized="true" style="flex: 1 1 auto;"></div>
-                    </div>
+                </div>
                     
                     <!-- Testimonials Carousel (Hidden - Fallback) -->
                     <div id="testimonialsCarousel" class="carousel slide testimonials-carousel" style="display: none;" data-ride="carousel" data-interval="5000">
@@ -369,8 +369,8 @@ use Illuminate\Support\Str;
                             <span class="sr-only">Next</span>
                         </a>
                         </div>
-                </div>
-            </div>
+                            </div>
+                        </div>
         </div><!-- .row -->
     </div><!-- .container -->
 </div><!-- .customer-reviews-section  -->
@@ -385,8 +385,8 @@ use Illuminate\Support\Str;
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="heading heading-light">Our Complete Product Range</h2>
                     <p class="lead">Discover our full range of premium plant foods and fertilisers, each specially formulated for specific plant needs.</p>
-                </div>
-            </div>
+                        </div>
+                            </div>
         </div><!-- .section-head -->
         
         <div class="products-content pt-60">
@@ -422,99 +422,19 @@ use Illuminate\Support\Str;
                         <div class="product-details p-30">
                             <h4 class="product-title mb-15">{{ $product->title }}</h4>
                             <p class="product-description mb-20">{{ $product->description ?? '' }}</p>
-                            @if($product->specs)
+                            @if($product->badge_1 || $product->badge_2)
                             <div class="product-specs mb-20">
-                                @php
-                                    $specs = explode(',', $product->specs);
-                                    // Filter out badges that are just numbers or too short/meaningless
-                                    $specs = array_filter(array_map('trim', $specs), function($spec) {
-                                        $spec = trim($spec);
-                                        // Skip if it's just a number (like "12")
-                                        if (preg_match('/^\d+$/', $spec)) {
-                                            return false;
-                                        }
-                                        // Skip if it's too short and meaningless
-                                        if (strlen($spec) < 3) {
-                                            return false;
-                                        }
-                                        return true;
-                                    });
-                                    // Limit to max 2 badges
-                                    $specs = array_slice($specs, 0, 2);
-                                    
-                                    // Function to shorten badge text to 5-15 characters
-                                    $shortenBadge = function($text) {
-                                        $text = trim($text);
-                                        
-                                        // Common abbreviations
-                                        $abbreviations = [
-                                            'supplied as' => '',
-                                            'supplied' => '',
-                                            'as a' => '',
-                                            'as' => '',
-                                            'a' => '',
-                                            'resealable' => 'Reseal',
-                                            'resealable' => 'Reseal',
-                                            'which treats' => '',
-                                            'which' => '',
-                                            'treats' => '',
-                                            'about' => '~',
-                                            'or so' => '',
-                                            'or' => '',
-                                            'so' => '',
-                                            'standard' => 'Std',
-                                            'grams' => 'g',
-                                            'gram' => 'g',
-                                            'kilograms' => 'kg',
-                                            'kilogram' => 'kg',
-                                            'litres' => 'L',
-                                            'litre' => 'L',
-                                            'millilitres' => 'ml',
-                                            'millilitre' => 'ml',
-                                        ];
-                                        
-                                        // Replace common words/phrases
-                                        foreach ($abbreviations as $full => $short) {
-                                            $text = preg_replace('/\b' . preg_quote($full, '/') . '\b/i', $short, $text);
-                                        }
-                                        
-                                        // Remove extra spaces and clean up
-                                        $text = preg_replace('/\s+/', ' ', $text);
-                                        $text = trim($text);
-                                        
-                                        // Extract key information (numbers, units, important words)
-                                        // Try to get first meaningful word or number
-                                        if (preg_match('/\d+\s*(g|kg|L|ml|cm|m)/i', $text, $matches)) {
-                                            $text = $matches[0];
-                                        } elseif (preg_match('/\d+/', $text, $matches)) {
-                                            $text = $matches[0];
-                                        } else {
-                                            // Get first word if no numbers
-                                            $words = explode(' ', $text);
-                                            $text = !empty($words[0]) ? $words[0] : $text;
-                                        }
-                                        
-                                        // Limit to 15 characters max, ensure at least 5 if possible
-                                        if (strlen($text) > 15) {
-                                            $text = substr($text, 0, 15);
-                                        }
-                                        
-                                        // If too short, try to add context
-                                        if (strlen($text) < 5 && preg_match('/\d+/', $text)) {
-                                            // Keep as is if it has a number
-                                        }
-                                        
-                                        return $text;
-                                    };
-                                @endphp
-                                @foreach($specs as $spec)
-                                    <span class="badge">{{ $shortenBadge($spec) }}</span>
-                                @endforeach
-                        </div>
+                                @if($product->badge_1)
+                                    <span class="badge">{{ strtoupper(trim($product->badge_1)) }}</span>
+                                @endif
+                                @if($product->badge_2)
+                                    <span class="badge">{{ strtoupper(trim($product->badge_2)) }}</span>
+                                @endif
+                            </div>
                             @endif
                             <ul class="product-buttons">
                                 @if($product->yg_link)
-                                <li><a href="{{ $product->yg_link }}" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
                                 @endif
                                 @if($product->amazon_link)
                                 <li><a href="{{ $product->amazon_link }}" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
@@ -1016,10 +936,10 @@ From May to September feed your plants twice a week while watering.</p>
             <div class="col-md-3 col-sm-6 mb-40">
                 <h5 class="heading-light mb-20">Our Products</h5>
                 <ul class="footer-links-list">
-                    <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g" class="heading-light" target="_blank" rel="noopener">Superior Soluble Fertiliser</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" class="heading-light" target="_blank" rel="noopener">Rose Bloom Booster</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g" class="heading-light" target="_blank" rel="noopener">Swell Gell & Feed</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" class="heading-light" target="_blank" rel="noopener">Citrus Feed</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Superior Soluble Fertiliser</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Rose Bloom Booster</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Swell Gell & Feed</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Citrus Feed</a></li>
                     <li><a href="#products" class="heading-light">View All Products</a></li>
                 </ul>
             </div><!-- .col -->
@@ -1028,7 +948,7 @@ From May to September feed your plants twice a week while watering.</p>
             <div class="col-md-3 col-sm-6 mb-40">
                 <h5 class="heading-light mb-20">Where to Buy</h5>
                 <ul class="footer-links-list">
-                    <li><a href="https://www.yougarden.com" class="heading-light" target="_blank" rel="noopener">YouGarden</a></li>
+                    <li><a href="https://www.yougarden.com?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">YouGarden</a></li>
                     <li><a href="https://www.amazon.co.uk" class="heading-light" target="_blank" rel="noopener">Amazon</a></li>
                 </ul>
                 <div class="footer-social mt-30">
@@ -1099,9 +1019,17 @@ $(document).ready(function() {
         // Populate basic modal fields
         $('#modalProductTitle').text(title);
         $('#modalProductDescription').text(description);
-        $('#modalProductYG').attr('href', ygLink);
+        
+        // Add source parameter to YouGarden links only
+        var ygLinkWithSource = ygLink;
+        if (ygLink) {
+            var separator = ygLink.indexOf('?') !== -1 ? '&' : '?';
+            ygLinkWithSource = ygLink + separator + 'source=bloomingfast.com';
+        }
+        
+        $('#modalProductYG').attr('href', ygLinkWithSource);
         $('#modalProductAmazon').attr('href', amazonLink);
-        $('#modalProductYGTop').attr('href', ygLink);
+        $('#modalProductYGTop').attr('href', ygLinkWithSource);
         $('#modalProductAmazonTop').attr('href', amazonLink);
         
         // Populate full description if available
