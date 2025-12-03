@@ -73,6 +73,145 @@
 		// Also check after a short delay to ensure it works
 		setTimeout(updateNavigationScroll, 100);
 		setTimeout(updateNavigationScroll, 300);
+		
+		// Desktop Slide-Out Menu
+		function initDesktopMenu() {
+			var $desktopMenuToggle = $('#desktopMenuToggle');
+			var $desktopSlideMenu = $('#desktopSlideMenu');
+			var $desktopMenuOverlay = $('#desktopMenuOverlay');
+			var $desktopMenuClose = $('#desktopMenuClose');
+			
+			// Check if elements exist
+			if ($desktopMenuToggle.length === 0 || $desktopSlideMenu.length === 0) {
+				console.log('Desktop menu elements not found');
+				return;
+			}
+			
+			function openDesktopMenu() {
+				$desktopMenuToggle.addClass('active');
+				$desktopSlideMenu.addClass('active');
+				$desktopMenuOverlay.addClass('active');
+				$('body').css('overflow', 'hidden');
+			}
+			
+			function closeDesktopMenu() {
+				$desktopMenuToggle.removeClass('active');
+				$desktopSlideMenu.removeClass('active');
+				$desktopMenuOverlay.removeClass('active');
+				$('body').css('overflow', '');
+			}
+			
+			// Remove any existing handlers and attach new ones
+			$desktopMenuToggle.off('click').on('click', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				console.log('Hamburger clicked');
+				if ($desktopSlideMenu.hasClass('active')) {
+					closeDesktopMenu();
+				} else {
+					openDesktopMenu();
+				}
+			});
+			
+			if ($desktopMenuClose.length > 0) {
+				$desktopMenuClose.off('click').on('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					closeDesktopMenu();
+				});
+			}
+			
+			if ($desktopMenuOverlay.length > 0) {
+				$desktopMenuOverlay.off('click').on('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					closeDesktopMenu();
+				});
+			}
+			
+			// Close menu when clicking nav links
+			$('.desktop-slide-menu-nav a').off('click').on('click', function() {
+				closeDesktopMenu();
+			});
+			
+			// Close menu on ESC key
+			$(document).off('keydown.desktopMenu').on('keydown.desktopMenu', function(e) {
+				if (e.key === 'Escape' && $desktopSlideMenu.hasClass('active')) {
+					closeDesktopMenu();
+				}
+			});
+		}
+		
+		// Initialize desktop menu
+		initDesktopMenu();
+		
+		// Also try after a short delay in case DOM isn't fully ready
+		setTimeout(initDesktopMenu, 100);
+		setTimeout(initDesktopMenu, 500);
+		
+		// Also initialize on window load
+		$(window).on('load', function() {
+			setTimeout(initDesktopMenu, 100);
+		});
+		
+		// Use event delegation as fallback - this should always work
+		$(document).off('click', '#desktopMenuToggle').on('click', '#desktopMenuToggle', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			console.log('Hamburger clicked via delegation');
+			
+			var $menu = $('#desktopSlideMenu');
+			var $toggle = $('#desktopMenuToggle');
+			var $overlay = $('#desktopMenuOverlay');
+			
+			console.log('Menu element:', $menu.length, 'Toggle:', $toggle.length, 'Overlay:', $overlay.length);
+			
+			if ($menu.length === 0 || $overlay.length === 0) {
+				console.error('Menu elements not found!');
+				return;
+			}
+			
+			if ($menu.hasClass('active')) {
+				console.log('Closing menu');
+				$toggle.removeClass('active');
+				$menu.removeClass('active');
+				$overlay.removeClass('active');
+				$('body').css('overflow', '');
+			} else {
+				console.log('Opening menu');
+				$toggle.addClass('active');
+				$menu.addClass('active');
+				$overlay.addClass('active');
+				$('body').css('overflow', 'hidden');
+			}
+		});
+		
+		// Also add vanilla JS fallback
+		document.addEventListener('DOMContentLoaded', function() {
+			var toggle = document.getElementById('desktopMenuToggle');
+			var menu = document.getElementById('desktopSlideMenu');
+			var overlay = document.getElementById('desktopMenuOverlay');
+			
+			if (toggle && menu && overlay) {
+				toggle.addEventListener('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					console.log('Hamburger clicked via vanilla JS');
+					
+					if (menu.classList.contains('active')) {
+						toggle.classList.remove('active');
+						menu.classList.remove('active');
+						overlay.classList.remove('active');
+						document.body.style.overflow = '';
+					} else {
+						toggle.classList.add('active');
+						menu.classList.add('active');
+						overlay.classList.add('active');
+						document.body.style.overflow = 'hidden';
+					}
+				});
+			}
+		});
 	});
 	
 	//magnificPopup	Video
@@ -177,44 +316,45 @@
 	  }
 	}
 	
-	// Preloader with aggressive fallback timeouts
-	var $preload = $('#preloader');
-	var preloaderHidden = false;
-	
-	var hidePreloader = function() {
-		if (preloaderHidden) return;
-		preloaderHidden = true;
-		
-		var preloader = document.getElementById('preloader');
-		if (preloader) {
-			preloader.classList.add('fade-out');
-			setTimeout(function() {
-				if (preloader && preloader.parentNode) {
-					preloader.remove();
-				}
-				document.body.style.overflow = 'visible';
-				$('body').css({'overflow':'visible'});
-			}, 150);
-		}
-	};
-	
-	if ($preload.length > 0) {
-		// Immediate fallback - hide after 300ms no matter what
-		setTimeout(hidePreloader, 300);
-		
-		// Hide on window load
-		$(window).on('load', function() {
-			setTimeout(hidePreloader, 50);
-		});
-		
-		// Also hide when DOM is ready
-		$(document).ready(function() {
-			setTimeout(hidePreloader, 200);
-		});
-		
-		// Final fallback after 1 second
-		setTimeout(hidePreloader, 1000);
-	}
+	// Preloader is now handled by inline script in app.blade.php
+	// Disabled to prevent conflicts with the delayed preloader
+	// var $preload = $('#preloader');
+	// var preloaderHidden = false;
+	// 
+	// var hidePreloader = function() {
+	// 	if (preloaderHidden) return;
+	// 	preloaderHidden = true;
+	// 	
+	// 	var preloader = document.getElementById('preloader');
+	// 	if (preloader) {
+	// 		preloader.classList.add('fade-out');
+	// 		setTimeout(function() {
+	// 			if (preloader && preloader.parentNode) {
+	// 				preloader.remove();
+	// 			}
+	// 			document.body.style.overflow = 'visible';
+	// 			$('body').css({'overflow':'visible'});
+	// 		}, 150);
+	// 	}
+	// };
+	// 
+	// if ($preload.length > 0) {
+	// 	// Immediate fallback - hide after 300ms no matter what
+	// 	setTimeout(hidePreloader, 300);
+	// 	
+	// 	// Hide on window load
+	// 	$(window).on('load', function() {
+	// 		setTimeout(hidePreloader, 50);
+	// 	});
+	// 	
+	// 	// Also hide when DOM is ready
+	// 	$(document).ready(function() {
+	// 		setTimeout(hidePreloader, 200);
+	// 	});
+	// 	
+	// 	// Final fallback after 1 second
+	// 	setTimeout(hidePreloader, 1000);
+	// }
 	
 	//WOW init
 	new WOW().init();

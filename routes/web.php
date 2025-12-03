@@ -2,11 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Models\Product;
 
 Route::get('/', function () {
-    return view('home');
+    $products = Product::where('is_active', true)
+        ->orderBy('sort_order', 'asc')
+        ->orderBy('id', 'asc')
+        ->get();
+    
+    return view('home', compact('products'));
 })->name('home');
 
 // Blog Routes
@@ -27,6 +32,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Protected Admin Routes
     Route::middleware('admin')->group(function () {
         Route::resource('products', ProductController::class);
-        Route::resource('blogs', BlogController::class);
     });
 });

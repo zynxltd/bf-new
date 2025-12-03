@@ -13,7 +13,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/theme-blue-green.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/custom-new.css') }}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,6 @@
     <div id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Blooming Fast Logo" class="preloader-logo-img" />
                 <div class="preloader-dots">
                     <span></span>
                     <span></span>

@@ -1,136 +1,135 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Edit Product')
 
 @section('content')
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h1>Edit Product</h1>
-                <div>
-                    <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Back to Products</a>
-                    <form action="{{ route('admin.logout') }}" method="POST" class="d-inline">
-                        @csrf
-                        <button type="submit" class="btn btn-outline-secondary">Logout</button>
-                    </form>
-                </div>
+<div class="admin-card">
+    <div class="admin-header">
+        <div>
+            <div class="logo">
+                <img src="{{ asset('images/logo.png') }}" alt="Blooming Fast Logo">
             </div>
+        </div>
+        <h1>Edit Product</h1>
+        <div class="admin-actions">
+            <a href="{{ route('admin.products.index') }}" class="btn-admin btn-admin-secondary">Back to Products</a>
+        </div>
+    </div>
 
             <form action="{{ route('admin.products.update', $product) }}" method="POST">
                 @csrf
                 @method('PUT')
                 
-                <div class="form-group">
-                    <label for="title">Title *</label>
-                    <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $product->title) }}" required>
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="title">Title *</label>
+                    <input type="text" class="form-control-admin" id="title" name="title" value="{{ old('title', $product->title) }}" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="3">{{ old('description', $product->description) }}</textarea>
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="description">Description</label>
+                    <textarea class="form-control-admin" id="description" name="description" rows="3">{{ old('description', $product->description) }}</textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="full_description">Full Description</label>
-                    <textarea class="form-control" id="full_description" name="full_description" rows="5">{{ old('full_description', $product->full_description) }}</textarea>
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="full_description">Full Description</label>
+                    <textarea class="form-control-admin" id="full_description" name="full_description" rows="5">{{ old('full_description', $product->full_description) }}</textarea>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="image">Image Path</label>
-                            <input type="text" class="form-control" id="image" name="image" value="{{ old('image', $product->image) }}" placeholder="images/product.jpg">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="image">Image Path</label>
+                            <input type="text" class="form-control-admin" id="image" name="image" value="{{ old('image', $product->image) }}" placeholder="images/product.jpg">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="image_2">Image 2 Path</label>
-                            <input type="text" class="form-control" id="image_2" name="image_2" value="{{ old('image_2', $product->image_2) }}" placeholder="images/product2.jpg">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="image_2">Image 2 Path</label>
+                            <input type="text" class="form-control-admin" id="image_2" name="image_2" value="{{ old('image_2', $product->image_2) }}" placeholder="images/product2.jpg">
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="video">Video URL</label>
-                    <input type="text" class="form-control" id="video" name="video" value="{{ old('video', $product->video) }}" placeholder="https://vimeo.com/123456">
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="video">Video URL</label>
+                    <input type="text" class="form-control-admin" id="video" name="video" value="{{ old('video', $product->video) }}" placeholder="https://vimeo.com/123456">
                 </div>
 
-                <div class="form-group">
-                    <label for="videos">Videos HTML</label>
-                    <textarea class="form-control" id="videos" name="videos" rows="3">{{ old('videos', $product->videos) }}</textarea>
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="videos">Videos HTML</label>
+                    <textarea class="form-control-admin" id="videos" name="videos" rows="3">{{ old('videos', $product->videos) }}</textarea>
                     <small class="form-text text-muted">HTML for video embeds</small>
                 </div>
 
-                <div class="form-group">
-                    <label for="reviews">Reviews</label>
-                    <textarea class="form-control" id="reviews" name="reviews" rows="3">{{ old('reviews', $product->reviews) }}</textarea>
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="reviews">Reviews</label>
+                    <textarea class="form-control-admin" id="reviews" name="reviews" rows="3">{{ old('reviews', $product->reviews) }}</textarea>
                     <small class="form-text text-muted">HTML or Feefo embed URL (feefo-embed:URL or feefo:PRODUCT_ID)</small>
                 </div>
 
-                <div class="form-group">
-                    <label for="delivery_info">Delivery Information</label>
-                    <textarea class="form-control" id="delivery_info" name="delivery_info" rows="2">{{ old('delivery_info', $product->delivery_info) }}</textarea>
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="delivery_info">Delivery Information</label>
+                    <textarea class="form-control-admin" id="delivery_info" name="delivery_info" rows="2">{{ old('delivery_info', $product->delivery_info) }}</textarea>
                 </div>
 
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="specs">Specs</label>
-                            <input type="text" class="form-control" id="specs" name="specs" value="{{ old('specs', $product->specs) }}" placeholder="500g, NPK 18:18:24">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="specs">Specs</label>
+                            <input type="text" class="form-control-admin" id="specs" name="specs" value="{{ old('specs', $product->specs) }}" placeholder="500g, NPK 18:18:24">
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="npk">NPK</label>
-                            <input type="text" class="form-control" id="npk" name="npk" value="{{ old('npk', $product->npk) }}" placeholder="18:18:24">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="npk">NPK</label>
+                            <input type="text" class="form-control-admin" id="npk" name="npk" value="{{ old('npk', $product->npk) }}" placeholder="18:18:24">
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="makes">Makes</label>
-                            <input type="text" class="form-control" id="makes" name="makes" value="{{ old('makes', $product->makes) }}" placeholder="500 litres">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="makes">Makes</label>
+                            <input type="text" class="form-control-admin" id="makes" name="makes" value="{{ old('makes', $product->makes) }}" placeholder="500 litres">
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="features">Features</label>
-                    <textarea class="form-control" id="features" name="features" rows="3">{{ old('features', $product->features) }}</textarea>
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="features">Features</label>
+                    <textarea class="form-control-admin" id="features" name="features" rows="3">{{ old('features', $product->features) }}</textarea>
                     <small class="form-text text-muted">Separate with | (pipe)</small>
                 </div>
 
-                <div class="form-group">
-                    <label for="application">Application Instructions</label>
-                    <textarea class="form-control" id="application" name="application" rows="3">{{ old('application', $product->application) }}</textarea>
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="application">Application Instructions</label>
+                    <textarea class="form-control-admin" id="application" name="application" rows="3">{{ old('application', $product->application) }}</textarea>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="yg_link">YouGarden Link</label>
-                            <input type="url" class="form-control" id="yg_link" name="yg_link" value="{{ old('yg_link', $product->yg_link) }}" placeholder="https://www.yougarden.com/item-p-100062/...">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="yg_link">YouGarden Link</label>
+                            <input type="url" class="form-control-admin" id="yg_link" name="yg_link" value="{{ old('yg_link', $product->yg_link) }}" placeholder="https://www.yougarden.com/item-p-100062/...">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="amazon_link">Amazon Link</label>
-                            <input type="url" class="form-control" id="amazon_link" name="amazon_link" value="{{ old('amazon_link', $product->amazon_link) }}">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="amazon_link">Amazon Link</label>
+                            <input type="url" class="form-control-admin" id="amazon_link" name="amazon_link" value="{{ old('amazon_link', $product->amazon_link) }}">
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="sort_order">Sort Order</label>
-                            <input type="number" class="form-control" id="sort_order" name="sort_order" value="{{ old('sort_order', $product->sort_order) }}">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="sort_order">Sort Order</label>
+                            <input type="number" class="form-control-admin" id="sort_order" name="sort_order" value="{{ old('sort_order', $product->sort_order) }}">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="is_active">Status</label>
-                            <select class="form-control" id="is_active" name="is_active">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="is_active">Status</label>
+                            <select class="form-control-admin" id="is_active" name="is_active">
                                 <option value="1" {{ old('is_active', $product->is_active) ? 'selected' : '' }}>Active</option>
                                 <option value="0" {{ old('is_active', $product->is_active) === false ? 'selected' : '' }}>Inactive</option>
                             </select>
@@ -138,7 +137,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Update Product</button>
+                <button type="submit" class="btn-admin btn-admin-primary">Update Product</button>
             </form>
         </div>
     </div>

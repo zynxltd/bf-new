@@ -61,7 +61,7 @@
                     <p class="heading-light mb-0">Copyright © {{ date('Y') }} Blooming Fast. All rights reserved.</p>
                     @auth
                     <p class="heading-light mt-10 mb-0">
-                        <a href="{{ route('admin.products.index') }}" class="heading-light" style="text-decoration: underline;">Admin Dashboard</a> | 
+                        <a href="{{ route('admin.blogs.index') }}" class="heading-light" style="text-decoration: underline;">Admin Dashboard</a> | 
                         <a href="{{ route('admin.logout') }}" class="heading-light" style="text-decoration: underline;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                             @csrf

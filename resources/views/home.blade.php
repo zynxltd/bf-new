@@ -26,6 +26,12 @@ use Illuminate\Support\Str;
                         <img class="logo logo-light" src="{{ asset('images/logo.png') }}" alt="logo" />
                         <img class="logo logo-color" src="{{ asset('images/logo.png') }}" alt="logo" />
                     </a>
+                    <!-- Desktop Hamburger Menu Button -->
+                    <button type="button" class="desktop-menu-toggle" id="desktopMenuToggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="site-collapse-nav">
@@ -41,6 +47,26 @@ use Illuminate\Support\Str;
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
         </nav>
+    </div>
+    
+    <!-- Desktop Slide-Out Menu -->
+    <div class="desktop-slide-menu" id="desktopSlideMenu">
+        <div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
+        <div class="desktop-slide-menu-content">
+            <button class="desktop-slide-menu-close" id="desktopMenuClose" aria-label="Close menu">
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="desktop-slide-menu-nav">
+                <li><a href="#home" class="nav-item">Home</a></li>
+                <li><a href="#about" class="nav-item">About</a></li>
+                <li><a href="#features" class="nav-item">Features</a></li>
+                <li><a href="#products" class="nav-item">Products</a></li>
+                <li><a href="#videos" class="nav-item">Videos</a></li>
+                <li><a href="#faq" class="nav-item">FAQ</a></li>
+                <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
+            </ul>
+        </div>
     </div><!-- .navigation -->
     
     <div class="header-content">
@@ -51,7 +77,7 @@ use Illuminate\Support\Str;
                         <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
                             <span>Premium Quality</span>
                         </div>
-                        <h2 class="hero-title-gradient wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">Superior Plant Food Plus</h2>
+                        <h2 class="hero-title-gradient wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">Superior Plant Food</h2>
                         <p class="lead hero-description wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">Our best-ever formulation for use all round the garden for <strong>more flowers</strong>, <strong>more fruit</strong>, <strong>better roots</strong> and <strong>better shoots</strong>.</p>
                         <div class="hero-sizes wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
                             <span class="size-label">Available in 3 sizes:</span>
@@ -66,6 +92,29 @@ use Illuminate\Support\Str;
                             <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
                             <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
                         </ul>
+                        <!-- Feefo Rating Badge -->
+                        <div class="hero-feefo-badge wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
+                            <a href="https://www.feefo.com/en-GB/reviews/bloomingfast" target="_blank" rel="noopener noreferrer" class="hero-feefo-link">
+                                <div id="feefo-badge-hero" class="feefo-badge-widget">
+                                    <div class="feefo-fallback-badge" style="display: block;">
+                                        <div class="feefo-fallback-content">
+                                            <div class="feefo-stars">
+                                                <span class="feefo-star">★</span>
+                                                <span class="feefo-star">★</span>
+                                                <span class="feefo-star">★</span>
+                                                <span class="feefo-star">★</span>
+                                                <span class="feefo-star">★</span>
+                                            </div>
+                                            <div class="feefo-rating-text">4.8</div>
+                                            <span class="feefo-reviews-text">View our Reviews</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="hero-feefo-logo-below">
+                                <img src="{{ asset('images/Feefo_White_and_yellow_logo.svg') }}" alt="Feefo" class="feefo-logo-below-img" />
+                            </div>
+                        </div>
                     </div>
                 </div><!-- .col -->
                 <div class="col-md-5" style="z-index: 999;">
@@ -87,12 +136,27 @@ use Illuminate\Support\Str;
                 <div class="col-md-9 col-md-offset-1">
                     <h2 class="heading">About <span>Superior Plant Food PLUS</span></h2>
                     <p class="lead">For stunning displays of first-class flowers and vegetables, this superior plant food is a high potency, professional grade fertiliser for use all year round in your garden, simply mix with water for incredible results.</p>
-                    <ul>
-                        <li class="one"> <span><strong>PACKED</strong></span> with Potash for flowers, fruits and veg</li>
-                        <li class="one"> <span><strong>JAMMED</strong></span> with nitrogen and phosphorous for healthy leaves, shoots and roots</li>
-                        <li class="one"> <span><strong>BRIMMING</strong></span> with 7 vital trace elements for maximum health</li>
-                        <li class="one"> <strong>Plus</strong> we've added the magic ingredient – Humic Acid – to BOOST your plants</li>
-                        <li class="one"> <strong>Fast</strong> acting and long lasting – the best results for your money, makes approx 500 litres from a 500g bag</li>
+                    <ul class="about-features-stacked">
+                        <li class="about-feature-stacked-item" data-animation-delay="0">
+                            <div class="about-feature-title"><strong>PACKED</strong></div>
+                            <div class="about-feature-content">with Potash for flowers, fruits and veg</div>
+                        </li>
+                        <li class="about-feature-stacked-item" data-animation-delay="100">
+                            <div class="about-feature-title"><strong>JAMMED</strong></div>
+                            <div class="about-feature-content">with nitrogen and phosphorous for healthy leaves, shoots and roots</div>
+                        </li>
+                        <li class="about-feature-stacked-item" data-animation-delay="200">
+                            <div class="about-feature-title"><strong>BRIMMING</strong></div>
+                            <div class="about-feature-content">with 7 vital trace elements for maximum health</div>
+                        </li>
+                        <li class="about-feature-stacked-item" data-animation-delay="300">
+                            <div class="about-feature-title"><strong>Plus</strong></div>
+                            <div class="about-feature-content">we've added the magic ingredient – Humic Acid – to BOOST your plants</div>
+                        </li>
+                        <li class="about-feature-stacked-item" data-animation-delay="400">
+                            <div class="about-feature-title"><strong>Fast</strong></div>
+                            <div class="about-feature-content">acting and long lasting – the best results for your money, makes approx 500 litres from a 500g bag</div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -140,59 +204,86 @@ use Illuminate\Support\Str;
                 </div>
             </div>
         </div><!-- .section-head -->
-        <div class="features-content pt-10">
+        <div class="features-content pt-60">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="features-list text-right tab-left mobile-left">
-                        <div class="single-features icon-right wow fadeIn">
-                            <em class="ti ti-check"></em>
+                <div class="col-md-12">
+                    <div class="features-layout-wrapper">
+                        <!-- Left column cards -->
+                        <div class="features-cards-column features-cards-left">
+                            <div class="feature-nutrient-card">
+                                <i class="ti ti-check"></i>
+                                <div class="feature-nutrient-content">
                             <h4>Nitrogen</h4>
-                            <p>(the N in NPK), essential for making proteins and therefore cell growth </p>
+                                    <p>(the N in NPK), essential for making proteins and therefore cell growth</p>
                         </div>
-                        <div class="single-features icon-right">
-                            <em class="ti ti-check"></em>
-                            <h4>Potassium oxide </h4>
+                            </div>
+                            
+                            <div class="feature-nutrient-card">
+                                <i class="ti ti-check"></i>
+                                <div class="feature-nutrient-content">
+                                    <h4>Potassium oxide</h4>
                             <p>(the K in NPK) for respiration and photosynthesis</p>
                         </div>
-                        <div class="single-features icon-right">
-                            <em class="ti ti-check"></em>
+                            </div>
+                            
+                            <div class="feature-nutrient-card">
+                                <i class="ti ti-check"></i>
+                                <div class="feature-nutrient-content">
                             <h4>Boron</h4>
                             <p>for healthy cell growth</p>
                         </div>
-                        <div class="single-features icon-right">
-                            <em class="ti ti-check"></em>
+                            </div>
+                            
+                            <div class="feature-nutrient-card">
+                                <i class="ti ti-check"></i>
+                                <div class="feature-nutrient-content">
                             <h4>Iron</h4>
                             <p>for chlorophyll production</p>
                         </div>
                     </div>
-                </div><!-- .col -->
-                <div class="col-md-3 pull-right">
-                    <div class="features-list wow fadeIn">
-                        <div class="single-features">
-                            <em class="ti ti-check"></em>
+                        </div>
+                        
+                        <!-- Center product image -->
+                        <div class="features-product-center">
+                            <div class="features-product-image">
+                                <img src="{{ asset('images/superiorback.png') }}" alt="Superior Plant Food" />
+                            </div>
+                        </div>
+                        
+                        <!-- Right column cards -->
+                        <div class="features-cards-column features-cards-right">
+                            <div class="feature-nutrient-card">
+                                <i class="ti ti-check"></i>
+                                <div class="feature-nutrient-content">
                             <h4>Phosphorous pentoxide</h4>
                             <p>(the P in NPK) for respiration and growth</p>
                         </div>
-                        <div class="single-features">
-                            <em class="ti ti-check"></em>
-                            <h4>Magnesium oxide </h4>
+                            </div>
+                            
+                            <div class="feature-nutrient-card">
+                                <i class="ti ti-check"></i>
+                                <div class="feature-nutrient-content">
+                                    <h4>Magnesium oxide</h4>
                             <p>for photosynthesis (how plants get their energy)</p>
                         </div>
-                        <div class="single-features">
-                            <em class="ti ti-check"></em>
+                            </div>
+                            
+                            <div class="feature-nutrient-card">
+                                <i class="ti ti-check"></i>
+                                <div class="feature-nutrient-content">
                             <h4>Copper</h4>
-                            <p>for metabolic and respiratory processes </p>
+                                    <p>for metabolic and respiratory processes</p>
                         </div>
-                        <div class="single-features">
-                            <em class="ti ti-check"></em>
+                            </div>
+                            
+                            <div class="feature-nutrient-card">
+                                <i class="ti ti-check"></i>
+                                <div class="feature-nutrient-content">
                             <h4>Manganese</h4>
                             <p>for photosynthesis</p>
                         </div>
                     </div>
-                </div><!-- .col -->
-                <div class="col-md-6 text-center push-left">
-                    <div class="wow fadeInUp" data-wow-duration="1s">
-                        <img src="{{ asset('images/superiorback.png') }}" alt="features-mockup" />
+                        </div>
                     </div>
                 </div><!-- .col -->
             </div><!-- .row -->
@@ -206,10 +297,79 @@ use Illuminate\Support\Str;
         <div class="row">
             <div class="col-md-12">
                 <div class="customer-reviews-content text-center">
-                    <h3 class="mb-30">What Our Customers Say</h3>
-                    <div id="customer-reviews-widget"></div>
+                    <h3 class="mb-50">What Our Customers Say</h3>
+                    
+                    <!-- Feefo Reviews Widget -->
+                    <div class="feefo-widget-container mb-40">
+                        <div id="feefo-reviews-widget-testimonials" class="feefo-reviews-widget">
+                            <iframe src="https://www.feefo.com/en-GB/reviews/bloomingfast" width="100%" height="800" frameborder="0" style="border: none; min-height: 600px; border-radius: 12px;"></iframe>
                 </div>
             </div>
+                    
+                    <!-- Testimonials Carousel (Hidden - Fallback) -->
+                    <div id="testimonialsCarousel" class="carousel slide testimonials-carousel" style="display: none;" data-ride="carousel" data-interval="5000">
+                        <!-- Carousel Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#testimonialsCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#testimonialsCarousel" data-slide-to="1"></li>
+                            <li data-target="#testimonialsCarousel" data-slide-to="2"></li>
+                        </ol>
+                        
+                        <!-- Carousel Items -->
+                        <div class="carousel-inner testimonials-carousel-inner" role="listbox">
+                            <div class="item active">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating mb-15">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                        </div>
+                                    <p class="testimonial-text">"Absolutely fantastic product! My roses have never looked better. The blooms are bigger and more vibrant than ever before."</p>
+                                    <div class="testimonial-author">- Sarah M.</div>
+                            </div>
+                        </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating mb-15">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                    </div>
+                                    <p class="testimonial-text">"Best fertiliser I've ever used. My entire garden is thriving - flowers, vegetables, everything! Highly recommend."</p>
+                                    <div class="testimonial-author">- John D.</div>
+                </div>
+                        </div>
+                            <div class="item">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-rating mb-15">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                            </div>
+                                    <p class="testimonial-text">"Great value for money. One bag makes so much feed and the results are incredible. My plants love it!"</p>
+                                    <div class="testimonial-author">- Emma T.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                        <!-- Carousel Controls -->
+                        <a class="left carousel-control" href="#testimonialsCarousel" role="button" data-slide="prev">
+                            <span class="fa fa-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#testimonialsCarousel" role="button" data-slide="next">
+                            <span class="fa fa-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        </div>
+                            </div>
+                        </div>
         </div><!-- .row -->
     </div><!-- .container -->
 </div><!-- .customer-reviews-section  -->
@@ -224,178 +384,72 @@ use Illuminate\Support\Str;
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="heading heading-light">Our Complete Product Range</h2>
                     <p class="lead">Discover our full range of premium plant foods and fertilisers, each specially formulated for specific plant needs.</p>
-                </div>
-            </div>
+                        </div>
+                            </div>
         </div><!-- .section-head -->
         
         <div class="products-content pt-60">
             <div class="row">
-                <!-- Product Card 1: Bloom Booster -->
+                @forelse($products ?? [] as $index => $product)
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-product-title="Ultimate Rose Bloom Booster" data-product-image="{{ asset('images/bloom-booster-p1.jpg') }}" data-product-image-2="{{ asset('images/bloom-booster-p1.jpg') }}" data-product-video="https://vimeo.com/1100825820" data-product-description="Packed with five powerhouse ingredients that work in harmony to strengthen roots, boost growth, and keep roses flowering for longer with deeper colour and lusher foliage." data-product-full-description="{{ htmlspecialchars('Completely transform the way you grow roses with the Ultimate Rose \'Bloom-Booster\' Complete Fertiliser. This extraordinary blend of nutrients and natural enhancers is the secret behind the lush, vibrant blooms we come to expect in our gardens.
-
-Now, we\'ve been growing roses professionally for years and we don\'t say this lightly. This isn\'t your average feed. It\'s been tested, proven and perfected with one aim: to help UK gardeners grow the most glorious roses possible. And the results really do speak for themselves.
-
-So what\'s the magic? The formula is packed with five powerful components; a Natural Organic Fertiliser, Mycorrhizal Fungi, Slow-Release and Controlled-Release Nutrition, plus a Bio-Stimulant. Each one plays a role in building stronger roots, richer colour, and longer flowering. It feeds deeply and steadily, releasing nutrients across the whole growing season.
-
-Whether you\'re planting a brand-new Hybrid Tea or giving a tired old Floribunda a spring wake-up call, this fertiliser makes all the difference. You\'ll see richer foliage, more blooms, better shape, and you won\'t have to constantly reapply.
-
-All it takes is a 100g packet, enough to give your roses the best possible start or a vital boost when they need it most. It\'s small but mighty!
-
-And here\'s the kicker: it\'s so easy to use. Just one annual application at planting or in spring is enough to fuel exceptional results. It\'s a quick, affordable and foolproof way to see what your roses are really capable of.
-
-So here\'s your moment. Either continue growing as usual, or take the leap and experience the rose garden you\'ve always imagined.
-
-And right now, you can grab your 100g pack for an exceptional value price, with full instructions included. There\'s no risk, no guesswork, just proven results, or your money back.
-
-Supplied as a resealable 100g pack of Ultimate Rose \'Bloom-Booster\' Complete Fertiliser.', ENT_QUOTES) }}" data-product-videos="{{ htmlspecialchars('<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" src=\"https://player.vimeo.com/video/1100825820?color=ffffff&title=0&byline=0&portrait=0\" allowfullscreen></iframe></div>', ENT_QUOTES) }}" data-product-reviews="feefo-embed:https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" data-product-delivery="Standard Delivery: £4.95 (3-5 working days) | Express Delivery: £7.95 (1-2 working days) | Free Delivery on orders over £50. All orders are dispatched within 1-2 working days. Delivery to UK mainland only. For international delivery, please contact us." data-product-specs="100g, NPK 8.8-4-9.2" data-product-yg="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+ultimate+rose+bloom+booster" data-product-npk="NPK 8.8-4-9.2 (Nitrogen 8.8%, Phosphorus Pentoxide 4%, Potassium Oxide 9.2%) with trace elements: Magnesium Oxide 0.8%, Sulphur 3%, Iron 0.3%, Manganese 0.05%, Copper 0.02%, Molybdenum 0.03%, Zinc 0.03%, Boron 0.02%. Also contains Mycorrhizal friendly fungi and Humic Acid." data-product-features="Packed with five powerhouse ingredients|Contains mycorrhizal fungi, organic feed, and slow- and controlled-release nutrition|Ideal for planting new roses or reviving tired ones|Developed by professionals, tested in real gardens|Proven to deliver bigger, healthier blooms|One simple application sets them up for success all year round|Continuous feeding right through the growing season" data-product-application="{{ htmlspecialchars('To use: Shake the pack while closed to remix the product ingredients, as some settlement may have taken place while in storage or transport. In March and April, apply to the soil around the plant, or at time of planting. For dosage, use 30g of fertiliser for a shrub rose or shrub, or 60g for a climbing rose.
-
-Planting new roses - Sprinkle 30g evenly into a prepared planting hole and mix in at the outside of the hole.
-
-For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so it is open to a depth of 5-10cm. Apply 30g of fertiliser evenly around the plant, about 15cm away from the stem and then work into the topsoil so all product disappears. After fertilising, apply 5L of water per plant to help incorporate the fertiliser into the soil.', ENT_QUOTES) }}" data-product-makes="100g resealable pack">
+                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" 
+                         data-wow-duration=".5s" 
+                         data-wow-delay="{{ ($index * 0.1) }}s"
+                         data-product-title="{{ $product->title }}"
+                         data-product-image="{{ $product->image ? asset($product->image) : '' }}"
+                         data-product-image-2="{{ $product->image_2 ? asset($product->image_2) : ($product->image ? asset($product->image) : '') }}"
+                         data-product-video="{{ $product->video ?? '' }}"
+                         data-product-description="{{ $product->description ?? '' }}"
+                         data-product-full-description="{{ htmlspecialchars($product->full_description ?? '', ENT_QUOTES) }}"
+                         data-product-videos="{{ htmlspecialchars($product->videos ?? '', ENT_QUOTES) }}"
+                         data-product-reviews="{{ htmlspecialchars($product->reviews ?? '', ENT_QUOTES) }}"
+                         data-product-delivery="{{ htmlspecialchars($product->delivery_info ?? '', ENT_QUOTES) }}"
+                         data-product-specs="{{ $product->specs ?? '' }}"
+                         data-product-yg="{{ $product->yg_link ?? '' }}"
+                         data-product-amazon="{{ $product->amazon_link ?? '' }}"
+                         data-product-npk="{{ $product->npk ?? '' }}"
+                         data-product-features="{{ $product->features ?? '' }}"
+                         data-product-application="{{ htmlspecialchars($product->application ?? '', ENT_QUOTES) }}"
+                         data-product-makes="{{ $product->makes ?? '' }}">
                         <div class="product-image mb-20">
-                            <img src="{{ asset('images/bloom-booster-p1.jpg') }}" alt="Ultimate Rose Bloom Booster" class="img-responsive" />
+                            @if($index < 2)
+                            <span class="best-seller-badge">Best Seller</span>
+                            @endif
+                            <img src="{{ $product->image ? asset($product->image) : asset('images/superiorV4.png') }}" alt="{{ $product->title }}" class="img-responsive" />
                         </div>
                         <div class="product-details p-30">
-                            <h4 class="product-title mb-15">Ultimate Rose Bloom Booster</h4>
-                            <p class="product-description mb-20">Packed with five powerhouse ingredients that work in harmony to strengthen roots, boost growth, and keep roses flowering for longer with deeper colour and lusher foliage.</p>
+                            <h4 class="product-title mb-15">{{ $product->title }}</h4>
+                            <p class="product-description mb-20">{{ $product->description ?? '' }}</p>
+                            @if($product->specs)
                             <div class="product-specs mb-20">
-                                <span class="badge">100g</span>
-                                <span class="badge">NPK 8.8-4-9.2</span>
+                                @php
+                                    $specs = explode(',', $product->specs);
+                                @endphp
+                                @foreach($specs as $spec)
+                                    <span class="badge">{{ trim($spec) }}</span>
+                                @endforeach
                             </div>
+                            @endif
                             <ul class="product-buttons">
-                                <li><a href="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+ultimate+rose+bloom+booster" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                                @if($product->yg_link)
+                                <li><a href="{{ $product->yg_link }}" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                @endif
+                                @if($product->amazon_link)
+                                <li><a href="{{ $product->amazon_link }}" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Product Card 2: Swell Gell & Feed -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".1s" data-product-title="Swell Gell & Feed" data-product-image="{{ asset('images/swellgell-1.jpg') }}" data-product-image-2="{{ asset('images/swellgell-1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Revolutionary water-retaining gel with built-in plant food. Reduces watering frequency while feeding your plants." data-product-full-description="Swell Gell & Feed is a revolutionary water-retaining gel with built-in plant food that solves two problems at once. The advanced gel technology absorbs and stores water, then releases it gradually to your plants as they need it, significantly reducing watering frequency. At the same time, the built-in plant food provides essential nutrients to promote healthy growth. This innovative product is perfect for containers, hanging baskets, and plants in dry or sunny positions. Simply mix with compost when planting or apply as a top dressing. The gel will absorb water during watering and release it gradually, keeping your plants hydrated and fed for longer periods." data-product-videos="{{ htmlspecialchars('<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" src=\"https://player.vimeo.com/video/170471588\" allowfullscreen></iframe></div>', ENT_QUOTES) }}" data-product-reviews="{{ htmlspecialchars('<div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">Emma T.</div><div class=\"review-date\">3 weeks ago</div><div class=\"review-text\">Perfect for my hanging baskets! Reduced watering by half and plants look great.</div></div><div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">Mike R.</div><div class=\"review-date\">1 month ago</div><div class=\"review-text\">Game changer for container gardening. Highly recommend!</div></div>', ENT_QUOTES) }}" data-product-delivery="Standard Delivery: £4.95 (3-5 working days) | Express Delivery: £7.95 (1-2 working days) | Free Delivery on orders over £50. All orders are dispatched within 1-2 working days. Delivery to UK mainland only. For international delivery, please contact us." data-product-specs="250g, Water Retaining" data-product-yg="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+swell+gel+and+feed" data-product-npk="With Plant Growth Stimulant" data-product-features="Water-retaining gel technology|Built-in plant food|Reduces watering frequency|Promotes healthy root development|Ideal for containers and hanging baskets" data-product-application="Mix with compost when planting or apply as a top dressing. The gel absorbs water and releases it gradually to plants." data-product-makes="250g pack">
-                        <div class="product-image mb-20">
-                            <img src="{{ asset('images/swellgell-1.jpg') }}" alt="Swell Gell & Feed" class="img-responsive" />
+                @empty
+                <div class="col-md-12">
+                    <div class="text-center" style="padding: 60px 20px; color: rgba(255, 255, 255, 0.9);">
+                        <i class="fa fa-leaf" style="font-size: 64px; margin-bottom: 20px; display: block; opacity: 0.7;"></i>
+                        <h3 style="color: rgba(255, 255, 255, 0.95); margin-bottom: 15px;">No products available yet</h3>
+                        <p style="font-size: 18px; margin-bottom: 30px;">Check back soon for our range of premium plant foods!</p>
                         </div>
-                        <div class="product-details p-30">
-                            <h4 class="product-title mb-15">Swell Gell & Feed</h4>
-                            <p class="product-description mb-20">Revolutionary water-retaining gel with built-in plant food. Reduces watering frequency while feeding your plants.</p>
-                            <div class="product-specs mb-20">
-                                <span class="badge">250g</span>
-                                <span class="badge">Water Retaining</span>
                             </div>
-                            <ul class="product-buttons">
-                                <li><a href="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+swell+gel+and+feed" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product Card 3: Superior Soluble Fertiliser -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".2s" data-product-title="Superior Soluble Fertiliser" data-product-image="{{ asset('images/superiorV4.png') }}" data-product-image-2="{{ asset('images/superiorback.png') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Our best-ever formulation for use all round the garden. More flowers, more fruit, better roots and shoots." data-product-full-description="Superior Soluble Fertiliser is our best-ever formulation, designed for use all round the garden. This high-potency, professional-grade fertiliser delivers exceptional results for flowers, fruits, vegetables, and all garden plants. Packed with Potash for flowers, fruits and veg, jammed with nitrogen and phosphorous for healthy leaves, shoots and roots, and brimming with 7 vital trace elements for maximum health. Plus we've added the magic ingredient – Humic Acid – to boost your plants. Fast acting and long lasting, this superior plant food makes approximately 500 litres from a 500g bag. Simply add one 5g scoop (included) to a gallon of water (4.5 litres) or a standard watering can, and water on weekly during the growing season for incredible results." data-product-videos="{{ htmlspecialchars('<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" src=\"https://player.vimeo.com/video/170471588\" allowfullscreen></iframe></div>', ENT_QUOTES) }}" data-product-reviews="{{ htmlspecialchars('<div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">David L.</div><div class=\"review-date\">1 week ago</div><div class=\"review-text\">Best fertiliser I\'ve used! Everything in my garden is thriving.</div></div><div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">Linda K.</div><div class=\"review-date\">2 weeks ago</div><div class=\"review-text\">Amazing results on my vegetables. Highly recommend!</div></div><div class=\"review-item\"><div class=\"review-rating\">★★★★☆</div><div class=\"review-author\">Peter H.</div><div class=\"review-date\">3 weeks ago</div><div class=\"review-text\">Great value for money. Makes a lot of feed from one bag.</div></div>', ENT_QUOTES) }}" data-product-delivery="Standard Delivery: £4.95 (3-5 working days) | Express Delivery: £7.95 (1-2 working days) | Free Delivery on orders over £50. All orders are dispatched within 1-2 working days. Delivery to UK mainland only. For international delivery, please contact us." data-product-specs="500g, NPK 18:18:24" data-product-yg="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g" data-product-amazon="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" data-product-npk="18:18:24" data-product-features="Packed with Potash for flowers, fruits and veg|Jammed with nitrogen and phosphorous|Brimming with 7 vital trace elements|Plus Humic Acid to boost your plants|Fast acting and long lasting" data-product-application="Add one 5g scoop (included) to a gallon of water (4.5 litres) or a standard watering can. Water on weekly during the growing season." data-product-makes="Makes approx 500 litres from a 500g bag">
-                        <div class="product-image mb-20">
-                            <img src="{{ asset('images/superiorV4.png') }}" alt="Superior Soluble Fertiliser" class="img-responsive" />
-                        </div>
-                        <div class="product-details p-30">
-                            <h4 class="product-title mb-15">Superior Soluble Fertiliser</h4>
-                            <p class="product-description mb-20">Our best-ever formulation for use all round the garden. More flowers, more fruit, better roots and shoots.</p>
-                            <div class="product-specs mb-20">
-                                <span class="badge">500g</span>
-                                <span class="badge">NPK 18:18:24</span>
-                            </div>
-                            <ul class="product-buttons">
-                                <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product Card 4: Citrus Feed -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".3s" data-product-title="Citrus Feed" data-product-image="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-image-2="{{ asset('images/cirtus-feed-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Specially formulated for citrus trees and plants. Promotes healthy growth, better fruit production and vibrant foliage." data-product-full-description="Citrus Feed is specially formulated to meet the unique nutritional needs of citrus trees and plants. Whether you're growing lemons, oranges, limes, grapefruits, or other citrus varieties, this targeted fertiliser provides the perfect balance of nutrients to promote healthy growth, better fruit production, and vibrant, glossy foliage. Citrus plants have specific requirements, and this feed ensures they receive exactly what they need to thrive. Apply during the growing season by mixing with water according to instructions and applying to the base of your citrus plants regularly. You'll notice improved fruit quality, increased yields, and healthier, more attractive plants." data-product-videos="{{ htmlspecialchars('<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" src=\"https://player.vimeo.com/video/170471588\" allowfullscreen></iframe></div>', ENT_QUOTES) }}" data-product-reviews="{{ htmlspecialchars('<div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">James W.</div><div class=\"review-date\">2 weeks ago</div><div class=\"review-text\">My lemon tree is producing amazing fruit! Great feed for citrus.</div></div><div class=\"review-item\"><div class=\"review-rating\">★★★★☆</div><div class=\"review-author\">Emma L.</div><div class=\"review-date\">1 month ago</div><div class=\"review-text\">Perfect for my orange and lime trees. Healthy growth and better fruit.</div></div>', ENT_QUOTES) }}" data-product-delivery="Standard Delivery: £4.95 (3-5 working days) | Express Delivery: £7.95 (1-2 working days) | Free Delivery on orders over £50. All orders are dispatched within 1-2 working days. Delivery to UK mainland only. For international delivery, please contact us." data-product-specs="150g, Citrus Specific" data-product-yg="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+citrus+feed" data-product-npk="Citrus Specific Formula" data-product-features="Specially formulated for citrus trees|Promotes healthy growth|Better fruit production|Vibrant foliage|Ideal for lemons, oranges, limes and other citrus" data-product-application="Apply during the growing season. Mix with water according to instructions and apply to the base of citrus plants regularly." data-product-makes="150g pack">
-                        <div class="product-image mb-20">
-                            <img src="{{ asset('images/cirtus-feed-p1.jpg') }}" alt="Citrus Feed" class="img-responsive" />
-                        </div>
-                        <div class="product-details p-30">
-                            <h4 class="product-title mb-15">Citrus Feed</h4>
-                            <p class="product-description mb-20">Specially formulated for citrus trees and plants. Promotes healthy growth, better fruit production and vibrant foliage.</p>
-                            <div class="product-specs mb-20">
-                                <span class="badge">150g</span>
-                                <span class="badge">Citrus Specific</span>
-                            </div>
-                            <ul class="product-buttons">
-                                <li><a href="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+citrus+feed" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product Card 5: Acer Feed -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".4s" data-product-title="Acer Feed" data-product-image="{{ asset('images/acer-feed-p1.jpg') }}" data-product-image-2="{{ asset('images/acer-feed-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Perfect nutrition for Japanese maples and acer trees. Enhances leaf colour and promotes healthy growth." data-product-full-description="Acer Feed provides perfect nutrition specifically formulated for Japanese maples and acer trees. These beautiful trees are prized for their stunning foliage, and this specially balanced feed enhances leaf colour intensity and promotes healthy, vigorous growth. The unique formulation ensures your acers receive the exact nutrients they need to develop their characteristic vibrant colours, from the fresh greens of spring to the spectacular reds, oranges, and yellows of autumn. Apply around the base of your acer trees during the growing season and water in well after application. You'll be rewarded with improved autumn colour displays and healthier, more robust trees." data-product-videos="{{ htmlspecialchars('<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" src=\"https://player.vimeo.com/video/170471588\" allowfullscreen></iframe></div>', ENT_QUOTES) }}" data-product-reviews="{{ htmlspecialchars('<div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">Robert F.</div><div class=\"review-date\">3 weeks ago</div><div class=\"review-text\">My Japanese maple has never looked better. Amazing autumn colours!</div></div><div class=\"review-item\"><div class=\"review-rating\">★★★★☆</div><div class=\"review-author\">Patricia M.</div><div class=\"review-date\">1 month ago</div><div class=\"review-text\">Great for my acer collection. Healthy growth and vibrant leaves.</div></div>', ENT_QUOTES) }}" data-product-delivery="Standard Delivery: £4.95 (3-5 working days) | Express Delivery: £7.95 (1-2 working days) | Free Delivery on orders over £50. All orders are dispatched within 1-2 working days. Delivery to UK mainland only. For international delivery, please contact us." data-product-specs="900g, Acer Specific" data-product-yg="https://www.yougarden.com/item-p-100105/blooming-fast-acer-feed-900g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+acer+feed" data-product-npk="Acer Specific Formula" data-product-features="Perfect for Japanese maples|Enhances leaf colour|Promotes healthy growth|Specially balanced for acers|Improves autumn colour display" data-product-application="Apply around the base of acer trees during the growing season. Water in well after application." data-product-makes="900g pack">
-                        <div class="product-image mb-20">
-                            <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" />
-                        </div>
-                        <div class="product-details p-30">
-                            <h4 class="product-title mb-15">Acer Feed</h4>
-                            <p class="product-description mb-20">Perfect nutrition for Japanese maples and acer trees. Enhances leaf colour and promotes healthy growth.</p>
-                            <div class="product-specs mb-20">
-                                <span class="badge">900g</span>
-                                <span class="badge">Acer Specific</span>
-                            </div>
-                            <ul class="product-buttons">
-                                <li><a href="https://www.yougarden.com/item-p-100105/blooming-fast-acer-feed-900g" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+acer+feed" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product Card 6: Clematis Feed -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".5s" data-product-title="Clematis Feed" data-product-image="{{ asset('images/clematis-feed-p1.jpg') }}" data-product-image-2="{{ asset('images/clematis-feed-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Specialised feed for clematis plants. Encourages abundant flowering and strong, healthy growth." data-product-full-description="Clematis Feed is a specialised feed designed specifically for clematis plants to boost flowering and promote strong, healthy growth. Rich in potassium for richer colours, this feed encourages more blooms and longer-lasting flower displays. Whether you're growing clematis in borders, on trellises, or in patio planters, this feed provides the perfect nutrition for these beautiful climbing plants. The formulation promotes strong, healthy growth and has proven results visible within one growing season. For new plants, apply 35-50g around the plant base when growth is strong. For established plants, apply 35-50g in March and repeat every three months during the growing season for best results." data-product-videos="{{ htmlspecialchars('<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" src=\"https://player.vimeo.com/video/170471588\" allowfullscreen></iframe></div>', ENT_QUOTES) }}" data-product-reviews="{{ htmlspecialchars('<div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">Helen C.</div><div class=\"review-date\">2 weeks ago</div><div class=\"review-text\">My clematis is covered in beautiful flowers! Excellent feed.</div></div><div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">Andrew P.</div><div class=\"review-date\">1 month ago</div><div class=\"review-text\">Perfect for my climbing plants. Great results this season.</div></div>', ENT_QUOTES) }}" data-product-delivery="Standard Delivery: £4.95 (3-5 working days) | Express Delivery: £7.95 (1-2 working days) | Free Delivery on orders over £50. All orders are dispatched within 1-2 working days. Delivery to UK mainland only. For international delivery, please contact us." data-product-specs="900g, Clematis Specific" data-product-yg="https://www.yougarden.com/item-p-100106/blooming-fast-clematis-feed-900g" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+clematis+feed" data-product-npk="5-5-10 + 2.5% MgO" data-product-features="Rich in potassium for richer colours|More blooms and longer-lasting displays|Promotes strong, healthy growth|Suitable for borders, trellises and patio planters|Proven results within one growing season" data-product-application="New Plants: Apply 35-50g around the plant base when growth is strong. Established Plants: Apply 35-50g in March and repeat every three months during the growing season." data-product-makes="900g pack">
-                        <div class="product-image mb-20">
-                            <img src="{{ asset('images/clematis-feed-p1.jpg') }}" alt="Clematis Feed" class="img-responsive" />
-                        </div>
-                        <div class="product-details p-30">
-                            <h4 class="product-title mb-15">Clematis Feed</h4>
-                            <p class="product-description mb-20">Specialised feed for clematis plants. Encourages abundant flowering and strong, healthy growth.</p>
-                            <div class="product-specs mb-20">
-                                <span class="badge">900g</span>
-                                <span class="badge">Clematis Specific</span>
-                            </div>
-                            <ul class="product-buttons">
-                                <li><a href="https://www.yougarden.com/item-p-100106/blooming-fast-clematis-feed-900g" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+clematis+feed" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product Card 7: Fish Blood & Bone -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" data-wow-duration=".5s" data-wow-delay=".6s" data-product-title="Fish Blood & Bone" data-product-image="{{ asset('images/fish-blood-p1.jpg') }}" data-product-image-2="{{ asset('images/fish-blood-p1.jpg') }}" data-product-video="https://vimeo.com/170471588" data-product-description="Traditional organic fertiliser rich in nitrogen, phosphorus and potassium. Perfect for all-round garden use." data-product-full-description="Fish Blood & Bone is a traditional organic fertiliser that has been trusted by gardeners for generations. Rich in nitrogen, phosphorus, and potassium, this natural fertiliser provides essential nutrients for healthy plant growth. The organic formulation encourages strong root development, promotes vibrant blooms, and supports overall plant health. Perfect for all-round garden use, this fertiliser is ideal for flowers, vegetables, shrubs, and trees. For new plants, incorporate into the soil before planting to give them a great start. For established plants, apply as a top dressing around the base of plants and water in well. This natural and organic option is perfect for gardeners who prefer traditional, time-tested methods." data-product-videos="{{ htmlspecialchars('<div class=\"embed-responsive embed-responsive-16by9\"><iframe class=\"embed-responsive-item\" src=\"https://player.vimeo.com/video/170471588\" allowfullscreen></iframe></div>', ENT_QUOTES) }}" data-product-reviews="{{ htmlspecialchars('<div class=\"review-item\"><div class=\"review-rating\">★★★★★</div><div class=\"review-author\">Margaret S.</div><div class=\"review-date\">2 weeks ago</div><div class=\"review-text\">Traditional and effective. My garden has never looked better!</div></div><div class=\"review-item\"><div class=\"review-rating\">★★★★☆</div><div class=\"review-author\">Tom B.</div><div class=\"review-date\">1 month ago</div><div class=\"review-text\">Great organic option. Works well on all my plants.</div></div>', ENT_QUOTES) }}" data-product-delivery="Standard Delivery: £4.95 (3-5 working days) | Express Delivery: £7.95 (1-2 working days) | Free Delivery on orders over £50. All orders are dispatched within 1-2 working days. Delivery to UK mainland only. For international delivery, please contact us." data-product-specs="1.5kg, Organic" data-product-yg="https://www.yougarden.com/item-p-100046/blooming-fast-fish-blood-and-bone-1-5kg-tub" data-product-amazon="https://www.amazon.co.uk/s?k=blooming+fast+fish+blood+and+bone" data-product-npk="Natural NPK" data-product-features="Traditional organic fertiliser|Rich in nitrogen, phosphorus and potassium|Encourages strong root development|Vibrant blooms|Ideal for all-round garden use|Natural and organic" data-product-application="New Plants: Incorporate into the soil before planting. Established Plants: Apply as a top dressing around the base of plants and water in." data-product-makes="1.5kg tub">
-                        <div class="product-image mb-20">
-                            <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" />
-                        </div>
-                        <div class="product-details p-30">
-                            <h4 class="product-title mb-15">Fish Blood & Bone</h4>
-                            <p class="product-description mb-20">Traditional organic fertiliser rich in nitrogen, phosphorus and potassium. Perfect for all-round garden use.</p>
-                            <div class="product-specs mb-20">
-                                <span class="badge">1.5kg</span>
-                                <span class="badge">Organic</span>
-                            </div>
-                            <ul class="product-buttons">
-                                <li><a href="https://www.yougarden.com/item-p-100046/blooming-fast-fish-blood-and-bone-1-5kg-tub" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a href="https://www.amazon.co.uk/s?k=blooming+fast+fish+blood+and+bone" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div><!-- .row -->
         </div><!-- .products-content -->
     </div><!-- .container -->
@@ -445,62 +499,17 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
                     </div>
                 </div>
                 
-                <!-- Video 3: Swell Gell & Feed -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">
-                        <div class="video-thumbnail">
-                            <img src="{{ asset('images/swellgell-1.jpg') }}" alt="Swell Gell & Feed" class="img-responsive" />
-                            <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
-                        </div>
-                        <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Swell Gell & Feed</h4>
-                            <p class="video-description">See how this revolutionary water-retaining gel reduces watering while feeding your plants.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Video 4: Citrus Feed -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
-                        <div class="video-thumbnail">
-                            <img src="{{ asset('images/cirtus-feed-p1.jpg') }}" alt="Citrus Feed" class="img-responsive" />
-                            <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
-                        </div>
-                        <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Citrus Feed</h4>
-                            <p class="video-description">Learn how to care for your citrus trees and plants with this specially formulated feed.</p>
-                        </div>
-                    </div>
-                </div>
-                
                 <!-- Video 5: Acer Feed -->
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">
                         <div class="video-thumbnail">
                             <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" />
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                            <a href="https://vimeo.com/1090498990?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
                         </div>
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">Acer Feed</h4>
                             <p class="video-description">Find out how to enhance the beautiful colours of your Japanese maples and acer trees.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Video 6: Clematis Feed -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s">
-                        <div class="video-thumbnail">
-                            <img src="{{ asset('images/clematis-feed-p1.jpg') }}" alt="Clematis Feed" class="img-responsive" />
-                            <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
-                        </div>
-                        <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Clematis Feed</h4>
-                            <p class="video-description">Watch how to encourage abundant flowering in your clematis plants.</p>
                         </div>
                     </div>
                 </div>
@@ -511,7 +520,7 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
                         <div class="video-thumbnail">
                             <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" />
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                            <a href="https://vimeo.com/170471587?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
                         </div>
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">Fish Blood & Bone</h4>
@@ -524,15 +533,21 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
     </div><!-- .container -->
 </div><!-- .videos-section  -->
 
+<!-- Product Image Zoom Overlay -->
+<div class="product-image-zoom-overlay" id="productImageZoomOverlay">
+    <span class="product-image-zoom-close">&times;</span>
+    <img src="" alt="Zoomed Product Image" id="zoomedProductImage" />
+</div>
+
 <!-- Product Quick View Modal -->
 <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" id="productModalLabel">Product Quick View</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="productModalLabel">Product Quick View</h4>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -563,6 +578,14 @@ For top dressing - Clear soil of any leaves, weeds, or debris. Work the soil so 
                         <h3 id="modalProductTitle" class="product-modal-title"></h3>
                         <p id="modalProductDescription" class="product-modal-description"></p>
                         <div id="modalProductSpecs" class="product-modal-specs mb-20"></div>
+                        
+                        <!-- Product Buttons Below Specs -->
+                        <div class="product-modal-buttons-top mb-30">
+                            <ul class="product-buttons">
+                                <li><a id="modalProductYGTop" href="" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a id="modalProductAmazonTop" href="" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            </ul>
+                        </div>
                         
                         <!-- Collapsible Full Description -->
                         <div class="product-modal-full-description mb-20">
@@ -825,6 +848,7 @@ From May to September feed your plants twice a week while watering.</p>
         <div class="row">
             @php
                 $latestArticles = \App\Models\Blog::where('is_published', true)
+                    ->whereNotNull('published_date')
                     ->orderBy('published_date', 'desc')
                     ->orderBy('sort_order', 'asc')
                     ->take(3)
@@ -844,20 +868,25 @@ From May to September feed your plants twice a week while watering.</p>
                     </div>
                     <div class="blog-content p-30">
                         <div class="blog-meta mb-15">
-                            <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date->format('F j, Y') }}</span>
+                            <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date ? $article->published_date->format('F j, Y') : 'Not published' }}</span>
+                            @if($article->reading_time)
                             <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $article->reading_time }} min read</span>
+                            @endif
                         </div>
                         <h3 class="blog-title mb-15">
                             <a href="{{ route('blog.show', $article->slug) }}">{{ $article->title }}</a>
                         </h3>
-                        <p class="blog-excerpt mb-20">{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 150) }}</p>
+                        <p class="blog-excerpt mb-20">{{ $article->excerpt ?? Str::limit(strip_tags($article->content ?? ''), 150) }}</p>
                         <a href="{{ route('blog.show', $article->slug) }}" class="button button-primary">Read Guide</a>
                     </div>
                 </article>
             </div>
             @empty
             <div class="col-md-12">
-                <p class="text-center">No guides available yet. Check back soon!</p>
+                <p class="text-center" style="font-size: 18px; color: #666; padding: 40px 20px;">
+                    <i class="fa fa-book" style="font-size: 48px; color: #19B2EB; margin-bottom: 20px; display: block;"></i>
+                    No blogs available yet.
+                </p>
             </div>
             @endforelse
         </div>
@@ -932,7 +961,7 @@ From May to September feed your plants twice a week while watering.</p>
                     <p class="heading-light mb-0">Copyright © {{ date('Y') }} Blooming Fast. All rights reserved.</p>
                     @auth
                     <p class="heading-light mt-10 mb-0">
-                        <a href="{{ route('admin.products.index') }}" class="heading-light" style="text-decoration: underline;">Admin Dashboard</a> | 
+                        <a href="{{ route('admin.blogs.index') }}" class="heading-light" style="text-decoration: underline;">Admin Dashboard</a> | 
                         <a href="{{ route('admin.logout') }}" class="heading-light" style="text-decoration: underline;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -983,6 +1012,8 @@ $(document).ready(function() {
         $('#modalProductDescription').text(description);
         $('#modalProductYG').attr('href', ygLink);
         $('#modalProductAmazon').attr('href', amazonLink);
+        $('#modalProductYGTop').attr('href', ygLink);
+        $('#modalProductAmazonTop').attr('href', amazonLink);
         
         // Populate full description if available
         if (fullDescription) {
@@ -1106,8 +1137,8 @@ $(document).ready(function() {
         if (image) {
             var activeClass = itemIndex === 0 ? 'active' : '';
             carouselInner.append(
-                '<div class="item ' + activeClass + '">' +
-                '<img src="' + image + '" alt="' + title + '" class="img-responsive" />' +
+                '<div class="item ' + activeClass + '" data-zoom-image="' + image + '">' +
+                '<img src="' + image + '" alt="' + title + '" class="img-responsive product-zoom-image" />' +
                 '</div>'
             );
             carouselIndicators.append(
@@ -1120,8 +1151,8 @@ $(document).ready(function() {
         if (image2) {
             var activeClass = itemIndex === 0 ? 'active' : '';
             carouselInner.append(
-                '<div class="item ' + activeClass + '">' +
-                '<img src="' + image2 + '" alt="' + title + '" class="img-responsive" />' +
+                '<div class="item ' + activeClass + '" data-zoom-image="' + image2 + '">' +
+                '<img src="' + image2 + '" alt="' + title + '" class="img-responsive product-zoom-image" />' +
                 '</div>'
             );
             carouselIndicators.append(
@@ -1237,6 +1268,164 @@ $(document).ready(function() {
     
     // Load Feefo reviews when page is ready
     loadAboutFeefoReviews();
+    
+    // Load Feefo badge in hero section
+    function loadHeroFeefoBadge() {
+        // Load Feefo widget script
+        if (typeof window.feefoWidgetLoaded === 'undefined') {
+            var feefoScript = document.createElement('script');
+            feefoScript.src = 'https://api.feefo.com/api/javascript/bloomingfast';
+            feefoScript.async = true;
+            feefoScript.onload = function() {
+                if (typeof Feefo !== 'undefined') {
+                    Feefo.init();
+                }
+            };
+            document.head.appendChild(feefoScript);
+            window.feefoWidgetLoaded = true;
+        } else if (typeof Feefo !== 'undefined') {
+            Feefo.init();
+        }
+        
+        // Show fallback if badge image doesn't load (404 or other error)
+        var badgeContainer = document.getElementById('feefo-badge-hero');
+        var badgeImg = badgeContainer ? badgeContainer.querySelector('.hero-feefo-img') : null;
+        var fallbackBadge = badgeContainer ? badgeContainer.querySelector('.feefo-fallback-badge') : null;
+        var feefoWidget = badgeContainer ? badgeContainer.querySelector('.feefo-product-stars') : null;
+        
+        if (badgeContainer && badgeImg && fallbackBadge) {
+            // Check if image loaded successfully after page load
+            setTimeout(function() {
+                // If image failed to load or is hidden, show fallback
+                if (badgeImg.offsetHeight === 0 || badgeImg.style.display === 'none' || badgeImg.complete === false) {
+                    // Try widget first
+                    if (feefoWidget) {
+                        feefoWidget.style.display = 'block';
+                        setTimeout(function() {
+                            if (!feefoWidget.innerHTML || feefoWidget.offsetHeight === 0) {
+                                feefoWidget.style.display = 'none';
+                                fallbackBadge.style.display = 'block';
+                            }
+                        }, 1500);
+                    } else {
+                        fallbackBadge.style.display = 'block';
+                    }
+                }
+            }, 2000);
+        }
+    }
+    
+    // Load Feefo badge when page is ready
+    loadHeroFeefoBadge();
+    
+    // Stacked animation for About section features - DISABLED
+    // function animateStackedItems() {
+    //     const items = document.querySelectorAll('.about-feature-stacked-item');
+    //     const observerOptions = {
+    //         threshold: 0.1,
+    //         rootMargin: '0px 0px -50px 0px'
+    //     };
+    //     
+    //     const observer = new IntersectionObserver(function(entries) {
+    //         entries.forEach((entry, index) => {
+    //             if (entry.isIntersecting) {
+    //                 const delay = entry.target.getAttribute('data-animation-delay') || 0;
+    //                 setTimeout(() => {
+    //                     entry.target.classList.add('animate-in');
+    //                 }, parseInt(delay));
+    //                 observer.unobserve(entry.target);
+    //             }
+    //         });
+    //     }, observerOptions);
+    //     
+    //     items.forEach(item => {
+    //         observer.observe(item);
+    //     });
+    // }
+    // 
+    // // Initialize stacked animation
+    // animateStackedItems();
+    
+    // Testimonials carousel - show multiple items with partial visibility
+    function initTestimonialsCarousel() {
+        var $carousel = $('#testimonialsCarousel');
+        var $inner = $carousel.find('.carousel-inner');
+        var $items = $inner.find('.item');
+        
+        // Set up initial classes
+        $items.each(function(index) {
+            $(this).removeClass('active prev next');
+            if (index === 0) {
+                $(this).addClass('active');
+            } else if (index === 1) {
+                $(this).addClass('next');
+            } else if (index === $items.length - 1) {
+                $(this).addClass('prev');
+            }
+        });
+        
+        // Update carousel on slide
+        $carousel.on('slide.bs.carousel', function(e) {
+            var $items = $inner.find('.item');
+            var activeIndex = $(e.relatedTarget).index();
+            
+            $items.removeClass('active prev next');
+            $items.eq(activeIndex).addClass('active');
+            
+            // Set prev item
+            var prevIndex = activeIndex > 0 ? activeIndex - 1 : $items.length - 1;
+            $items.eq(prevIndex).addClass('prev');
+            
+            // Set next item
+            var nextIndex = activeIndex < $items.length - 1 ? activeIndex + 1 : 0;
+            $items.eq(nextIndex).addClass('next');
+        });
+        
+        // Update on slid event (after transition)
+        $carousel.on('slid.bs.carousel', function(e) {
+            var $items = $inner.find('.item');
+            var activeIndex = $(e.relatedTarget).index();
+            
+            $items.removeClass('active prev next');
+            $items.eq(activeIndex).addClass('active');
+            
+            var prevIndex = activeIndex > 0 ? activeIndex - 1 : $items.length - 1;
+            $items.eq(prevIndex).addClass('prev');
+            
+            var nextIndex = activeIndex < $items.length - 1 ? activeIndex + 1 : 0;
+            $items.eq(nextIndex).addClass('next');
+        });
+    }
+    
+    // Initialize testimonials carousel
+    if ($('#testimonialsCarousel').length) {
+        initTestimonialsCarousel();
+    }
+    
+    // Product Image Zoom Functionality
+    $(document).on('click', '.product-modal-carousel .item img', function(e) {
+        e.stopPropagation();
+        var zoomImage = $(this).closest('.item').data('zoom-image') || $(this).attr('src');
+        $('#zoomedProductImage').attr('src', zoomImage);
+        $('#productImageZoomOverlay').addClass('active');
+        $('body').css('overflow', 'hidden');
+    });
+    
+    // Close zoom overlay
+    $('#productImageZoomOverlay, .product-image-zoom-close').on('click', function(e) {
+        if (e.target === this || $(e.target).hasClass('product-image-zoom-close')) {
+            $('#productImageZoomOverlay').removeClass('active');
+            $('body').css('overflow', '');
+        }
+    });
+    
+    // Close zoom on ESC key
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape' && $('#productImageZoomOverlay').hasClass('active')) {
+            $('#productImageZoomOverlay').removeClass('active');
+            $('body').css('overflow', '');
+        }
+    });
 });
 </script>
 @endpush
