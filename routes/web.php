@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Models\Product;
 
@@ -10,19 +11,14 @@ Route::get('/', function () {
     $products = Product::where('is_active', true)
         ->orderBy('sort_order', 'asc')
         ->orderBy('id', 'asc')
-        ->get();
+        ->get(['id', 'title', 'description', 'image', 'badge_1', 'badge_2', 'sku', 'yg_link', 'amazon_link', 'sort_order']);
     
     return view('home', compact('products'));
 })->name('home');
 
 // Blog Routes
-Route::get('/blog', function () {
-    return view('blog.index');
-})->name('blog.index');
-
-Route::get('/blog/{slug}', function ($slug) {
-    return view('blog.show', compact('slug'));
-})->name('blog.show');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Admin Authentication Routes
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -33,6 +29,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Protected Admin Routes
     Route::middleware('admin')->group(function () {
         Route::resource('products', ProductController::class);
-        Route::resource('blogs', BlogController::class);
+        Route::resource('blogs', AdminBlogController::class);
     });
 });

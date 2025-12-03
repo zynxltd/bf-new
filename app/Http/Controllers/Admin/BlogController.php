@@ -35,7 +35,9 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:blogs,slug',
             'excerpt' => 'nullable|string',
-            'content' => 'required|string',
+            'content' => 'nullable|string',
+            'template' => 'nullable|string|max:255',
+            'json_schema' => 'nullable|string',
             'image' => 'nullable|string',
             'category' => 'nullable|string|max:255',
             'published_date' => 'required|date',
@@ -43,6 +45,11 @@ class BlogController extends Controller
             'is_published' => 'boolean',
             'sort_order' => 'nullable|integer',
         ]);
+        
+        // Require either content or template
+        if (empty($validated['content']) && empty($validated['template'])) {
+            return back()->withErrors(['content' => 'Either content or template must be provided.'])->withInput();
+        }
 
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);
@@ -85,7 +92,9 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:blogs,slug,' . $blog->id,
             'excerpt' => 'nullable|string',
-            'content' => 'required|string',
+            'content' => 'nullable|string',
+            'template' => 'nullable|string|max:255',
+            'json_schema' => 'nullable|string',
             'image' => 'nullable|string',
             'category' => 'nullable|string|max:255',
             'published_date' => 'required|date',
@@ -93,6 +102,11 @@ class BlogController extends Controller
             'is_published' => 'boolean',
             'sort_order' => 'nullable|integer',
         ]);
+        
+        // Require either content or template
+        if (empty($validated['content']) && empty($validated['template'])) {
+            return back()->withErrors(['content' => 'Either content or template must be provided.'])->withInput();
+        }
 
         if (empty($validated['slug'])) {
             $validated['slug'] = Str::slug($validated['title']);
@@ -100,7 +114,14 @@ class BlogController extends Controller
 
         // Calculate reading time if not provided
         if (empty($validated['reading_time'])) {
-            $wordCount = str_word_count(strip_tags($validated['content']));
+            $contentForCount = $validated['content'] ?? '';
+            if ($validated['template']) {
+                $templatePath = 'blog.articles.' . str_replace('.blade.php', '', $validated['template']);
+                if (view()->exists($templatePath)) {
+                    $contentForCount = view($templatePath)->render();
+                }
+            }
+            $wordCount = str_word_count(strip_tags($contentForCount));
             $validated['reading_time'] = max(1, ceil($wordCount / 200));
         }
 

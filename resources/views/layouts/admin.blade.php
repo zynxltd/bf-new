@@ -156,6 +156,26 @@
             width: 100%;
         }
         
+        .form-check-admin {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .form-check-input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .d-inline {
+            display: inline;
+        }
+        
         @media (max-width: 768px) {
             .col-md-6,
             .col-md-4 {
@@ -171,6 +191,10 @@
             .admin-card {
                 margin: 15px;
                 padding: 20px;
+            }
+            
+            .admin-actions {
+                flex-wrap: wrap;
             }
         }
     </style>

@@ -65,6 +65,15 @@ use Illuminate\Support\Str;
                 <li><a href="#videos" class="nav-item">Videos</a></li>
                 <li><a href="#faq" class="nav-item">FAQ</a></li>
                 <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
+                <li class="desktop-menu-divider"><span></span></li>
+                <li class="desktop-menu-store-links">
+                    <a href="https://www.yougarden.com?source=bloomingfast.com" class="nav-item store-link" target="_blank" rel="noopener">
+                        <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" />
+                    </a>
+                    <a href="https://www.amazon.co.uk/stores/page/5D2120F1-F052-4812-AAF7-6FE644404EC7/search?lp_asin=B0D44VQZ1S&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto&terms=blooming%20fast" class="nav-item store-link" target="_blank" rel="noopener">
+                        <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" />
+                    </a>
+                </li>
             </ul>
         </div>
     </div><!-- .navigation -->
@@ -129,7 +138,7 @@ use Illuminate\Support\Str;
 
 
 <!-- Start .about-section  -->
-<div id="about" class="about-section section pb-90 white-bg half-header-about about-section-bottom-curved about-section-top-curved">
+<div id="about" class="about-section section pb-0 white-bg half-header-about about-section-bottom-curved about-section-top-curved">
     <div class="container tab-fix">
         <div class="section-head text-center">
             <div class="row">
@@ -191,9 +200,21 @@ use Illuminate\Support\Str;
     </div><!-- .container -->
 </div><!-- .about-section  -->
 
+<!-- Curved divider between white and gradient sections -->
+<div class="section-divider-wave">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
+        <defs>
+            <linearGradient id="gradient-divider-features-top" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#70D969;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#19B2EB;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-features-top)"></path>
+    </svg>
+</div>
 
 <!-- Start .features-section  -->
-<div id="features" class="features-section section gradiant-background header-curbed features-curved-top">
+<div id="features" class="features-section section gradiant-background header-curbed confetti-section">
     <div class="container tab-fix">
         <div class="section-head heading-light text-center">
             <div class="row">
@@ -291,6 +312,19 @@ use Illuminate\Support\Str;
     </div><!-- .container -->
 </div><!-- .features-section  -->
 
+<!-- Curved divider at bottom of features section -->
+<div class="section-divider-wave section-divider-wave-bottom">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
+        <defs>
+            <linearGradient id="gradient-divider-features-bottom" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#30bcc8;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#6cd46b;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-features-bottom)"></path>
+    </svg>
+</div>
+
 <!-- Start .customer-reviews-section  -->
 <div id="customer-reviews" class="customer-reviews-section customer-reviews-curved-top customer-reviews-curved-bottom section white-bg pt-80 pb-80">
     <div class="container">
@@ -377,8 +411,21 @@ use Illuminate\Support\Str;
 
 
 
+<!-- Products Section Top Divider -->
+<div class="section-divider-wave" id="divider-products">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
+        <defs>
+            <linearGradient id="gradient-divider-products-top" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#70D969;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#19B2EB;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-products-top)"></path>
+    </svg>
+</div>
+
 <!-- Start .products-section  -->
-<div id="products" class="products-section section gradiant-background pt-120 pb-120 products-curved-top products-section-bottom-curved">
+<div id="products" class="products-section section gradiant-background pt-120 pb-120 products-section-bottom-curved">
     <div class="container">
         <div class="section-head heading-light text-center">
             <div class="row">
@@ -413,11 +460,16 @@ use Illuminate\Support\Str;
                          data-product-application="{{ htmlspecialchars($product->application ?? '', ENT_QUOTES) }}"
                          data-product-makes="{{ $product->makes ?? '' }}"
                          data-product-sku="{{ $product->sku ?? '' }}">
-                        <div class="product-image mb-20">
+                        <div class="product-image mb-20" style="position: relative;">
                             @if($index < 2)
                             <span class="best-seller-badge">Best Seller</span>
                             @endif
                             <img src="{{ $product->image ? asset($product->image) : asset('images/superiorV4.png') }}" alt="{{ $product->title }}" class="img-responsive" />
+                            <div class="product-quick-view-overlay">
+                                <a href="#" class="product-quick-view-btn" onclick="event.preventDefault(); event.stopPropagation(); return false;" title="Quick View">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                            </div>
                         </div>
                         <div class="product-details p-30">
                             <h4 class="product-title mb-15">{{ $product->title }}</h4>
@@ -595,63 +647,95 @@ use Illuminate\Support\Str;
                             </ul>
                         </div>
                         
-                        <!-- Collapsible Full Description -->
-                        <div class="product-modal-full-description mb-20">
-                            <a class="collapsed" data-toggle="collapse" href="#modalProductFullDescription" aria-expanded="false" aria-controls="modalProductFullDescription">
-                                <strong>Full Description <i class="fa fa-chevron-down"></i></strong>
-                            </a>
-                            <div class="collapse" id="modalProductFullDescription">
-                                <div class="well" id="modalProductFullDescriptionText">
+                        <!-- Collapsible Sections -->
+                        <div class="panel-group accordion" id="productModalAccordion" role="tablist" aria-multiselectable="true">
+                            
+                            <!-- Full Description -->
+                            <div class="panel panel-default product-modal-full-description" id="modalProductFullDescriptionSection" style="display: none;">
+                                <div class="panel-heading" role="tab">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductFullDescriptionCollapse" aria-expanded="true" class="collapsed">
+                                            Full Description <i class="fa fa-chevron-down pull-right"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="modalProductFullDescriptionCollapse" class="panel-collapse collapse" role="tabpanel">
+                                    <div class="panel-body">
+                                        <div id="modalProductFullDescriptionText" class="product-modal-content-text"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <!-- Collapsible Videos -->
-                        <div class="product-modal-videos mb-20" style="display: none;">
-                            <a class="collapsed" data-toggle="collapse" href="#modalProductVideos" aria-expanded="false" aria-controls="modalProductVideos">
-                                <strong>Videos <i class="fa fa-chevron-down"></i></strong>
-                            </a>
-                            <div class="collapse" id="modalProductVideos">
-                                <div class="well" id="modalProductVideosContent">
+                            
+                            <!-- Key Features -->
+                            <div class="panel panel-default" id="modalProductFeaturesSection" style="display: none;">
+                                <div class="panel-heading" role="tab">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductFeaturesCollapse" aria-expanded="false" class="collapsed">
+                                            Key Features <i class="fa fa-chevron-down pull-right"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="modalProductFeaturesCollapse" class="panel-collapse collapse" role="tabpanel">
+                                    <div class="panel-body">
+                                        <ul id="modalProductFeaturesList" class="product-features-list"></ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <!-- Collapsible Reviews -->
-                        <div class="product-modal-reviews mb-20" style="display: none;">
-                            <a class="collapsed" data-toggle="collapse" href="#modalProductReviews" aria-expanded="false" aria-controls="modalProductReviews">
-                                <strong>Reviews <i class="fa fa-chevron-down"></i></strong>
-                            </a>
-                            <div class="collapse" id="modalProductReviews">
-                                <div class="well" id="modalProductReviewsContent">
-                                    <!-- Feefo Reviews Widgets will be loaded here -->
-                                    <div id="feefo-product-review-widgetId" class="feefo-review-widget-product" data-feefo-initialized="true" style="flex: 1 1 auto;"></div>
+                            
+                            <!-- Videos -->
+                            <div class="panel panel-default product-modal-videos" id="modalProductVideosSection" style="display: none;">
+                                <div class="panel-heading" role="tab">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductVideosCollapse" aria-expanded="false" class="collapsed">
+                                            Videos <i class="fa fa-chevron-down pull-right"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="modalProductVideosCollapse" class="panel-collapse collapse" role="tabpanel">
+                                    <div class="panel-body">
+                                        <div id="modalProductVideosContent" class="product-modal-content-text"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <!-- Collapsible Delivery Info -->
-                        <div class="product-modal-delivery mb-20" style="display: none;">
-                            <a class="collapsed" data-toggle="collapse" href="#modalProductDelivery" aria-expanded="false" aria-controls="modalProductDelivery">
-                                <strong>Delivery Information <i class="fa fa-chevron-down"></i></strong>
-                            </a>
-                            <div class="collapse" id="modalProductDelivery">
-                                <div class="well" id="modalProductDeliveryContent">
+                            
+                            <!-- Application -->
+                            <div class="panel panel-default" id="modalProductApplicationSection" style="display: none;">
+                                <div class="panel-heading" role="tab">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductApplicationCollapse" aria-expanded="false" class="collapsed">
+                                            Application <i class="fa fa-chevron-down pull-right"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="modalProductApplicationCollapse" class="panel-collapse collapse" role="tabpanel">
+                                    <div class="panel-body">
+                                        <div id="modalProductApplicationText" class="product-modal-content-text"></div>
+                                    </div>
                                 </div>
                             </div>
+                            
+                            <!-- Delivery Info -->
+                            <div class="panel panel-default product-modal-delivery" id="modalProductDeliverySection" style="display: none;">
+                                <div class="panel-heading" role="tab">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductDeliveryCollapse" aria-expanded="false" class="collapsed">
+                                            Delivery Information <i class="fa fa-chevron-down pull-right"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="modalProductDeliveryCollapse" class="panel-collapse collapse" role="tabpanel">
+                                    <div class="panel-body">
+                                        <div id="modalProductDeliveryContent" class="product-modal-content-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                         
-                        <div id="modalProductDetails" class="product-modal-details">
+                        <!-- Additional Details (Always Visible) -->
+                        <div id="modalProductDetails" class="product-modal-details mt-20">
                             <div id="modalProductNPK" class="product-detail-item mb-15" style="display: none;">
                                 <strong>NPK Ratio:</strong> <span id="modalProductNPKValue"></span>
-                            </div>
-                            <div id="modalProductFeatures" class="product-detail-item mb-15" style="display: none;">
-                                <strong>Key Features:</strong>
-                                <ul id="modalProductFeaturesList" class="product-features-list"></ul>
-                            </div>
-                            <div id="modalProductApplication" class="product-detail-item mb-15" style="display: none;">
-                                <strong>Application:</strong>
-                                <div id="modalProductApplicationText"></div>
                             </div>
                             <div id="modalProductMakes" class="product-detail-item mb-20" style="display: none;">
                                 <strong>Coverage:</strong> <span id="modalProductMakesValue"></span>
@@ -671,6 +755,18 @@ use Illuminate\Support\Str;
     </div>
 </div>
 
+
+<div class="section-divider-wave">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
+        <defs>
+            <linearGradient id="gradient-divider-faq" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-faq)"></path>
+    </svg>
+</div>
 <!-- Start .faq-section-new  -->
 <div id="faq" class="faq-section section pt-120 pb-120">
     <div class="container">
@@ -841,6 +937,18 @@ From May to September feed your plants twice a week while watering.</p>
     </div><!-- .container  -->
 </div><!-- .faq-section  -->
 
+<div class="section-divider-wave section-divider-wave-bottom" id="divider-faq-bottom">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
+        <defs>
+            <linearGradient id="gradient-divider-faq-bottom" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-faq-bottom)"></path>
+    </svg>
+</div>
+
 <!-- Start .guides-section  -->
 <div id="guides" class="guides-section section white-bg pt-120 pb-120">
     <div class="container">
@@ -906,6 +1014,19 @@ From May to September feed your plants twice a week while watering.</p>
 </div>
 <!-- End .guides-section  -->
 
+
+<!-- Footer Top Divider - Curved Wave -->
+<div class="section-divider-wave">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
+        <defs>
+            <linearGradient id="gradient-divider-footer" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#70D969;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#19B2EB;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-footer)"></path>
+    </svg>
+</div>
 <!-- Start .footer-section  -->
 <div class="footer-section gradiant-background section pt-80 pb-40">
     <div class="container">
@@ -990,10 +1111,20 @@ From May to September feed your plants twice a week while watering.</p>
 @push('scripts')
 <script>
 $(document).ready(function() {
+    // Quick view button click handler
+    $('.product-quick-view-btn').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $card = $(this).closest('.product-card-clickable');
+        if ($card.length) {
+            $card.trigger('click');
+        }
+    });
+    
     // Handle product card clicks
     $('.product-card-clickable').on('click', function(e) {
-        // Don't trigger if clicking on buttons
-        if ($(e.target).closest('.product-button').length) {
+        // Don't trigger if clicking on buttons or quick view overlay
+        if ($(e.target).closest('.product-button').length || $(e.target).closest('.product-quick-view-overlay').length) {
             return;
         }
         
@@ -1032,15 +1163,15 @@ $(document).ready(function() {
         $('#modalProductYGTop').attr('href', ygLinkWithSource);
         $('#modalProductAmazonTop').attr('href', amazonLink);
         
-        // Populate full description if available
+        // Populate full description if available (collapsible)
         if (fullDescription) {
             $('#modalProductFullDescriptionText').html(fullDescription.replace(/\n/g, '<br>'));
-            $('.product-modal-full-description').show();
+            $('#modalProductFullDescriptionSection').show();
         } else {
-            $('.product-modal-full-description').hide();
+            $('#modalProductFullDescriptionSection').hide();
         }
         
-        // Populate videos if available
+        // Populate videos if available (collapsible)
         if (videos) {
             // Get the raw attribute value to avoid jQuery's automatic decoding
             var rawVideos = $card.attr('data-product-videos');
@@ -1077,169 +1208,29 @@ $(document).ready(function() {
             
             // Set the decoded HTML content
             $('#modalProductVideosContent').html(decodedVideos);
-            $('.product-modal-videos').show();
+            $('#modalProductVideosSection').show();
         } else {
-            $('.product-modal-videos').hide();
+            $('#modalProductVideosSection').hide();
         }
         
-        // Populate Feefo reviews if available
-        // Check for SKU first (for Ultimate Rose Bloom Booster SKU: 100196 or other products with SKU)
-        // Fallback: Check product title for specific products
-        if (!sku && title) {
-            var titleLower = title.toLowerCase();
-            if (titleLower.includes('ultimate rose bloom booster')) {
-                sku = '100196';
-            } else if (titleLower.includes('swellgel') || titleLower.includes('swell gel') || titleLower.includes('swellgell')) {
-                sku = '100118';
-            } else if (titleLower.includes('superior soluble fertiliser') || titleLower.includes('superior soluble')) {
-                sku = '100062';
-            } else if (titleLower.includes('citrus feed') || titleLower.includes('citrus')) {
-                sku = '100016';
-            } else if (titleLower.includes('acer feed') || titleLower.includes('acer')) {
-                sku = '100105';
-            } else if (titleLower.includes('clematis feed') || titleLower.includes('clematis')) {
-                sku = '100106';
-            } else if (titleLower.includes('fish blood') || titleLower.includes('fish blood and bone')) {
-                sku = '100046';
-            }
-        }
-        
-        if (sku) {
-            // Clear previous content and use Feefo widget format with unique ID
-            var widgetId = 'feefo-product-review-widgetId-modal-' + sku;
-            var feefoWidget = '<div id="' + widgetId + '" class="feefo-review-widget-product" data-product-sku="' + sku + '" style="flex: 1 1 auto; min-height: 200px;"></div>';
-            
-            $('#modalProductReviewsContent').html(feefoWidget);
-            
-            // Store SKU for later initialization
-            window.currentProductSKU = sku;
-            
-            // Function to initialize Feefo widgets
-            var initFeefoWidgets = function() {
-                if (typeof Feefo !== 'undefined') {
-                    try {
-                        // Ensure widgets are in DOM before initializing
-                        var widgetElement = $('#' + widgetId);
-                        if (widgetElement.length > 0) {
-                            console.log('Initializing Feefo widget for SKU:', sku, 'Widget ID:', widgetId);
-                            
-                            // Initialize Feefo
-                            Feefo.init();
-                            
-                            // Re-initialize after a delay to ensure widgets render
-                            setTimeout(function() {
-                                if (typeof Feefo !== 'undefined') {
-                                    Feefo.init();
-                                }
-                            }, 500);
-                            
-                            // One more initialization after widget should be loaded
-                            setTimeout(function() {
-                                if (typeof Feefo !== 'undefined') {
-                                    Feefo.init();
-                                }
-                            }, 1500);
-                        }
-                    } catch (e) {
-                        console.error('Feefo initialization error:', e);
-                    }
-                } else {
-                    // Wait for Feefo to be available (max 10 seconds)
-                    var attempts = 0;
-                    var checkFeefo = setInterval(function() {
-                        attempts++;
-                        if (typeof Feefo !== 'undefined' || attempts > 50) {
-                            clearInterval(checkFeefo);
-                            if (typeof Feefo !== 'undefined') {
-                                initFeefoWidgets();
-                            }
-                        }
-                    }, 200);
-                }
-            };
-            
-            // Initialize widgets when reviews section is expanded (Bootstrap 3/4 compatible)
-            $('#modalProductReviews').off('shown.bs.collapse shown').on('shown.bs.collapse shown', function() {
-                console.log('Reviews section expanded, initializing Feefo widget');
-                setTimeout(function() {
-                    initFeefoWidgets();
-                }, 300);
-            });
-            
-            // Also initialize when modal is shown
-            $('#productModal').one('shown.bs.modal', function() {
-                console.log('Modal shown, initializing Feefo widget');
-                setTimeout(function() {
-                    initFeefoWidgets();
-                }, 1000);
-            });
-            
-            // Feefo widgets are loaded via feefo_widgets_loader.js in the layout
-            // Wait for Feefo to be available and initialize
-            setTimeout(function() {
-                initFeefoWidgets();
-            }, 1000);
-            
-            // Always show reviews section if we have a SKU
-            $('.product-modal-reviews').show();
-        } else if (reviews) {
-            // Clear previous content
-            $('#modalProductReviewsContent').html('<div id="feefo-product-review-widgetId" class="feefo-review-widget-product" data-feefo-initialized="true" style="flex: 1 1 auto;"></div>');
-            
-            // If reviews is a Feefo product ID (format: feefo:PRODUCT_ID), load Feefo widget
-            if (reviews.startsWith('feefo:')) {
-                var feefoProductId = reviews.replace('feefo:', '');
-                var feefoWidget = '<div class="feefo-review-widget" data-feefo-product-id="' + feefoProductId + '"></div>';
-                $('#feefo-reviews-widget').html(feefoWidget);
-                
-                // Load Feefo widget script if not already loaded
-                if (typeof window.feefoWidgetLoaded === 'undefined') {
-                    var feefoScript = document.createElement('script');
-                    feefoScript.src = 'https://api.feefo.com/api/javascript/bloomingfast';
-                    feefoScript.async = true;
-                    feefoScript.onload = function() {
-                        if (typeof Feefo !== 'undefined') {
-                            Feefo.init();
-                        }
-                    };
-                    document.head.appendChild(feefoScript);
-                    window.feefoWidgetLoaded = true;
-                } else if (typeof Feefo !== 'undefined') {
-                    Feefo.init();
-                }
-                
-                $('.product-modal-reviews').show();
-            } else {
-                // Fallback: Use iframe embed for Feefo reviews
-                // Format: feefo-embed:WIDGET_URL
-                if (reviews.startsWith('feefo-embed:')) {
-                    var embedUrl = reviews.replace('feefo-embed:', '');
-                    var iframeHtml = '<iframe src="' + embedUrl + '" width="100%" height="600" frameborder="0" style="border: none;"></iframe>';
-                    $('#feefo-reviews-widget').html(iframeHtml);
-                    $('.product-modal-reviews').show();
-                } else {
-                    // Legacy HTML reviews (fallback) - decode HTML entities if escaped
-                    var tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = reviews;
-                    var decodedReviews = tempDiv.innerHTML;
-                    $('#modalProductReviewsContent').html(decodedReviews);
-                    $('.product-modal-reviews').show();
-                }
-            }
-        } else {
-            $('.product-modal-reviews').hide();
-        }
-        
-        // Populate delivery info if available
+        // Populate delivery info if available (collapsible)
         if (deliveryInfo) {
             $('#modalProductDeliveryContent').html(deliveryInfo.replace(/\n/g, '<br>'));
-            $('.product-modal-delivery').show();
+            $('#modalProductDeliverySection').show();
         } else {
-            $('.product-modal-delivery').hide();
+            $('#modalProductDeliverySection').hide();
         }
         
-        // Reset collapse states
-        $('#modalProductFullDescription, #modalProductVideos, #modalProductReviews, #modalProductDelivery').collapse('hide');
+        // Reset collapse states for accordion - all start collapsed
+        $('#productModalAccordion .panel-collapse').removeClass('in').addClass('collapse');
+        $('#productModalAccordion .panel-title a').addClass('collapsed').attr('aria-expanded', 'false');
+        
+        // Ensure visible sections are properly displayed
+        $('#productModalAccordion .panel').each(function() {
+            if ($(this).is(':visible')) {
+                $(this).show();
+            }
+        });
         
         // Build carousel items
         var carouselInner = $('#modalCarouselInner');
@@ -1397,7 +1388,7 @@ $(document).ready(function() {
             $('#modalProductNPK').hide();
         }
         
-        // Populate features if available
+        // Populate features if available (collapsible)
         if (features) {
             // Split by newline, bullet point, or pipe separator
             var featuresArray = [];
@@ -1425,17 +1416,17 @@ $(document).ready(function() {
                 }
             });
             $('#modalProductFeaturesList').html(featuresHtml);
-            $('#modalProductFeatures').show();
+            $('#modalProductFeaturesSection').show();
         } else {
-            $('#modalProductFeatures').hide();
+            $('#modalProductFeaturesSection').hide();
         }
         
-        // Populate application if available
+        // Populate application if available (collapsible)
         if (application) {
             $('#modalProductApplicationText').html(application.replace(/\n/g, '<br>'));
-            $('#modalProductApplication').show();
+            $('#modalProductApplicationSection').show();
         } else {
-            $('#modalProductApplication').hide();
+            $('#modalProductApplicationSection').hide();
         }
         
         // Populate makes/coverage if available
@@ -1497,6 +1488,15 @@ $(document).ready(function() {
     
     // Initialize Feefo widgets in testimonials section
     function initTestimonialsFeefoWidgets() {
+        // Ensure mobile widget is visible on mobile
+        if (window.innerWidth <= 767) {
+            var mobileWidget = document.querySelector('#customer-reviews .feefo-mobile-widget');
+            if (mobileWidget) {
+                mobileWidget.style.display = 'block';
+                mobileWidget.style.visibility = 'visible';
+                mobileWidget.style.opacity = '1';
+            }
+        }
         // The Feefo script should already be loaded from the layout
         // Wait for it to be available and initialize
         function checkAndInit() {

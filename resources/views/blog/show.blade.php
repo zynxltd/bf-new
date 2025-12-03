@@ -2,41 +2,6 @@
 
 @php
     use Illuminate\Support\Str;
-    $slug = request()->route('slug');
-    $article = \App\Models\Blog::where('slug', $slug)
-        ->where('is_published', true)
-        ->first();
-    
-    if (!$article) {
-        abort(404);
-    }
-    
-    $readingTime = $article->reading_time ?? max(1, ceil(str_word_count(strip_tags($article->content)) / 200));
-    
-    // Generate table of contents from headings and add IDs to headings
-    $content = $article->content;
-    preg_match_all('/<h([2-3])[^>]*>(.*?)<\/h[2-3]>/i', $content, $headings, PREG_SET_ORDER);
-    $toc = [];
-    
-    foreach ($headings as $index => $match) {
-        $level = $match[1];
-        $headingText = strip_tags($match[2]);
-        $id = 'heading-' . ($index + 1);
-        $toc[] = [
-            'id' => $id,
-            'text' => $headingText,
-            'level' => $level
-        ];
-        
-        // Add ID to heading in content if not already present
-        $fullMatch = $match[0];
-        if (strpos($fullMatch, 'id=') === false) {
-            $replacement = str_replace('<h' . $level, '<h' . $level . ' id="' . $id . '"', $fullMatch);
-            $content = str_replace($fullMatch, $replacement, $content);
-        }
-    }
-    
-    $article->content = $content;
 @endphp
 
 @section('title', $article->title . ' - Blooming Fast Blog')
@@ -75,68 +40,114 @@
 <!-- Article Schema.org JSON-LD -->
 <script type="application/ld+json">
 @php
-$schema = [
-  "@context" => "https://schema.org",
-  "@type" => "Article",
-  "headline" => $article->title,
-  "description" => $article->excerpt ?? Str::limit(strip_tags($article->content), 200),
-  "image" => $article->image ? asset($article->image) : asset('images/superiorV4.png'),
-  "datePublished" => $article->published_date->toIso8601String(),
-  "dateModified" => $article->updated_at->toIso8601String(),
-  "author" => [
-    "@type" => "Organization",
-    "name" => "Blooming Fast",
-    "url" => url('/')
-  ],
-  "publisher" => [
-    "@type" => "Organization",
-    "name" => "Blooming Fast",
-    "logo" => [
-      "@type" => "ImageObject",
-      "url" => asset('images/logo.png')
-    ]
-  ],
-  "mainEntityOfPage" => [
-    "@type" => "WebPage",
-    "@id" => url()->current()
-  ],
-  "wordCount" => str_word_count(strip_tags($article->content)),
-  "timeRequired" => "PT" . $readingTime . "M"
-];
-
-if ($article->category) {
-  $schema["articleSection"] = $article->category;
+// Use custom JSON schema if provided, otherwise generate default
+if (!empty($article->json_schema)) {
+    // Validate and output custom schema
+    $customSchema = json_decode($article->json_schema, true);
+    if (json_last_error() === JSON_ERROR_NONE) {
+        echo json_encode($customSchema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    } else {
+        // If invalid JSON, fall back to default
+        $schema = [
+          "@context" => "https://schema.org",
+          "@type" => "Article",
+          "headline" => $article->title,
+          "description" => $article->excerpt ?? Str::limit(strip_tags($article->content), 200),
+          "image" => $article->image ? asset($article->image) : asset('images/superiorV4.png'),
+          "datePublished" => $article->published_date->toIso8601String(),
+          "dateModified" => $article->updated_at->toIso8601String(),
+          "author" => [
+            "@type" => "Organization",
+            "name" => "Blooming Fast",
+            "url" => url('/')
+          ],
+          "publisher" => [
+            "@type" => "Organization",
+            "name" => "Blooming Fast",
+            "logo" => [
+              "@type" => "ImageObject",
+              "url" => asset('images/logo.png')
+            ]
+          ],
+          "mainEntityOfPage" => [
+            "@type" => "WebPage",
+            "@id" => url()->current()
+          ],
+          "wordCount" => str_word_count(strip_tags($article->content)),
+          "timeRequired" => "PT" . $readingTime . "M"
+        ];
+        if ($article->category) {
+          $schema["articleSection"] = $article->category;
+        }
+        echo json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    }
+} else {
+    // Default schema
+    $schema = [
+      "@context" => "https://schema.org",
+      "@type" => "Article",
+      "headline" => $article->title,
+      "description" => $article->excerpt ?? Str::limit(strip_tags($article->content), 200),
+      "image" => $article->image ? asset($article->image) : asset('images/superiorV4.png'),
+      "datePublished" => $article->published_date->toIso8601String(),
+      "dateModified" => $article->updated_at->toIso8601String(),
+      "author" => [
+        "@type" => "Organization",
+        "name" => "Blooming Fast",
+        "url" => url('/')
+      ],
+      "publisher" => [
+        "@type" => "Organization",
+        "name" => "Blooming Fast",
+        "logo" => [
+          "@type" => "ImageObject",
+          "url" => asset('images/logo.png')
+        ]
+      ],
+      "mainEntityOfPage" => [
+        "@type" => "WebPage",
+        "@id" => url()->current()
+      ],
+      "wordCount" => str_word_count(strip_tags($article->content)),
+      "timeRequired" => "PT" . $readingTime . "M"
+    ];
+    if ($article->category) {
+      $schema["articleSection"] = $article->category;
+    }
+    echo json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
 }
 @endphp
-{!! json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
 
 <!-- Breadcrumb Schema -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ url('/') }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Blog",
-      "item": "{{ route('blog.index') }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{{ addslashes($article->title) }}",
-      "item": "{{ url()->current() }}"
-    }
+@php
+$breadcrumbSchema = [
+  "@context" => "https://schema.org",
+  "@type" => "BreadcrumbList",
+  "itemListElement" => [
+    [
+      "@type" => "ListItem",
+      "position" => 1,
+      "name" => "Home",
+      "item" => url('/')
+    ],
+    [
+      "@type" => "ListItem",
+      "position" => 2,
+      "name" => "Blog",
+      "item" => route('blog.index')
+    ],
+    [
+      "@type" => "ListItem",
+      "position" => 3,
+      "name" => $article->title,
+      "item" => url()->current()
+    ]
   ]
-}
+];
+@endphp
+{!! json_encode($breadcrumbSchema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
 @endpush
 
@@ -156,6 +167,12 @@ if ($article->category) {
                     <img class="logo logo-light" src="{{ asset('images/logo.png') }}" alt="logo" />
                     <img class="logo logo-color" src="{{ asset('images/logo.png') }}" alt="logo" />
                 </a>
+                <!-- Desktop Hamburger Menu Button -->
+                <button type="button" class="desktop-menu-toggle" id="desktopMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
             <div class="collapse navbar-collapse" id="site-collapse-nav">
                 <ul class="nav navbar-nav navbar-right">
@@ -170,6 +187,35 @@ if ($article->category) {
             </div>
         </div>
     </nav>
+</div>
+
+<!-- Desktop Slide-Out Menu -->
+<div class="desktop-slide-menu" id="desktopSlideMenu">
+    <div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
+    <div class="desktop-slide-menu-content">
+        <button class="desktop-slide-menu-close" id="desktopMenuClose" aria-label="Close menu">
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="desktop-slide-menu-nav">
+            <li><a href="{{ route('home') }}#home" class="nav-item">Home</a></li>
+            <li><a href="{{ route('home') }}#about" class="nav-item">About</a></li>
+            <li><a href="{{ route('home') }}#features" class="nav-item">Features</a></li>
+            <li><a href="{{ route('home') }}#products" class="nav-item">Products</a></li>
+            <li><a href="{{ route('home') }}#videos" class="nav-item">Videos</a></li>
+            <li><a href="{{ route('home') }}#faq" class="nav-item">FAQ</a></li>
+            <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
+            <li class="desktop-menu-divider"><span></span></li>
+            <li class="desktop-menu-store-links">
+                <a href="https://www.yougarden.com?source=bloomingfast.com" class="nav-item store-link" target="_blank" rel="noopener">
+                    <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" />
+                </a>
+                <a href="https://www.amazon.co.uk/stores/page/5D2120F1-F052-4812-AAF7-6FE644404EC7/search?lp_asin=B0D44VQZ1S&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto&terms=blooming%20fast" class="nav-item store-link" target="_blank" rel="noopener">
+                    <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" />
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <!-- Start .blog-post-section -->
@@ -236,18 +282,69 @@ if ($article->category) {
                             <meta itemprop="image" content="{{ asset($article->image) }}">
                             @endif
                             <div itemprop="articleBody">
-                                {!! $article->content !!}
+                                @if($article->template)
+                                    @include('blog.articles.' . str_replace('.blade.php', '', $article->template))
+                                @else
+                                    {!! $article->content !!}
+                                @endif
                             </div>
                         </article>
                     </div>
                 </div>
 
-                <!-- Back to Blog -->
-                <div class="text-center mt-60">
-                    <a href="{{ route('blog.index') }}" class="button button-secondary">
-                        <i class="fa fa-arrow-left"></i> Back to Blog
-                    </a>
+                <!-- Share Buttons -->
+                <div class="blog-share-section mt-60 pt-40 border-top-light">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="mb-20">Share this article</h4>
+                            <ul class="social-links">
+                                <li><a href="https://www.facebook.com/YouGardenUK" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCLMujNspgKbXY3oAQ4qUvYg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="https://www.instagram.com/yougardenuk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://uk.pinterest.com/yougardenltd/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="{{ route('blog.index') }}" class="button button-secondary">
+                                <i class="fa fa-arrow-left"></i> Back to Blog
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Related Articles -->
+                @if($relatedArticles->count() > 0)
+                <div class="related-articles-section mt-60 pt-60 border-top-light">
+                    <h3 class="mb-40 text-center">Related Articles</h3>
+                    <div class="row">
+                        @foreach($relatedArticles as $related)
+                        <div class="col-md-4 mb-30">
+                            <article class="related-article-card">
+                                @if($related->image)
+                                <div class="related-article-image">
+                                    <a href="{{ route('blog.show', $related->slug) }}">
+                                        <img src="{{ asset($related->image) }}" alt="{{ $related->title }}" class="img-responsive" />
+                                    </a>
+                                </div>
+                                @endif
+                                <div class="related-article-content p-20">
+                                    @if($related->category)
+                                    <span class="related-article-category">{{ $related->category }}</span>
+                                    @endif
+                                    <h4 class="related-article-title">
+                                        <a href="{{ route('blog.show', $related->slug) }}">{{ $related->title }}</a>
+                                    </h4>
+                                    <div class="related-article-meta">
+                                        <span><i class="fa fa-calendar"></i> {{ $related->published_date->format('M j, Y') }}</span>
+                                        <span><i class="fa fa-clock-o"></i> {{ $related->reading_time }} min read</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>

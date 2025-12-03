@@ -2780,14 +2780,7 @@ body {
 }
 
 .faq-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(25, 178, 235, 0.3), transparent);
-    z-index: 2;
+    display: none;
 }
 
 .faq-section .container {
@@ -3343,6 +3336,16 @@ body {
 
 .gradiant-background.section::before {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+/* Remove top border from products section so divider fits nicely */
+.products-section.section::before {
+    display: none;
+}
+
+/* Remove top border from guides section so divider fits nicely */
+.guides-section.section::before {
+    display: none;
 }
 
 /* Enhanced Button Primary in About Section */
@@ -3925,13 +3928,7 @@ body {
 }
 
 .footer-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.2);
+    display: none;
 }
 
 .footer-brand p {

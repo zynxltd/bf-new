@@ -27,21 +27,24 @@ use Illuminate\Support\Str;
 
 <!-- Blog Schema.org JSON-LD -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  "name": "Blooming Fast Blog",
-  "description": "Expert gardening tips, plant care guides, and insights to help you grow a thriving garden",
-  "url": "{{ route('blog.index') }}",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Blooming Fast",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ asset('images/logo.png') }}"
-    }
-  }
-}
+@php
+$blogSchema = [
+  "@context" => "https://schema.org",
+  "@type" => "Blog",
+  "name" => "Blooming Fast Blog",
+  "description" => "Expert gardening tips, plant care guides, and insights to help you grow a thriving garden",
+  "url" => route('blog.index'),
+  "publisher" => [
+    "@type" => "Organization",
+    "name" => "Blooming Fast",
+    "logo" => [
+      "@type" => "ImageObject",
+      "url" => asset('images/logo.png')
+    ]
+  ]
+];
+@endphp
+{!! json_encode($blogSchema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
 @endpush
 
@@ -61,6 +64,12 @@ use Illuminate\Support\Str;
                     <img class="logo logo-light" src="{{ asset('images/logo.png') }}" alt="logo" />
                     <img class="logo logo-color" src="{{ asset('images/logo.png') }}" alt="logo" />
                 </a>
+                <!-- Desktop Hamburger Menu Button -->
+                <button type="button" class="desktop-menu-toggle" id="desktopMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
             <div class="collapse navbar-collapse" id="site-collapse-nav">
                 <ul class="nav navbar-nav navbar-right">
@@ -77,6 +86,35 @@ use Illuminate\Support\Str;
     </nav>
 </div>
 
+<!-- Desktop Slide-Out Menu -->
+<div class="desktop-slide-menu" id="desktopSlideMenu">
+    <div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
+    <div class="desktop-slide-menu-content">
+        <button class="desktop-slide-menu-close" id="desktopMenuClose" aria-label="Close menu">
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="desktop-slide-menu-nav">
+            <li><a href="{{ route('home') }}#home" class="nav-item">Home</a></li>
+            <li><a href="{{ route('home') }}#about" class="nav-item">About</a></li>
+            <li><a href="{{ route('home') }}#features" class="nav-item">Features</a></li>
+            <li><a href="{{ route('home') }}#products" class="nav-item">Products</a></li>
+            <li><a href="{{ route('home') }}#videos" class="nav-item">Videos</a></li>
+            <li><a href="{{ route('home') }}#faq" class="nav-item">FAQ</a></li>
+            <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
+            <li class="desktop-menu-divider"><span></span></li>
+            <li class="desktop-menu-store-links">
+                <a href="https://www.yougarden.com?source=bloomingfast.com" class="nav-item store-link" target="_blank" rel="noopener">
+                    <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" />
+                </a>
+                <a href="https://www.amazon.co.uk/stores/page/5D2120F1-F052-4812-AAF7-6FE644404EC7/search?lp_asin=B0D44VQZ1S&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto&terms=blooming%20fast" class="nav-item store-link" target="_blank" rel="noopener">
+                    <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <!-- Start .blog-section -->
 <div class="blog-section section white-bg pt-120 pb-120">
     <div class="container">
@@ -90,13 +128,6 @@ use Illuminate\Support\Str;
         </div>
 
         <div class="row">
-            @php
-                $articles = \App\Models\Blog::where('is_published', true)
-                    ->orderBy('published_date', 'desc')
-                    ->orderBy('sort_order', 'asc')
-                    ->get();
-            @endphp
-
             @forelse($articles as $article)
             <div class="col-md-6 mb-40">
                 <article class="blog-card white-bg" itemscope itemtype="https://schema.org/BlogPosting">
@@ -109,13 +140,19 @@ use Illuminate\Support\Str;
                         @endif
                     </div>
                     <div class="blog-content p-30">
+                        @if($article->published_date)
                         <meta itemprop="datePublished" content="{{ $article->published_date->toIso8601String() }}">
+                        @endif
+                        @if($article->updated_at)
                         <meta itemprop="dateModified" content="{{ $article->updated_at->toIso8601String() }}">
+                        @endif
                         @if($article->image)
                         <meta itemprop="image" content="{{ asset($article->image) }}">
                         @endif
                         <div class="blog-meta mb-15">
+                            @if($article->published_date)
                             <span class="blog-date"><i class="fa fa-calendar"></i> <time itemprop="datePublished" datetime="{{ $article->published_date->toIso8601String() }}">{{ $article->published_date->format('F jS, Y') }}</time></span>
+                            @endif
                             <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $article->reading_time }} min read</span>
                         </div>
                         <h2 class="blog-title mb-15" itemprop="headline">

@@ -12,6 +12,8 @@ class Blog extends Model
         'slug',
         'excerpt',
         'content',
+        'template',
+        'json_schema',
         'image',
         'category',
         'published_date',

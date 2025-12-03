@@ -60,8 +60,8 @@
             }, 150);
         };
         
-        // Hide after 300ms maximum
-        setTimeout(hide, 300);
+        // Hide after page fully loads (minimum 800ms for smooth transition)
+        setTimeout(hide, 800);
         
         // Hide on load
         if (document.readyState === 'complete') {
