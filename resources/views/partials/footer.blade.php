@@ -1,6 +1,14 @@
-<!-- Footer Top Divider -->
-<div class="footer-top-divider">
-    <img src="{{ asset('images/carb.png') }}" alt="Footer Divider" class="footer-divider-image" />
+<!-- Footer Top Divider - Curved Wave -->
+<div class="section-divider-wave">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
+        <defs>
+            <linearGradient id="gradient-divider-footer" x1="0%" y1="100%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#404040;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-footer)"></path>
+    </svg>
 </div>
 
 <!-- Start .footer-section  -->

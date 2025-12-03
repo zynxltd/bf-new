@@ -12,7 +12,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
+    background: #404040;
     z-index: 999999;
     display: flex !important;
     justify-content: center;
@@ -899,18 +899,9 @@ body {
 
 .hero-badge span {
     position: relative;
-    padding-left: 20px;
 }
 
-.hero-badge span::before {
-    content: '★';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #FFD700;
-    font-size: 14px;
-}
+/* Removed static star - using Font Awesome icon instead */
 
 /* Enhanced hero description */
 .hero-description {
@@ -975,6 +966,7 @@ body {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.95);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .size-badge:hover {
@@ -2167,10 +2159,10 @@ body {
     transform: rotate(180deg);
 }
 
-/* Ensure features section uses same gradient background as hero */
+/* Ensure features section uses same gradient background as hero and products */
 .features-section.gradiant-background {
-    background-image: -o-linear-gradient(157deg, #70D969 0%, #19B2EB 100%);
-    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
+    background-image: linear-gradient(90deg, #70D969 0%, #ed355b 100%) !important;
+    background-color: #70D969 !important;
 }
 
 /* Add curved top pattern matching hero bottom */
@@ -2286,8 +2278,8 @@ body {
 }
 
 .products-section.gradiant-background {
-    background-image: -o-linear-gradient(157deg, #70D969 0%, #19B2EB 100%);
-    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
+    background-color: #537550 !important;
+    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
 }
 
 /* Add curved top pattern matching hero bottom */

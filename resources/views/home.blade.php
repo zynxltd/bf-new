@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 @section('content')
 <!-- Start .header-section -->
-<div id="home" class="header-section half-header section gradiant-background header-curbed">
+<div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section">
     
     <div class="gradiant-background gradiant-overlay"></div>
     <div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
@@ -22,7 +22,7 @@ use Illuminate\Support\Str;
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('home') }}">
+                    <a class="navbar-brand confetti-burst-trigger" href="{{ route('home') }}">
                         <img class="logo logo-light" src="{{ asset('images/logo.png') }}" alt="logo" />
                         <img class="logo logo-color" src="{{ asset('images/logo.png') }}" alt="logo" />
                     </a>
@@ -84,16 +84,16 @@ use Illuminate\Support\Str;
                 <div class="col-md-7">
                     <div class="header-texts tab-center mobile-center hero-content-mobile">
                         <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
-                            <span>Premium Quality</span>
+                            <span><i class="fa fa-star hero-star-icon"></i> Premium Quality</span>
                         </div>
                         <h2 class="hero-title-gradient wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">Superior Plant Food</h2>
                         <p class="lead hero-description wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">Our best-ever formulation for use all round the garden for <strong>more flowers</strong>, <strong>more fruit</strong>, <strong>better roots</strong> and <strong>better shoots</strong>.</p>
                         <div class="hero-sizes wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
                             <span class="size-label">Available in 3 sizes:</span>
                             <div class="size-badges">
-                                <span class="size-badge">1.25kg</span>
-                                <span class="size-badge">500g</span>
-                                <span class="size-badge">50g Trial</span>
+                                <span class="size-badge" data-scroll-to="products">1.25kg</span>
+                                <span class="size-badge" data-scroll-to="products">500g</span>
+                                <span class="size-badge" data-scroll-to="products">50g Trial</span>
                             </div>
                         </div>
                         <h3 class="heading-light hero-cta wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">Click below to buy it from one of our stockists</h3>
@@ -127,15 +127,18 @@ use Illuminate\Support\Str;
                     </div>
                 </div><!-- .col -->
                 <div class="col-md-5" style="z-index: 999;">
-                    <div class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s" >
+                    <div class="wow fadeInUp confetti-burst-trigger" data-wow-duration="1s" data-wow-delay=".6s" >
                         <img style="z-index: 999;" src="{{ asset('images/superiorV4.png') }}" alt="Citrus Feed" />
                     </div>
                 </div>
             </div><!-- .row -->
         </div><!-- .container -->
     </div><!-- .header-content -->
+    
+    <!-- Hero Bottom Divider -->
+    <div class="hero-bottom-divider" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 150px; z-index: 1; pointer-events: none; overflow: hidden; display: block; background: url('/images/carb.png') bottom center no-repeat; background-size: cover;">
+    </div>
 </div><!-- .header-section -->
-
 
 <!-- Start .about-section  -->
 <div id="about" class="about-section section pb-0 white-bg half-header-about about-section-bottom-curved about-section-top-curved">
@@ -161,10 +164,6 @@ use Illuminate\Support\Str;
                         <li class="about-feature-stacked-item" data-animation-delay="450">
                             <div class="about-feature-title"><strong>Plus</strong></div>
                             <div class="about-feature-content">we've added the magic ingredient – Humic Acid – to BOOST your plants</div>
-                        </li>
-                        <li class="about-feature-stacked-item" data-animation-delay="600">
-                            <div class="about-feature-title"><strong>Fast</strong></div>
-                            <div class="about-feature-content">acting and long lasting – the best results for your money, makes approx 500 litres from a 500g bag</div>
                         </li>
                     </ul>
                 </div>
@@ -201,17 +200,10 @@ use Illuminate\Support\Str;
 </div><!-- .about-section  -->
 
 <!-- Curved divider between white and gradient sections -->
-<div class="section-divider-wave">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
-        <defs>
-            <linearGradient id="gradient-divider-features-top" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#70D969;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#19B2EB;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-features-top)"></path>
-    </svg>
+<div class="section-divider-wave" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(90deg, #537550 0%, #713841 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
+    <img src="/images/carb.png" alt="" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
 </div>
+
 
 <!-- Start .features-section  -->
 <div id="features" class="features-section section gradiant-background header-curbed confetti-section">
@@ -313,16 +305,8 @@ use Illuminate\Support\Str;
 </div><!-- .features-section  -->
 
 <!-- Curved divider at bottom of features section -->
-<div class="section-divider-wave section-divider-wave-bottom">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
-        <defs>
-            <linearGradient id="gradient-divider-features-bottom" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#30bcc8;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#6cd46b;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-features-bottom)"></path>
-    </svg>
+<div class="section-divider-wave section-divider-wave-bottom" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
+    <img src="/images/carb.png" alt="" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleY(-1);">
 </div>
 
 <!-- Start .customer-reviews-section  -->
@@ -416,8 +400,8 @@ use Illuminate\Support\Str;
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
         <defs>
             <linearGradient id="gradient-divider-products-top" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#70D969;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#19B2EB;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#404040;stop-opacity:1" />
             </linearGradient>
         </defs>
         <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-products-top)"></path>
@@ -639,19 +623,11 @@ use Illuminate\Support\Str;
                         <p id="modalProductDescription" class="product-modal-description"></p>
                         <div id="modalProductSpecs" class="product-modal-specs mb-20"></div>
                         
-                        <!-- Product Buttons Below Specs -->
-                        <div class="product-modal-buttons-top mb-30">
-                            <ul class="product-buttons">
-                                <li><a id="modalProductYGTop" href="" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a id="modalProductAmazonTop" href="" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
-                            </ul>
-                        </div>
-                        
                         <!-- Collapsible Sections -->
-                        <div class="panel-group accordion" id="productModalAccordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel-group accordion" id="productModalAccordion" role="tablist" aria-multiselectable="true" style="margin-top: 20px; margin-bottom: 20px;">
                             
                             <!-- Full Description -->
-                            <div class="panel panel-default product-modal-full-description" id="modalProductFullDescriptionSection" style="display: none;">
+                            <div class="panel panel-default product-modal-full-description" id="modalProductFullDescriptionSection">
                                 <div class="panel-heading" role="tab">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductFullDescriptionCollapse" aria-expanded="true" class="collapsed">
@@ -667,7 +643,7 @@ use Illuminate\Support\Str;
                             </div>
                             
                             <!-- Key Features -->
-                            <div class="panel panel-default" id="modalProductFeaturesSection" style="display: none;">
+                            <div class="panel panel-default" id="modalProductFeaturesSection">
                                 <div class="panel-heading" role="tab">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductFeaturesCollapse" aria-expanded="false" class="collapsed">
@@ -683,7 +659,7 @@ use Illuminate\Support\Str;
                             </div>
                             
                             <!-- Videos -->
-                            <div class="panel panel-default product-modal-videos" id="modalProductVideosSection" style="display: none;">
+                            <div class="panel panel-default product-modal-videos" id="modalProductVideosSection">
                                 <div class="panel-heading" role="tab">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductVideosCollapse" aria-expanded="false" class="collapsed">
@@ -699,7 +675,7 @@ use Illuminate\Support\Str;
                             </div>
                             
                             <!-- Application -->
-                            <div class="panel panel-default" id="modalProductApplicationSection" style="display: none;">
+                            <div class="panel panel-default" id="modalProductApplicationSection">
                                 <div class="panel-heading" role="tab">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductApplicationCollapse" aria-expanded="false" class="collapsed">
@@ -715,7 +691,7 @@ use Illuminate\Support\Str;
                             </div>
                             
                             <!-- Delivery Info -->
-                            <div class="panel panel-default product-modal-delivery" id="modalProductDeliverySection" style="display: none;">
+                            <div class="panel panel-default product-modal-delivery" id="modalProductDeliverySection">
                                 <div class="panel-heading" role="tab">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductDeliveryCollapse" aria-expanded="false" class="collapsed">
@@ -1019,9 +995,9 @@ From May to September feed your plants twice a week while watering.</p>
 <div class="section-divider-wave">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
         <defs>
-            <linearGradient id="gradient-divider-footer" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#70D969;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#19B2EB;stop-opacity:1" />
+            <linearGradient id="gradient-divider-footer" x1="0%" y1="100%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#404040;stop-opacity:1" />
             </linearGradient>
         </defs>
         <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-footer)"></path>
@@ -1111,6 +1087,70 @@ From May to September feed your plants twice a week while watering.</p>
 @push('scripts')
 <script>
 $(document).ready(function() {
+    // Start confetti animation on page load and every 10 seconds
+    function triggerConfetti() {
+        $('.confetti-section').each(function() {
+            var $section = $(this);
+            // Remove and re-add class to restart animation
+            $section.removeClass('confetti-active');
+            // Force reflow to restart animation
+            $section[0].offsetHeight;
+            setTimeout(function() {
+                $section.addClass('confetti-active');
+            }, 10);
+        });
+    }
+    
+    // Trigger on page load
+    triggerConfetti();
+    
+    // Trigger every 10 seconds
+    setInterval(triggerConfetti, 10000);
+    
+    // Confetti burst on hover for logo and hero image
+    function createConfettiBurst($element) {
+        var colors = ['#FF6B9D', '#FFA500', '#4ECDC4', '#98D8C8', '#BB8FCE'];
+        var rect = $element[0].getBoundingClientRect();
+        var centerX = rect.left + rect.width / 2;
+        var centerY = rect.top + rect.height / 2;
+        
+        for (var i = 0; i < 30; i++) {
+            var confetti = $('<div class="confetti-particle"></div>');
+            var color = colors[Math.floor(Math.random() * colors.length)];
+            var angle = (Math.PI * 2 * i) / 30;
+            var velocity = 100 + Math.random() * 100;
+            var x = Math.cos(angle) * velocity;
+            var y = Math.sin(angle) * velocity;
+            
+            confetti.css({
+                position: 'fixed',
+                left: centerX + 'px',
+                top: centerY + 'px',
+                width: '8px',
+                height: '8px',
+                backgroundColor: color,
+                borderRadius: '50%',
+                pointerEvents: 'none',
+                zIndex: 10000,
+                transform: 'translate(-50%, -50%)',
+                opacity: 1
+            });
+            
+            $('body').append(confetti);
+            
+            confetti.animate({
+                left: centerX + x + 'px',
+                top: centerY + y + 'px',
+                opacity: 0
+            }, 1000, function() {
+                $(this).remove();
+            });
+        }
+    }
+    
+    $('.confetti-burst-trigger').on('mouseenter', function() {
+        createConfettiBurst($(this));
+    });
     // Quick view button click handler
     $('.product-quick-view-btn').on('click', function(e) {
         e.preventDefault();
@@ -1134,18 +1174,48 @@ $(document).ready(function() {
         var image2 = $card.data('product-image-2');
         var video = $card.data('product-video');
         var description = $card.data('product-description');
-        var fullDescription = $card.data('product-full-description');
-        var videos = $card.data('product-videos');
-        var reviews = $card.data('product-reviews');
-        var deliveryInfo = $card.data('product-delivery');
-        var specs = $card.data('product-specs');
-        var ygLink = $card.data('product-yg');
-        var amazonLink = $card.data('product-amazon');
-        var npk = $card.data('product-npk');
-        var features = $card.data('product-features');
-        var application = $card.data('product-application');
-        var makes = $card.data('product-makes');
-        var sku = $card.data('product-sku');
+        // Use attr() instead of data() to get raw attribute values
+        var fullDescription = $card.attr('data-product-full-description');
+        var videos = $card.attr('data-product-videos');
+        var reviews = $card.attr('data-product-reviews');
+        var deliveryInfo = $card.attr('data-product-delivery');
+        var specs = $card.attr('data-product-specs');
+        var ygLink = $card.attr('data-product-yg');
+        var amazonLink = $card.attr('data-product-amazon');
+        var npk = $card.attr('data-product-npk');
+        var features = $card.attr('data-product-features');
+        var application = $card.attr('data-product-application');
+        var makes = $card.attr('data-product-makes');
+        var sku = $card.attr('data-product-sku');
+        
+        // Debug: Log all data - also log raw attributes BEFORE decoding
+        console.log('=== PRODUCT MODAL DATA (RAW) ===');
+        console.log('Title:', title);
+        console.log('Description:', description);
+        console.log('Full Description (raw):', $card.attr('data-product-full-description'));
+        console.log('Features (raw):', $card.attr('data-product-features'));
+        console.log('Videos (raw):', $card.attr('data-product-videos'));
+        console.log('Application (raw):', $card.attr('data-product-application'));
+        console.log('Delivery Info (raw):', $card.attr('data-product-delivery'));
+        console.log('================================');
+        
+        // Decode HTML entities for text fields (only if not empty)
+        if (fullDescription && fullDescription.trim() !== '') {
+            var temp = $('<textarea>').html(fullDescription).text();
+            fullDescription = temp;
+        }
+        if (deliveryInfo && deliveryInfo.trim() !== '') {
+            var temp = $('<textarea>').html(deliveryInfo).text();
+            deliveryInfo = temp;
+        }
+        if (application && application.trim() !== '') {
+            var temp = $('<textarea>').html(application).text();
+            application = temp;
+        }
+        if (features && features.trim() !== '') {
+            var temp = $('<textarea>').html(features).text();
+            features = temp;
+        }
         
         // Populate basic modal fields
         $('#modalProductTitle').text(title);
@@ -1163,16 +1233,55 @@ $(document).ready(function() {
         $('#modalProductYGTop').attr('href', ygLinkWithSource);
         $('#modalProductAmazonTop').attr('href', amazonLink);
         
-        // Populate full description if available (collapsible)
-        if (fullDescription) {
-            $('#modalProductFullDescriptionText').html(fullDescription.replace(/\n/g, '<br>'));
+        // Reset collapse states for accordion - all start collapsed (do this first)
+        $('#productModalAccordion .panel-collapse').removeClass('in').addClass('collapse');
+        $('#productModalAccordion .panel-title a').addClass('collapsed').attr('aria-expanded', 'false');
+        
+        // Always show Full Description section - use description as fallback if full_description is empty
+        var fullDescContent = '';
+        
+        // Check raw attribute first (before any decoding)
+        var rawFullDesc = $card.attr('data-product-full-description');
+        console.log('Raw full description:', rawFullDesc, 'Length:', rawFullDesc ? rawFullDesc.length : 0);
+        console.log('Description:', description, 'Length:', description ? description.length : 0);
+        
+        // Use full_description if it exists and has content
+        if (rawFullDesc && rawFullDesc.trim() !== '' && rawFullDesc !== 'null' && rawFullDesc !== 'undefined') {
+            fullDescContent = (fullDescription && fullDescription.trim() !== '') ? fullDescription.replace(/\n/g, '<br>') : rawFullDesc.replace(/\n/g, '<br>');
+            console.log('Using full_description, raw length:', rawFullDesc.length);
+        }
+        
+        // ALWAYS use description as fallback if fullDescContent is still empty
+        if (!fullDescContent || fullDescContent.trim() === '') {
+            if (description && description.trim() !== '') {
+                fullDescContent = description.replace(/\n/g, '<br>');
+                console.log('Using description as fallback for Full Description, length:', description.length);
+            }
+        }
+        
+        // Always show Full Description if we have any content
+        if (fullDescContent && fullDescContent.trim() !== '') {
+            $('#modalProductFullDescriptionText').html(fullDescContent);
             $('#modalProductFullDescriptionSection').show();
+            console.log('✓ Showing Full Description section, content length:', fullDescContent.length);
         } else {
             $('#modalProductFullDescriptionSection').hide();
+            console.log('✗ Full Description section hidden. Description exists:', !!description, 'Description length:', description ? description.length : 0);
         }
         
         // Populate videos if available (collapsible)
-        if (videos) {
+        var hasVideos = videos && 
+                       videos !== 'null' && 
+                       videos !== 'undefined' && 
+                       videos.trim() !== '';
+        
+        // Also check if there's a single video field
+        if (!hasVideos && video && video.trim() !== '') {
+            videos = video;
+            hasVideos = true;
+        }
+        
+        if (hasVideos) {
             // Get the raw attribute value to avoid jQuery's automatic decoding
             var rawVideos = $card.attr('data-product-videos');
             var decodedVideos = '';
@@ -1209,28 +1318,24 @@ $(document).ready(function() {
             // Set the decoded HTML content
             $('#modalProductVideosContent').html(decodedVideos);
             $('#modalProductVideosSection').show();
+            console.log('✓ Showing Videos section');
         } else {
-            $('#modalProductVideosSection').hide();
+            console.log('✗ Videos not available. Value:', videos, 'Type:', typeof videos);
         }
         
         // Populate delivery info if available (collapsible)
-        if (deliveryInfo) {
+        var hasDeliveryInfo = deliveryInfo && 
+                             deliveryInfo !== 'null' && 
+                             deliveryInfo !== 'undefined' && 
+                             deliveryInfo.trim() !== '';
+        
+        if (hasDeliveryInfo) {
             $('#modalProductDeliveryContent').html(deliveryInfo.replace(/\n/g, '<br>'));
             $('#modalProductDeliverySection').show();
+            console.log('✓ Showing Delivery Information section');
         } else {
-            $('#modalProductDeliverySection').hide();
+            console.log('✗ Delivery Info not available. Value:', deliveryInfo, 'Type:', typeof deliveryInfo);
         }
-        
-        // Reset collapse states for accordion - all start collapsed
-        $('#productModalAccordion .panel-collapse').removeClass('in').addClass('collapse');
-        $('#productModalAccordion .panel-title a').addClass('collapsed').attr('aria-expanded', 'false');
-        
-        // Ensure visible sections are properly displayed
-        $('#productModalAccordion .panel').each(function() {
-            if ($(this).is(':visible')) {
-                $(this).show();
-            }
-        });
         
         // Build carousel items
         var carouselInner = $('#modalCarouselInner');
@@ -1388,45 +1493,73 @@ $(document).ready(function() {
             $('#modalProductNPK').hide();
         }
         
-        // Populate features if available (collapsible)
-        if (features) {
+        // Populate features - extract from description if features field is empty
+        var hasFeatures = features && 
+                         features !== 'null' && 
+                         features !== 'undefined' && 
+                         features.trim() !== '';
+        
+        if (hasFeatures) {
             // Split by newline, bullet point, or pipe separator
             var featuresArray = [];
             if (features.indexOf('\n') !== -1) {
-                // Split by newlines
                 featuresArray = features.split('\n').filter(function(f) { return f.trim().length > 0; });
             } else if (features.indexOf('•') !== -1) {
-                // Split by bullet points
                 featuresArray = features.split('•').filter(function(f) { return f.trim().length > 0; });
             } else if (features.indexOf('|') !== -1) {
-                // Split by pipe
                 featuresArray = features.split('|').filter(function(f) { return f.trim().length > 0; });
             } else {
-                // Single feature
                 featuresArray = [features];
             }
             
             var featuresHtml = '';
             featuresArray.forEach(function(feature) {
                 var cleanFeature = feature.trim();
-                // Remove leading bullet if still present
                 cleanFeature = cleanFeature.replace(/^[•\-\*]\s*/, '');
                 if (cleanFeature.length > 0) {
                     featuresHtml += '<li>' + cleanFeature + '</li>';
                 }
             });
-            $('#modalProductFeaturesList').html(featuresHtml);
-            $('#modalProductFeaturesSection').show();
+            if (featuresHtml) {
+                $('#modalProductFeaturesList').html(featuresHtml);
+                $('#modalProductFeaturesSection').show();
+                console.log('✓ Showing Features section with', featuresArray.length, 'features');
+            } else {
+                $('#modalProductFeaturesSection').hide();
+            }
+        } else if (description && description.trim() !== '') {
+            // Fallback: extract key points from description
+            var descFeatures = description.split(/[.,;]/).filter(function(s) {
+                return s.trim().length > 20; // Only sentences longer than 20 chars
+            }).slice(0, 3); // Max 3 features
+            
+            if (descFeatures.length > 0) {
+                var featuresHtml = '';
+                descFeatures.forEach(function(feature) {
+                    featuresHtml += '<li>' + feature.trim() + '</li>';
+                });
+                $('#modalProductFeaturesList').html(featuresHtml);
+                $('#modalProductFeaturesSection').show();
+                console.log('✓ Showing Features section (extracted from description)');
+            } else {
+                $('#modalProductFeaturesSection').hide();
+            }
         } else {
             $('#modalProductFeaturesSection').hide();
         }
         
         // Populate application if available (collapsible)
-        if (application) {
+        var hasApplication = application && 
+                            application !== 'null' && 
+                            application !== 'undefined' && 
+                            application.trim() !== '';
+        
+        if (hasApplication) {
             $('#modalProductApplicationText').html(application.replace(/\n/g, '<br>'));
             $('#modalProductApplicationSection').show();
+            console.log('✓ Showing Application section');
         } else {
-            $('#modalProductApplicationSection').hide();
+            console.log('✗ Application not available. Value:', application, 'Type:', typeof application);
         }
         
         // Populate makes/coverage if available
@@ -1439,6 +1572,54 @@ $(document).ready(function() {
         
         // Show modal
         $('#productModal').modal('show');
+        
+        // Force show sections after modal is shown (double-check visibility)
+        $('#productModal').one('shown.bs.modal', function() {
+            setTimeout(function() {
+                console.log('=== FINAL CHECK: Sections after modal shown ===');
+                // Check each section and show if it has content
+                var fullDescContent = $('#modalProductFullDescriptionText').html();
+                if (fullDescContent && fullDescContent.trim() !== '') {
+                    $('#modalProductFullDescriptionSection').show();
+                    console.log('✓ Full Description shown, length:', fullDescContent.length);
+                } else {
+                    console.log('✗ Full Description empty');
+                }
+                
+                var featuresContent = $('#modalProductFeaturesList').html();
+                if (featuresContent && featuresContent.trim() !== '') {
+                    $('#modalProductFeaturesSection').show();
+                    console.log('✓ Features shown, length:', featuresContent.length);
+                } else {
+                    console.log('✗ Features empty');
+                }
+                
+                var videosContent = $('#modalProductVideosContent').html();
+                if (videosContent && videosContent.trim() !== '') {
+                    $('#modalProductVideosSection').show();
+                    console.log('✓ Videos shown, length:', videosContent.length);
+                } else {
+                    console.log('✗ Videos empty');
+                }
+                
+                var applicationContent = $('#modalProductApplicationText').html();
+                if (applicationContent && applicationContent.trim() !== '') {
+                    $('#modalProductApplicationSection').show();
+                    console.log('✓ Application shown, length:', applicationContent.length);
+                } else {
+                    console.log('✗ Application empty');
+                }
+                
+                var deliveryContent = $('#modalProductDeliveryContent').html();
+                if (deliveryContent && deliveryContent.trim() !== '') {
+                    $('#modalProductDeliverySection').show();
+                    console.log('✓ Delivery shown, length:', deliveryContent.length);
+                } else {
+                    console.log('✗ Delivery empty');
+                }
+                console.log('==============================================');
+            }, 200);
+        });
     });
     
     // Reinitialize Feefo widgets when modal is fully shown
@@ -1530,6 +1711,18 @@ $(document).ready(function() {
         var target = $(this.getAttribute('href'));
         if (target.length) {
             e.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top - 100
+            }, 800, 'swing');
+        }
+    });
+    
+    // Scroll to products section when clicking size badges
+    $('.size-badge[data-scroll-to]').on('click', function(e) {
+        e.preventDefault();
+        var targetId = $(this).data('scroll-to');
+        var target = $('#' + targetId);
+        if (target.length) {
             $('html, body').stop().animate({
                 scrollTop: target.offset().top - 100
             }, 800, 'swing');

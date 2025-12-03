@@ -90,12 +90,21 @@ Updated: 	01.05.2018
 	border-color: #FF1943;
 }
 
-.gradiant-background,
+/* .gradiant-background,
 .bg-gradiant.mfp-bg,
 .box-icon,
 .team-member .team-photo:after{
 	background-image: -o-linear-gradient(157deg, #70D969 0%, #19B2EB 100%);
 	background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
+} */
+
+/* Override to disable gradient background from style.css */
+.gradiant-background,
+.bg-gradiant.mfp-bg,
+.box-icon,
+.team-member .team-photo:after {
+	background-color: #404040 !important;
+	background-image: none !important;
 }
 
 @media only screen and (max-width: 991px) {

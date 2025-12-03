@@ -102,7 +102,7 @@ h1, .h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
+    background: #404040;
     z-index: 999999;
     display: flex !important;
     justify-content: center;
@@ -1153,6 +1153,19 @@ h1, .h1 {
 /* Enhanced Hero Content - Background preserved from original theme */
 .header-section {
     position: relative;
+    overflow: visible;
+}
+
+.header-section.header-curbed {
+    position: relative !important;
+    overflow: visible !important;
+    padding-bottom: 150px !important;
+}
+
+.half-header.header-curbed {
+    position: relative !important;
+    overflow: visible !important;
+    padding-bottom: 150px !important;
 }
 
 .header-texts {
@@ -1340,22 +1353,12 @@ h1, .h1 {
 
 .hero-badge span {
     position: relative;
-    padding-left: 20px;
     display: inline-block;
     white-space: nowrap;
     width: 100%;
 }
 
-.hero-badge span::before {
-    content: '★';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #FFD700;
-    font-size: 18px;
-    z-index: 3;
-}
+/* Removed static star - using Font Awesome icon instead */
 
 /* Enhanced hero description */
 .hero-description {
@@ -1420,6 +1423,7 @@ h1, .h1 {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.95);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .size-badge:hover {
@@ -2848,7 +2852,7 @@ h2.heading {
 }
 
 .section-divider-wave-footer {
-    background: linear-gradient(293deg, #19B2EB 0%, #70D969 100%);
+    background: #404040;
     position: relative;
     margin-top: 0;
     margin-bottom: 0;
@@ -2875,14 +2879,27 @@ h2.heading {
     overflow: visible !important;
 }
 
-.features-section.gradiant-background {
-    border-top: none !important;
-    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
-    position: relative;
-    overflow: hidden;
+/* Ensure divider wave is not cut off */
+.section-divider-wave {
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
 }
 
-/* Confetti Animation */
+.features-section.gradiant-background {
+    background-color: #537550 !important;
+    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
+    position: relative;
+    overflow: hidden;
+    padding-top: 0 !important;
+}
+
+/* Ensure features section matches hero darkness - remove any lightening effects */
+.features-section.gradiant-background .features-content::before {
+    display: none !important;
+}
+
+/* Confetti Animation - Flower Shapes */
 .confetti-section {
     position: relative;
     overflow: visible;
@@ -2892,57 +2909,109 @@ h2.heading {
     content: '';
     position: absolute;
     width: 100%;
-    height: 300%;
+    height: 200%;
     top: -100%;
     left: 0;
     pointer-events: none;
     z-index: 1;
+    opacity: 0;
+    /* Flower shapes using radial gradients - logo colors: pink, orange, blue, green, purple */
+    /* Creating flower shapes with 5 petals around a center */
     background-image: 
-        radial-gradient(circle, #30bcc8 5px, transparent 5px),
-        radial-gradient(circle, #6cd46b 5px, transparent 5px),
-        radial-gradient(circle, #30bcc8 5px, transparent 5px),
-        radial-gradient(circle, #6cd46b 5px, transparent 5px),
-        radial-gradient(circle, #30bcc8 5px, transparent 5px),
-        radial-gradient(circle, #6cd46b 5px, transparent 5px),
-        radial-gradient(circle, #30bcc8 5px, transparent 5px),
-        radial-gradient(circle, #6cd46b 5px, transparent 5px),
-        radial-gradient(circle, #30bcc8 5px, transparent 5px),
-        radial-gradient(circle, #6cd46b 5px, transparent 5px),
-        radial-gradient(circle, #30bcc8 5px, transparent 5px),
-        radial-gradient(circle, #6cd46b 5px, transparent 5px),
-        radial-gradient(circle, #30bcc8 5px, transparent 5px),
-        radial-gradient(circle, #6cd46b 5px, transparent 5px),
-        radial-gradient(circle, #30bcc8 5px, transparent 5px),
-        radial-gradient(circle, #6cd46b 5px, transparent 5px);
+        /* Pink flowers */
+        radial-gradient(circle at 50% 50%, #FFB6C1 3px, transparent 3px),
+        radial-gradient(circle at 0% 50%, #FF6B9D 6px, transparent 6px),
+        radial-gradient(circle at 100% 50%, #FF6B9D 6px, transparent 6px),
+        radial-gradient(circle at 50% 0%, #FF6B9D 6px, transparent 6px),
+        radial-gradient(circle at 50% 100%, #FF6B9D 6px, transparent 6px),
+        /* Orange flowers */
+        radial-gradient(circle at 50% 50%, #FFD700 3px, transparent 3px),
+        radial-gradient(circle at 0% 50%, #FFA500 6px, transparent 6px),
+        radial-gradient(circle at 100% 50%, #FFA500 6px, transparent 6px),
+        radial-gradient(circle at 50% 0%, #FFA500 6px, transparent 6px),
+        radial-gradient(circle at 50% 100%, #FFA500 6px, transparent 6px),
+        /* Blue flowers */
+        radial-gradient(circle at 50% 50%, #87CEEB 3px, transparent 3px),
+        radial-gradient(circle at 0% 50%, #4ECDC4 6px, transparent 6px),
+        radial-gradient(circle at 100% 50%, #4ECDC4 6px, transparent 6px),
+        radial-gradient(circle at 50% 0%, #4ECDC4 6px, transparent 6px),
+        radial-gradient(circle at 50% 100%, #4ECDC4 6px, transparent 6px),
+        /* Green flowers */
+        radial-gradient(circle at 50% 50%, #90EE90 3px, transparent 3px),
+        radial-gradient(circle at 0% 50%, #98D8C8 6px, transparent 6px),
+        radial-gradient(circle at 100% 50%, #98D8C8 6px, transparent 6px),
+        radial-gradient(circle at 50% 0%, #98D8C8 6px, transparent 6px),
+        radial-gradient(circle at 50% 100%, #98D8C8 6px, transparent 6px),
+        /* Purple flowers */
+        radial-gradient(circle at 50% 50%, #DDA0DD 3px, transparent 3px),
+        radial-gradient(circle at 0% 50%, #BB8FCE 6px, transparent 6px),
+        radial-gradient(circle at 100% 50%, #BB8FCE 6px, transparent 6px),
+        radial-gradient(circle at 50% 0%, #BB8FCE 6px, transparent 6px),
+        radial-gradient(circle at 50% 100%, #BB8FCE 6px, transparent 6px);
     background-size: 
-        80px 80px, 90px 90px, 70px 70px, 85px 85px, 75px 75px, 95px 95px, 80px 80px, 90px 90px,
-        75px 75px, 85px 85px, 80px 80px, 90px 90px, 70px 70px, 95px 95px, 80px 80px, 85px 85px;
+        60px 60px, 60px 60px, 60px 60px, 60px 60px, 60px 60px,
+        60px 60px, 60px 60px, 60px 60px, 60px 60px, 60px 60px,
+        60px 60px, 60px 60px, 60px 60px, 60px 60px, 60px 60px,
+        60px 60px, 60px 60px, 60px 60px, 60px 60px, 60px 60px,
+        60px 60px, 60px 60px, 60px 60px, 60px 60px, 60px 60px;
     background-position: 
-        5% 0%, 15% 8%, 25% 3%, 35% 12%, 45% 5%, 55% 10%, 65% 2%, 75% 15%,
-        10% 20%, 20% 25%, 30% 22%, 40% 28%, 50% 24%, 60% 30%, 70% 26%, 80% 32%,
-        8% 40%, 18% 45%, 28% 42%, 38% 48%, 48% 44%, 58% 50%, 68% 46%, 78% 52%,
-        12% 60%, 22% 65%, 32% 62%, 42% 68%, 52% 64%, 62% 70%, 72% 66%, 82% 72%,
-        6% 80%, 16% 85%, 26% 82%, 36% 88%, 46% 84%, 56% 90%, 66% 86%, 76% 92%,
-        14% 100%, 24% 105%, 34% 102%, 44% 108%, 54% 104%, 64% 110%, 74% 106%, 84% 112%,
-        4% 120%, 18% 125%, 28% 122%, 38% 128%, 48% 124%, 58% 130%, 68% 126%, 78% 132%,
-        10% 140%, 20% 145%, 30% 142%, 40% 148%, 50% 144%, 60% 150%, 70% 146%, 80% 152%,
-        8% 160%, 22% 165%, 32% 162%, 42% 168%, 52% 164%, 62% 170%, 72% 166%, 82% 172%,
-        12% 180%, 16% 185%, 26% 182%, 36% 188%, 46% 184%, 56% 190%, 66% 186%, 76% 192%,
-        6% 200%, 20% 205%, 30% 202%, 40% 208%, 50% 204%, 60% 210%, 70% 206%, 80% 212%,
-        14% 220%, 24% 225%, 34% 222%, 44% 228%, 54% 224%, 64% 230%, 74% 226%, 84% 232%,
-        4% 240%, 18% 245%, 28% 242%, 38% 248%, 48% 244%, 58% 250%, 68% 246%, 78% 252%,
-        10% 260%, 20% 265%, 30% 262%, 40% 268%, 50% 264%, 60% 270%, 70% 266%, 80% 272%,
-        8% 280%, 22% 285%, 32% 282%, 42% 288%, 52% 284%, 62% 290%, 72% 286%, 82% 292%;
-    animation: confettiFall 15s linear infinite;
-    opacity: 0.9;
+        10% 0%, 10% 0%, 10% 0%, 10% 0%, 10% 0%,
+        30% 0%, 30% 0%, 30% 0%, 30% 0%, 30% 0%,
+        50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%,
+        70% 0%, 70% 0%, 70% 0%, 70% 0%, 70% 0%,
+        90% 0%, 90% 0%, 90% 0%, 90% 0%, 90% 0%,
+        5% 15%, 5% 15%, 5% 15%, 5% 15%, 5% 15%,
+        25% 15%, 25% 15%, 25% 15%, 25% 15%, 25% 15%,
+        45% 15%, 45% 15%, 45% 15%, 45% 15%, 45% 15%,
+        65% 15%, 65% 15%, 65% 15%, 65% 15%, 65% 15%,
+        85% 15%, 85% 15%, 85% 15%, 85% 15%, 85% 15%,
+        15% 30%, 15% 30%, 15% 30%, 15% 30%, 15% 30%,
+        35% 30%, 35% 30%, 35% 30%, 35% 30%, 35% 30%,
+        55% 30%, 55% 30%, 55% 30%, 55% 30%, 55% 30%,
+        75% 30%, 75% 30%, 75% 30%, 75% 30%, 75% 30%,
+        95% 30%, 95% 30%, 95% 30%, 95% 30%, 95% 30%,
+        10% 45%, 10% 45%, 10% 45%, 10% 45%, 10% 45%,
+        30% 45%, 30% 45%, 30% 45%, 30% 45%, 30% 45%,
+        50% 45%, 50% 45%, 50% 45%, 50% 45%, 50% 45%,
+        70% 45%, 70% 45%, 70% 45%, 70% 45%, 70% 45%,
+        90% 45%, 90% 45%, 90% 45%, 90% 45%, 90% 45%,
+        5% 60%, 5% 60%, 5% 60%, 5% 60%, 5% 60%,
+        25% 60%, 25% 60%, 25% 60%, 25% 60%, 25% 60%,
+        45% 60%, 45% 60%, 45% 60%, 45% 60%, 45% 60%,
+        65% 60%, 65% 60%, 65% 60%, 65% 60%, 65% 60%,
+        85% 60%, 85% 60%, 85% 60%, 85% 60%, 85% 60%,
+        15% 75%, 15% 75%, 15% 75%, 15% 75%, 15% 75%,
+        35% 75%, 35% 75%, 35% 75%, 35% 75%, 35% 75%,
+        55% 75%, 55% 75%, 55% 75%, 55% 75%, 55% 75%,
+        75% 75%, 75% 75%, 75% 75%, 75% 75%, 75% 75%,
+        95% 75%, 95% 75%, 95% 75%, 95% 75%, 95% 75%,
+        10% 90%, 10% 90%, 10% 90%, 10% 90%, 10% 90%,
+        30% 90%, 30% 90%, 30% 90%, 30% 90%, 30% 90%,
+        50% 90%, 50% 90%, 50% 90%, 50% 90%, 50% 90%,
+        70% 90%, 70% 90%, 70% 90%, 70% 90%, 70% 90%,
+        90% 90%, 90% 90%, 90% 90%, 90% 90%, 90% 90%,
+        5% 105%, 5% 105%, 5% 105%, 5% 105%, 5% 105%,
+        25% 105%, 25% 105%, 25% 105%, 25% 105%, 25% 105%,
+        45% 105%, 45% 105%, 45% 105%, 45% 105%, 45% 105%,
+        65% 105%, 65% 105%, 65% 105%, 65% 105%, 65% 105%,
+        85% 105%, 85% 105%, 85% 105%, 85% 105%, 85% 105%;
+    animation: confettiFall 8s linear;
+    animation-iteration-count: 1;
+}
+
+.confetti-section.confetti-active::after {
+    opacity: 1;
+    animation: confettiFall 8s linear;
 }
 
 @keyframes confettiFall {
     0% {
         transform: translateY(-100%);
+        opacity: 1;
     }
     100% {
         transform: translateY(100%);
+        opacity: 0;
     }
 }
 
@@ -2952,6 +3021,184 @@ h2.heading {
 .features-section .features-content {
     position: relative;
     z-index: 2;
+}
+
+/* Ensure hero content stays above confetti */
+.header-section .container,
+.header-section .header-content,
+.header-section .header-texts {
+    position: relative;
+    z-index: 2;
+}
+
+/* Confetti Burst on Hover - Logo and Hero Image */
+.confetti-burst-trigger {
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+}
+
+.confetti-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+/* Hero Star Icon Animation */
+.hero-star-icon {
+    display: inline-block;
+    margin-right: 8px;
+    color: #FFD700;
+    animation: starTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+.hero-badge:hover .hero-star-icon {
+    animation: starTwinkle 0.5s ease-in-out infinite;
+    color: #FFA500;
+}
+
+/* Feefo Stars Animation */
+.feefo-star {
+    display: inline-block;
+    color: #FFD700;
+    font-size: 18px;
+    animation: starPulse 2s ease-in-out infinite;
+    margin: 0 2px;
+}
+
+.feefo-star:nth-child(1) { animation-delay: 0s; }
+.feefo-star:nth-child(2) { animation-delay: 0.2s; }
+.feefo-star:nth-child(3) { animation-delay: 0.4s; }
+.feefo-star:nth-child(4) { animation-delay: 0.6s; }
+.feefo-star:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes starPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.9;
+    }
+}
+
+.hero-feefo-badge:hover .feefo-star {
+    animation: starPulse 0.6s ease-in-out infinite;
+    color: #FFA500;
+}
+
+/* Hero Bottom Divider */
+#divider-hero-bottom {
+    position: absolute !important;
+    bottom: 0;
+    left: 50% !important;
+    transform: translateX(-50%) rotate(90deg) !important;
+    transform-origin: center bottom !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    z-index: 100;
+    display: block !important;
+    visibility: visible !important;
+    width: 100vh !important;
+    height: 80px !important;
+    overflow: visible !important;
+}
+
+/* Override the scaleY transform from section-divider-wave-bottom */
+#divider-hero-bottom.section-divider-wave-bottom {
+    transform: translateX(-50%) rotate(90deg) !important;
+}
+
+/* Add carb pattern to bottom of header section */
+#home.header-section.half-header.header-curbed::after,
+.header-section.half-header.header-curbed::after,
+.header-curbed::after {
+    display: block !important;
+    content: '' !important;
+    height: 150px !important;
+    width: 100% !important;
+    background-image: url(/images/carb.png) !important;
+    background-position: bottom center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-color: transparent !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure header section doesn't clip the carb */
+.header-section.header-curbed,
+.half-header.header-curbed,
+.header-section.half-header.header-curbed,
+#home.header-section.half-header.header-curbed {
+    overflow: visible !important;
+    position: relative !important;
+    padding-bottom: 150px !important;
+}
+
+/* Hero Bottom Divider */
+.hero-bottom-divider {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 150px !important;
+    width: 100% !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: hidden !important;
+}
+
+.hero-bottom-divider img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: bottom center !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+}
+
+/* Override to disable gradient background rule from theme-blue-green.css and style.css */
+/* Commented out to allow gradient backgrounds */
+.gradiant-background,
+.bg-gradiant.mfp-bg,
+.box-icon,
+.team-member .team-photo:after {
+    background-color: #404040 !important;
+    background-image: none !important;
+}
+
+/* Hero section background - match product image colors (green packaging to pink/red product) */
+.header-section.gradiant-background,
+.header-section.half-header.gradiant-background {
+    background-color: #537550 !important;
+    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
 }
 
 /* Animated gold/yellow line at top - ensure it's visible */
@@ -3192,6 +3439,12 @@ h2.heading {
     animation: fadeInUp 1s ease-out 0.2s both;
     padding-top: 20px;
     margin-top: 0;
+    border-bottom: none !important;
+}
+
+.features-section .section-head h2::after {
+    display: none !important;
+    content: none !important;
 }
 
 .features-section .single-features {
@@ -3268,26 +3521,21 @@ h2.heading {
     transform: rotate(180deg);
 }
 
-/* Ensure features section uses same gradient background as hero */
+/* Ensure features section uses same gradient background as hero and products */
 .features-section.gradiant-background {
-    background-image: -o-linear-gradient(157deg, #70D969 0%, #19B2EB 100%);
-    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
+    background-color: #537550 !important;
+    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
     position: relative;
     overflow: hidden;
+    padding-top: 0 !important;
 }
 
-.features-section.gradiant-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
+/* Ensure features section matches hero darkness - remove any lightening effects */
+.features-section.gradiant-background .features-content::before {
+    display: none !important;
 }
+
+/* Removed radial gradient overlay to match hero section background */
 
 /* New Feature Cards with Handwriting Font and Arrows */
 /* Enhanced Features Layout with Center Image */
@@ -4000,8 +4248,8 @@ h2.heading {
 }
 
 .products-section.gradiant-background {
-    background-image: -o-linear-gradient(157deg, #70D969 0%, #19B2EB 100%);
-    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
+    background-color: #537550 !important;
+    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
 }
 
 /* Add curved top pattern matching hero bottom */
@@ -4546,6 +4794,11 @@ h2.heading {
     background: rgba(255, 255, 255, 0.5);
 }
 
+.features-section.gradiant-background .section-head::after {
+    display: none !important;
+    content: none !important;
+}
+
 /* Enhanced About Section List Items */
 .about-section .section-head ul li {
     transition: all 0.3s ease;
@@ -4843,6 +5096,7 @@ h2.heading {
 }
 
 .features-section .features-content::before {
+    display: none !important;
     content: '';
     position: absolute;
     top: 50%;
@@ -5058,6 +5312,11 @@ h2.heading {
 
 /* Remove top border from guides section so divider fits nicely */
 .guides-section.section::before {
+    display: none;
+}
+
+/* Remove top border from customer reviews section so divider fits nicely */
+.customer-reviews-section.section::before {
     display: none;
 }
 
@@ -7731,7 +7990,7 @@ html {
     display: block;
 }
 
-/* Desktop: Clean 2-column layout */
+/* Desktop: 2x2 grid layout */
 @media (min-width: 992px) {
     .about-features-stacked {
         grid-template-columns: repeat(2, 1fr);
@@ -7751,48 +8010,48 @@ html {
         font-size: 17px;
     }
     
-    /* Center the last card (Fast) */
+    /* All items in 2x2 grid - remove special styling for last item */
     .about-feature-stacked-item:last-child {
-        grid-column: 1 / -1;
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-        transform: translateY(30px);
+        grid-column: auto;
+        text-align: left;
+        max-width: none;
+        margin: 0;
+        transform: none;
     }
     
     .about-feature-stacked-item:last-child.animate-in {
-        transform: translateY(0);
+        transform: none;
     }
     
     .about-feature-stacked-item:last-child .about-feature-title,
     .about-feature-stacked-item:last-child .about-feature-content {
-        text-align: center;
+        text-align: left;
     }
 }
 
-/* Tablet: 2 columns with less gap */
+/* Tablet: 2x2 grid with less gap */
 @media (min-width: 768px) and (max-width: 991px) {
     .about-features-stacked {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px 40px;
     }
     
-    /* Center the last card (Fast) on tablet */
+    /* All items in 2x2 grid on tablet */
     .about-feature-stacked-item:last-child {
-        grid-column: 1 / -1;
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
-        transform: translateY(30px);
+        grid-column: auto;
+        text-align: left;
+        max-width: none;
+        margin: 0;
+        transform: none;
     }
     
     .about-feature-stacked-item:last-child.animate-in {
-        transform: translateY(0);
+        transform: none;
     }
     
     .about-feature-stacked-item:last-child .about-feature-title,
     .about-feature-stacked-item:last-child .about-feature-content {
-        text-align: center;
+        text-align: left;
     }
 }
 
