@@ -24,15 +24,6 @@
     <link rel="sitemap" type="application/xml" href="{{ route('sitemap') }}">
     
     @stack('meta')
-    <!-- Vendor Bundle CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/vendor.bundle.css') }}" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/vendor.bundle.css') }}"></noscript>
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"></noscript>
-    <link href="{{ asset('assets/css/theme-blue-green.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="{{ asset('assets/css/theme-blue-green.css') }}"></noscript>
-    <link href="{{ asset('assets/css/custom-new.css') }}?v={{ filemtime(public_path('assets/css/custom-new.css')) }}" rel="stylesheet" media="all">
     <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,19 +31,46 @@
     <link rel="preconnect" href="https://register.feefo.com" crossorigin>
     <link rel="preconnect" href="https://api.feefo.com" crossorigin>
     
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/vendor.bundle.css') }}" media="print" id="vendor-css">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/css/vendor.bundle.css') }}"></noscript>
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" media="print" id="style-css">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"></noscript>
+    <link href="{{ asset('assets/css/theme-blue-green.css') }}" rel="stylesheet" media="print" id="theme-css">
+    <noscript><link rel="stylesheet" href="{{ asset('assets/css/theme-blue-green.css') }}"></noscript>
+    <link href="{{ asset('assets/css/custom-new.css') }}?v={{ filemtime(public_path('assets/css/custom-new.css')) }}" rel="stylesheet" media="all">
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" id="google-fonts-css">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     
     <!-- Font Awesome - Load asynchronously -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="print" onload="this.media='all'" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="print" id="fontawesome-css" crossorigin="anonymous">
     <noscript><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
     
     <!-- Feefo Widget Stylesheets - Load asynchronously -->
-    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/service-carousel-service-carousel-jsx.css" media="print" onload="this.media='all'">
+    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/service-carousel-service-carousel-jsx.css" media="print" id="feefo-carousel-css">
     <noscript><link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/service-carousel-service-carousel-jsx.css"></noscript>
-    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/product-stars-widget-product-stars-widget-jsx.css" media="print" onload="this.media='all'">
+    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/product-stars-widget-product-stars-widget-jsx.css" media="print" id="feefo-stars-css">
     <noscript><link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/product-stars-widget-product-stars-widget-jsx.css"></noscript>
+    
+    <!-- Load CSS asynchronously without inline event handlers -->
+    <script nonce="{{ $scriptNonce ?? '' }}">
+        (function() {
+            var cssLinks = ['vendor-css', 'style-css', 'theme-css', 'google-fonts-css', 'fontawesome-css', 'feefo-carousel-css', 'feefo-stars-css'];
+            cssLinks.forEach(function(id) {
+                var link = document.getElementById(id);
+                if (link) {
+                    link.addEventListener('load', function() {
+                        this.media = 'all';
+                    });
+                    // Set media to all immediately for non-blocking load
+                    link.media = 'all';
+                }
+            });
+        })();
+    </script>
     @stack('styles')
 </head>
 <body style="overflow: hidden;">
@@ -140,6 +158,21 @@
     <script nonce="{{ $scriptNonce }}">
         // Make nonce available for dynamically added scripts if needed
         window.__CSP_NONCE__ = '{{ $scriptNonce }}';
+        
+        // Handle admin logout link click (replaces inline onclick)
+        document.addEventListener('DOMContentLoaded', function() {
+            var logoutLink = document.querySelector('.admin-logout-link');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var formId = this.getAttribute('data-logout-form');
+                    var form = document.getElementById(formId);
+                    if (form) {
+                        form.submit();
+                    }
+                });
+            }
+        });
     </script>
     @endif
     
