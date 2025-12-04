@@ -1326,9 +1326,13 @@ From May to September feed your plants twice a week while watering.</p>
         return false;
     });
     
-    // Function to open product modal
-    function openProductModal($card) {
-        var $card = $card;
+    // Function to open product modal - define it first so it's available to all handlers
+    window.openProductModal = function($card) {
+        console.log('openProductModal called with card:', $card);
+        if (!$card || !$card.length) {
+            console.error('Invalid card passed to openProductModal');
+            return;
+        }
         var title = $card.data('product-title');
         var image = $card.data('product-image');
         var image2 = $card.data('product-image-2');
@@ -1859,13 +1863,29 @@ From May to September feed your plants twice a week while watering.</p>
         
         // Show modal
         console.log('Attempting to show modal');
+        var $modal = $('#productModal');
+        console.log('Modal element found:', $modal.length);
+        
+        if ($modal.length === 0) {
+            console.error('Product modal element not found in DOM!');
+            alert('Product modal not found. Please refresh the page.');
+            return;
+        }
+        
         if (typeof $.fn.modal === 'undefined') {
-            console.error('Bootstrap modal not loaded!');
+            console.error('Bootstrap modal not loaded! jQuery version:', typeof $, 'Bootstrap modal:', typeof $.fn.modal);
             alert('Modal functionality not available. Please refresh the page.');
             return;
         }
-        $('#productModal').modal('show');
-        console.log('Modal show called');
+        
+        console.log('Calling Bootstrap modal show...');
+        try {
+            $modal.modal('show');
+            console.log('Modal show called successfully');
+        } catch (error) {
+            console.error('Error showing modal:', error);
+            alert('Error opening product modal: ' + error.message);
+        }
         
         // Force show sections after modal is shown (double-check visibility)
         $('#productModal').one('shown.bs.modal', function() {
