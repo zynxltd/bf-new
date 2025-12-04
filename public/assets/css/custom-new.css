@@ -2016,7 +2016,7 @@ h1, .h1 {
     pointer-events: none;
 }
 
-.product-quick-view-overlay:hover {
+.product-card:hover .product-quick-view-overlay {
     pointer-events: auto;
 }
 
