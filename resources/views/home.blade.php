@@ -2210,42 +2210,51 @@ From May to September feed your plants twice a week while watering.</p>
         animateAboutVideo();
         animateFeaturesSection();
         
-        // Initialize Magnific Popup for videos
-        if (typeof $.magnificPopup !== 'undefined') {
-            var $video_play = $('.video-play');
-            if ($video_play.length > 0) {
-                $video_play.magnificPopup({
-                    type: 'iframe',
-                    removalDelay: 160,
-                    preloader: true,
-                    mainClass: 'mfp-fade',
-                    iframe: {
-                        patterns: {
-                            vimeo: {
-                                index: 'vimeo.com/',
-                                id: function(url) {
-                                    var m = url.match(/vimeo.com\/(\d+)/);
-                                    if (m) return m[1];
-                                    return null;
+        // Initialize Magnific Popup for videos - wait for library to load
+        function initMagnificPopup() {
+            if (typeof $.magnificPopup !== 'undefined' && $.magnificPopup) {
+                var $video_play = $('.video-play');
+                if ($video_play.length > 0) {
+                    $video_play.magnificPopup({
+                        type: 'iframe',
+                        removalDelay: 160,
+                        preloader: true,
+                        mainClass: 'mfp-fade',
+                        iframe: {
+                            patterns: {
+                                vimeo: {
+                                    index: 'vimeo.com/',
+                                    id: function(url) {
+                                        var m = url.match(/vimeo.com\/(\d+)/);
+                                        if (m) return m[1];
+                                        return null;
+                                    },
+                                    src: 'https://player.vimeo.com/video/%id%?autoplay=1'
                                 },
-                                src: 'https://player.vimeo.com/video/%id%?autoplay=1'
-                            },
-                            youtube: {
-                                index: 'youtube.com/',
-                                id: function(url) {
-                                    var m = url.match(/[?&]v=([^&]+)/);
-                                    if (m) return m[1];
-                                    m = url.match(/youtu.be\/([^?]+)/);
-                                    if (m) return m[1];
-                                    return null;
-                                },
-                                src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+                                youtube: {
+                                    index: 'youtube.com/',
+                                    id: function(url) {
+                                        var m = url.match(/[?&]v=([^&]+)/);
+                                        if (m) return m[1];
+                                        m = url.match(/youtu.be\/([^?]+)/);
+                                        if (m) return m[1];
+                                        return null;
+                                    },
+                                    src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                    console.log('Magnific Popup initialized for ' + $video_play.length + ' video(s)');
+                }
+            } else {
+                // Retry after a short delay if Magnific Popup isn't loaded yet
+                setTimeout(initMagnificPopup, 100);
             }
         }
+        
+        // Start initialization
+        initMagnificPopup();
     });
     
     // Mobile Navigation - Close menu when clicking outside
