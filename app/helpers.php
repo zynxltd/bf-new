@@ -62,7 +62,12 @@ if (!function_exists('webp_picture')) {
         // Build attributes string
         $attrString = '';
         foreach ($attributes as $key => $value) {
-            $attrString .= ' ' . $key . '="' . htmlspecialchars($value, ENT_QUOTES, 'UTF-8') . '"';
+            if ($key === 'width' || $key === 'height') {
+                // Ensure width/height are preserved for aspect ratio
+                $attrString .= ' ' . $key . '="' . htmlspecialchars($value, ENT_QUOTES, 'UTF-8') . '"';
+            } else {
+                $attrString .= ' ' . $key . '="' . htmlspecialchars($value, ENT_QUOTES, 'UTF-8') . '"';
+            }
         }
         
         // If WebP exists, use picture element
@@ -70,10 +75,26 @@ if (!function_exists('webp_picture')) {
             $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
             $mimeType = $ext === 'jpg' || $ext === 'jpeg' ? 'image/jpeg' : 'image/png';
             
+            // Get actual image dimensions for proper aspect ratio
+            $imageInfo = @getimagesize($originalPath);
+            $widthAttr = isset($attributes['width']) ? ' width="' . htmlspecialchars($attributes['width'], ENT_QUOTES, 'UTF-8') . '"' : '';
+            $heightAttr = isset($attributes['height']) ? ' height="' . htmlspecialchars($attributes['height'], ENT_QUOTES, 'UTF-8') . '"' : '';
+            
+            // If dimensions provided, use them; otherwise use actual dimensions
+            if (!$widthAttr && $imageInfo) {
+                $widthAttr = ' width="' . $imageInfo[0] . '"';
+            }
+            if (!$heightAttr && $imageInfo) {
+                $heightAttr = ' height="' . $imageInfo[1] . '"';
+            }
+            
+            // Remove width/height from attributes string since we're adding them separately
+            $cleanAttrString = preg_replace('/\s+(width|height)="[^"]*"/i', '', $attrString);
+            
             return '<picture>' .
                    '<source srcset="' . asset($webpPath) . '" type="image/webp">' .
                    '<source srcset="' . asset($path) . '" type="' . $mimeType . '">' .
-                   '<img src="' . asset($path) . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $attrString . '>' .
+                   '<img src="' . asset($path) . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $widthAttr . $heightAttr . $cleanAttrString . '>' .
                    '</picture>';
         }
         
