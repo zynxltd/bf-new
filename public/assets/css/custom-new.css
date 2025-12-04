@@ -1719,11 +1719,7 @@ h1, .h1 {
     }
     
     .hero-image-column {
-        order: 2;
-        margin-bottom: 30px;
-        margin-top: 30px;
-        text-align: center;
-        display: none; /* Hide desktop image column on mobile */
+        display: none !important; /* Hide desktop image column on mobile */
     }
     
     /* Show mobile placeholder image */
