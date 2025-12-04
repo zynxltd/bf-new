@@ -217,7 +217,7 @@ h1, .h1 {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -289,9 +289,9 @@ h1, .h1 {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    text-align: center;
+    text-align: left;
     gap: 12px;
     animation: fadeInUp 0.8s ease-out 0.4s both;
     opacity: 0;
@@ -301,12 +301,12 @@ h1, .h1 {
     display: flex;
     width: auto;
     max-width: 250px;
-    margin: 0 auto;
+    margin: 0;
     text-decoration: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
 }
 
@@ -437,10 +437,10 @@ h1, .h1 {
 
 .hero-feefo-logo-below {
     margin-top: 0;
-    text-align: center;
+    text-align: left;
     width: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-self: center;
     flex-shrink: 0;
@@ -1407,7 +1407,7 @@ h1, .h1 {
     margin: 30px 0;
     padding: 20px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    text-align: center;
+    text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -1479,7 +1479,7 @@ h1, .h1 {
     margin-bottom: 25px !important;
     color: rgba(255, 255, 255, 0.9) !important;
     letter-spacing: 0.3px;
-    text-align: center;
+    text-align: left;
 }
 
 .header-content {
@@ -6331,13 +6331,14 @@ h2.heading {
     max-width: 200px;
 }
 
-.footer-logo img {
+.footer-logo img,
+.footer-logo picture img {
     display: block;
     width: auto;
     height: auto;
     max-width: 200px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1) !important;
     opacity: 0.95;
 }
 
