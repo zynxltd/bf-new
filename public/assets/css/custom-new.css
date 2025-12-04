@@ -3857,6 +3857,8 @@ h2.heading {
     padding: 20px 24px;
     display: flex;
     align-items: flex-start;
+    opacity: 1;
+    visibility: visible;
     gap: 16px;
     border: 1px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
