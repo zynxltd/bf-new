@@ -3396,7 +3396,7 @@ h2.heading {
     background-color: #537550 !important;
     background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* Enhanced hero background with animated gradient */
