@@ -871,7 +871,7 @@ label.error {
 	left:0;
 	right:0;
 	bottom:0;
-	background-color:#404040;
+	background-color:transparent !important;
 	z-index:99999999;
 }
 #status {

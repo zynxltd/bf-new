@@ -129,6 +129,25 @@
 				});
 			}
 			
+			// Close menu when clicking outside (on the page/document)
+			$(document).off('click.desktopMenu').on('click.desktopMenu', function(e) {
+				// Only close if menu is active and click is outside the menu
+				if ($desktopSlideMenu.hasClass('active')) {
+					// Check if click is outside the menu and not on the toggle button
+					if (!$desktopSlideMenu.is(e.target) && 
+						$desktopSlideMenu.has(e.target).length === 0 && 
+						!$desktopMenuToggle.is(e.target) && 
+						$desktopMenuToggle.has(e.target).length === 0) {
+						closeDesktopMenu();
+					}
+				}
+			});
+			
+			// Prevent clicks inside the menu from closing it
+			$desktopSlideMenu.off('click').on('click', function(e) {
+				e.stopPropagation();
+			});
+			
 			// Close menu when clicking nav links
 			$('.desktop-slide-menu-nav a').off('click').on('click', function() {
 				closeDesktopMenu();

@@ -189,9 +189,11 @@ $breadcrumbSchema = [
     </nav>
 </div>
 
+<!-- Desktop Slide-Out Menu Overlay -->
+<div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
+
 <!-- Desktop Slide-Out Menu -->
 <div class="desktop-slide-menu" id="desktopSlideMenu">
-    <div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
     <div class="desktop-slide-menu-content">
         <button class="desktop-slide-menu-close" id="desktopMenuClose" aria-label="Close menu">
             <span></span>
@@ -235,7 +237,23 @@ $breadcrumbSchema = [
                     <h1 class="blog-post-title">{{ $article->title }}</h1>
                     @if($article->image)
                     <div class="blog-featured-image mt-30 mb-30">
-                        <img src="{{ asset($article->image) }}" alt="{{ $article->title }}" class="img-responsive" />
+                        @php
+                            $imagePath = $article->image;
+                            $imageUrl = asset($imagePath);
+                            // Generate high DPI version path (assuming @2x naming convention)
+                            $imagePath2x = str_replace(['.jpg', '.png', '.jpeg'], ['@2x.jpg', '@2x.png', '@2x.jpeg'], $imagePath);
+                            $imageUrl2x = file_exists(public_path($imagePath2x)) ? asset($imagePath2x) : $imageUrl;
+                        @endphp
+                        <img 
+                            src="{{ $imageUrl }}" 
+                            srcset="{{ $imageUrl }} 1x, {{ $imageUrl2x }} 2x"
+                            alt="{{ $article->title }}" 
+                            class="img-responsive" 
+                            loading="eager"
+                            decoding="async"
+                            width="1200"
+                            height="675"
+                        />
                     </div>
                     @endif
                 </header>
@@ -322,8 +340,8 @@ $breadcrumbSchema = [
                             <article class="related-article-card">
                                 @if($related->image)
                                 <div class="related-article-image">
-                                    <a href="{{ route('blog.show', $related->slug) }}">
-                                        <img src="{{ asset($related->image) }}" alt="{{ $related->title }}" class="img-responsive" />
+                                    <a href="{{ route('blog.show', ['category_slug' => $related->category_slug, 'slug' => $related->slug]) }}">
+                                        <img src="{{ asset($related->image) }}" alt="{{ $related->title }}" class="img-responsive" loading="lazy" decoding="async" />
                                     </a>
                                 </div>
                                 @endif
@@ -332,7 +350,7 @@ $breadcrumbSchema = [
                                     <span class="related-article-category">{{ $related->category }}</span>
                                     @endif
                                     <h4 class="related-article-title">
-                                        <a href="{{ route('blog.show', $related->slug) }}">{{ $related->title }}</a>
+                                        <a href="{{ route('blog.show', ['category_slug' => $related->category_slug, 'slug' => $related->slug]) }}">{{ $related->title }}</a>
                                     </h4>
                                     <div class="related-article-meta">
                                         <span><i class="fa fa-calendar"></i> {{ $related->published_date->format('M j, Y') }}</span>

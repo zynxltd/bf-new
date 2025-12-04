@@ -11,14 +11,21 @@ Route::get('/', function () {
     $products = Product::where('is_active', true)
         ->orderBy('sort_order', 'asc')
         ->orderBy('id', 'asc')
-        ->get(['id', 'title', 'description', 'image', 'badge_1', 'badge_2', 'sku', 'yg_link', 'amazon_link', 'sort_order']);
+        ->get(); // Get all fields needed for the product modal
     
     return view('home', compact('products'));
 })->name('home');
 
 // Blog Routes
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/{category_slug}/{slug}', [BlogController::class, 'show'])->name('blog.show');
+// Legacy route for backward compatibility - redirect to new format
+Route::get('/blog/{slug}', [BlogController::class, 'showLegacy'])->name('blog.show.legacy');
+
+// Legal Pages
+Route::get('/privacy-policy', [\App\Http\Controllers\LegalController::class, 'privacy'])->name('legal.privacy');
+Route::get('/terms-of-service', [\App\Http\Controllers\LegalController::class, 'terms'])->name('legal.terms');
+Route::get('/cookie-policy', [\App\Http\Controllers\LegalController::class, 'cookies'])->name('legal.cookies');
 
 // Admin Authentication Routes
 Route::prefix('admin')->name('admin.')->group(function () {

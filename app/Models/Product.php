@@ -15,6 +15,8 @@ class Product extends Model
         'full_description',
         'image',
         'image_2',
+        'image_3',
+        'image_4',
         'video',
         'videos',
         'reviews',

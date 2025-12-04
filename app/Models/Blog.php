@@ -16,6 +16,7 @@ class Blog extends Model
         'json_schema',
         'image',
         'category',
+        'category_slug',
         'published_date',
         'reading_time',
         'is_published',
@@ -37,11 +38,17 @@ class Blog extends Model
             if (empty($blog->slug)) {
                 $blog->slug = Str::slug($blog->title);
             }
+            if (!empty($blog->category) && empty($blog->category_slug)) {
+                $blog->category_slug = Str::slug($blog->category);
+            }
         });
 
         static::updating(function ($blog) {
             if ($blog->isDirty('title') && empty($blog->slug)) {
                 $blog->slug = Str::slug($blog->title);
+            }
+            if ($blog->isDirty('category') && !empty($blog->category)) {
+                $blog->category_slug = Str::slug($blog->category);
             }
         });
     }

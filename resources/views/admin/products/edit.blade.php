@@ -32,20 +32,33 @@
 
                 <div class="form-group-admin">
                     <label class="form-label-admin" for="full_description">Full Description</label>
-                    <textarea class="form-control-admin" id="full_description" name="full_description" rows="5">{{ old('full_description', $product->full_description) }}</textarea>
+                    <textarea class="form-control-admin" id="full_description" name="full_description" rows="15" style="font-family: monospace; font-size: 13px;">{{ old('full_description', $product->full_description) }}</textarea>
+                    <small class="form-text text-muted">Full detailed description shown in the product modal. Supports line breaks and paragraphs.</small>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="form-group-admin">
                             <label class="form-label-admin" for="image">Image Path</label>
                             <input type="text" class="form-control-admin" id="image" name="image" value="{{ old('image', $product->image) }}" placeholder="images/product.jpg">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="form-group-admin">
                             <label class="form-label-admin" for="image_2">Image 2 Path</label>
                             <input type="text" class="form-control-admin" id="image_2" name="image_2" value="{{ old('image_2', $product->image_2) }}" placeholder="images/product2.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="image_3">Image 3 Path</label>
+                            <input type="text" class="form-control-admin" id="image_3" name="image_3" value="{{ old('image_3', $product->image_3) }}" placeholder="images/product3.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group-admin">
+                            <label class="form-label-admin" for="image_4">Image 4 Path</label>
+                            <input type="text" class="form-control-admin" id="image_4" name="image_4" value="{{ old('image_4', $product->image_4) }}" placeholder="images/product4.jpg">
                         </div>
                     </div>
                 </div>
@@ -69,7 +82,8 @@
 
                 <div class="form-group-admin">
                     <label class="form-label-admin" for="delivery_info">Delivery Information</label>
-                    <textarea class="form-control-admin" id="delivery_info" name="delivery_info" rows="2">{{ old('delivery_info', $product->delivery_info) }}</textarea>
+                    <textarea class="form-control-admin" id="delivery_info" name="delivery_info" rows="8" style="font-family: monospace; font-size: 13px;">{{ old('delivery_info', $product->delivery_info) }}</textarea>
+                    <small class="form-text text-muted">Delivery information shown in the product modal.</small>
                 </div>
 
                 <div class="row">
@@ -113,13 +127,14 @@
 
                 <div class="form-group-admin">
                     <label class="form-label-admin" for="features">Features</label>
-                    <textarea class="form-control-admin" id="features" name="features" rows="3">{{ old('features', $product->features) }}</textarea>
-                    <small class="form-text text-muted">Separate with | (pipe)</small>
+                    <textarea class="form-control-admin" id="features" name="features" rows="8" style="font-family: monospace; font-size: 13px;">{{ old('features', $product->features) }}</textarea>
+                    <small class="form-text text-muted">One feature per line. Each line will become a bullet point in the Key Features section.</small>
                 </div>
 
                 <div class="form-group-admin">
                     <label class="form-label-admin" for="application">Application Instructions</label>
-                    <textarea class="form-control-admin" id="application" name="application" rows="3">{{ old('application', $product->application) }}</textarea>
+                    <textarea class="form-control-admin" id="application" name="application" rows="8" style="font-family: monospace; font-size: 13px;">{{ old('application', $product->application) }}</textarea>
+                    <small class="form-text text-muted">Detailed application instructions shown in the product modal.</small>
                 </div>
 
                 <div class="row">

@@ -11,22 +11,46 @@ class BlogController extends Controller
     /**
      * Display a listing of published blog posts.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Blog::where('is_published', true)
-            ->orderBy('published_date', 'desc')
-            ->orderBy('sort_order', 'asc')
-            ->get(['id', 'title', 'slug', 'excerpt', 'image', 'category', 'published_date', 'reading_time']);
+        $query = Blog::where('is_published', true);
         
-        return view('blog.index', compact('articles'));
+        // Filter by category slug if provided
+        if ($request->has('category') && $request->category) {
+            $query->where('category_slug', $request->category);
+        }
+        
+        // Get all categories with slugs for filter
+        $categories = Blog::where('is_published', true)
+            ->whereNotNull('category')
+            ->whereNotNull('category_slug')
+            ->distinct()
+            ->orderBy('category', 'asc')
+            ->get(['category', 'category_slug'])
+            ->mapWithKeys(function ($item) {
+                return [$item->category_slug => $item->category];
+            });
+        
+        // Paginate with 6 articles per page
+        $articles = $query->orderBy('published_date', 'desc')
+            ->orderBy('sort_order', 'asc')
+            ->paginate(6, ['id', 'title', 'slug', 'excerpt', 'image', 'category', 'category_slug', 'published_date', 'reading_time']);
+        
+        // Append query string to pagination links
+        $articles->appends($request->query());
+        
+        $selectedCategory = $request->query('category');
+        
+        return view('blog.index', compact('articles', 'categories', 'selectedCategory'));
     }
 
     /**
      * Display the specified blog post.
      */
-    public function show($slug)
+    public function show($category_slug, $slug)
     {
         $article = Blog::where('slug', $slug)
+            ->where('category_slug', $category_slug)
             ->where('is_published', true)
             ->firstOrFail();
         
@@ -78,21 +102,50 @@ class BlogController extends Controller
             })
             ->orderBy('published_date', 'desc')
             ->limit(3)
-            ->get(['id', 'title', 'slug', 'excerpt', 'image', 'category', 'published_date', 'reading_time']);
+            ->get(['id', 'title', 'slug', 'excerpt', 'image', 'category', 'category_slug', 'published_date', 'reading_time']);
         
-        // If not enough related articles, get latest articles
+        // If not enough related articles, get latest articles to ensure minimum of 3
         if ($relatedArticles->count() < 3) {
+            $needed = 3 - $relatedArticles->count();
+            $excludeIds = $relatedArticles->pluck('id')->toArray();
+            $excludeIds[] = $article->id;
+            
             $additionalArticles = Blog::where('is_published', true)
                 ->where('id', '!=', $article->id)
-                ->whereNotIn('id', $relatedArticles->pluck('id'))
+                ->whereNotIn('id', $excludeIds)
                 ->orderBy('published_date', 'desc')
-                ->limit(3 - $relatedArticles->count())
-                ->get(['id', 'title', 'slug', 'excerpt', 'image', 'category', 'published_date', 'reading_time']);
+                ->limit($needed)
+                ->get(['id', 'title', 'slug', 'excerpt', 'image', 'category', 'category_slug', 'published_date', 'reading_time']);
             
-            $relatedArticles = $relatedArticles->merge($additionalArticles);
+            if ($additionalArticles->count() > 0) {
+                $relatedArticles = $relatedArticles->merge($additionalArticles);
+            }
         }
         
+        // Ensure we have at least 3 articles (or as many as available if less than 3 total)
+        $relatedArticles = $relatedArticles->take(3);
+        
         return view('blog.show', compact('article', 'toc', 'readingTime', 'relatedArticles'));
+    }
+
+    /**
+     * Legacy route handler - redirects old URLs to new format with category slug.
+     */
+    public function showLegacy($slug)
+    {
+        $article = Blog::where('slug', $slug)
+            ->where('is_published', true)
+            ->firstOrFail();
+        
+        if ($article->category_slug) {
+            return redirect()->route('blog.show', [
+                'category_slug' => $article->category_slug,
+                'slug' => $article->slug
+            ], 301);
+        }
+        
+        // Fallback if no category slug (shouldn't happen, but just in case)
+        return $this->show($article->category_slug ?? 'uncategorized', $slug);
     }
 }
 

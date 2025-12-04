@@ -37,6 +37,16 @@
                 </ul>
             </div><!-- .col -->
             
+            <!-- Legal Links Column -->
+            <div class="col-md-2 col-sm-6 mb-40">
+                <h5 class="heading-light mb-20">Legal</h5>
+                <ul class="footer-links-list">
+                    <li><a href="{{ route('legal.privacy') }}" class="heading-light">Privacy Policy</a></li>
+                    <li><a href="{{ route('legal.terms') }}" class="heading-light">Terms of Service</a></li>
+                    <li><a href="{{ route('legal.cookies') }}" class="heading-light">Cookie Policy</a></li>
+                </ul>
+            </div><!-- .col -->
+            
             <!-- Products Column -->
             <div class="col-md-3 col-sm-6 mb-40">
                 <h5 class="heading-light mb-20">Our Products</h5>
@@ -54,15 +64,14 @@
                 <h5 class="heading-light mb-20">Where to Buy</h5>
                 <ul class="footer-links-list">
                     <li><a href="https://www.yougarden.com?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">YouGarden</a></li>
-                    <li><a href="https://www.amazon.co.uk/stores/page/5D2120F1-F052-4812-AAF7-6FE644404EC7/search?lp_asin=B0D44VQZ1S&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto&terms=blooming%20fast" class="heading-light" target="_blank" rel="noopener">Amazon</a></li>
+                    <li><a href="https://www.amazon.co.uk" class="heading-light" target="_blank" rel="noopener">Amazon</a></li>
                 </ul>
                 <div class="footer-social mt-30">
                     <p class="heading-light mb-15">Follow Us</p>
                     <ul class="social-links">
-                        <li><a href="https://www.facebook.com/YouGardenUK" class="heading-light" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://www.youtube.com/channel/UCLMujNspgKbXY3oAQ4qUvYg" class="heading-light" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="https://www.instagram.com/yougardenuk/" class="heading-light" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://uk.pinterest.com/yougardenltd/" class="heading-light" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#" class="heading-light" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="heading-light" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="heading-light" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div><!-- .col -->

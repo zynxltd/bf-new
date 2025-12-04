@@ -49,26 +49,15 @@
                 </div>
 
                 <div class="form-group-admin">
-                    <label class="form-label-admin" for="template">Template File</label>
-                    <select class="form-control-admin @error('template') is-invalid @enderror" id="template" name="template">
-                        <option value="">-- Select Template (Optional) --</option>
-                        <option value="complete-guide-to-plant-fertilizers.blade.php" {{ old('template', $blog->template) == 'complete-guide-to-plant-fertilizers.blade.php' ? 'selected' : '' }}>Complete Guide to Plant Fertilizers</option>
-                        <option value="maximizing-plant-growth.blade.php" {{ old('template', $blog->template) == 'maximizing-plant-growth.blade.php' ? 'selected' : '' }}>Maximizing Plant Growth</option>
-                        <option value="seasonal-plant-feeding-guide.blade.php" {{ old('template', $blog->template) == 'seasonal-plant-feeding-guide.blade.php' ? 'selected' : '' }}>Seasonal Plant Feeding Guide</option>
-                    </select>
-                    @error('template')
-                        <div style="color: #dc3545; font-size: 13px; margin-top: 6px;">{{ $message }}</div>
-                    @enderror
-                    <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">Select a template file from resources/views/blog/articles/ (or leave empty to use content field below)</small>
-                </div>
-
-                <div class="form-group-admin">
-                    <label class="form-label-admin" for="content">Content</label>
-                    <textarea class="form-control-admin @error('content') is-invalid @enderror" id="content" name="content" rows="20" placeholder="Write your blog post content here... HTML is allowed. (Required if no template selected)">{{ old('content', $blog->content) }}</textarea>
+                    <label class="form-label-admin" for="content">Content *</label>
+                    <textarea class="form-control-admin @error('content') is-invalid @enderror" id="content" name="content" rows="20" placeholder="Write your blog post content here... HTML is allowed." required>{{ old('content', $blog->content) }}</textarea>
                     @error('content')
                         <div style="color: #dc3545; font-size: 13px; margin-top: 6px;">{{ $message }}</div>
                     @enderror
-                    <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">Full blog post content (HTML allowed). Required if no template is selected.</small>
+                    <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">Full blog post content (HTML allowed). The Blade file will be automatically updated in resources/views/blog/articles/</small>
+                    @if($blog->template)
+                    <small style="color: #28a745; font-size: 13px; margin-top: 5px; display: block;"><i class="fa fa-file"></i> Current Blade file: {{ $blog->template }}</small>
+                    @endif
                 </div>
 
                 <div class="form-group-admin">
@@ -92,11 +81,13 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group-admin">
-                            <label class="form-label-admin" for="category">Category</label>
-                            <input type="text" class="form-control-admin @error('category') is-invalid @enderror" id="category" name="category" value="{{ old('category', $blog->category) }}" placeholder="Gardening Tips">
+                            <label class="form-label-admin" for="category">Category *</label>
+                            <input type="text" class="form-control-admin @error('category') is-invalid @enderror" id="category" name="category" value="{{ old('category', $blog->category) }}" placeholder="Gardening Tips" required>
                             @error('category')
                                 <div style="color: #dc3545; font-size: 13px; margin-top: 6px;">{{ $message }}</div>
                             @enderror
+                            <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">e.g., Gardening Tips, Plant Care, Fertilizer Guide</small>
+                            <input type="hidden" id="category_slug" name="category_slug" value="{{ old('category_slug', $blog->category_slug) }}">
                         </div>
                     </div>
                 </div>
@@ -135,7 +126,7 @@
                 <div class="form-group-admin">
                     <div class="form-check-admin">
                         <input class="form-check-input" type="checkbox" id="is_published" name="is_published" value="1" {{ old('is_published', $blog->is_published) ? 'checked' : '' }}>
-                        <label class="form-label-admin" class="form-check-label" for="is_published">
+                        <label class="form-label-admin form-check-label" for="is_published">
                             Publish this post
                         </label>
                     </div>
@@ -149,6 +140,7 @@
                 </div>
             </form>
 </div>
+@endsection
 
 @push('scripts')
 <script>
@@ -171,8 +163,17 @@ $(document).ready(function() {
     $('#slug').on('input', function() {
         $(this).data('auto-generated', false);
     });
+    
+    // Auto-generate category slug from category
+    $('#category').on('input', function() {
+        var category = $(this).val();
+        var categorySlug = category.toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .trim();
+        $('#category_slug').val(categorySlug);
+    });
 });
 </script>
 @endpush
-@endsection
-

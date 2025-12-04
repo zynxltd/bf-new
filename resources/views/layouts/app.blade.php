@@ -2,10 +2,12 @@
 <html lang="en" class="js">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Blooming Fast Garden Supplements – Bigger & Better Flowering displays">
+    <meta name="theme-color" content="#537550">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
     <!-- Site Title  -->
     <title>@yield('title', 'Blooming Fast Plant Foods')</title>
     @stack('meta')
@@ -14,7 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/theme-blue-green.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/custom-new.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/custom-new.css') }}?v={{ filemtime(public_path('assets/css/custom-new.css')) }}" rel="stylesheet" media="all">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

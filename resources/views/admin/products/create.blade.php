@@ -37,18 +37,28 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="form-group-admin">
                             <label for="image" class="form-label-admin">Image Path</label>
                             <input type="text" class="form-control-admin" id="image" name="image" value="{{ old('image') }}" placeholder="images/product.jpg">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="form-group-admin">
                             <label for="image_2" class="form-label-admin">Image 2 Path</label>
                             <input type="text" class="form-control-admin" id="image_2" name="image_2" value="{{ old('image_2') }}" placeholder="images/product2.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group-admin">
+                            <label for="image_3" class="form-label-admin">Image 3 Path</label>
+                            <input type="text" class="form-control-admin" id="image_3" name="image_3" value="{{ old('image_3') }}" placeholder="images/product3.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group-admin">
+                            <label for="image_4" class="form-label-admin">Image 4 Path</label>
+                            <input type="text" class="form-control-admin" id="image_4" name="image_4" value="{{ old('image_4') }}" placeholder="images/product4.jpg">
                         </div>
                     </div>
                 </div>

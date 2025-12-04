@@ -86,9 +86,11 @@ $blogSchema = [
     </nav>
 </div>
 
+<!-- Desktop Slide-Out Menu Overlay -->
+<div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
+
 <!-- Desktop Slide-Out Menu -->
 <div class="desktop-slide-menu" id="desktopSlideMenu">
-    <div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
     <div class="desktop-slide-menu-content">
         <button class="desktop-slide-menu-close" id="desktopMenuClose" aria-label="Close menu">
             <span></span>
@@ -127,13 +129,41 @@ $blogSchema = [
             </div>
         </div>
 
+        <!-- Category Filters -->
+        @if($categories->count() > 0)
+        <div class="blog-filters mb-40 text-center">
+            <a href="{{ route('blog.index') }}" class="blog-filter-btn {{ !$selectedCategory ? 'active' : '' }}">
+                All Articles
+            </a>
+            @foreach($categories as $categorySlug => $categoryName)
+            <a href="{{ route('blog.index', ['category' => $categorySlug]) }}" class="blog-filter-btn {{ $selectedCategory == $categorySlug ? 'active' : '' }}">
+                {{ $categoryName }}
+            </a>
+            @endforeach
+        </div>
+        @endif
+
         <div class="row">
             @forelse($articles as $article)
             <div class="col-md-6 mb-40">
                 <article class="blog-card white-bg" itemscope itemtype="https://schema.org/BlogPosting">
                     <div class="blog-image">
-                        <a href="{{ route('blog.show', $article->slug) }}">
-                            <img src="{{ $article->image ? asset($article->image) : asset('images/superiorV4.png') }}" alt="{{ $article->title }}" class="img-responsive" />
+                        <a href="{{ route('blog.show', ['category_slug' => $article->category_slug, 'slug' => $article->slug]) }}">
+                            @php
+                                $imagePath = $article->image ? $article->image : 'images/superiorV4.png';
+                                $imageUrl = asset($imagePath);
+                                // Generate high DPI version path (assuming @2x naming convention)
+                                $imagePath2x = str_replace(['.jpg', '.png', '.jpeg'], ['@2x.jpg', '@2x.png', '@2x.jpeg'], $imagePath);
+                                $imageUrl2x = file_exists(public_path($imagePath2x)) ? asset($imagePath2x) : $imageUrl;
+                            @endphp
+                            <img 
+                                src="{{ $imageUrl }}" 
+                                srcset="{{ $imageUrl }} 1x, {{ $imageUrl2x }} 2x"
+                                alt="{{ $article->title }}" 
+                                class="img-responsive" 
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </a>
                         @if($article->category)
                         <div class="blog-category">{{ $article->category }}</div>
@@ -156,10 +186,10 @@ $blogSchema = [
                             <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $article->reading_time }} min read</span>
                         </div>
                         <h2 class="blog-title mb-15" itemprop="headline">
-                            <a href="{{ route('blog.show', $article->slug) }}" itemprop="url">{{ $article->title }}</a>
+                            <a href="{{ route('blog.show', ['category_slug' => $article->category_slug, 'slug' => $article->slug]) }}" itemprop="url">{{ $article->title }}</a>
                         </h2>
                         <p class="blog-excerpt mb-20" itemprop="description">{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 150) }}</p>
-                        <a href="{{ route('blog.show', $article->slug) }}" class="button button-primary" itemprop="url">Read More</a>
+                        <a href="{{ route('blog.show', ['category_slug' => $article->category_slug, 'slug' => $article->slug]) }}" class="button button-primary" itemprop="url">Read More</a>
                     </div>
                 </article>
             </div>
@@ -169,6 +199,13 @@ $blogSchema = [
             </div>
             @endforelse
         </div>
+
+        <!-- Pagination -->
+        @if($articles->hasPages())
+        <div class="blog-pagination mt-60 text-center">
+            {{ $articles->links() }}
+        </div>
+        @endif
     </div>
 </div>
 <!-- End .blog-section -->

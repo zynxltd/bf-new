@@ -6,10 +6,71 @@ use Illuminate\Support\Str;
 
 @section('title', 'Blooming Fast Plant Foods')
 
+@push('meta')
+<!-- SEO Meta Tags -->
+<meta name="description" content="Premium plant foods and fertilisers for bigger, better blooms and healthier plants. Professional grade formulations including Superior Soluble Fertiliser, Rose Bloom Booster, and more.">
+<meta name="keywords" content="plant food, fertiliser, garden supplements, rose feed, citrus feed, acer feed, plant nutrition, Blooming Fast">
+<meta name="author" content="Blooming Fast">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ url()->current() }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:title" content="Blooming Fast Plant Foods - Premium Garden Supplements">
+<meta property="og:description" content="Premium plant foods and fertilisers for bigger, better blooms and healthier plants. Professional grade formulations for your garden.">
+<meta property="og:image" content="{{ asset('images/superiorV4.png') }}">
+<meta property="og:site_name" content="Blooming Fast">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blooming Fast Plant Foods - Premium Garden Supplements">
+<meta name="twitter:description" content="Premium plant foods and fertilisers for bigger, better blooms and healthier plants.">
+<meta name="twitter:image" content="{{ asset('images/superiorV4.png') }}">
+
+<!-- Organization Schema.org JSON-LD -->
+<script type="application/ld+json">
+@php
+$organizationSchema = [
+  "@context" => "https://schema.org",
+  "@type" => "Organization",
+  "name" => "Blooming Fast",
+  "url" => url('/'),
+  "logo" => asset('images/logo.png'),
+  "description" => "Premium plant foods and fertilisers for bigger, better blooms and healthier plants",
+  "sameAs" => [
+    "https://www.yougarden.com",
+    "https://www.amazon.co.uk"
+  ]
+];
+@endphp
+{!! json_encode($organizationSchema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+
+<!-- Website Schema.org JSON-LD -->
+<script type="application/ld+json">
+@php
+$websiteSchema = [
+  "@context" => "https://schema.org",
+  "@type" => "WebSite",
+  "name" => "Blooming Fast",
+  "url" => url('/'),
+  "potentialAction" => [
+    "@type" => "SearchAction",
+    "target" => url('/blog') . "?search={search_term_string}",
+    "query-input" => "required name=search_term_string"
+  ]
+];
+@endphp
+{!! json_encode($websiteSchema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
+@endpush
+
 @section('content')
 <!-- Start .header-section -->
 <div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section">
     
+    <!-- Gradient Overlay -->
     <div class="gradiant-background gradiant-overlay"></div>
     <div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
         <nav class="navbar navbar-default">
@@ -49,9 +110,11 @@ use Illuminate\Support\Str;
         </nav>
     </div>
     
+    <!-- Desktop Slide-Out Menu Overlay -->
+    <div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
+    
     <!-- Desktop Slide-Out Menu -->
     <div class="desktop-slide-menu" id="desktopSlideMenu">
-        <div class="desktop-slide-menu-overlay" id="desktopMenuOverlay"></div>
         <div class="desktop-slide-menu-content">
             <button class="desktop-slide-menu-close" id="desktopMenuClose" aria-label="Close menu">
                 <span></span>
@@ -68,10 +131,10 @@ use Illuminate\Support\Str;
                 <li class="desktop-menu-divider"><span></span></li>
                 <li class="desktop-menu-store-links">
                     <a href="https://www.yougarden.com?source=bloomingfast.com" class="nav-item store-link" target="_blank" rel="noopener">
-                        <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" />
+                        <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" />
                     </a>
                     <a href="https://www.amazon.co.uk/stores/page/5D2120F1-F052-4812-AAF7-6FE644404EC7/search?lp_asin=B0D44VQZ1S&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto&terms=blooming%20fast" class="nav-item store-link" target="_blank" rel="noopener">
-                        <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" />
+                        <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" />
                     </a>
                 </li>
             </ul>
@@ -259,7 +322,7 @@ use Illuminate\Support\Str;
                         <!-- Center product image -->
                         <div class="features-product-center">
                             <div class="features-product-image">
-                                <img src="{{ asset('images/superiorback.png') }}" alt="Superior Plant Food" />
+                                <img src="{{ asset('images/superiorback.png') }}" alt="Superior Plant Food" loading="lazy" decoding="async" />
                             </div>
                         </div>
                         
@@ -396,7 +459,7 @@ use Illuminate\Support\Str;
 
 
 <!-- Products Section Top Divider -->
-<div class="section-divider-wave" id="divider-products">
+<!-- <div class="section-divider-wave" id="divider-products">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
         <defs>
             <linearGradient id="gradient-divider-products-top" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
@@ -406,8 +469,12 @@ use Illuminate\Support\Str;
         </defs>
         <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-products-top)"></path>
     </svg>
-</div>
+</div> -->
 
+<!-- Curved divider between white and gradient sections -->
+<div class="section-divider-wave" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(90deg, #537550 0%, #713841 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
+    <img src="/images/carb.png" alt="" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
+</div>
 <!-- Start .products-section  -->
 <div id="products" class="products-section section gradiant-background pt-120 pb-120 products-section-bottom-curved">
     <div class="container">
@@ -430,6 +497,8 @@ use Illuminate\Support\Str;
                          data-product-title="{{ $product->title }}"
                          data-product-image="{{ $product->image ? asset($product->image) : '' }}"
                          data-product-image-2="{{ $product->image_2 ? asset($product->image_2) : ($product->image ? asset($product->image) : '') }}"
+                         data-product-image-3="{{ $product->image_3 ? asset($product->image_3) : '' }}"
+                         data-product-image-4="{{ $product->image_4 ? asset($product->image_4) : '' }}"
                          data-product-video="{{ $product->video ?? '' }}"
                          data-product-description="{{ $product->description ?? '' }}"
                          data-product-full-description="{{ htmlspecialchars($product->full_description ?? '', ENT_QUOTES) }}"
@@ -448,9 +517,9 @@ use Illuminate\Support\Str;
                             @if($index < 2)
                             <span class="best-seller-badge">Best Seller</span>
                             @endif
-                            <img src="{{ $product->image ? asset($product->image) : asset('images/superiorV4.png') }}" alt="{{ $product->title }}" class="img-responsive" />
+                            <img src="{{ $product->image ? asset($product->image) : asset('images/superiorV4.png') }}" alt="{{ $product->title }}" class="img-responsive" loading="lazy" decoding="async" />
                             <div class="product-quick-view-overlay">
-                                <a href="#" class="product-quick-view-btn" onclick="event.preventDefault(); event.stopPropagation(); return false;" title="Quick View">
+                                <a href="#" class="product-quick-view-btn" title="Quick View">
                                     <i class="fa fa-eye"></i>
                                 </a>
                             </div>
@@ -470,10 +539,10 @@ use Illuminate\Support\Str;
                             @endif
                             <ul class="product-buttons">
                                 @if($product->yg_link)
-                                <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
+                                <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" /></a></li>
                                 @endif
                                 @if($product->amazon_link)
-                                <li><a href="{{ $product->amazon_link }}" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                                <li><a href="{{ $product->amazon_link }}" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" /></a></li>
                                 @endif
                             </ul>
                             @if($product->sku)
@@ -498,6 +567,10 @@ use Illuminate\Support\Str;
         </div><!-- .products-content -->
     </div><!-- .container -->
 </div><!-- .products-section  -->
+
+<div class="section-divider-wave section-divider-wave-product-bottom" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
+    <img src="/images/carb.png" alt="" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleX(-);">
+</div>
 
 <!-- Start .videos-section  -->
 <div id="videos" class="videos-section section white-bg pt-120 pb-120 videos-curved-top videos-section-bottom-curved">
@@ -720,8 +793,8 @@ use Illuminate\Support\Str;
                         
                         <div class="product-modal-buttons">
                             <ul class="product-buttons">
-                                <li><a id="modalProductYG" href="" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                                <li><a id="modalProductAmazon" href="" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                                <li><a id="modalProductYG" href="" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" /></a></li>
+                                <li><a id="modalProductAmazon" href="" class="product-button" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" /></a></li>
                             </ul>
                         </div>
                     </div>
@@ -951,8 +1024,22 @@ From May to September feed your plants twice a week while watering.</p>
             <div class="col-md-4 mb-40">
                 <article class="blog-card white-bg">
                     <div class="blog-image">
-                        <a href="{{ route('blog.show', $article->slug) }}">
-                            <img src="{{ $article->image ? asset($article->image) : asset('images/superiorV4.png') }}" alt="{{ $article->title }}" class="img-responsive" />
+                        <a href="{{ route('blog.show', ['category_slug' => $article->category_slug, 'slug' => $article->slug]) }}">
+                            @php
+                                $imagePath = $article->image ? $article->image : 'images/superiorV4.png';
+                                $imageUrl = asset($imagePath);
+                                // Generate high DPI version path (assuming @2x naming convention)
+                                $imagePath2x = str_replace(['.jpg', '.png', '.jpeg'], ['@2x.jpg', '@2x.png', '@2x.jpeg'], $imagePath);
+                                $imageUrl2x = file_exists(public_path($imagePath2x)) ? asset($imagePath2x) : $imageUrl;
+                            @endphp
+                            <img 
+                                src="{{ $imageUrl }}" 
+                                srcset="{{ $imageUrl }} 1x, {{ $imageUrl2x }} 2x"
+                                alt="{{ $article->title }}" 
+                                class="img-responsive" 
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </a>
                         @if($article->category)
                         <div class="blog-category">{{ $article->category }}</div>
@@ -966,10 +1053,10 @@ From May to September feed your plants twice a week while watering.</p>
                             @endif
                         </div>
                         <h3 class="blog-title mb-15">
-                            <a href="{{ route('blog.show', $article->slug) }}">{{ $article->title }}</a>
+                            <a href="{{ route('blog.show', ['category_slug' => $article->category_slug, 'slug' => $article->slug]) }}">{{ $article->title }}</a>
                         </h3>
                         <p class="blog-excerpt mb-20">{{ $article->excerpt ?? Str::limit(strip_tags($article->content ?? ''), 150) }}</p>
-                        <a href="{{ route('blog.show', $article->slug) }}" class="button button-primary">Read Guide</a>
+                        <a href="{{ route('blog.show', ['category_slug' => $article->category_slug, 'slug' => $article->slug]) }}" class="button button-primary">Read Guide</a>
                     </div>
                 </article>
             </div>
@@ -1157,22 +1244,63 @@ $(document).ready(function() {
         e.stopPropagation();
         var $card = $(this).closest('.product-card-clickable');
         if ($card.length) {
-            $card.trigger('click');
+            openProductModal($card);
         }
     });
     
-    // Handle product card clicks
+    // Make product image clickable
+    $(document).on('click', '.product-card-clickable .product-image img', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $card = $(this).closest('.product-card-clickable');
+        if ($card.length) {
+            openProductModal($card);
+        }
+    });
+    
+    // Also make the entire product-image div clickable
+    $(document).on('click', '.product-card-clickable .product-image', function(e) {
+        // Don't trigger if clicking on the quick view button
+        if ($(e.target).closest('.product-quick-view-btn').length || 
+            $(e.target).closest('.product-quick-view-overlay').length) {
+            return;
+        }
+        e.preventDefault();
+        e.stopPropagation();
+        var $card = $(this).closest('.product-card-clickable');
+        if ($card.length) {
+            openProductModal($card);
+        }
+    });
+    
+    // Handle product card clicks (for clicking on card itself, not buttons/links)
     $('.product-card-clickable').on('click', function(e) {
-        // Don't trigger if clicking on buttons or quick view overlay
-        if ($(e.target).closest('.product-button').length || $(e.target).closest('.product-quick-view-overlay').length) {
+        // Don't trigger if clicking on buttons, links, or quick view overlay
+        if ($(e.target).closest('.product-button').length || 
+            $(e.target).closest('.product-quick-view-overlay').length ||
+            $(e.target).closest('a').length ||
+            $(e.target).is('a')) {
+            return;
+        }
+        
+        // Don't trigger if clicking on image (handled separately above)
+        if ($(e.target).closest('.product-image img').length) {
             return;
         }
         
         var $card = $(this);
+        openProductModal($card);
+    });
+    
+    // Function to open product modal
+    function openProductModal($card) {
+        var $card = $card;
         var title = $card.data('product-title');
         var image = $card.data('product-image');
         var image2 = $card.data('product-image-2');
-        var video = $card.data('product-video');
+        var image3 = $card.data('product-image-3');
+        var image4 = $card.data('product-image-4');
+        var video = $card.attr('data-product-video');
         var description = $card.data('product-description');
         // Use attr() instead of data() to get raw attribute values
         var fullDescription = $card.attr('data-product-full-description');
@@ -1192,6 +1320,9 @@ $(document).ready(function() {
         console.log('=== PRODUCT MODAL DATA (RAW) ===');
         console.log('Title:', title);
         console.log('Description:', description);
+        console.log('Image:', image);
+        console.log('Image2:', image2);
+        console.log('Video:', video);
         console.log('Full Description (raw):', $card.attr('data-product-full-description'));
         console.log('Features (raw):', $card.attr('data-product-features'));
         console.log('Videos (raw):', $card.attr('data-product-videos'));
@@ -1199,22 +1330,27 @@ $(document).ready(function() {
         console.log('Delivery Info (raw):', $card.attr('data-product-delivery'));
         console.log('================================');
         
-        // Decode HTML entities for text fields (only if not empty)
+        // Decode HTML entities for text fields (preserve HTML formatting)
+        // Use a helper function to decode HTML entities while preserving HTML tags
+        function decodeHtmlEntities(html) {
+            if (!html || html.trim() === '') return '';
+            var textarea = document.createElement('textarea');
+            textarea.innerHTML = html;
+            return textarea.value;
+        }
+        
+        // Decode but preserve HTML structure
         if (fullDescription && fullDescription.trim() !== '') {
-            var temp = $('<textarea>').html(fullDescription).text();
-            fullDescription = temp;
+            fullDescription = decodeHtmlEntities(fullDescription);
         }
         if (deliveryInfo && deliveryInfo.trim() !== '') {
-            var temp = $('<textarea>').html(deliveryInfo).text();
-            deliveryInfo = temp;
+            deliveryInfo = decodeHtmlEntities(deliveryInfo);
         }
         if (application && application.trim() !== '') {
-            var temp = $('<textarea>').html(application).text();
-            application = temp;
+            application = decodeHtmlEntities(application);
         }
         if (features && features.trim() !== '') {
-            var temp = $('<textarea>').html(features).text();
-            features = temp;
+            features = decodeHtmlEntities(features);
         }
         
         // Populate basic modal fields
@@ -1247,16 +1383,31 @@ $(document).ready(function() {
         
         // Use full_description if it exists and has content
         if (rawFullDesc && rawFullDesc.trim() !== '' && rawFullDesc !== 'null' && rawFullDesc !== 'undefined') {
-            fullDescContent = (fullDescription && fullDescription.trim() !== '') ? fullDescription.replace(/\n/g, '<br>') : rawFullDesc.replace(/\n/g, '<br>');
-            console.log('Using full_description, raw length:', rawFullDesc.length);
+            // Decode HTML entities but preserve HTML structure
+            var decodedFullDesc = decodeHtmlEntities(rawFullDesc);
+            console.log('Decoded full description preview:', decodedFullDesc.substring(0, 200));
+            
+            // If decoded content has HTML tags, use it as-is, otherwise convert newlines to <br>
+            if (decodedFullDesc.indexOf('<') !== -1) {
+                fullDescContent = decodedFullDesc;
+            } else {
+                // Convert newlines to <br> and preserve paragraph breaks
+                fullDescContent = decodedFullDesc.replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br>');
+                if (fullDescContent && !fullDescContent.startsWith('<p>')) {
+                    fullDescContent = '<p>' + fullDescContent + '</p>';
+                }
+            }
+            console.log('Using full_description, raw length:', rawFullDesc.length, 'decoded length:', fullDescContent.length);
         }
         
-        // ALWAYS use description as fallback if fullDescContent is still empty
+        // ONLY use description as fallback if fullDescContent is still empty (not if full_description exists)
         if (!fullDescContent || fullDescContent.trim() === '') {
             if (description && description.trim() !== '') {
                 fullDescContent = description.replace(/\n/g, '<br>');
                 console.log('Using description as fallback for Full Description, length:', description.length);
             }
+        } else {
+            console.log('Full description found, NOT using description fallback');
         }
         
         // Always show Full Description if we have any content
@@ -1275,10 +1426,27 @@ $(document).ready(function() {
                        videos !== 'undefined' && 
                        videos.trim() !== '';
         
-        // Also check if there's a single video field
+        // Also check if there's a single video field (URL only)
         if (!hasVideos && video && video.trim() !== '') {
-            videos = video;
-            hasVideos = true;
+            // If video is a URL, convert it to embed code
+            var videoUrl = video.trim();
+            if (videoUrl.indexOf('vimeo.com') !== -1) {
+                // Extract Vimeo video ID
+                var vimeoMatch = videoUrl.match(/(?:vimeo\.com\/)(\d+)/);
+                if (vimeoMatch && vimeoMatch[1]) {
+                    var vimeoId = vimeoMatch[1];
+                    videos = '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://player.vimeo.com/video/' + vimeoId + '?color=ffffff&title=0&byline=0&portrait=0" allowfullscreen></iframe></div>';
+                    hasVideos = true;
+                }
+            } else if (videoUrl.indexOf('youtube.com') !== -1 || videoUrl.indexOf('youtu.be') !== -1) {
+                // Extract YouTube video ID
+                var youtubeMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
+                if (youtubeMatch && youtubeMatch[1]) {
+                    var youtubeId = youtubeMatch[1];
+                    videos = '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + youtubeId + '" allowfullscreen></iframe></div>';
+                    hasVideos = true;
+                }
+            }
         }
         
         if (hasVideos) {
@@ -1286,7 +1454,7 @@ $(document).ready(function() {
             var rawVideos = $card.attr('data-product-videos');
             var decodedVideos = '';
             
-            if (rawVideos) {
+            if (rawVideos && rawVideos.trim() !== '' && rawVideos !== 'null' && rawVideos !== 'undefined') {
                 // Create a temporary textarea element to decode HTML entities
                 // This is the most reliable way to decode HTML entities
                 var textarea = document.createElement('textarea');
@@ -1300,57 +1468,63 @@ $(document).ready(function() {
                     tempDiv.textContent = rawVideos;
                     decodedVideos = tempDiv.innerHTML;
                 }
-            } else if (typeof videos === 'string') {
-                // Fallback: try to decode the videos string directly
-                var textarea = document.createElement('textarea');
-                textarea.innerHTML = videos;
-                decodedVideos = textarea.value;
-                
-                if (decodedVideos.indexOf('&lt;') !== -1 || decodedVideos.indexOf('&quot;') !== -1) {
-                    var tempDiv = document.createElement('div');
-                    tempDiv.textContent = videos;
-                    decodedVideos = tempDiv.innerHTML;
-                } else {
-                    decodedVideos = videos;
-                }
+            } else if (videos && typeof videos === 'string' && videos.trim() !== '') {
+                // Use the videos variable directly if rawVideos is not available
+                decodedVideos = videos;
             }
             
             // Set the decoded HTML content
-            $('#modalProductVideosContent').html(decodedVideos);
-            $('#modalProductVideosSection').show();
-            console.log('✓ Showing Videos section');
+            if (decodedVideos && decodedVideos.trim() !== '') {
+                $('#modalProductVideosContent').html(decodedVideos);
+                $('#modalProductVideosSection').show();
+                console.log('✓ Showing Videos section');
+            } else {
+                $('#modalProductVideosSection').hide();
+                console.log('✗ Videos content is empty after decoding');
+            }
         } else {
-            console.log('✗ Videos not available. Value:', videos, 'Type:', typeof videos);
+            $('#modalProductVideosSection').hide();
+            console.log('✗ Videos not available. Value:', videos, 'Type:', typeof videos, 'Video:', video);
         }
         
         // Populate delivery info if available (collapsible)
-        var hasDeliveryInfo = deliveryInfo && 
-                             deliveryInfo !== 'null' && 
-                             deliveryInfo !== 'undefined' && 
-                             deliveryInfo.trim() !== '';
+        var rawDeliveryInfo = $card.attr('data-product-delivery');
+        var hasDeliveryInfo = rawDeliveryInfo && 
+                             rawDeliveryInfo !== 'null' && 
+                             rawDeliveryInfo !== 'undefined' && 
+                             rawDeliveryInfo.trim() !== '';
         
         if (hasDeliveryInfo) {
-            $('#modalProductDeliveryContent').html(deliveryInfo.replace(/\n/g, '<br>'));
+            var decodedDeliveryInfo = decodeHtmlEntities(rawDeliveryInfo);
+            // If decoded content has HTML tags, use it as-is, otherwise convert newlines to <br>
+            if (decodedDeliveryInfo.indexOf('<') !== -1) {
+                $('#modalProductDeliveryContent').html(decodedDeliveryInfo);
+            } else {
+                $('#modalProductDeliveryContent').html(decodedDeliveryInfo.replace(/\n/g, '<br>'));
+            }
             $('#modalProductDeliverySection').show();
-            console.log('✓ Showing Delivery Information section');
+            console.log('✓ Showing Delivery Information section, length:', decodedDeliveryInfo.length);
         } else {
-            console.log('✗ Delivery Info not available. Value:', deliveryInfo, 'Type:', typeof deliveryInfo);
+            $('#modalProductDeliverySection').hide();
+            console.log('✗ Delivery Info not available. Value:', rawDeliveryInfo, 'Type:', typeof rawDeliveryInfo);
         }
         
-        // Build carousel items
+        // Build carousel items - ORDER: Image 1, Image 2, Video (3rd)
         var carouselInner = $('#modalCarouselInner');
         var carouselIndicators = $('#modalCarouselIndicators');
         carouselInner.empty();
         carouselIndicators.empty();
         
         var itemIndex = 0;
+        var firstItemAdded = false;
         
-        // Add first image
-        if (image) {
-            var activeClass = itemIndex === 0 ? 'active' : '';
+        // Add first image (always first, always active if it exists)
+        if (image && image.trim() !== '' && image !== 'null' && image !== 'undefined') {
+            var activeClass = !firstItemAdded ? 'active' : '';
+            if (!firstItemAdded) firstItemAdded = true;
             carouselInner.append(
                 '<div class="item ' + activeClass + '" data-zoom-image="' + image + '">' +
-                '<img src="' + image + '" alt="' + title + '" class="img-responsive product-zoom-image" />' +
+                '<img src="' + image + '" alt="' + title + '" class="img-responsive product-zoom-image" loading="eager" decoding="async" />' +
                 '</div>'
             );
             carouselIndicators.append(
@@ -1359,12 +1533,13 @@ $(document).ready(function() {
             itemIndex++;
         }
         
-        // Add second image if available
-        if (image2) {
-            var activeClass = itemIndex === 0 ? 'active' : '';
+        // Add second image if available (second position)
+        if (image2 && image2.trim() !== '' && image2 !== 'null' && image2 !== 'undefined') {
+            var activeClass = !firstItemAdded ? 'active' : '';
+            if (!firstItemAdded) firstItemAdded = true;
             carouselInner.append(
                 '<div class="item ' + activeClass + '" data-zoom-image="' + image2 + '">' +
-                '<img src="' + image2 + '" alt="' + title + '" class="img-responsive product-zoom-image" />' +
+                '<img src="' + image2 + '" alt="' + title + '" class="img-responsive product-zoom-image" loading="lazy" decoding="async" />' +
                 '</div>'
             );
             carouselIndicators.append(
@@ -1373,14 +1548,13 @@ $(document).ready(function() {
             itemIndex++;
         }
         
-        // Add video if available
-        if (video) {
-            var activeClass = itemIndex === 0 ? 'active' : '';
+        // Add third image if available (third position)
+        if (image3 && image3.trim() !== '' && image3 !== 'null' && image3 !== 'undefined') {
+            var activeClass = !firstItemAdded ? 'active' : '';
+            if (!firstItemAdded) firstItemAdded = true;
             carouselInner.append(
-                '<div class="item ' + activeClass + '">' +
-                '<div class="embed-responsive embed-responsive-16by9">' +
-                '<iframe class="embed-responsive-item" src="' + video + '" allowfullscreen></iframe>' +
-                '</div>' +
+                '<div class="item ' + activeClass + '" data-zoom-image="' + image3 + '">' +
+                '<img src="' + image3 + '" alt="' + title + '" class="img-responsive product-zoom-image" loading="lazy" decoding="async" />' +
                 '</div>'
             );
             carouselIndicators.append(
@@ -1388,6 +1562,24 @@ $(document).ready(function() {
             );
             itemIndex++;
         }
+        
+        // Add fourth image if available (fourth position)
+        if (image4 && image4.trim() !== '' && image4 !== 'null' && image4 !== 'undefined') {
+            var activeClass = !firstItemAdded ? 'active' : '';
+            if (!firstItemAdded) firstItemAdded = true;
+            carouselInner.append(
+                '<div class="item ' + activeClass + '" data-zoom-image="' + image4 + '">' +
+                '<img src="' + image4 + '" alt="' + title + '" class="img-responsive product-zoom-image" loading="lazy" decoding="async" />' +
+                '</div>'
+            );
+            carouselIndicators.append(
+                '<li data-target="#productModalCarousel" data-slide-to="' + itemIndex + '" class="' + activeClass + '"></li>'
+            );
+            itemIndex++;
+        }
+        
+        // Video is NOT added to carousel - it's only shown in the collapsible "Videos" section
+        console.log('Total carousel items:', itemIndex);
         
         // Show/hide carousel controls based on number of items
         if (itemIndex > 1) {
@@ -1396,8 +1588,32 @@ $(document).ready(function() {
             $('#modalCarouselPrev, #modalCarouselNext').hide();
         }
         
+        // Reset carousel to first slide (image 1) and reinitialize
+        // Remove all active classes first
+        $('#modalCarouselInner .item').removeClass('active');
+        $('#modalCarouselIndicators li').removeClass('active');
+        
+        // Set first item as active
+        var $firstItem = $('#modalCarouselInner .item').first();
+        var $firstIndicator = $('#modalCarouselIndicators li').first();
+        if ($firstItem.length) {
+            $firstItem.addClass('active');
+            $firstIndicator.addClass('active');
+        }
+        
         // Reset carousel to first slide
         $('#productModalCarousel').carousel(0);
+        // Force carousel to refresh after adding items
+        $('#productModalCarousel').carousel('pause');
+        // Ensure we're on the first slide (image 1, not video)
+        setTimeout(function() {
+            $('#productModalCarousel').carousel(0);
+            // Double-check first item is active
+            $('#modalCarouselInner .item').removeClass('active');
+            $('#modalCarouselIndicators li').removeClass('active');
+            $('#modalCarouselInner .item').first().addClass('active');
+            $('#modalCarouselIndicators li').first().addClass('active');
+        }, 150);
         
         // Function to shorten badge text to 5-15 characters
         function shortenBadge(text) {
@@ -1440,6 +1656,10 @@ $(document).ready(function() {
             text = text.trim();
             
             // Extract key information (numbers, units, important words)
+            // First check for "gallons" and skip it (don't convert to "g")
+            if (/\d+\s*gallons?/i.test(text)) {
+                return ''; // Return empty to filter out
+            }
             var numberMatch = text.match(/\d+\s*(g|kg|L|ml|cm|m)/i);
             if (numberMatch) {
                 text = numberMatch[0];
@@ -1466,8 +1686,25 @@ $(document).ready(function() {
         var specsArray = specs.split(',').map(function(s) { return s.trim(); }).filter(function(s) { 
             // Filter out badges that are just numbers or too short/meaningless
             if (s.length === 0) return false;
+            // Skip if it contains "100 gallons" or similar (before shortening)
+            if (/\d+\s*gallons?/i.test(s)) {
+                return false;
+            }
             // Skip if it's just a number (like "12")
             if (/^\d+$/.test(s)) {
+                return false;
+            }
+            // Skip if shortened version would be just a number (like "12" from "12 or so")
+            var shortened = shortenBadge(s);
+            if (shortened === '' || /^\d+$/.test(shortened)) {
+                return false;
+            }
+            // Skip if shortened is "100g" (from "100 gallons")
+            if (shortened === '100g' || shortened === '100G') {
+                return false;
+            }
+            // Skip if shortened is "ready" (from "ready to use")
+            if (shortened.toLowerCase() === 'ready') {
                 return false;
             }
             // Skip if it's too short and meaningless
@@ -1480,7 +1717,11 @@ $(document).ready(function() {
         specsArray = specsArray.slice(0, 2);
         var specsHtml = '<div class="product-specs">';
         specsArray.forEach(function(spec) {
-            specsHtml += '<span class="badge">' + shortenBadge(spec) + '</span> ';
+            var shortened = shortenBadge(spec);
+            // Double-check: don't display if shortened is just a number, "100g", or "ready"
+            if (!/^\d+$/.test(shortened) && shortened !== '100g' && shortened !== '100G' && shortened.toLowerCase() !== 'ready') {
+                specsHtml += '<span class="badge">' + shortened + '</span> ';
+            }
         });
         specsHtml += '</div>';
         $('#modalProductSpecs').html(specsHtml);
@@ -1494,22 +1735,26 @@ $(document).ready(function() {
         }
         
         // Populate features - extract from description if features field is empty
-        var hasFeatures = features && 
-                         features !== 'null' && 
-                         features !== 'undefined' && 
-                         features.trim() !== '';
+        var rawFeatures = $card.attr('data-product-features');
+        var hasFeatures = rawFeatures && 
+                         rawFeatures !== 'null' && 
+                         rawFeatures !== 'undefined' && 
+                         rawFeatures.trim() !== '';
         
         if (hasFeatures) {
+            // Decode HTML entities first
+            var decodedFeatures = decodeHtmlEntities(rawFeatures);
+            
             // Split by newline, bullet point, or pipe separator
             var featuresArray = [];
-            if (features.indexOf('\n') !== -1) {
-                featuresArray = features.split('\n').filter(function(f) { return f.trim().length > 0; });
-            } else if (features.indexOf('•') !== -1) {
-                featuresArray = features.split('•').filter(function(f) { return f.trim().length > 0; });
-            } else if (features.indexOf('|') !== -1) {
-                featuresArray = features.split('|').filter(function(f) { return f.trim().length > 0; });
+            if (decodedFeatures.indexOf('\n') !== -1) {
+                featuresArray = decodedFeatures.split('\n').filter(function(f) { return f.trim().length > 0; });
+            } else if (decodedFeatures.indexOf('•') !== -1) {
+                featuresArray = decodedFeatures.split('•').filter(function(f) { return f.trim().length > 0; });
+            } else if (decodedFeatures.indexOf('|') !== -1) {
+                featuresArray = decodedFeatures.split('|').filter(function(f) { return f.trim().length > 0; });
             } else {
-                featuresArray = [features];
+                featuresArray = [decodedFeatures];
             }
             
             var featuresHtml = '';
@@ -1549,17 +1794,25 @@ $(document).ready(function() {
         }
         
         // Populate application if available (collapsible)
-        var hasApplication = application && 
-                            application !== 'null' && 
-                            application !== 'undefined' && 
-                            application.trim() !== '';
+        var rawApplication = $card.attr('data-product-application');
+        var hasApplication = rawApplication && 
+                            rawApplication !== 'null' && 
+                            rawApplication !== 'undefined' && 
+                            rawApplication.trim() !== '';
         
         if (hasApplication) {
-            $('#modalProductApplicationText').html(application.replace(/\n/g, '<br>'));
+            var decodedApplication = decodeHtmlEntities(rawApplication);
+            // If decoded content has HTML tags, use it as-is, otherwise convert newlines to <br>
+            if (decodedApplication.indexOf('<') !== -1) {
+                $('#modalProductApplicationText').html(decodedApplication);
+            } else {
+                $('#modalProductApplicationText').html(decodedApplication.replace(/\n/g, '<br>'));
+            }
             $('#modalProductApplicationSection').show();
-            console.log('✓ Showing Application section');
+            console.log('✓ Showing Application section, length:', decodedApplication.length);
         } else {
-            console.log('✗ Application not available. Value:', application, 'Type:', typeof application);
+            $('#modalProductApplicationSection').hide();
+            console.log('✗ Application not available. Value:', rawApplication, 'Type:', typeof rawApplication);
         }
         
         // Populate makes/coverage if available
@@ -1620,7 +1873,7 @@ $(document).ready(function() {
                 console.log('==============================================');
             }, 200);
         });
-    });
+    }
     
     // Reinitialize Feefo widgets when modal is fully shown
     $('#productModal').on('shown.bs.modal', function() {
@@ -1938,6 +2191,29 @@ $(document).ready(function() {
         animateStackedItems();
         animateAboutVideo();
         animateFeaturesSection();
+    });
+    
+    // Mobile Navigation - Close menu when clicking outside
+    $(document).on('click', function(e) {
+        var $navbarCollapse = $('#site-collapse-nav');
+        var $navbarToggle = $('.navbar-toggle');
+        
+        // Only handle on mobile (when navbar-collapse is visible)
+        if ($(window).width() <= 767 && $navbarCollapse.hasClass('in')) {
+            // Check if click is outside the navbar and not on the toggle button
+            if (!$navbarCollapse.is(e.target) && 
+                $navbarCollapse.has(e.target).length === 0 && 
+                !$navbarToggle.is(e.target) && 
+                $navbarToggle.has(e.target).length === 0) {
+                // Close the mobile menu
+                $navbarCollapse.collapse('hide');
+            }
+        }
+    });
+    
+    // Prevent clicks inside the mobile menu from closing it
+    $('#site-collapse-nav').on('click', function(e) {
+        e.stopPropagation();
     });
     
     // Testimonials carousel - show multiple items with partial visibility

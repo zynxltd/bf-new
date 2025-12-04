@@ -125,7 +125,7 @@
                         </td>
                         <td>
                             <div class="admin-action-buttons">
-                                <a href="{{ route('blog.show', $blog->slug) }}" class="admin-btn-icon" target="_blank" title="View">
+                                <a href="{{ route('blog.show', ['category_slug' => $blog->category_slug, 'slug' => $blog->slug]) }}" class="admin-btn-icon" target="_blank" title="View">
                                     <i class="fa fa-eye"></i>
                                 </a>
                                 <a href="{{ route('admin.blogs.edit', $blog) }}" class="admin-btn-icon admin-btn-edit" title="Edit">
