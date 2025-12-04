@@ -2497,7 +2497,7 @@ From May to September feed your plants twice a week while watering.</p>
             submitBtn.prop('disabled', false).text('Subscribe');
         }
     });
-    });
+    }
     
     initNewsletter();
 })();
