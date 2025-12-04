@@ -1411,6 +1411,22 @@ h1, .h1 {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Hero image mobile placeholder - hidden on desktop, shown on mobile */
+.hero-image-mobile-placeholder {
+    display: none;
+}
+
+/* Desktop: Ensure hero image column is visible and positioned correctly */
+@media (min-width: 768px) {
+    .hero-image-column {
+        display: block !important;
+    }
+    
+    .hero-image-mobile-placeholder {
+        display: none !important;
+    }
+}
+
 .size-label {
     display: block;
     font-size: 15px;
