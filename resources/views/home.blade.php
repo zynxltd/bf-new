@@ -305,7 +305,7 @@ $faqSchema = [
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="video about-section-video" style="margin-bottom: 40px;">
-                    <img src="{{ asset('images/video.png') }}" alt="about-video" />
+                    <img src="{{ asset('images/video.png') }}" alt="about-video" width="800" height="450" loading="lazy" />
                     <div class="video-overlay gradiant-background"></div>
                     <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                 </div>
@@ -446,7 +446,7 @@ $faqSchema = [
         <div class="row">
             <div class="col-md-12">
                 <div class="customer-reviews-content">
-                    <h3 class="mb-50 text-center">What Our Customers Say</h3>
+                    <h2 class="mb-50 text-center">What Our Customers Say</h2>
                     
                     <!-- Feefo Service Review Carousel Widget (Desktop - YouGarden Format) -->
                     <div id="feefo-service-review-carousel-widgetId" class="feefo-review-carousel-widget-service feefo-desktop-widget" data-merchant-identifier="you-garden"></div>
@@ -632,7 +632,7 @@ $faqSchema = [
                 <div class="col-md-12">
                     <div class="text-center" style="padding: 60px 20px; color: rgba(255, 255, 255, 0.9);">
                         <i class="fa fa-leaf" style="font-size: 64px; margin-bottom: 20px; display: block; opacity: 0.7;"></i>
-                        <h3 style="color: rgba(255, 255, 255, 0.95); margin-bottom: 15px;">No products available yet</h3>
+                        <h2 style="color: rgba(255, 255, 255, 0.95); margin-bottom: 15px;">No products available yet</h2>
                         <p style="font-size: 18px; margin-bottom: 30px;">Check back soon for our range of premium plant foods!</p>
                             </div>
                         </div>
@@ -679,7 +679,7 @@ $faqSchema = [
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">
                         <div class="video-thumbnail">
-                            <img src="{{ asset('images/bloom-booster-p1.jpg') }}" alt="Ultimate Rose Bloom Booster" class="img-responsive" />
+                            <img src="{{ asset('images/bloom-booster-p1.jpg') }}" alt="Ultimate Rose Bloom Booster" class="img-responsive" width="400" height="400" loading="lazy" />
                             <div class="video-overlay gradiant-background"></div>
                             <a href="https://vimeo.com/1100825820" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Ultimate Rose Bloom Booster video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
@@ -694,7 +694,7 @@ $faqSchema = [
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">
                         <div class="video-thumbnail">
-                            <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" />
+                            <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" width="400" height="400" loading="lazy" />
                             <div class="video-overlay gradiant-background"></div>
                             <a href="https://vimeo.com/1090498990?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Acer Feed video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
@@ -709,7 +709,7 @@ $faqSchema = [
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
                         <div class="video-thumbnail">
-                            <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" />
+                            <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" width="400" height="400" loading="lazy" />
                             <div class="video-overlay gradiant-background"></div>
                             <a href="https://vimeo.com/170471587?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Fish Blood & Bone video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
@@ -766,7 +766,7 @@ $faqSchema = [
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 id="modalProductTitle" class="product-modal-title"></h3>
+                        <h2 id="modalProductTitle" class="product-modal-title"></h2>
                         <p id="modalProductDescription" class="product-modal-description"></p>
                         <div id="modalProductSpecs" class="product-modal-specs mb-20"></div>
                         
@@ -775,14 +775,14 @@ $faqSchema = [
                             
                             <!-- Full Description -->
                             <div class="panel panel-default product-modal-full-description" id="modalProductFullDescriptionSection">
-                                <div class="panel-heading" role="tab">
+                                <div class="panel-heading" role="tab" id="modalProductFullDescriptionHeading">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductFullDescriptionCollapse" aria-expanded="true" class="collapsed">
+                                        <a role="button" id="modalProductFullDescriptionButton" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductFullDescriptionCollapse" aria-expanded="false" aria-controls="modalProductFullDescriptionCollapse" class="collapsed">
                                             Full Description <i class="fa fa-chevron-down pull-right"></i>
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="modalProductFullDescriptionCollapse" class="panel-collapse collapse" role="tabpanel">
+                                <div id="modalProductFullDescriptionCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="modalProductFullDescriptionHeading">
                                     <div class="panel-body">
                                         <div id="modalProductFullDescriptionText" class="product-modal-content-text"></div>
                                     </div>
@@ -791,14 +791,14 @@ $faqSchema = [
                             
                             <!-- Key Features -->
                             <div class="panel panel-default" id="modalProductFeaturesSection">
-                                <div class="panel-heading" role="tab">
+                                <div class="panel-heading" role="tab" id="modalProductFeaturesHeading">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductFeaturesCollapse" aria-expanded="false" class="collapsed">
+                                        <a role="button" id="modalProductFeaturesButton" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductFeaturesCollapse" aria-expanded="false" aria-controls="modalProductFeaturesCollapse" class="collapsed">
                                             Key Features <i class="fa fa-chevron-down pull-right"></i>
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="modalProductFeaturesCollapse" class="panel-collapse collapse" role="tabpanel">
+                                <div id="modalProductFeaturesCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="modalProductFeaturesHeading">
                                     <div class="panel-body">
                                         <ul id="modalProductFeaturesList" class="product-features-list"></ul>
                                     </div>
@@ -807,14 +807,14 @@ $faqSchema = [
                             
                             <!-- Videos -->
                             <div class="panel panel-default product-modal-videos" id="modalProductVideosSection">
-                                <div class="panel-heading" role="tab">
+                                <div class="panel-heading" role="tab" id="modalProductVideosHeading">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductVideosCollapse" aria-expanded="false" class="collapsed">
+                                        <a role="button" id="modalProductVideosButton" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductVideosCollapse" aria-expanded="false" aria-controls="modalProductVideosCollapse" class="collapsed">
                                             Videos <i class="fa fa-chevron-down pull-right"></i>
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="modalProductVideosCollapse" class="panel-collapse collapse" role="tabpanel">
+                                <div id="modalProductVideosCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="modalProductVideosHeading">
                                     <div class="panel-body">
                                         <div id="modalProductVideosContent" class="product-modal-content-text"></div>
                                     </div>
@@ -839,14 +839,14 @@ $faqSchema = [
                             
                             <!-- Delivery Info -->
                             <div class="panel panel-default product-modal-delivery" id="modalProductDeliverySection">
-                                <div class="panel-heading" role="tab">
+                                <div class="panel-heading" role="tab" id="modalProductDeliveryHeading">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductDeliveryCollapse" aria-expanded="false" class="collapsed">
+                                        <a role="button" id="modalProductDeliveryButton" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductDeliveryCollapse" aria-expanded="false" aria-controls="modalProductDeliveryCollapse" class="collapsed">
                                             Delivery Information <i class="fa fa-chevron-down pull-right"></i>
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="modalProductDeliveryCollapse" class="panel-collapse collapse" role="tabpanel">
+                                <div id="modalProductDeliveryCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="modalProductDeliveryHeading">
                                     <div class="panel-body">
                                         <div id="modalProductDeliveryContent" class="product-modal-content-text"></div>
                                     </div>
