@@ -3465,7 +3465,7 @@ h2.heading {
 
 /* Ensure gradient overlay is on top of background effects */
 .header-section .gradiant-overlay {
-    z-index: 1 !important;
+    z-index: 2 !important;
     position: relative;
 }
 
