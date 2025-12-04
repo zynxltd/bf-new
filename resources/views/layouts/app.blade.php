@@ -137,7 +137,7 @@
         <i class="fa fa-arrow-up"></i>
     </button>
     
-    <script>
+    <script nonce="{{ $scriptNonce ?? '' }}">
     // Back to Top Button
     (function() {
         var backToTopBtn = document.getElementById('backToTop');
