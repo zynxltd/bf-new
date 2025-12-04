@@ -8066,6 +8066,16 @@ html {
     border-top: 1px solid #e0e0e0;
 }
 
+.related-articles-section .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.related-articles-section .row > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+}
+
 .related-article-card {
     background: #fff;
     border-radius: 12px;
@@ -8075,6 +8085,7 @@ html {
     height: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .related-article-card:hover {
@@ -8084,7 +8095,10 @@ html {
 
 .related-article-image {
     height: 200px;
+    min-height: 200px;
+    max-height: 200px;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .related-article-image img {
@@ -8099,10 +8113,11 @@ html {
 }
 
 .related-article-content {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     padding: 24px !important;
+    min-height: 200px;
 }
 
 .related-article-category {
@@ -8117,6 +8132,7 @@ html {
     letter-spacing: 0.5px;
     margin-bottom: 15px;
     align-self: flex-start;
+    flex-shrink: 0;
 }
 
 .related-article-title {
@@ -8125,12 +8141,22 @@ html {
     margin-bottom: 15px;
     margin-top: 0;
     line-height: 1.4;
+    flex: 1 1 auto;
+    min-height: 50px;
+    display: flex;
+    align-items: flex-start;
 }
 
 .related-article-title a {
     color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
 }
 
 .related-article-title a:hover {
@@ -8144,12 +8170,14 @@ html {
     color: #666;
     margin-top: auto;
     padding-top: 15px;
+    flex-shrink: 0;
 }
 
 .related-article-meta span {
     display: flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap;
 }
 
 .related-article-meta i {
