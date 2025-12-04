@@ -2464,39 +2464,40 @@ From May to September feed your plants twice a week while watering.</p>
         }
         
         $('#newsletterForm').on('submit', function(e) {
-    e.preventDefault();
-    var form = $(this);
-    var email = $('#newsletterEmail').val();
-    var messageDiv = $('#newsletterMessage');
-    var submitBtn = form.find('button[type="submit"]');
-    
-    // Disable submit button
-    submitBtn.prop('disabled', true).text('Subscribing...');
-    messageDiv.hide();
-    
-    $.ajax({
-        url: '{{ route("newsletter.subscribe") }}',
-        method: 'POST',
-        data: {
-            email: email,
-            _token: '{{ csrf_token() }}'
-        },
-        success: function(response) {
-            messageDiv.removeClass('error').addClass('success')
-                .text(response.message).fadeIn();
-            form[0].reset();
-            submitBtn.prop('disabled', false).text('Subscribe');
-        },
-        error: function(xhr) {
-            var errorMsg = 'An error occurred. Please try again.';
-            if (xhr.responseJSON && xhr.responseJSON.message) {
-                errorMsg = xhr.responseJSON.message;
-            }
-            messageDiv.removeClass('success').addClass('error')
-                .text(errorMsg).fadeIn();
-            submitBtn.prop('disabled', false).text('Subscribe');
-        }
-    });
+            e.preventDefault();
+            var form = $(this);
+            var email = $('#newsletterEmail').val();
+            var messageDiv = $('#newsletterMessage');
+            var submitBtn = form.find('button[type="submit"]');
+            
+            // Disable submit button
+            submitBtn.prop('disabled', true).text('Subscribing...');
+            messageDiv.hide();
+            
+            $.ajax({
+                url: '{{ route("newsletter.subscribe") }}',
+                method: 'POST',
+                data: {
+                    email: email,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    messageDiv.removeClass('error').addClass('success')
+                        .text(response.message).fadeIn();
+                    form[0].reset();
+                    submitBtn.prop('disabled', false).text('Subscribe');
+                },
+                error: function(xhr) {
+                    var errorMsg = 'An error occurred. Please try again.';
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMsg = xhr.responseJSON.message;
+                    }
+                    messageDiv.removeClass('success').addClass('error')
+                        .text(errorMsg).fadeIn();
+                    submitBtn.prop('disabled', false).text('Subscribe');
+                }
+            });
+        });
     }
     
     initNewsletter();
