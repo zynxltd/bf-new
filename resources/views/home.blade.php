@@ -331,8 +331,8 @@ $faqSchema = [
 </div><!-- .about-section  -->
 
 <!-- Curved divider between white and gradient sections -->
-<div class="section-divider-wave" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(90deg, #537550 0%, #713841 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
-    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
+<div class="section-divider-wave section-divider-mobile-hide" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(90deg, #537550 0%, #713841 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
 </div>
 
 
