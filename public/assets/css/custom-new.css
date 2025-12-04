@@ -1659,6 +1659,13 @@ h1, .h1 {
     .header-texts {
         padding: 15px 0;
         text-align: center;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .hero-content-mobile {
+        max-width: 100%;
+        width: 100%;
     }
     
     .header-texts h2 {
@@ -1808,6 +1815,28 @@ h1, .h1 {
         flex-wrap: wrap;
         gap: 8px;
         justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    
+    .size-label {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .hero-feefo-badge {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero-feefo-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
