@@ -121,7 +121,10 @@
 
                 <div class="form-group-admin">
                     <div class="form-check-admin">
-                        <input class="form-check-input" type="checkbox" id="is_published" name="is_published" value="1" {{ old('is_published') ? 'checked' : '' }}>
+                        @php
+                            $isPublished = old('is_published', false);
+                        @endphp
+                        <input class="form-check-input" type="checkbox" id="is_published" name="is_published" value="1" {{ $isPublished ? 'checked' : '' }}>
                         <label for="is_published">
                             Publish this post
                         </label>
