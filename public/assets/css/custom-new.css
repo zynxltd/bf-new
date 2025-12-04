@@ -9343,6 +9343,7 @@ html {
     border-radius: 25px;
     overflow: hidden;
     background: #fff;
+    position: relative;
 }
 
 .blog-search-input {
@@ -9351,16 +9352,36 @@ html {
     border: 2px solid #e0e0e0;
     border-right: none;
     padding: 12px 20px;
+    padding-left: 50px;
     font-size: 16px;
     flex: 1;
     transition: all 0.3s ease;
     font-family: inherit;
+    position: relative;
 }
 
 .blog-search-input:focus {
-    border-color: #537550;
+    border-color: #70D969;
     outline: none;
     box-shadow: none;
+}
+
+.blog-search-form .input-group::before {
+    content: '\f002';
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 16px;
+    z-index: 3;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.blog-search-form .input-group:focus-within::before {
+    color: #70D969;
 }
 
 .blog-search-form .input-group-btn {
@@ -9370,23 +9391,56 @@ html {
 .blog-search-form .btn-primary {
     height: 50px;
     border-radius: 0 25px 25px 0;
-    border: 2px solid #537550;
-    background: linear-gradient(135deg, #537550 0%, #713841 100%);
+    border: 2px solid #70D969;
+    border-left: none;
+    background: #70D969;
     color: #fff;
-    padding: 12px 30px;
+    padding: 12px 24px;
     font-weight: 600;
     font-size: 16px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    min-width: 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-search-form .btn-primary i {
+    font-size: 16px;
+    position: relative;
+    z-index: 2;
 }
 
 .blog-search-form .btn-primary:hover {
-    background: linear-gradient(135deg, #5a7a55 0%, #7a4a4a 100%);
+    background: #5BC653;
+    border-color: #5BC653;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(83, 117, 80, 0.3);
+    box-shadow: 0 5px 15px rgba(112, 217, 105, 0.4);
     color: #fff;
+}
+
+.blog-search-form .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.blog-search-form .btn-primary:hover::before {
+    left: 100%;
 }
 
 .blog-search-form .btn-default {
