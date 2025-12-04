@@ -1259,9 +1259,13 @@ From May to September feed your plants twice a week while watering.</p>
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
+        console.log('Quick view button clicked');
         var $card = $(this).closest('.product-card-clickable');
+        console.log('Card found:', $card.length);
         if ($card.length) {
             openProductModal($card);
+        } else {
+            console.error('Product card not found');
         }
         return false;
     });
@@ -1270,10 +1274,15 @@ From May to September feed your plants twice a week while watering.</p>
     $(document).on('click', '.product-card-clickable .product-image img', function(e) {
         e.preventDefault();
         e.stopPropagation();
+        console.log('Product image clicked');
         var $card = $(this).closest('.product-card-clickable');
+        console.log('Card found:', $card.length);
         if ($card.length) {
             openProductModal($card);
+        } else {
+            console.error('Product card not found');
         }
+        return false;
     });
     
     // Also make the entire product-image div clickable
@@ -1285,10 +1294,15 @@ From May to September feed your plants twice a week while watering.</p>
         }
         e.preventDefault();
         e.stopPropagation();
+        console.log('Product image container clicked');
         var $card = $(this).closest('.product-card-clickable');
+        console.log('Card found:', $card.length);
         if ($card.length) {
             openProductModal($card);
+        } else {
+            console.error('Product card not found');
         }
+        return false;
     });
     
     // Handle product card clicks (for clicking on card itself, not buttons/links)
@@ -1845,7 +1859,14 @@ From May to September feed your plants twice a week while watering.</p>
         }
         
         // Show modal
+        console.log('Attempting to show modal');
+        if (typeof $.fn.modal === 'undefined') {
+            console.error('Bootstrap modal not loaded!');
+            alert('Modal functionality not available. Please refresh the page.');
+            return;
+        }
         $('#productModal').modal('show');
+        console.log('Modal show called');
         
         // Force show sections after modal is shown (double-check visibility)
         $('#productModal').one('shown.bs.modal', function() {
