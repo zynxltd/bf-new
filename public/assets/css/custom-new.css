@@ -2976,6 +2976,28 @@ h2.heading {
     display: block !important;
     background: transparent;
     animation: none !important;
+    line-height: 0;
+    font-size: 0;
+}
+
+/* Remove gap between divider and footer in Safari */
+.section-divider-wave + .footer-section {
+    margin-top: -1px !important;
+    padding-top: 80px !important;
+    background-color: #404040 !important;
+    background-image: none !important;
+}
+
+/* Ensure footer background extends to top to cover any gap */
+.section-divider-wave + .footer-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #404040 !important;
+    z-index: 1;
 }
 
 #divider-products {
@@ -3012,6 +3034,9 @@ h2.heading {
     overflow: hidden;
     z-index: 0;
     animation: none !important;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
 }
 
 /* Animated line at top of features section */
@@ -5601,6 +5626,7 @@ h2.heading {
 .footer-section {
     position: relative;
     overflow: visible !important;
+    background-color: #404040 !important;
 }
 
 /* White gradient circle animation at bottom left */
@@ -6308,7 +6334,9 @@ h2.heading {
 .footer-section {
     /* Uses original gradiant-background class from theme */
     position: relative;
-    margin-top: 0;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background-color: #404040 !important;
 }
 
 .footer-section::before {
