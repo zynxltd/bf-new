@@ -155,7 +155,7 @@ $blogSchema = [
                             <input type="text" name="search" class="form-control blog-search-input" placeholder="Search articles..." value="{{ $searchTerm ?? '' }}" aria-label="Search articles">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="submit" aria-label="Search">
-                                    <i class="fa fa-search"></i> Search
+                                    <i class="fa fa-search"></i>
                                 </button>
                             </span>
                             @if($searchTerm)

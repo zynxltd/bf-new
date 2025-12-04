@@ -9447,21 +9447,21 @@ html {
     border-left: none;
     background: #70D969;
     color: #fff;
-    padding: 12px 24px;
+    padding: 0;
     font-weight: 600;
     font-size: 16px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    min-width: 120px;
+    min-width: 60px;
+    width: 60px;
     position: relative;
     overflow: hidden;
 }
 
 .blog-search-form .btn-primary i {
-    font-size: 16px;
+    font-size: 18px;
     position: relative;
     z-index: 2;
 }
