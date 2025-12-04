@@ -151,7 +151,6 @@
 @push('scripts')
 <script>
 (function() {
-    // Wait for jQuery to be available
     function initWhenReady() {
         if (typeof jQuery === 'undefined') {
             setTimeout(initWhenReady, 50);
@@ -190,7 +189,6 @@
         });
     }
     
-    // Start initialization
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initWhenReady);
     } else {

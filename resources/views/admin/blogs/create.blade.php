@@ -141,7 +141,6 @@
 @push('scripts')
 <script>
 (function() {
-    // Wait for jQuery to be available
     function initWhenReady() {
         if (typeof jQuery === 'undefined') {
             setTimeout(initWhenReady, 50);
@@ -151,7 +150,6 @@
         var $ = jQuery;
         
         $(document).ready(function() {
-            // Auto-generate slug from title
             $('#title').on('input', function() {
                 var title = $(this).val();
                 var slug = title.toLowerCase()
@@ -166,12 +164,10 @@
                 }
             });
             
-            // Allow manual slug editing
             $('#slug').on('input', function() {
                 $(this).data('auto-generated', false);
             });
             
-            // Auto-generate category slug from category
             $('#category').on('input', function() {
                 var category = $(this).val();
                 var categorySlug = category.toLowerCase()
@@ -184,7 +180,6 @@
         });
     }
     
-    // Start initialization
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initWhenReady);
     } else {
