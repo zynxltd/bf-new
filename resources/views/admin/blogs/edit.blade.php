@@ -73,7 +73,17 @@
 
         <div class="form-group-admin">
             <label class="form-label-admin" for="published_date">Published Date *</label>
-            <input type="date" class="form-control-admin" id="published_date" name="published_date" value="{{ old('published_date', $blog->published_date ? $blog->published_date->format('Y-m-d') : '') }}" required>
+            @php
+                $dateValue = old('published_date');
+                if (!$dateValue && $blog->published_date) {
+                    if ($blog->published_date instanceof \Carbon\Carbon) {
+                        $dateValue = $blog->published_date->format('Y-m-d');
+                    } else {
+                        $dateValue = \Carbon\Carbon::parse($blog->published_date)->format('Y-m-d');
+                    }
+                }
+            @endphp
+            <input type="date" class="form-control-admin" id="published_date" name="published_date" value="{{ $dateValue }}" required>
             @error('published_date')
                 <div style="color: #dc3545; font-size: 13px; margin-top: 6px;">{{ $message }}</div>
             @enderror
