@@ -53,6 +53,24 @@ $blogSchema = [
 @section('content')
 <!-- Navigation -->
 <div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+    
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-section" style="background: #f8f9fa; padding: 15px 0; margin-top: 70px;">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList" style="margin-bottom: 0; background: transparent; padding: 0;">
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a href="{{ route('home') }}" itemprop="item"><span itemprop="name">Home</span></a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+                        <span itemprop="name">Blog</span>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
