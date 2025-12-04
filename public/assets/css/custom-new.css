@@ -1730,7 +1730,8 @@ h1, .h1 {
         text-align: center;
     }
     
-    .hero-image-mobile-placeholder img {
+    .hero-image-mobile-placeholder img,
+    .hero-image-mobile-placeholder picture {
         max-width: 100%;
         height: auto;
     }

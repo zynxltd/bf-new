@@ -212,7 +212,7 @@ $faqSchema = [
     <div class="header-content">
         <div class="container">
             <div class="row row-vm">
-                <div class="col-md-7 hero-text-column">
+                <div class="col-md-7 col-sm-12 hero-text-column">
                     <div class="header-texts tab-center mobile-center hero-content-mobile">
                         <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
                             <span><i class="fa fa-star hero-star-icon"></i> Premium Quality</span>
@@ -263,7 +263,7 @@ $faqSchema = [
                         </div>
                     </div>
                 </div><!-- .col -->
-                <div class="col-md-5 hero-image-column" style="z-index: 999;">
+                <div class="col-md-5 col-sm-12 hero-image-column" style="z-index: 999;">
                     <div class="wow fadeInUp confetti-burst-trigger" data-wow-duration="1s" data-wow-delay=".6s" >
                         {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['style' => 'z-index: 999;', 'loading' => 'eager', 'fetchpriority' => 'high', 'width' => '800', 'height' => '1062']) !!}
                     </div>
