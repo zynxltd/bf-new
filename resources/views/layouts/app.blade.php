@@ -56,7 +56,7 @@
     <noscript><link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/product-stars-widget-product-stars-widget-jsx.css"></noscript>
     
     <!-- Load CSS asynchronously without inline event handlers -->
-    <script nonce="{{ $scriptNonce ?? '' }}">
+    <script>
         (function() {
             var cssLinks = ['vendor-css', 'style-css', 'theme-css', 'google-fonts-css', 'fontawesome-css', 'feefo-carousel-css', 'feefo-stars-css'];
             cssLinks.forEach(function(id) {
@@ -92,7 +92,7 @@
     <!-- Preloader End -->
     
     <!-- Inline preloader script - runs immediately without jQuery -->
-    <script nonce="{{ $scriptNonce ?? '' }}">
+    <script>
     (function() {
         var preloader = document.getElementById('preloader');
         var hidden = false;
@@ -154,11 +154,7 @@
     
     @stack('scripts')
     
-    @if(isset($scriptNonce))
-    <script nonce="{{ $scriptNonce }}">
-        // Make nonce available for dynamically added scripts if needed
-        window.__CSP_NONCE__ = '{{ $scriptNonce }}';
-        
+    <script>
         // Handle admin logout link click (replaces inline onclick)
         document.addEventListener('DOMContentLoaded', function() {
             var logoutLink = document.querySelector('.admin-logout-link');
@@ -174,14 +170,13 @@
             }
         });
     </script>
-    @endif
     
     <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top" aria-label="Back to top" style="display: none;">
         <i class="fa fa-arrow-up"></i>
     </button>
     
-    <script nonce="{{ $scriptNonce ?? '' }}">
+    <script>
     // Back to Top Button
     (function() {
         var backToTopBtn = document.getElementById('backToTop');

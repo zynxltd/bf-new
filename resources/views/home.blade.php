@@ -1182,7 +1182,7 @@ From May to September feed your plants twice a week while watering.</p>
 @endsection
 
 @push('scripts')
-<script nonce="{{ $scriptNonce ?? '' }}">
+<script>
 // Wait for jQuery to load before executing
 (function() {
     function initJQuery() {
