@@ -3319,7 +3319,6 @@ h2.heading {
     overflow: visible !important;
     background-color: #537550 !important;
     background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
-    position: relative;
 }
 
 /* Enhanced hero bottom divider with animated gradient - same as hero */
