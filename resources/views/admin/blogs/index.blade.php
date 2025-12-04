@@ -116,7 +116,17 @@
                                 <span style="color: #999;">Default</span>
                             @endif
                         </td>
-                        <td>{{ $blog->published_date ? $blog->published_date->format('M j, Y') : 'N/A' }}</td>
+                        <td>
+                            @if($blog->published_date)
+                                @if($blog->published_date instanceof \Carbon\Carbon)
+                                    {{ $blog->published_date->format('M j, Y') }}
+                                @else
+                                    {{ \Carbon\Carbon::parse($blog->published_date)->format('M j, Y') }}
+                                @endif
+                            @else
+                                N/A
+                            @endif
+                        </td>
                         <td>{{ $blog->reading_time ?? 'N/A' }} min</td>
                         <td>
                             <span class="admin-badge {{ $blog->is_published ? 'admin-badge-success' : 'admin-badge-secondary' }}">
@@ -125,13 +135,18 @@
                         </td>
                         <td>
                             <div class="admin-action-buttons">
-                                <a href="{{ route('blog.show', ['category_slug' => $blog->category_slug, 'slug' => $blog->slug]) }}" class="admin-btn-icon" target="_blank" title="View">
-                                    <i class="fa fa-eye"></i>
+                                <a href="{{ route('admin.blogs.show', $blog) }}" class="admin-btn-icon" title="View Details">
+                                    <i class="fa fa-info-circle"></i>
                                 </a>
+                                @if($blog->slug && $blog->category_slug)
+                                    <a href="{{ route('blog.show', ['category_slug' => $blog->category_slug, 'slug' => $blog->slug]) }}" class="admin-btn-icon" target="_blank" title="View on Site">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                @endif
                                 <a href="{{ route('admin.blogs.edit', $blog) }}" class="admin-btn-icon admin-btn-edit" title="Edit">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <form action="{{ route('admin.blogs.destroy', $blog) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this blog post?');">
+                                <form action="{{ route('admin.blogs.destroy', $blog) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this blog post? This will also delete the associated Blade file.');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="admin-btn-icon admin-btn-delete" title="Delete">

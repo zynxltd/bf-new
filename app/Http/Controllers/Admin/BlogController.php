@@ -83,6 +83,9 @@ class BlogController extends Controller
             $validated['reading_time'] = max(1, ceil($wordCount / 200));
         }
 
+        // Handle boolean checkbox
+        $validated['is_published'] = $request->has('is_published') && $request->input('is_published') == '1';
+
         Blog::create($validated);
 
         return redirect()->route('admin.blogs.index')
@@ -94,6 +97,22 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
+        // Load content from Blade file if template exists and content is empty
+        if ($blog->template && empty($blog->content)) {
+            $filePath = resource_path('views/blog/articles/' . $blog->template);
+            if (File::exists($filePath)) {
+                try {
+                    $fileContent = File::get($filePath);
+                    // Remove the wrapper div tags for display
+                    $fileContent = preg_replace('/^<div class="blog-article-content">\s*/', '', $fileContent);
+                    $fileContent = preg_replace('/\s*<\/div>\s*$/', '', $fileContent);
+                    $blog->content = trim($fileContent);
+                } catch (\Exception $e) {
+                    // If file read fails, keep existing content
+                }
+            }
+        }
+        
         return view('admin.blogs.show', compact('blog'));
     }
 
@@ -102,15 +121,19 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        // Load content from Blade file if template exists
-        if ($blog->template) {
+        // Load content from Blade file if template exists and content is empty
+        if ($blog->template && empty($blog->content)) {
             $filePath = resource_path('views/blog/articles/' . $blog->template);
             if (File::exists($filePath)) {
-                $fileContent = File::get($filePath);
-                // Remove the wrapper div tags
-                $fileContent = preg_replace('/^<div class="blog-article-content">\s*/', '', $fileContent);
-                $fileContent = preg_replace('/\s*<\/div>\s*$/', '', $fileContent);
-                $blog->content = trim($fileContent);
+                try {
+                    $fileContent = File::get($filePath);
+                    // Remove the wrapper div tags
+                    $fileContent = preg_replace('/^<div class="blog-article-content">\s*/', '', $fileContent);
+                    $fileContent = preg_replace('/\s*<\/div>\s*$/', '', $fileContent);
+                    $blog->content = trim($fileContent);
+                } catch (\Exception $e) {
+                    // If file read fails, keep existing content
+                }
             }
         }
         
@@ -196,6 +219,9 @@ class BlogController extends Controller
             $wordCount = str_word_count(strip_tags($validated['content']));
             $validated['reading_time'] = max(1, ceil($wordCount / 200));
         }
+
+        // Handle boolean checkbox
+        $validated['is_published'] = $request->has('is_published') && $request->input('is_published') == '1';
 
         $blog->update($validated);
 
