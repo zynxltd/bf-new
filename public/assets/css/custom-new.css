@@ -3309,14 +3309,14 @@ h2.heading {
     right: 0 !important;
     height: 300px !important;
     width: 100% !important;
-    z-index: 1 !important;
+    /* z-index: 1 !important; */
     pointer-events: none !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     overflow: visible !important;
-    background-color: #537550 !important;
-    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
+    /* background-color: #537550 !important; */
+    /* background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important; */
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;
@@ -3326,28 +3326,7 @@ h2.heading {
 
 /* Enhanced hero bottom divider with animated gradient - same as hero */
 .hero-bottom-divider::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        rgba(83, 117, 80, 0.8) 0%,
-        rgba(113, 56, 65, 0.8) 50%,
-        rgba(83, 117, 80, 0.8) 100%
-    );
-    background-size: 200% 100% !important;
-    -webkit-animation: heroGradientShift 8s ease-in-out infinite !important;
-    animation: heroGradientShift 8s ease-in-out infinite !important;
-    z-index: 0 !important;
-    opacity: 0.6 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important;
-    box-shadow: none !important;
-    bottom: 0 !important;
+    display: none !important;
 }
 
 /* Subtle light rays effect - same as hero */
