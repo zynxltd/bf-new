@@ -3506,6 +3506,12 @@ h2.heading {
     left: -50% !important;
     width: 200% !important;
     height: 200% !important;
+    background-image: -webkit-radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 30%,
+        transparent 70%
+    ) !important;
     background-image: radial-gradient(
         ellipse at center,
         rgba(255, 255, 255, 0.15) 0%,
@@ -3516,12 +3522,14 @@ h2.heading {
     background-repeat: no-repeat !important;
     background-size: 200% 200% !important;
     background-color: transparent !important;
+    -webkit-animation: heroLightRotate 20s linear infinite !important;
     animation: heroLightRotate 20s linear infinite !important;
     z-index: 1 !important;
     pointer-events: none !important;
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
+    -webkit-transform-origin: center center !important;
     transform-origin: center center !important;
     margin: 0 !important;
     padding: 0 !important;
