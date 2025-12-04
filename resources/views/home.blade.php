@@ -21,9 +21,9 @@ use Illuminate\Support\Str;
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:title" content="Blooming Fast Plant Foods - Premium Garden Supplements">
 <meta property="og:description" content="Premium plant foods and fertilisers for bigger, better blooms and healthier plants. Professional grade formulations for your garden.">
-<meta property="og:image" content="{{ url('images/superiorV4.png') }}">
-<meta property="og:image:secure_url" content="{{ url('images/superiorV4.png') }}">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="{{ webp_image('images/superiorV4.png') }}">
+<meta property="og:image:secure_url" content="{{ webp_image('images/superiorV4.png') }}">
+<meta property="og:image:type" content="image/webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Blooming Fast">
@@ -32,7 +32,7 @@ use Illuminate\Support\Str;
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Blooming Fast Plant Foods - Premium Garden Supplements">
 <meta name="twitter:description" content="Premium plant foods and fertilisers for bigger, better blooms and healthier plants.">
-<meta name="twitter:image" content="{{ url('images/superiorV4.png') }}">
+<meta name="twitter:image" content="{{ webp_image('images/superiorV4.png') }}">
 <meta name="twitter:image:alt" content="Blooming Fast Plant Foods - Premium Garden Supplements">
 
 <!-- Organization Schema.org JSON-LD -->
@@ -43,7 +43,7 @@ $organizationSchema = [
   "@type" => "Organization",
   "name" => "Blooming Fast",
   "url" => url('/'),
-  "logo" => asset('images/logo.png'),
+  "logo" => webp_image('images/logo.png'),
   "description" => "Premium plant foods and fertilisers for bigger, better blooms and healthier plants",
   "sameAs" => [
     "https://www.yougarden.com",
@@ -152,8 +152,8 @@ $faqSchema = [
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand confetti-burst-trigger" href="{{ route('home') }}">
-                        <img class="logo logo-light" src="{{ asset('images/logo.png') }}" alt="logo" />
-                        <img class="logo logo-color" src="{{ asset('images/logo.png') }}" alt="logo" />
+                        {!! webp_picture('images/logo.png', 'logo', ['class' => 'logo logo-light']) !!}
+                        {!! webp_picture('images/logo.png', 'logo', ['class' => 'logo logo-color']) !!}
                     </a>
                     <!-- Desktop Hamburger Menu Button -->
                     <button type="button" class="desktop-menu-toggle" id="desktopMenuToggle" aria-label="Toggle menu">
@@ -199,10 +199,10 @@ $faqSchema = [
                 <li class="desktop-menu-divider"><span></span></li>
                 <li class="desktop-menu-store-links">
                     <a href="https://www.yougarden.com?source=bloomingfast.com" class="nav-item store-link" target="_blank" rel="noopener" aria-label="Visit YouGarden">
-                        <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" />
+                        {!! webp_picture('images/yglogosmall.png', 'YouGarden', ['loading' => 'lazy']) !!}
                     </a>
                     <a href="https://www.amazon.co.uk/stores/page/5D2120F1-F052-4812-AAF7-6FE644404EC7/search?lp_asin=B0D44VQZ1S&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto&terms=blooming%20fast" class="nav-item store-link" target="_blank" rel="noopener" aria-label="Visit Amazon">
-                        <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" />
+                        {!! webp_picture('images/amazoncolour.png', 'Amazon', ['loading' => 'lazy']) !!}
                     </a>
                 </li>
             </ul>
@@ -222,7 +222,7 @@ $faqSchema = [
                         <!-- Hero Image - appears here on mobile -->
                         <div class="hero-image-mobile-placeholder">
                             <div class="wow fadeInUp confetti-burst-trigger" data-wow-duration="1s" data-wow-delay=".6s">
-                                <img src="{{ asset('images/superiorV4.png') }}" alt="Superior Plant Food" loading="lazy" width="600" height="600" style="max-width: 100%; height: auto;" />
+                                {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['loading' => 'lazy', 'width' => '600', 'height' => '600', 'style' => 'max-width: 100%; height: auto;']) !!}
                             </div>
                         </div>
                         <div class="hero-sizes wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
@@ -265,7 +265,7 @@ $faqSchema = [
                 </div><!-- .col -->
                 <div class="col-md-5 hero-image-column" style="z-index: 999;">
                     <div class="wow fadeInUp confetti-burst-trigger" data-wow-duration="1s" data-wow-delay=".6s" >
-                        <img style="z-index: 999;" src="{{ asset('images/superiorV4.png') }}" alt="Superior Plant Food" loading="eager" width="600" height="600" />
+                        {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['style' => 'z-index: 999;', 'loading' => 'eager', 'width' => '600', 'height' => '600']) !!}
                     </div>
                 </div>
             </div><!-- .row -->
@@ -311,7 +311,7 @@ $faqSchema = [
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="video about-section-video" style="margin-bottom: 40px;">
-                    <img src="{{ asset('images/video.png') }}" alt="about-video" width="800" height="450" loading="lazy" />
+                    {!! webp_picture('images/video.png', 'about-video', ['width' => '800', 'height' => '450', 'loading' => 'lazy']) !!}
                     <div class="video-overlay gradiant-background"></div>
                     <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                 </div>
@@ -396,7 +396,7 @@ $faqSchema = [
                         <!-- Center product image -->
                         <div class="features-product-center">
                             <div class="features-product-image">
-                                <img src="{{ asset('images/superiorback.png') }}" alt="Superior Plant Food" loading="lazy" decoding="async" />
+                                {!! webp_picture('images/superiorback.png', 'Superior Plant Food', ['loading' => 'lazy', 'decoding' => 'async']) !!}
                             </div>
                         </div>
                         
@@ -614,13 +614,13 @@ $faqSchema = [
                             <ul class="product-buttons">
                                 @if($product->yg_link)
                                 <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button btn-buy-yg" target="_blank" rel="noopener" onclick="event.stopPropagation();" aria-label="Buy {{ $product->title }} from YouGarden">
-                                    <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" />
+                                    {!! webp_picture('images/yglogosmall.png', 'YouGarden', ['loading' => 'lazy']) !!}
                                     <span class="btn-text">Buy Now</span>
                                 </a></li>
                                 @endif
                                 @if($product->amazon_link)
                                 <li><a href="{{ $product->amazon_link }}" class="product-button btn-buy-amazon" target="_blank" rel="noopener" onclick="event.stopPropagation();" aria-label="Buy {{ $product->title }} from Amazon">
-                                    <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" />
+                                    {!! webp_picture('images/amazoncolour.png', 'Amazon', ['loading' => 'lazy']) !!}
                                     <span class="btn-text">Buy Now</span>
                                 </a></li>
                                 @endif
@@ -670,7 +670,7 @@ $faqSchema = [
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s">
                         <div class="video-thumbnail">
-                            <img src="{{ asset('images/superiorV4.png') }}" alt="Superior Soluble Fertiliser" class="img-responsive" />
+                            {!! webp_picture('images/superiorV4.png', 'Superior Soluble Fertiliser', ['class' => 'img-responsive']) !!}
                             <div class="video-overlay gradiant-background"></div>
                             <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
@@ -685,7 +685,7 @@ $faqSchema = [
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">
                         <div class="video-thumbnail">
-                            <img src="{{ asset('images/bloom-booster-p1.jpg') }}" alt="Ultimate Rose Bloom Booster" class="img-responsive" width="400" height="400" loading="lazy" />
+                            {!! webp_picture('images/bloom-booster-p1.jpg', 'Ultimate Rose Bloom Booster', ['class' => 'img-responsive', 'width' => '400', 'height' => '400', 'loading' => 'lazy']) !!}
                             <div class="video-overlay gradiant-background"></div>
                             <a href="https://vimeo.com/1100825820" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Ultimate Rose Bloom Booster video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
@@ -2536,7 +2536,7 @@ From May to September feed your plants twice a week while watering.</p>
                 submitBtn.prop('disabled', false).text('Subscribe Now');
             }
         });
-        });
+    });
     }
     
     initExitIntent();

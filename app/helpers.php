@@ -43,3 +43,41 @@ if (!function_exists('webp_image')) {
         return asset($path);
     }
 }
+
+if (!function_exists('webp_picture')) {
+    /**
+     * Generate picture element with WebP source and fallback
+     *
+     * @param  string  $path
+     * @param  string  $alt
+     * @param  array   $attributes
+     * @return string
+     */
+    function webp_picture($path, $alt = '', $attributes = [])
+    {
+        $webpPath = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $path);
+        $webpFullPath = public_path($webpPath);
+        $originalPath = public_path($path);
+        
+        // Build attributes string
+        $attrString = '';
+        foreach ($attributes as $key => $value) {
+            $attrString .= ' ' . $key . '="' . htmlspecialchars($value, ENT_QUOTES, 'UTF-8') . '"';
+        }
+        
+        // If WebP exists, use picture element
+        if (file_exists($webpFullPath) && file_exists($originalPath)) {
+            $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+            $mimeType = $ext === 'jpg' || $ext === 'jpeg' ? 'image/jpeg' : 'image/png';
+            
+            return '<picture>' .
+                   '<source srcset="' . asset($webpPath) . '" type="image/webp">' .
+                   '<source srcset="' . asset($path) . '" type="' . $mimeType . '">' .
+                   '<img src="' . asset($path) . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $attrString . '>' .
+                   '</picture>';
+        }
+        
+        // Fallback to regular img tag
+        return '<img src="' . asset($path) . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $attrString . '>';
+    }
+}
