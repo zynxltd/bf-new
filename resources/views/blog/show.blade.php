@@ -9,9 +9,11 @@
 @push('meta')
 <!-- SEO Meta Tags -->
 <meta name="description" content="{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 160) }}">
-<meta name="keywords" content="gardening, plant food, fertiliser, {{ $article->category ?? '' }}, Blooming Fast">
+<meta name="keywords" content="gardening, plant food, fertiliser, {{ $article->category ?? '' }}, Blooming Fast, {{ Str::limit(strip_tags($article->title), 50) }}">
 <meta name="author" content="Blooming Fast">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
 <link rel="canonical" href="{{ url()->current() }}">
 
 <!-- Open Graph / Facebook -->

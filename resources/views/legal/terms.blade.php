@@ -4,7 +4,9 @@
 
 @push('meta')
 <meta name="description" content="Terms of Service for Blooming Fast. Read our terms and conditions for using our website and services.">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
 <link rel="canonical" href="{{ url()->current() }}">
 @endpush
 

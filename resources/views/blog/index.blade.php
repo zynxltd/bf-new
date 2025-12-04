@@ -9,8 +9,10 @@ use Illuminate\Support\Str;
 @push('meta')
 <!-- SEO Meta Tags -->
 <meta name="description" content="Expert gardening tips, plant care guides, and insights to help you grow a thriving garden with Blooming Fast plant foods and fertilizers.">
-<meta name="keywords" content="gardening blog, plant care tips, fertiliser guides, gardening advice, Blooming Fast">
-<meta name="robots" content="index, follow">
+<meta name="keywords" content="gardening blog, plant care tips, fertiliser guides, gardening advice, Blooming Fast, garden tips, plant care, fertiliser advice, gardening UK">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
 <link rel="canonical" href="{{ url()->current() }}">
 
 <!-- Open Graph / Facebook -->

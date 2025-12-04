@@ -9,9 +9,11 @@ use Illuminate\Support\Str;
 @push('meta')
 <!-- SEO Meta Tags -->
 <meta name="description" content="Premium plant foods and fertilisers for bigger, better blooms and healthier plants. Professional grade formulations including Superior Soluble Fertiliser, Rose Bloom Booster, and more.">
-<meta name="keywords" content="plant food, fertiliser, garden supplements, rose feed, citrus feed, acer feed, plant nutrition, Blooming Fast">
+<meta name="keywords" content="plant food, fertiliser, garden supplements, rose feed, citrus feed, acer feed, plant nutrition, Blooming Fast, organic fertiliser, garden care, plant nutrition UK">
 <meta name="author" content="Blooming Fast">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
 <link rel="canonical" href="{{ url()->current() }}">
 
 <!-- Open Graph / Facebook -->

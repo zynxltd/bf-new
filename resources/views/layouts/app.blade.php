@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Blooming Fast Garden Supplements – Bigger & Better Flowering displays">
     <meta name="theme-color" content="#537550">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+    
     <!-- Site Title  -->
     <title>@yield('title', 'Blooming Fast Plant Foods')</title>
+    
+    <!-- SEO Meta Tags -->
+    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="sitemap" type="application/xml" href="{{ route('sitemap') }}">
+    
     @stack('meta')
     <!-- Vendor Bundle CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/vendor.bundle.css') }}">

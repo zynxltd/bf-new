@@ -3,4 +3,5 @@ Allow: /
 Disallow: /admin/
 Disallow: /storage/
 
+# Sitemap
 Sitemap: https://bloomingfast.com/sitemap.xml

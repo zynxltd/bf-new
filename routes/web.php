@@ -27,6 +27,9 @@ Route::get('/privacy-policy', [\App\Http\Controllers\LegalController::class, 'pr
 Route::get('/terms-of-service', [\App\Http\Controllers\LegalController::class, 'terms'])->name('legal.terms');
 Route::get('/cookie-policy', [\App\Http\Controllers\LegalController::class, 'cookies'])->name('legal.cookies');
 
+// Sitemap
+Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+
 // Admin Authentication Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');

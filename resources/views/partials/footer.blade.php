@@ -82,6 +82,9 @@
             <div class="col-md-12">
                 <div class="footer-bottom text-center pt-40 border-top-footer">
                     <p class="heading-light mb-0">Copyright © {{ date('Y') }} Blooming Fast. All rights reserved.</p>
+                    <p class="heading-light mt-10 mb-0" style="font-size: 14px;">
+                        <a href="{{ route('sitemap') }}" class="heading-light" style="text-decoration: underline;">Sitemap</a>
+                    </p>
                     @auth
                     <p class="heading-light mt-10 mb-0">
                         <a href="{{ route('admin.blogs.index') }}" class="heading-light" style="text-decoration: underline;">Admin Dashboard</a> | 
