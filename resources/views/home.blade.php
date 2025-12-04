@@ -271,6 +271,11 @@ $faqSchema = [
             </div><!-- .row -->
         </div><!-- .container -->
     </div><!-- .header-content -->
+    
+    <!-- Hero Bottom Divider -->
+    <div class="hero-bottom-divider" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 150px; z-index: 1; pointer-events: none; overflow: visible; display: block; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
+        <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%; height: 100%; object-fit: cover; object-position: bottom center; display: block;">
+    </div>
 </div><!-- .header-section -->
 
 <!-- Start .about-section  -->
