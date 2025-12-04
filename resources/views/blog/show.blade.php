@@ -161,34 +161,6 @@ $breadcrumbSchema = [
 @section('content')
 <!-- Navigation -->
 <div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
-    
-    <!-- Breadcrumb Navigation -->
-    <div class="breadcrumb-section" style="background: #f8f9fa; padding: 15px 0; margin-top: 70px;">
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList" style="margin-bottom: 0; background: transparent; padding: 0;">
-                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="{{ route('home') }}" itemprop="item"><span itemprop="name">Home</span></a>
-                        <meta itemprop="position" content="1" />
-                    </li>
-                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="{{ route('blog.index') }}" itemprop="item"><span itemprop="name">Blog</span></a>
-                        <meta itemprop="position" content="2" />
-                    </li>
-                    @if($article->category)
-                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a href="{{ route('blog.index', ['category' => $article->category_slug]) }}" itemprop="item"><span itemprop="name">{{ $article->category }}</span></a>
-                        <meta itemprop="position" content="3" />
-                    </li>
-                    @endif
-                    <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
-                        <span itemprop="name">{{ $article->title }}</span>
-                        <meta itemprop="position" content="{{ $article->category ? '4' : '3' }}" />
-                    </li>
-                </ol>
-            </nav>
-        </div>
-    </div>
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -262,6 +234,29 @@ $breadcrumbSchema = [
             <div class="col-md-12">
                 <!-- Blog Post Header -->
                 <header class="blog-post-header mb-40">
+                    <!-- Breadcrumb Navigation -->
+                    <nav aria-label="breadcrumb" class="mb-20">
+                        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList" style="margin-bottom: 0; background: transparent; padding: 0;">
+                            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <a href="{{ route('home') }}" itemprop="item"><span itemprop="name">Home</span></a>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <a href="{{ route('blog.index') }}" itemprop="item"><span itemprop="name">Blog</span></a>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                            @if($article->category)
+                            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                <a href="{{ route('blog.index', ['category' => $article->category_slug]) }}" itemprop="item"><span itemprop="name">{{ $article->category }}</span></a>
+                                <meta itemprop="position" content="3" />
+                            </li>
+                            @endif
+                            <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+                                <span itemprop="name">{{ $article->title }}</span>
+                                <meta itemprop="position" content="{{ $article->category ? '4' : '3' }}" />
+                            </li>
+                        </ol>
+                    </nav>
                     <div class="blog-meta mb-20">
                         @if($article->category)
                         <span class="blog-category-badge">{{ $article->category }}</span>
