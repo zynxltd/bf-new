@@ -272,7 +272,26 @@ $faqSchema = [
         </div><!-- .container -->
     </div><!-- .header-content -->
     
-    <!-- Hero Bottom Divider - Temporarily removed -->
+    <!-- Hero Bottom Divider -->
+    <div class="hero-bottom-divider" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 150px; z-index: 1; pointer-events: none; overflow: visible; display: block;">
+        <svg viewBox="0 0 1200 150" preserveAspectRatio="none" style="width: 100%; height: 100%; display: block;">
+            <defs>
+                <linearGradient id="heroWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#537550;stop-opacity:1" />
+                    <stop offset="30%" style="stop-color:#5a7a55;stop-opacity:0.95" />
+                    <stop offset="50%" style="stop-color:#625f4a;stop-opacity:0.9" />
+                    <stop offset="70%" style="stop-color:#6a4a3f;stop-opacity:0.95" />
+                    <stop offset="100%" style="stop-color:#713841;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <!-- Wave layer 1 -->
+            <path d="M0,80 Q300,40 600,60 T1200,50 L1200,150 L0,150 Z" fill="url(#heroWaveGradient)" opacity="0.9"/>
+            <!-- Wave layer 2 -->
+            <path d="M0,100 Q300,60 600,80 T1200,70 L1200,150 L0,150 Z" fill="url(#heroWaveGradient)" opacity="0.85"/>
+            <!-- Wave layer 3 -->
+            <path d="M0,120 Q300,80 600,100 T1200,90 L1200,150 L0,150 Z" fill="url(#heroWaveGradient)" opacity="0.8"/>
+        </svg>
+    </div>
 </div><!-- .header-section -->
 
 <!-- Start .about-section  -->
