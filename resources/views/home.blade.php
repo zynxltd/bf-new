@@ -277,7 +277,7 @@ $faqSchema = [
     
     <!-- Hero Bottom Divider -->
     <div class="hero-bottom-divider">
-        <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true">
+        <img src="{{ asset('images/carb.png') }}" alt="" role="presentation" aria-hidden="true">
     </div>
 </div><!-- .header-section -->
 

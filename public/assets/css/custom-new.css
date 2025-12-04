@@ -3307,6 +3307,9 @@ h2.heading {
     overflow: visible !important;
     position: relative !important;
     padding-bottom: 150px !important;
+    border: none !important;
+    outline: none !important;
+    margin-bottom: 0 !important;
 }
 
 /* Hero Bottom Divider */
@@ -3315,7 +3318,7 @@ h2.heading {
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    height: 150px !important;
+    height: 250px !important;
     width: 100% !important;
     z-index: 1 !important;
     pointer-events: none !important;
@@ -3325,6 +3328,11 @@ h2.heading {
     overflow: visible !important;
     background-color: #537550 !important;
     background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /* Enhanced hero bottom divider with animated gradient - same as hero */
@@ -3341,10 +3349,16 @@ h2.heading {
         rgba(113, 56, 65, 0.8) 50%,
         rgba(83, 117, 80, 0.8) 100%
     );
-    background-size: 200% 100%;
-    animation: heroGradientShift 8s ease-in-out infinite;
-    z-index: 0;
-    opacity: 0.6;
+    background-size: 200% 100% !important;
+    -webkit-animation: heroGradientShift 8s ease-in-out infinite !important;
+    animation: heroGradientShift 8s ease-in-out infinite !important;
+    z-index: 0 !important;
+    opacity: 0.6 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    bottom: 0 !important;
 }
 
 /* Subtle light rays effect - same as hero */
@@ -3368,24 +3382,25 @@ h2.heading {
 .hero-bottom-divider img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
-    object-position: bottom center !important;
-    display: block !important;
-    transform: none !important;
-    opacity: 0.85 !important;
-    position: relative;
-    z-index: 1;
-}
-
-.hero-bottom-divider img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    max-width: 100% !important;
+    object-fit: fill !important;
     object-position: bottom center !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    position: relative !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1 !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+    line-height: 0 !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /* Override to disable gradient background rule from theme-blue-green.css and style.css */
@@ -3422,10 +3437,11 @@ h2.heading {
         rgba(113, 56, 65, 0.8) 50%,
         rgba(83, 117, 80, 0.8) 100%
     );
-    background-size: 200% 100%;
-    animation: heroGradientShift 8s ease-in-out infinite;
-    z-index: 0;
-    opacity: 0.6;
+    background-size: 200% 100% !important;
+    -webkit-animation: heroGradientShift 8s ease-in-out infinite !important;
+    animation: heroGradientShift 8s ease-in-out infinite !important;
+    z-index: 0 !important;
+    opacity: 0.6 !important;
 }
 
 /* Animated gradient shift */
