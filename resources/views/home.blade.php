@@ -2432,7 +2432,7 @@ $('#newsletterForm').on('submit', function(e) {
     });
     
     // Exit intent form submission
-    $('#exitIntentNewsletterForm').on('submit', function(e) {
+    $(document).on('submit', '#exitIntentNewsletterForm', function(e) {
         e.preventDefault();
         var form = $(this);
         var email = form.find('input[name="email"]').val();
@@ -2455,6 +2455,7 @@ $('#newsletterForm').on('submit', function(e) {
                     $('#exitIntentPopup').removeClass('active');
                     $('body').css('overflow', '');
                     localStorage.setItem('exitIntentShown', 'true');
+                    exitIntentShown = 'true';
                 }, 2000);
             },
             error: function(xhr) {
