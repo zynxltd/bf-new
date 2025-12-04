@@ -1713,15 +1713,16 @@ h1, .h1 {
         flex-direction: column;
     }
     
-    /* Move image above stockist text on mobile */
-    .hero-image-column {
+    /* Mobile hero layout - reorder elements */
+    .hero-text-column {
         order: 1;
-        margin-bottom: 30px;
-        text-align: center;
     }
     
-    .hero-text-column {
+    .hero-image-column {
         order: 2;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        text-align: center;
     }
     
     /* Mobile hero layout - reorder badge above title */
@@ -1752,6 +1753,8 @@ h1, .h1 {
     .hero-content-mobile .hero-description {
         order: 3;
     }
+    
+    /* Image appears after description via column order */
     
     .hero-content-mobile .hero-sizes {
         order: 4;
