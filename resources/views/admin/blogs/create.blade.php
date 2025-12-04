@@ -121,7 +121,10 @@
 
         <div class="form-group-admin">
             <div class="form-check-admin">
-                <input class="form-check-input" type="checkbox" id="is_published" name="is_published" value="1" {{ old('is_published') ? 'checked' : '' }}>
+                @php
+                    $isChecked = old('is_published') ? 'checked' : '';
+                @endphp
+                <input class="form-check-input" type="checkbox" id="is_published" name="is_published" value="1" {{ $isChecked }}>
                 <label class="form-label-admin" for="is_published">
                     Publish this post
                 </label>
@@ -142,12 +145,12 @@
 <script>
 (function() {
     function initWhenReady() {
-        if (typeof jQuery === 'undefined') {
+        if (typeof window.jQuery === 'undefined') {
             setTimeout(initWhenReady, 50);
             return;
         }
         
-        var $ = jQuery;
+        var $ = window.jQuery;
         
         $(document).ready(function() {
             $('#title').on('input', function() {
@@ -188,4 +191,3 @@
 })();
 </script>
 @endpush
-
