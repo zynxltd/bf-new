@@ -1177,7 +1177,15 @@ From May to September feed your plants twice a week while watering.</p>
 
 @push('scripts')
 <script>
-$(document).ready(function() {
+// Wait for jQuery to load before executing
+(function() {
+    function initJQuery() {
+        if (typeof jQuery === 'undefined' || typeof $ === 'undefined') {
+            setTimeout(initJQuery, 50);
+            return;
+        }
+        
+        $(document).ready(function() {
     // Start confetti animation on page load and every 10 seconds
     function triggerConfetti() {
         $('.confetti-section').each(function() {
