@@ -33,15 +33,26 @@
     <link href="{{ asset('assets/css/theme-blue-green.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="{{ asset('assets/css/theme-blue-green.css') }}"></noscript>
     <link href="{{ asset('assets/css/custom-new.css') }}?v={{ filemtime(public_path('assets/css/custom-new.css')) }}" rel="stylesheet" media="all">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
-    <!-- Google Fonts -->
+    <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com" crossorigin>
+    <link rel="preconnect" href="https://register.feefo.com" crossorigin>
+    <link rel="preconnect" href="https://api.feefo.com" crossorigin>
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-    <!-- Feefo Widget Stylesheets -->
-    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/service-carousel-service-carousel-jsx.css">
-    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/product-stars-widget-product-stars-widget-jsx.css">
+    
+    <!-- Font Awesome - Load asynchronously -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="print" onload="this.media='all'" crossorigin="anonymous">
+    <noscript><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous"></noscript>
+    
+    <!-- Feefo Widget Stylesheets - Load asynchronously -->
+    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/service-carousel-service-carousel-jsx.css" media="print" onload="this.media='all'">
+    <noscript><link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/service-carousel-service-carousel-jsx.css"></noscript>
+    <link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/product-stars-widget-product-stars-widget-jsx.css" media="print" onload="this.media='all'">
+    <noscript><link class="feefo-widget-styles" rel="stylesheet" type="text/css" href="https://register.feefo.com//feefo-widget-v2/js/product-stars-widget-product-stars-widget-jsx.css"></noscript>
     @stack('styles')
 </head>
 <body style="overflow: hidden;">

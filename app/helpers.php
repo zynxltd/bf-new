@@ -88,13 +88,16 @@ if (!function_exists('webp_picture')) {
                 $heightAttr = ' height="' . $imageInfo[1] . '"';
             }
             
-            // Remove width/height from attributes string since we're adding them separately
-            $cleanAttrString = preg_replace('/\s+(width|height)="[^"]*"/i', '', $attrString);
+            // Handle fetchpriority attribute
+            $fetchpriorityAttr = isset($attributes['fetchpriority']) ? ' fetchpriority="' . htmlspecialchars($attributes['fetchpriority'], ENT_QUOTES, 'UTF-8') . '"' : '';
+            
+            // Remove width/height/fetchpriority from attributes string since we're adding them separately
+            $cleanAttrString = preg_replace('/\s+(width|height|fetchpriority)="[^"]*"/i', '', $attrString);
             
             return '<picture>' .
                    '<source srcset="' . asset($webpPath) . '" type="image/webp">' .
                    '<source srcset="' . asset($path) . '" type="' . $mimeType . '">' .
-                   '<img src="' . asset($path) . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $widthAttr . $heightAttr . $cleanAttrString . '>' .
+                   '<img src="' . asset($path) . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $widthAttr . $heightAttr . $fetchpriorityAttr . $cleanAttrString . '>' .
                    '</picture>';
         }
         

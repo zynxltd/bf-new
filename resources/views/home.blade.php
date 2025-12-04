@@ -265,7 +265,7 @@ $faqSchema = [
                 </div><!-- .col -->
                 <div class="col-md-5 hero-image-column" style="z-index: 999;">
                     <div class="wow fadeInUp confetti-burst-trigger" data-wow-duration="1s" data-wow-delay=".6s" >
-                        {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['style' => 'z-index: 999;', 'loading' => 'eager', 'width' => '800', 'height' => '1062']) !!}
+                        {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['style' => 'z-index: 999;', 'loading' => 'eager', 'fetchpriority' => 'high', 'width' => '800', 'height' => '1062']) !!}
                     </div>
                 </div>
             </div><!-- .row -->
