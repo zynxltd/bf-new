@@ -273,7 +273,24 @@ $faqSchema = [
     </div><!-- .header-content -->
     
     <!-- Hero Bottom Divider -->
-    <div class="hero-bottom-divider" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 150px; z-index: 1; pointer-events: none; overflow: hidden; display: block; background: url('/images/carb.png') bottom center no-repeat; background-size: cover;">
+    <div class="hero-bottom-divider" style="position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 150px; z-index: 1; pointer-events: none; overflow: hidden; display: block;">
+        <svg viewBox="0 0 1200 150" preserveAspectRatio="none" style="width: 100%; height: 100%; display: block;">
+            <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+                    <stop offset="30%" style="stop-color:#333333;stop-opacity:0.8" />
+                    <stop offset="50%" style="stop-color:#666666;stop-opacity:0.6" />
+                    <stop offset="70%" style="stop-color:#999999;stop-opacity:0.4" />
+                    <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <!-- Dark wave layer -->
+            <path d="M0,80 Q300,40 600,60 T1200,50 L1200,150 L0,150 Z" fill="url(#waveGradient)" opacity="0.9"/>
+            <!-- Medium wave layer -->
+            <path d="M0,100 Q300,60 600,80 T1200,70 L1200,150 L0,150 Z" fill="url(#waveGradient)" opacity="0.7"/>
+            <!-- Light wave layer -->
+            <path d="M0,120 Q300,80 600,100 T1200,90 L1200,150 L0,150 Z" fill="url(#waveGradient)" opacity="0.5"/>
+        </svg>
     </div>
 </div><!-- .header-section -->
 
