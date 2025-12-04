@@ -8588,7 +8588,8 @@ html {
 
 .about-feature-stacked-item {
     opacity: 1;
-    transform: none;
+    visibility: visible;
+    transform: translateY(0);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     padding: 0;
     background: transparent;
@@ -8601,16 +8602,21 @@ html {
     margin: 0;
 }
 
+.about-feature-stacked-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Mobile-only animations */
 @media (max-width: 767px) {
     .about-feature-stacked-item {
         opacity: 0;
         transform: translateY(30px);
-}
+    }
 
-.about-feature-stacked-item.animate-in {
-    opacity: 1;
-    transform: translateY(0);
+    .about-feature-stacked-item.animate-in {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 

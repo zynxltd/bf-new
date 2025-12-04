@@ -2054,11 +2054,15 @@ From May to September feed your plants twice a week while watering.</p>
     
     // Scroll-triggered slide-in animation for About section features (Mobile only)
     function animateStackedItems() {
-        // Only run on mobile devices
+        const items = document.querySelectorAll('.about-feature-stacked-item');
+        if (items.length === 0) return;
+        
+        // On desktop, ensure items are visible immediately
         if (window.innerWidth > 767) {
-            // On desktop, ensure items are visible
-            const items = document.querySelectorAll('.about-feature-stacked-item');
             items.forEach(item => {
+                item.style.opacity = '1';
+                item.style.visibility = 'visible';
+                item.style.transform = 'translateY(0)';
                 item.classList.add('animate-in');
             });
             return;
