@@ -9048,10 +9048,14 @@ html {
     display: flex;
     flex-wrap: wrap;
     font-size: 14px;
+    align-items: center;
+    line-height: 1.5;
 }
 
 .breadcrumb-item {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -9059,6 +9063,9 @@ html {
     padding: 0 10px;
     color: #999;
     font-weight: 300;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
 .breadcrumb-item a {
@@ -9066,6 +9073,10 @@ html {
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1.5;
 }
 
 .breadcrumb-item a:hover {
@@ -9076,6 +9087,17 @@ html {
 .breadcrumb-item.active {
     color: #666;
     font-weight: 400;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1.5;
+}
+
+.breadcrumb-item span {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1.5;
 }
 
 /* Blog Search */
