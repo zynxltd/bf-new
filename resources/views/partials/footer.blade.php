@@ -65,6 +65,7 @@
                 <ul class="footer-links-list">
                     <li><a href="https://www.yougarden.com?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">YouGarden</a></li>
                     <li><a href="https://www.amazon.co.uk" class="heading-light" target="_blank" rel="noopener">Amazon</a></li>
+                    <li><a href="https://www.yougarden.com/item-p-820001/yg-discount-club-annual-membership?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener" style="font-weight: 600; color: #ffd700;">✨ YouGarden Discount Club</a></li>
                 </ul>
                 <div class="footer-social mt-30">
                     <p class="heading-light mb-15">Follow Us</p>

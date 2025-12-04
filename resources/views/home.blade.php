@@ -66,6 +66,67 @@ $websiteSchema = [
 @endphp
 {!! json_encode($websiteSchema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
 </script>
+
+<!-- FAQ Schema.org JSON-LD -->
+<script type="application/ld+json">
+@php
+$faqSchema = [
+  "@context" => "https://schema.org",
+  "@type" => "FAQPage",
+  "mainEntity" => [
+    [
+      "@type" => "Question",
+      "name" => "How do I use Blooming Fast Superior Soluble Fertiliser?",
+      "acceptedAnswer" => [
+        "@type" => "Answer",
+        "text" => "Simply dissolve the powder in water according to the instructions on the package. Apply to your plants every 2-4 weeks during the growing season for best results."
+      ]
+    ],
+    [
+      "@type" => "Question",
+      "name" => "Is Blooming Fast safe for all plants?",
+      "acceptedAnswer" => [
+        "@type" => "Answer",
+        "text" => "Yes, Blooming Fast Superior Soluble Fertiliser is suitable for most flowering plants, vegetables, and ornamental plants. Always follow the recommended dosage instructions."
+      ]
+    ],
+    [
+      "@type" => "Question",
+      "name" => "How often should I fertilize my plants?",
+      "acceptedAnswer" => [
+        "@type" => "Answer",
+        "text" => "For best results, apply Blooming Fast every 2-4 weeks during the growing season (spring through autumn). Reduce frequency during winter months."
+      ]
+    ],
+    [
+      "@type" => "Question",
+      "name" => "Can I use Blooming Fast on edible plants?",
+      "acceptedAnswer" => [
+        "@type" => "Answer",
+        "text" => "Yes, Blooming Fast is safe to use on edible plants including vegetables and fruits. Always follow the instructions and wash produce before consumption."
+      ]
+    ],
+    [
+      "@type" => "Question",
+      "name" => "Where can I buy Blooming Fast products?",
+      "acceptedAnswer" => [
+        "@type" => "Answer",
+        "text" => "Blooming Fast products are available from YouGarden and Amazon. Check our product pages for direct links to purchase."
+      ]
+    ],
+    [
+      "@type" => "Question",
+      "name" => "Can I use it in containers?",
+      "acceptedAnswer" => [
+        "@type" => "Answer",
+        "text" => "Yes, Blooming Fast works excellently in containers. Simply adjust the dosage according to container size and follow the same application schedule."
+      ]
+    ]
+  ]
+];
+@endphp
+{!! json_encode($faqSchema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
+</script>
 @endpush
 
 @section('content')
@@ -266,7 +327,7 @@ $websiteSchema = [
 
 <!-- Curved divider between white and gradient sections -->
 <div class="section-divider-wave" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(90deg, #537550 0%, #713841 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
-    <img src="/images/carb.png" alt="" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
 </div>
 
 
@@ -371,7 +432,7 @@ $websiteSchema = [
 
 <!-- Curved divider at bottom of features section -->
 <div class="section-divider-wave section-divider-wave-bottom" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
-    <img src="/images/carb.png" alt="" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleY(-1);">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleY(-1);">
 </div>
 
 <!-- Start .customer-reviews-section  -->
@@ -443,11 +504,11 @@ $websiteSchema = [
                 </div>
                 
                         <!-- Carousel Controls -->
-                        <a class="left carousel-control" href="#testimonialsCarousel" role="button" data-slide="prev">
+                        <a class="left carousel-control" href="#testimonialsCarousel" role="button" data-slide="prev" aria-label="Previous testimonial">
                             <span class="fa fa-chevron-left" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="right carousel-control" href="#testimonialsCarousel" role="button" data-slide="next">
+                        <a class="right carousel-control" href="#testimonialsCarousel" role="button" data-slide="next" aria-label="Next testimonial">
                             <span class="fa fa-chevron-right" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -475,7 +536,7 @@ $websiteSchema = [
 
 <!-- Curved divider between white and gradient sections -->
 <div class="section-divider-wave" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(90deg, #537550 0%, #713841 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
-    <img src="/images/carb.png" alt="" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
 </div>
 <!-- Start .products-section  -->
 <div id="products" class="products-section section gradiant-background pt-120 pb-120 products-section-bottom-curved">
@@ -571,7 +632,7 @@ $websiteSchema = [
 </div><!-- .products-section  -->
 
 <div class="section-divider-wave section-divider-wave-product-bottom" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
-    <img src="/images/carb.png" alt="" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleX(-);">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleX(-);">
 </div>
 
 <!-- Start .videos-section  -->
