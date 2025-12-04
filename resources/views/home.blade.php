@@ -1273,6 +1273,11 @@ From May to September feed your plants twice a week while watering.</p>
     
     // Make product image clickable
     $(document).on('click', '.product-card-clickable .product-image img', function(e) {
+        // Don't trigger if clicking on the quick view button
+        if ($(e.target).closest('.product-quick-view-btn').length || 
+            $(e.target).is('.product-quick-view-btn')) {
+            return;
+        }
         e.preventDefault();
         e.stopPropagation();
         console.log('Product image clicked');
@@ -1288,11 +1293,10 @@ From May to September feed your plants twice a week while watering.</p>
     
     // Also make the entire product-image div clickable (but not if clicking on overlay/button)
     $(document).on('click', '.product-card-clickable .product-image', function(e) {
-        // Don't trigger if clicking on the quick view button or overlay
+        // Don't trigger if clicking on the quick view button
         if ($(e.target).closest('.product-quick-view-btn').length || 
-            $(e.target).closest('.product-quick-view-overlay').length ||
             $(e.target).is('.product-quick-view-btn') ||
-            $(e.target).is('.product-quick-view-overlay')) {
+            $(e.target).closest('a.product-quick-view-btn').length) {
             return;
         }
         e.preventDefault();
