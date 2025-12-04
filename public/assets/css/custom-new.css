@@ -42,12 +42,16 @@ body {
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
 }
 
 html {
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
 }
 
 /* Remove any right-side shadows from body/html */
@@ -1169,18 +1173,18 @@ h1, .h1 {
 /* Enhanced Hero Content - Background preserved from original theme */
 .header-section {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .header-section.header-curbed {
     position: relative !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     padding-bottom: 150px !important;
 }
 
 .half-header.header-curbed {
     position: relative !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     padding-bottom: 150px !important;
 }
 
@@ -3293,7 +3297,7 @@ h2.heading {
 .half-header.header-curbed,
 .header-section.half-header.header-curbed,
 #home.header-section.half-header.header-curbed {
-    overflow: visible !important;
+    overflow: hidden !important;
     position: relative !important;
     padding-bottom: 150px !important;
     border: none !important;
