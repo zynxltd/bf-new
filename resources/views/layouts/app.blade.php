@@ -46,12 +46,12 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH00CZ6T7ZP"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH00CZ6T7P"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-NH00CZ6T7ZP');
+        gtag('config', 'G-NH00CZ6T7P');
     </script>
     
     <!-- Font Awesome - Load asynchronously -->
