@@ -6316,6 +6316,18 @@ h2.heading {
 }
 
 .footer-logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 200px;
+}
+
+.footer-logo img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
     max-width: 200px;
     filter: brightness(0) invert(1);
     opacity: 0.95;

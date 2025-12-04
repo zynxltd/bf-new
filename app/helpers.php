@@ -91,13 +91,19 @@ if (!function_exists('webp_picture')) {
             // Handle fetchpriority attribute
             $fetchpriorityAttr = isset($attributes['fetchpriority']) ? ' fetchpriority="' . htmlspecialchars($attributes['fetchpriority'], ENT_QUOTES, 'UTF-8') . '"' : '';
             
-            // Remove width/height/fetchpriority from attributes string since we're adding them separately
-            $cleanAttrString = preg_replace('/\s+(width|height|fetchpriority)="[^"]*"/i', '', $attrString);
+            // Extract style attribute separately to apply to img tag
+            $styleAttr = '';
+            if (isset($attributes['style'])) {
+                $styleAttr = ' style="' . htmlspecialchars($attributes['style'], ENT_QUOTES, 'UTF-8') . '"';
+            }
+            
+            // Remove width/height/fetchpriority/style from attributes string since we're adding them separately
+            $cleanAttrString = preg_replace('/\s+(width|height|fetchpriority|style)="[^"]*"/i', '', $attrString);
             
             return '<picture>' .
                    '<source srcset="' . asset($webpPath) . '" type="image/webp">' .
                    '<source srcset="' . asset($path) . '" type="' . $mimeType . '">' .
-                   '<img src="' . asset($path) . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $widthAttr . $heightAttr . $fetchpriorityAttr . $cleanAttrString . '>' .
+                   '<img src="' . asset($path) . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $widthAttr . $heightAttr . $fetchpriorityAttr . $styleAttr . $cleanAttrString . '>' .
                    '</picture>';
         }
         
