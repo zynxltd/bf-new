@@ -264,9 +264,19 @@ $blogSchema = [
 
 @push('scripts')
 <script>
-$(document).ready(function() {
-    // Initialize Desktop Hamburger Menu
-    function initDesktopMenu() {
+(function() {
+    // Wait for jQuery to be available
+    function initWhenReady() {
+        if (typeof jQuery === 'undefined') {
+            setTimeout(initWhenReady, 50);
+            return;
+        }
+        
+        var $ = jQuery;
+        
+        $(document).ready(function() {
+            // Initialize Desktop Hamburger Menu
+            function initDesktopMenu() {
         var $desktopMenuToggle = $('#desktopMenuToggle');
         var $desktopSlideMenu = $('#desktopSlideMenu');
         var $desktopMenuOverlay = $('#desktopMenuOverlay');
@@ -355,7 +365,16 @@ $(document).ready(function() {
     // Also try after a short delay in case DOM isn't fully ready
     setTimeout(initDesktopMenu, 100);
     setTimeout(initDesktopMenu, 500);
-});
+        });
+    }
+    
+    // Start initialization
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWhenReady);
+    } else {
+        initWhenReady();
+    }
+})();
 </script>
 @endpush
 
