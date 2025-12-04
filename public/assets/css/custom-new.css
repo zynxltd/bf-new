@@ -5666,7 +5666,7 @@ h2.heading {
 
 .footer-brand {
     position: relative;
-    z-index: 2;
+    z-index: 1 !important;
 }
 
 .footer-section h5 {
@@ -6435,6 +6435,8 @@ h2.heading {
     height: auto;
     max-width: 200px;
     filter: brightness(0) invert(1) !important;
+    position: relative;
+    z-index: 1 !important;
 }
 
 .footer-logo img,
@@ -6448,6 +6450,8 @@ h2.heading {
     object-fit: contain;
     filter: brightness(0) invert(1) !important;
     opacity: 0.95;
+    position: relative;
+    z-index: 1 !important;
 }
 
 .footer-logo picture {
