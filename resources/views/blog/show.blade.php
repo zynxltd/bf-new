@@ -22,7 +22,11 @@
 <meta property="og:title" content="{{ $article->title }}">
 <meta property="og:description" content="{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 200) }}">
 @if($article->image)
-<meta property="og:image" content="{{ asset($article->image) }}">
+<meta property="og:image" content="{{ url($article->image) }}">
+<meta property="og:image:secure_url" content="{{ url($article->image) }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 @endif
 <meta property="og:site_name" content="Blooming Fast">
 <meta property="article:published_time" content="{{ $article->published_date->toIso8601String() }}">
@@ -36,7 +40,8 @@
 <meta name="twitter:title" content="{{ $article->title }}">
 <meta name="twitter:description" content="{{ $article->excerpt ?? Str::limit(strip_tags($article->content), 200) }}">
 @if($article->image)
-<meta name="twitter:image" content="{{ asset($article->image) }}">
+<meta name="twitter:image" content="{{ url($article->image) }}">
+<meta name="twitter:image:alt" content="{{ $article->title }}">
 @endif
 
 <!-- Article Schema.org JSON-LD -->

@@ -16,15 +16,15 @@
     <div class="container">
         <div class="row">
             <!-- Footer Brand Column -->
-            <div class="col-md-4 col-sm-6 mb-40">
+            <div class="col-md-3 col-sm-6 mb-40">
                 <div class="footer-brand">
                     <img src="{{ asset('images/logo.png') }}" alt="Blooming Fast" class="footer-logo mb-20" style="max-width: 200px; filter: brightness(0) invert(1);" />
                     <p class="heading-light">Premium plant foods and fertilisers for bigger, better blooms and healthier plants. Professional grade formulations for your garden.</p>
                 </div>
             </div><!-- .col -->
             
-            <!-- Quick Links Column -->
-            <div class="col-md-2 col-sm-6 mb-40">
+            <!-- Quick Links & Legal Column -->
+            <div class="col-md-3 col-sm-6 mb-40">
                 <h5 class="heading-light mb-20">Quick Links</h5>
                 <ul class="footer-links-list">
                     <li><a href="{{ route('home') }}#home" class="heading-light">Home</a></li>
@@ -35,11 +35,7 @@
                     <li><a href="{{ route('home') }}#faq" class="heading-light">FAQ</a></li>
                     <li><a href="{{ route('blog.index') }}" class="heading-light">Blog & Guides</a></li>
                 </ul>
-            </div><!-- .col -->
-            
-            <!-- Legal Links Column -->
-            <div class="col-md-2 col-sm-6 mb-40">
-                <h5 class="heading-light mb-20">Legal</h5>
+                <h5 class="heading-light mb-20 mt-30">Legal</h5>
                 <ul class="footer-links-list">
                     <li><a href="{{ route('legal.privacy') }}" class="heading-light">Privacy Policy</a></li>
                     <li><a href="{{ route('legal.terms') }}" class="heading-light">Terms of Service</a></li>

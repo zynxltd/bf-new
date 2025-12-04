@@ -12,8 +12,7 @@ class SitemapController extends Controller
     {
         $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"';
-        $sitemap .= ' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"';
-        $sitemap .= ' xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">' . "\n";
+        $sitemap .= ' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">' . "\n";
 
         // Home page - highest priority
         $sitemap .= $this->urlElement(
@@ -66,7 +65,7 @@ class SitemapController extends Controller
             
             // Add image if available
             if ($blog->image) {
-                $imageUrl = asset($blog->image);
+                $imageUrl = url($blog->image); // Use absolute URL
                 $sitemap .= '    <image:image>' . "\n";
                 $sitemap .= '      <image:loc>' . htmlspecialchars($imageUrl) . '</image:loc>' . "\n";
                 $sitemap .= '      <image:title>' . htmlspecialchars($blog->title) . '</image:title>' . "\n";
@@ -87,6 +86,11 @@ class SitemapController extends Controller
 
     private function urlElement($url, $lastmod, $changefreq, $priority)
     {
+        // Ensure absolute URL
+        if (!preg_match('/^https?:\/\//', $url)) {
+            $url = url($url);
+        }
+        
         $element = '  <url>' . "\n";
         $element .= '    <loc>' . htmlspecialchars($url) . '</loc>' . "\n";
         $element .= '    <lastmod>' . $lastmod . '</lastmod>' . "\n";

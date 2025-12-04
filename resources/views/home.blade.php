@@ -21,14 +21,19 @@ use Illuminate\Support\Str;
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:title" content="Blooming Fast Plant Foods - Premium Garden Supplements">
 <meta property="og:description" content="Premium plant foods and fertilisers for bigger, better blooms and healthier plants. Professional grade formulations for your garden.">
-<meta property="og:image" content="{{ asset('images/superiorV4.png') }}">
+<meta property="og:image" content="{{ url('images/superiorV4.png') }}">
+<meta property="og:image:secure_url" content="{{ url('images/superiorV4.png') }}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Blooming Fast">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Blooming Fast Plant Foods - Premium Garden Supplements">
 <meta name="twitter:description" content="Premium plant foods and fertilisers for bigger, better blooms and healthier plants.">
-<meta name="twitter:image" content="{{ asset('images/superiorV4.png') }}">
+<meta name="twitter:image" content="{{ url('images/superiorV4.png') }}">
+<meta name="twitter:image:alt" content="Blooming Fast Plant Foods - Premium Garden Supplements">
 
 <!-- Organization Schema.org JSON-LD -->
 <script type="application/ld+json">
