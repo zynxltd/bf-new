@@ -3266,29 +3266,12 @@ h2.heading {
 }
 
 /* Add carb pattern to bottom of header section */
+/* Note: The carb.png divider is now handled by .hero-bottom-divider element, not ::after pseudo-element */
+/* This rule is kept for backwards compatibility but should not conflict with spotlight animation */
 #home.header-section.half-header.header-curbed::after,
 .header-section.half-header.header-curbed::after,
 .header-curbed::after {
-    display: block !important;
-    content: '' !important;
-    height: 150px !important;
-    width: 100% !important;
-    background-image: url(/images/carb.png) !important;
-    background-position: bottom center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    background-color: transparent !important;
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 1 !important;
-    pointer-events: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    display: none !important;
 }
 
 /* Ensure header section doesn't clip the carb */
@@ -3436,21 +3419,33 @@ h2.heading {
 /* Subtle light rays effect */
 .header-section.gradiant-background::after,
 .header-section.half-header.gradiant-background::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    content: '' !important;
+    position: absolute !important;
+    top: -50% !important;
+    left: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
     background: radial-gradient(
         ellipse at center,
         rgba(255, 255, 255, 0.15) 0%,
         rgba(255, 255, 255, 0.08) 30%,
         transparent 70%
-    );
-    animation: heroLightRotate 20s linear infinite;
-    z-index: 1;
-    pointer-events: none;
+    ) !important;
+    animation: heroLightRotate 20s linear infinite !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    background-image: none !important;
+    background-position: initial !important;
+    background-repeat: initial !important;
+    background-size: initial !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    bottom: auto !important;
 }
 
 /* Rotating light effect */
