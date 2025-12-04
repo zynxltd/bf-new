@@ -2016,6 +2016,10 @@ h1, .h1 {
     pointer-events: none;
 }
 
+.product-quick-view-overlay:hover {
+    pointer-events: auto;
+}
+
 .product-card:hover .product-quick-view-overlay {
     background: rgba(0, 0, 0, 0.5);
     opacity: 1;
@@ -2035,8 +2039,10 @@ h1, .h1 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     transform: scale(0.8);
-    pointer-events: auto;
+    pointer-events: auto !important;
     cursor: pointer;
+    z-index: 11;
+    position: relative;
 }
 
 .product-card:hover .product-quick-view-btn {

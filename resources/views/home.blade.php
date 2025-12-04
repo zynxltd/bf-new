@@ -1285,11 +1285,13 @@ From May to September feed your plants twice a week while watering.</p>
         return false;
     });
     
-    // Also make the entire product-image div clickable
+    // Also make the entire product-image div clickable (but not if clicking on overlay/button)
     $(document).on('click', '.product-card-clickable .product-image', function(e) {
-        // Don't trigger if clicking on the quick view button
+        // Don't trigger if clicking on the quick view button or overlay
         if ($(e.target).closest('.product-quick-view-btn').length || 
-            $(e.target).closest('.product-quick-view-overlay').length) {
+            $(e.target).closest('.product-quick-view-overlay').length ||
+            $(e.target).is('.product-quick-view-btn') ||
+            $(e.target).is('.product-quick-view-overlay')) {
             return;
         }
         e.preventDefault();
@@ -1306,22 +1308,19 @@ From May to September feed your plants twice a week while watering.</p>
     });
     
     // Handle product card clicks (for clicking on card itself, not buttons/links)
-    $('.product-card-clickable').on('click', function(e) {
+    $(document).on('click', '.product-card-clickable', function(e) {
         // Don't trigger if clicking on buttons, links, or quick view overlay
         if ($(e.target).closest('.product-button').length || 
             $(e.target).closest('.product-quick-view-overlay').length ||
+            $(e.target).closest('.product-image').length ||
             $(e.target).closest('a').length ||
             $(e.target).is('a')) {
             return;
         }
         
-        // Don't trigger if clicking on image (handled separately above)
-        if ($(e.target).closest('.product-image img').length) {
-            return;
-        }
-        
         e.preventDefault();
         e.stopPropagation();
+        console.log('Product card clicked');
         var $card = $(this);
         openProductModal($card);
         return false;
