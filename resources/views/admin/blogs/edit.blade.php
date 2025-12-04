@@ -96,7 +96,7 @@
                     <div class="col-md-4">
                         <div class="form-group-admin">
                             <label class="form-label-admin" for="published_date">Published Date *</label>
-                            <input type="date" class="form-control-admin @error('published_date') is-invalid @enderror" id="published_date" name="published_date" value="{{ old('published_date', $blog->published_date->format('Y-m-d')) }}" required>
+                            <input type="date" class="form-control-admin @error('published_date') is-invalid @enderror" id="published_date" name="published_date" value="{{ old('published_date', $blog->published_date ? $blog->published_date->format('Y-m-d') : '') }}" required>
                             @error('published_date')
                                 <div style="color: #dc3545; font-size: 13px; margin-top: 6px;">{{ $message }}</div>
                             @enderror
@@ -125,7 +125,10 @@
 
                 <div class="form-group-admin">
                     <div class="form-check-admin">
-                        <input class="form-check-input" type="checkbox" id="is_published" name="is_published" value="1" {{ old('is_published', $blog->is_published) ? 'checked' : '' }}>
+                        @php
+                            $isPublished = old('is_published', $blog->is_published);
+                        @endphp
+                        <input class="form-check-input" type="checkbox" id="is_published" name="is_published" value="1" {{ $isPublished ? 'checked' : '' }}>
                         <label class="form-label-admin form-check-label" for="is_published">
                             Publish this post
                         </label>
