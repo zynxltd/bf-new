@@ -3326,7 +3326,7 @@ h2.heading {
     object-fit: cover !important;
     object-position: bottom center !important;
     display: block !important;
-    transform: scaleY(-1) !important;
+    transform: none !important;
     opacity: 0.85 !important;
 }
 
