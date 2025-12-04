@@ -405,6 +405,97 @@ $breadcrumbSchema = [
 @push('scripts')
 <script>
 $(document).ready(function() {
+    // Initialize Desktop Hamburger Menu
+    function initDesktopMenu() {
+        var $desktopMenuToggle = $('#desktopMenuToggle');
+        var $desktopSlideMenu = $('#desktopSlideMenu');
+        var $desktopMenuOverlay = $('#desktopMenuOverlay');
+        var $desktopMenuClose = $('#desktopMenuClose');
+        
+        // Check if elements exist
+        if ($desktopMenuToggle.length === 0 || $desktopSlideMenu.length === 0) {
+            console.log('Desktop menu elements not found');
+            return;
+        }
+        
+        function openDesktopMenu() {
+            $desktopMenuToggle.addClass('active');
+            $desktopSlideMenu.addClass('active');
+            $desktopMenuOverlay.addClass('active');
+            $('body').css('overflow', 'hidden');
+        }
+        
+        function closeDesktopMenu() {
+            $desktopMenuToggle.removeClass('active');
+            $desktopSlideMenu.removeClass('active');
+            $desktopMenuOverlay.removeClass('active');
+            $('body').css('overflow', '');
+        }
+        
+        // Remove any existing handlers and attach new ones
+        $desktopMenuToggle.off('click').on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if ($desktopSlideMenu.hasClass('active')) {
+                closeDesktopMenu();
+            } else {
+                openDesktopMenu();
+            }
+        });
+        
+        if ($desktopMenuClose.length > 0) {
+            $desktopMenuClose.off('click').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeDesktopMenu();
+            });
+        }
+        
+        if ($desktopMenuOverlay.length > 0) {
+            $desktopMenuOverlay.off('click').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeDesktopMenu();
+            });
+        }
+        
+        // Close menu when clicking outside
+        $(document).off('click.desktopMenu').on('click.desktopMenu', function(e) {
+            if ($desktopSlideMenu.hasClass('active')) {
+                if (!$desktopSlideMenu.is(e.target) && 
+                    $desktopSlideMenu.has(e.target).length === 0 && 
+                    !$desktopMenuToggle.is(e.target) && 
+                    $desktopMenuToggle.has(e.target).length === 0) {
+                    closeDesktopMenu();
+                }
+            }
+        });
+        
+        // Prevent clicks inside the menu from closing it
+        $desktopSlideMenu.off('click').on('click', function(e) {
+            e.stopPropagation();
+        });
+        
+        // Close menu when clicking nav links
+        $('.desktop-slide-menu-nav a').off('click').on('click', function() {
+            closeDesktopMenu();
+        });
+        
+        // Close menu on ESC key
+        $(document).off('keydown.desktopMenu').on('keydown.desktopMenu', function(e) {
+            if (e.key === 'Escape' && $desktopSlideMenu.hasClass('active')) {
+                closeDesktopMenu();
+            }
+        });
+    }
+    
+    // Initialize desktop menu
+    initDesktopMenu();
+    
+    // Also try after a short delay in case DOM isn't fully ready
+    setTimeout(initDesktopMenu, 100);
+    setTimeout(initDesktopMenu, 500);
+    
     // Reading progress indicator
     var $progressBar = $('#readingProgress');
     var $article = $('.blog-post-content');
