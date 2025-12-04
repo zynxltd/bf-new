@@ -446,7 +446,7 @@ $faqSchema = [
 </div><!-- .features-section  -->
 
 <!-- Curved divider at bottom of features section -->
-<div class="section-divider-wave section-divider-wave-bottom" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
+<div class="section-divider-wave section-divider-wave-bottom" style="height: 450px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
     <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleY(-1);">
 </div>
 

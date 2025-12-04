@@ -7966,6 +7966,9 @@ html {
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 40px;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
 }
 
 .blog-filter-btn {
@@ -7979,6 +7982,9 @@ html {
     font-weight: 600;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: fit-content;
 }
 
 .blog-filter-btn:hover {
@@ -8069,6 +8075,8 @@ html {
     .blog-filter-btn {
         padding: 10px 18px;
         font-size: 14px;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
     
     .blog-pagination .pagination > li > a,
