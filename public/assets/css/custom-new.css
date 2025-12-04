@@ -2020,6 +2020,11 @@ h1, .h1 {
     pointer-events: auto;
 }
 
+/* Always allow clicks on the button itself */
+.product-quick-view-overlay .product-quick-view-btn {
+    pointer-events: auto !important;
+}
+
 .product-card:hover .product-quick-view-overlay {
     background: rgba(0, 0, 0, 0.5);
     opacity: 1;
