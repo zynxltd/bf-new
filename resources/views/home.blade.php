@@ -212,7 +212,7 @@ $faqSchema = [
     <div class="header-content">
         <div class="container">
             <div class="row row-vm">
-                <div class="col-md-7">
+                <div class="col-md-7 hero-text-column">
                     <div class="header-texts tab-center mobile-center hero-content-mobile">
                         <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
                             <span><i class="fa fa-star hero-star-icon"></i> Premium Quality</span>
@@ -227,14 +227,14 @@ $faqSchema = [
                                 <span class="size-badge" data-scroll-to="products">50g Trial</span>
                             </div>
                         </div>
-                        <h3 class="heading-light hero-cta wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">Click below to buy it from one of our stockists</h3>
+                        <p class="heading-light hero-cta wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s" style="font-size: 18px; font-weight: 500;">Click below to buy it from one of our stockists</p>
                         <ul class="buttons">
-                            <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser?source=bloomingfast.com" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" /></a></li>
-                            <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" /></a></li>
+                            <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser?source=bloomingfast.com" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener" aria-label="Buy from YouGarden"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" /></a></li>
+                            <li><a href="https://www.amazon.co.uk/Bloomiing-Soluble-Planter-Fertilsier-litres/dp/B079HYNNN4/ref=sr_1_1?ie=UTF8&amp;qid=1522915651&amp;sr=8-1&amp;keywords=blooming+fast+superior" class="button wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" target="_blank" rel="noopener" aria-label="Buy from Amazon"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" /></a></li>
                         </ul>
                         <!-- Feefo Rating Badge -->
                         <div class="hero-feefo-badge wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
-                            <a href="#customer-reviews" class="hero-feefo-link">
+                            <a href="#customer-reviews" class="hero-feefo-link" aria-label="View customer reviews">
                                 <div id="feefo-badge-hero" class="feefo-badge-widget">
                                     <div class="feefo-fallback-badge" style="display: block;">
                                         <div class="feefo-fallback-content">
@@ -252,14 +252,14 @@ $faqSchema = [
                                 </div>
                             </a>
                             <div class="hero-feefo-logo-below">
-                                <img src="{{ asset('images/Feefo_White_and_yellow_logo.svg') }}" alt="Feefo" class="feefo-logo-below-img" />
+                                <img src="{{ asset('images/Feefo_White_and_yellow_logo.svg') }}" alt="Feefo" class="feefo-logo-below-img" loading="lazy" />
                             </div>
                         </div>
                     </div>
                 </div><!-- .col -->
-                <div class="col-md-5" style="z-index: 999;">
+                <div class="col-md-5 hero-image-column" style="z-index: 999;">
                     <div class="wow fadeInUp confetti-burst-trigger" data-wow-duration="1s" data-wow-delay=".6s" >
-                        <img style="z-index: 999;" src="{{ asset('images/superiorV4.png') }}" alt="Citrus Feed" />
+                        <img style="z-index: 999;" src="{{ asset('images/superiorV4.png') }}" alt="Superior Plant Food" loading="eager" width="600" height="600" />
                     </div>
                 </div>
             </div><!-- .row -->

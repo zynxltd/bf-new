@@ -1696,6 +1696,19 @@ h1, .h1 {
     .header-content .row {
         min-height: auto;
         padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Move image above stockist text on mobile */
+    .hero-image-column {
+        order: 1;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .hero-text-column {
+        order: 2;
     }
     
     /* Mobile hero layout - reorder badge above title */
@@ -9234,6 +9247,12 @@ html {
     transform: translateY(-3px) scale(1.1);
     color: #ffffff !important;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Font Display Optimization */
+@font-face {
+    font-family: 'FontAwesome';
+    font-display: swap;
 }
 
 /* Back to Top Button */
