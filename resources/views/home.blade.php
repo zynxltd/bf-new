@@ -591,7 +591,7 @@ $faqSchema = [
                             @if($index < 2)
                             <span class="best-seller-badge">Best Seller</span>
                             @endif
-                            <img src="{{ $product->image ? asset($product->image) : asset('images/superiorV4.png') }}" alt="{{ $product->title }}" class="img-responsive" loading="lazy" decoding="async" />
+                            {!! $product->image ? webp_picture($product->image, $product->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) : webp_picture('images/superiorV4.png', $product->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) !!}
                             <div class="product-quick-view-overlay">
                                 <a href="#" class="product-quick-view-btn" title="Quick View" aria-label="Quick view {{ $product->title }}">
                                     <i class="fa fa-eye"></i>
