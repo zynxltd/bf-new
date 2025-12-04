@@ -113,7 +113,7 @@
                             @if($blog->template)
                                 <span class="admin-badge admin-badge-success">{{ Str::limit($blog->template, 20) }}</span>
                             @else
-                                <span style="color: #999;">Database</span>
+                                <span style="color: #999;">Default</span>
                             @endif
                         </td>
                         <td>{{ $blog->published_date ? $blog->published_date->format('M j, Y') : 'N/A' }}</td>
