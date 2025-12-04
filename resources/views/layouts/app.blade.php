@@ -12,9 +12,9 @@
     <meta name="rating" content="general">
     
     <!-- Fav Icon  -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ cdn_asset('images/favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ cdn_asset('images/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ cdn_asset('images/favicon.png') }}">
     
     <!-- Site Title  -->
     <title>@yield('title', 'Blooming Fast Plant Foods')</title>

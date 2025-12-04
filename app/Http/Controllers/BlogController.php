@@ -15,6 +15,16 @@ class BlogController extends Controller
     {
         $query = Blog::where('is_published', true);
         
+        // Search functionality
+        if ($request->has('search') && $request->search) {
+            $searchTerm = $request->search;
+            $query->where(function($q) use ($searchTerm) {
+                $q->where('title', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('excerpt', 'like', '%' . $searchTerm . '%')
+                  ->orWhere('content', 'like', '%' . $searchTerm . '%');
+            });
+        }
+        
         // Filter by category slug if provided
         if ($request->has('category') && $request->category) {
             $query->where('category_slug', $request->category);
@@ -40,8 +50,9 @@ class BlogController extends Controller
         $articles->appends($request->query());
         
         $selectedCategory = $request->query('category');
+        $searchTerm = $request->query('search');
         
-        return view('blog.index', compact('articles', 'categories', 'selectedCategory'));
+        return view('blog.index', compact('articles', 'categories', 'selectedCategory', 'searchTerm'));
     }
 
     /**

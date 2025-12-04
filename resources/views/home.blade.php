@@ -607,10 +607,16 @@ $faqSchema = [
                             @endif
                             <ul class="product-buttons">
                                 @if($product->yg_link)
-                                <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" /></a></li>
+                                <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button btn-buy-yg" target="_blank" rel="noopener" onclick="event.stopPropagation();" aria-label="Buy {{ $product->title }} from YouGarden">
+                                    <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" />
+                                    <span class="btn-text">Buy Now</span>
+                                </a></li>
                                 @endif
                                 @if($product->amazon_link)
-                                <li><a href="{{ $product->amazon_link }}" class="product-button" target="_blank" rel="noopener" onclick="event.stopPropagation();"><img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" /></a></li>
+                                <li><a href="{{ $product->amazon_link }}" class="product-button btn-buy-amazon" target="_blank" rel="noopener" onclick="event.stopPropagation();" aria-label="Buy {{ $product->title }} from Amazon">
+                                    <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" />
+                                    <span class="btn-text">Buy Now</span>
+                                </a></li>
                                 @endif
                             </ul>
                             @if($product->sku)
@@ -1145,6 +1151,30 @@ From May to September feed your plants twice a week while watering.</p>
 </div>
 <!-- End .guides-section  -->
 
+
+<!-- Newsletter Signup Section -->
+<div class="newsletter-section section gradiant-background pt-80 pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2 class="heading heading-light mb-20">Stay Updated with Gardening Tips</h2>
+                <p class="lead heading-light mb-40">Subscribe to our newsletter for expert gardening advice, seasonal tips, and exclusive offers</p>
+                <form id="newsletterForm" class="newsletter-form">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <input type="email" name="email" id="newsletterEmail" class="form-control newsletter-input" placeholder="Enter your email address" required aria-label="Email address">
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <button type="submit" class="btn btn-primary newsletter-btn" style="width: 100%;">Subscribe</button>
+                        </div>
+                    </div>
+                    <div id="newsletterMessage" class="newsletter-message mt-20" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Footer Top Divider - Curved Wave -->
 <div class="section-divider-wave">
@@ -2365,5 +2395,116 @@ $(document).ready(function() {
         }
     });
 });
+
+// Newsletter Form Submission
+$('#newsletterForm').on('submit', function(e) {
+    e.preventDefault();
+    var form = $(this);
+    var email = $('#newsletterEmail').val();
+    var messageDiv = $('#newsletterMessage');
+    var submitBtn = form.find('button[type="submit"]');
+    
+    // Disable submit button
+    submitBtn.prop('disabled', true).text('Subscribing...');
+    messageDiv.hide();
+    
+    $.ajax({
+        url: '{{ route("newsletter.subscribe") }}',
+        method: 'POST',
+        data: {
+            email: email,
+            _token: '{{ csrf_token() }}'
+        },
+        success: function(response) {
+            messageDiv.removeClass('error').addClass('success')
+                .text(response.message).fadeIn();
+            form[0].reset();
+            submitBtn.prop('disabled', false).text('Subscribe');
+        },
+        error: function(xhr) {
+            var errorMsg = 'An error occurred. Please try again.';
+            if (xhr.responseJSON && xhr.responseJSON.message) {
+                errorMsg = xhr.responseJSON.message;
+            }
+            messageDiv.removeClass('success').addClass('error')
+                .text(errorMsg).fadeIn();
+            submitBtn.prop('disabled', false).text('Subscribe');
+        }
+    });
+});
+
+// Exit Intent Popup
+(function() {
+    var exitIntentShown = localStorage.getItem('exitIntentShown');
+    var exitIntentPopup = $('<div class="exit-intent-popup" id="exitIntentPopup">' +
+        '<div class="exit-intent-popup-content">' +
+        '<button class="exit-intent-popup-close" aria-label="Close">&times;</button>' +
+        '<h3 style="margin-top: 0; color: #537550;">Wait! Don\'t Miss Out</h3>' +
+        '<p>Get exclusive gardening tips and special offers delivered to your inbox!</p>' +
+        '<form id="exitIntentNewsletterForm" style="margin-top: 20px;">' +
+        '<input type="email" name="email" class="form-control newsletter-input" placeholder="Enter your email" required style="margin-bottom: 15px;">' +
+        '<button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe Now</button>' +
+        '</form>' +
+        '<div id="exitIntentMessage" style="margin-top: 15px; display: none;"></div>' +
+        '</div>' +
+        '</div>');
+    
+    $('body').append(exitIntentPopup);
+    
+    // Exit intent detection
+    $(document).on('mouseleave', function(e) {
+        if (e.clientY <= 0 && !exitIntentShown) {
+            $('#exitIntentPopup').addClass('active');
+            $('body').css('overflow', 'hidden');
+        }
+    });
+    
+    // Close popup
+    $(document).on('click', '.exit-intent-popup-close, .exit-intent-popup', function(e) {
+        if (e.target === this) {
+            $('#exitIntentPopup').removeClass('active');
+            $('body').css('overflow', '');
+            localStorage.setItem('exitIntentShown', 'true');
+        }
+    });
+    
+    // Exit intent form submission
+    $('#exitIntentNewsletterForm').on('submit', function(e) {
+        e.preventDefault();
+        var form = $(this);
+        var email = form.find('input[name="email"]').val();
+        var messageDiv = $('#exitIntentMessage');
+        var submitBtn = form.find('button[type="submit"]');
+        
+        submitBtn.prop('disabled', true).text('Subscribing...');
+        
+        $.ajax({
+            url: '{{ route("newsletter.subscribe") }}',
+            method: 'POST',
+            data: {
+                email: email,
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(response) {
+                messageDiv.removeClass('error').addClass('success')
+                    .text(response.message).show();
+                setTimeout(function() {
+                    $('#exitIntentPopup').removeClass('active');
+                    $('body').css('overflow', '');
+                    localStorage.setItem('exitIntentShown', 'true');
+                }, 2000);
+            },
+            error: function(xhr) {
+                var errorMsg = 'An error occurred. Please try again.';
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMsg = xhr.responseJSON.message;
+                }
+                messageDiv.removeClass('success').addClass('error')
+                    .text(errorMsg).show();
+                submitBtn.prop('disabled', false).text('Subscribe Now');
+            }
+        });
+    });
+})();
 </script>
 @endpush

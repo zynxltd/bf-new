@@ -131,19 +131,52 @@ $blogSchema = [
             </div>
         </div>
 
-        <!-- Category Filters -->
-        @if($categories->count() > 0)
-        <div class="blog-filters mb-40 text-center">
-            <a href="{{ route('blog.index') }}" class="blog-filter-btn {{ !$selectedCategory ? 'active' : '' }}">
-                All Articles
-            </a>
-            @foreach($categories as $categorySlug => $categoryName)
-            <a href="{{ route('blog.index', ['category' => $categorySlug]) }}" class="blog-filter-btn {{ $selectedCategory == $categorySlug ? 'active' : '' }}">
-                {{ $categoryName }}
-            </a>
-            @endforeach
+        <!-- Search and Category Filters -->
+        <div class="blog-search-filters mb-40">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <!-- Search Form -->
+                    <form method="GET" action="{{ route('blog.index') }}" class="blog-search-form mb-30">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control blog-search-input" placeholder="Search articles..." value="{{ $searchTerm ?? '' }}" aria-label="Search articles">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit" aria-label="Search">
+                                    <i class="fa fa-search"></i> Search
+                                </button>
+                            </span>
+                            @if($searchTerm)
+                            <span class="input-group-btn">
+                                <a href="{{ route('blog.index') }}" class="btn btn-default" aria-label="Clear search">
+                                    <i class="fa fa-times"></i> Clear
+                                </a>
+                            </span>
+                            @endif
+                        </div>
+                    </form>
+                    
+                    <!-- Category Filters -->
+                    @if($categories->count() > 0)
+                    <div class="blog-filters text-center">
+                        <a href="{{ route('blog.index') }}" class="blog-filter-btn {{ !$selectedCategory ? 'active' : '' }}">
+                            All Articles
+                        </a>
+                        @foreach($categories as $categorySlug => $categoryName)
+                        <a href="{{ route('blog.index', ['category' => $categorySlug]) }}" class="blog-filter-btn {{ $selectedCategory == $categorySlug ? 'active' : '' }}">
+                            {{ $categoryName }}
+                        </a>
+                        @endforeach
+                    </div>
+                    @endif
+                    
+                    @if($searchTerm)
+                    <div class="text-center mt-20">
+                        <p class="lead">Search results for: <strong>"{{ $searchTerm }}"</strong></p>
+                        <p>Found {{ $articles->total() }} article(s)</p>
+                    </div>
+                    @endif
+                </div>
+            </div>
         </div>
-        @endif
 
         <div class="row">
             @forelse($articles as $article)

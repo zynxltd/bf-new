@@ -1,39 +1,45 @@
 <?php
 
-if (!function_exists('add_source_param')) {
+if (!function_exists('cdn_asset')) {
     /**
-     * Add source parameter to YouGarden URLs
+     * Generate an asset URL with CDN support
      *
-     * @param string $url
+     * @param  string  $path
      * @return string
      */
-    function add_source_param($url)
+    function cdn_asset($path)
     {
-        if (empty($url) || !filter_var($url, FILTER_VALIDATE_URL)) {
-            return $url;
+        $cdnEnabled = config('cdn.enabled', false);
+        $cdnUrl = config('cdn.url', '');
+        
+        if ($cdnEnabled && $cdnUrl) {
+            // Remove leading slash if present
+            $path = ltrim($path, '/');
+            return rtrim($cdnUrl, '/') . '/' . $path;
         }
         
-        $parsedUrl = parse_url($url);
-        
-        // Only add parameter to yougarden.com links
-        if (isset($parsedUrl['host']) && (str_contains($parsedUrl['host'], 'yougarden.com') || str_contains($parsedUrl['host'], 'www.yougarden.com'))) {
-            $query = isset($parsedUrl['query']) ? $parsedUrl['query'] : '';
-            parse_str($query, $queryParams);
-            $queryParams['source'] = 'bloomingfast.com';
-            $newQuery = http_build_query($queryParams);
-            
-            $newUrl = $parsedUrl['scheme'] . '://' . $parsedUrl['host'] . (isset($parsedUrl['path']) ? $parsedUrl['path'] : '/');
-            if ($newQuery) {
-                $newUrl .= '?' . $newQuery;
-            }
-            if (isset($parsedUrl['fragment'])) {
-                $newUrl .= '#' . $parsedUrl['fragment'];
-            }
-            return $newUrl;
-        }
-        
-        return $url;
+        return asset($path);
     }
 }
 
-
+if (!function_exists('webp_image')) {
+    /**
+     * Generate WebP image path with fallback
+     *
+     * @param  string  $path
+     * @return string
+     */
+    function webp_image($path)
+    {
+        $webpPath = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $path);
+        $webpFullPath = public_path($webpPath);
+        
+        // Check if WebP version exists
+        if (file_exists($webpFullPath)) {
+            return asset($webpPath);
+        }
+        
+        // Fallback to original
+        return asset($path);
+    }
+}
