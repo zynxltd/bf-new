@@ -165,13 +165,13 @@ $faqSchema = [
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="site-collapse-nav">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#home" class="nav-item">Home</a></li>
-                        <li><a href="#about" class="nav-item">About</a></li>
-                        <li><a href="#features" class="nav-item">Features</a></li>
-                        <li><a href="#products" class="nav-item">Products</a></li>
-                        <li><a href="#videos" class="nav-item">Videos</a></li>
-                        <li><a href="#faq" class="nav-item">FAQ</a></li>
-                        <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
+                        <li><a href="#home" class="nav-item" aria-label="Navigate to Home section">Home</a></li>
+                        <li><a href="#about" class="nav-item" aria-label="Navigate to About section">About</a></li>
+                        <li><a href="#features" class="nav-item" aria-label="Navigate to Features section">Features</a></li>
+                        <li><a href="#products" class="nav-item" aria-label="Navigate to Products section">Products</a></li>
+                        <li><a href="#videos" class="nav-item" aria-label="Navigate to Videos section">Videos</a></li>
+                        <li><a href="#faq" class="nav-item" aria-label="Navigate to FAQ section">FAQ</a></li>
+                        <li><a href="{{ route('blog.index') }}" class="nav-item" aria-label="View Blog and Guides">Blog</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
@@ -189,19 +189,19 @@ $faqSchema = [
                 <span></span>
             </button>
             <ul class="desktop-slide-menu-nav">
-                <li><a href="#home" class="nav-item">Home</a></li>
-                <li><a href="#about" class="nav-item">About</a></li>
-                <li><a href="#features" class="nav-item">Features</a></li>
-                <li><a href="#products" class="nav-item">Products</a></li>
-                <li><a href="#videos" class="nav-item">Videos</a></li>
-                <li><a href="#faq" class="nav-item">FAQ</a></li>
-                <li><a href="{{ route('blog.index') }}" class="nav-item">Blog</a></li>
+                <li><a href="#home" class="nav-item" aria-label="Navigate to Home section">Home</a></li>
+                <li><a href="#about" class="nav-item" aria-label="Navigate to About section">About</a></li>
+                <li><a href="#features" class="nav-item" aria-label="Navigate to Features section">Features</a></li>
+                <li><a href="#products" class="nav-item" aria-label="Navigate to Products section">Products</a></li>
+                <li><a href="#videos" class="nav-item" aria-label="Navigate to Videos section">Videos</a></li>
+                <li><a href="#faq" class="nav-item" aria-label="Navigate to FAQ section">FAQ</a></li>
+                <li><a href="{{ route('blog.index') }}" class="nav-item" aria-label="View Blog and Guides">Blog</a></li>
                 <li class="desktop-menu-divider"><span></span></li>
                 <li class="desktop-menu-store-links">
-                    <a href="https://www.yougarden.com?source=bloomingfast.com" class="nav-item store-link" target="_blank" rel="noopener">
+                    <a href="https://www.yougarden.com?source=bloomingfast.com" class="nav-item store-link" target="_blank" rel="noopener" aria-label="Visit YouGarden">
                         <img src="{{ asset('images/yglogosmall.png') }}" alt="YouGarden" loading="lazy" />
                     </a>
-                    <a href="https://www.amazon.co.uk/stores/page/5D2120F1-F052-4812-AAF7-6FE644404EC7/search?lp_asin=B0D44VQZ1S&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto&terms=blooming%20fast" class="nav-item store-link" target="_blank" rel="noopener">
+                    <a href="https://www.amazon.co.uk/stores/page/5D2120F1-F052-4812-AAF7-6FE644404EC7/search?lp_asin=B0D44VQZ1S&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto&terms=blooming%20fast" class="nav-item store-link" target="_blank" rel="noopener" aria-label="Visit Amazon">
                         <img src="{{ asset('images/amazoncolour.png') }}" alt="Amazon" loading="lazy" />
                     </a>
                 </li>
@@ -320,8 +320,8 @@ $faqSchema = [
                     <p>Superior by name and Superior by nature, the only fertiliser you need for your garden for more flowers and more fruit, as well as better roots and shoots too. You can transform the performance of your plants with regular feeding throughout the main growing season.</p>
                     <p>Simple to use, just add one 5g scoop, included in the pack, to a gallon of water (4.5 litres) or a standard watering can full, and simply water on weekly during the growing season.</p>
                     <div class="mt-40 about-buttons">
-                        <a href="#products" class="button button-primary">View All Products</a>
-                        <a href="#videos" class="button button-secondary">View Videos</a>
+                        <a href="#products" class="button button-primary" aria-label="View all products">View All Products</a>
+                        <a href="#videos" class="button button-secondary" aria-label="View product videos">View Videos</a>
                     </div>
                 </div>
             </div><!-- .col -->
@@ -587,7 +587,7 @@ $faqSchema = [
                             @endif
                             <img src="{{ $product->image ? asset($product->image) : asset('images/superiorV4.png') }}" alt="{{ $product->title }}" class="img-responsive" loading="lazy" decoding="async" />
                             <div class="product-quick-view-overlay">
-                                <a href="#" class="product-quick-view-btn" title="Quick View">
+                                <a href="#" class="product-quick-view-btn" title="Quick View" aria-label="Quick view {{ $product->title }}">
                                     <i class="fa fa-eye"></i>
                                 </a>
                             </div>
@@ -666,7 +666,7 @@ $faqSchema = [
                         <div class="video-thumbnail">
                             <img src="{{ asset('images/superiorV4.png') }}" alt="Superior Soluble Fertiliser" class="img-responsive" />
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">Superior Soluble Fertiliser</h4>
@@ -681,7 +681,7 @@ $faqSchema = [
                         <div class="video-thumbnail">
                             <img src="{{ asset('images/bloom-booster-p1.jpg') }}" alt="Ultimate Rose Bloom Booster" class="img-responsive" />
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/1100825820" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                            <a href="https://vimeo.com/1100825820" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Ultimate Rose Bloom Booster video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">Ultimate Rose Bloom Booster</h4>
@@ -696,7 +696,7 @@ $faqSchema = [
                         <div class="video-thumbnail">
                             <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" />
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/1090498990?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                            <a href="https://vimeo.com/1090498990?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Acer Feed video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">Acer Feed</h4>
@@ -711,7 +711,7 @@ $faqSchema = [
                         <div class="video-thumbnail">
                             <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" />
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471587?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                            <a href="https://vimeo.com/170471587?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Fish Blood & Bone video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">Fish Blood & Bone</h4>
@@ -753,11 +753,11 @@ $faqSchema = [
                             </div>
                             
                             <!-- Controls -->
-                            <a class="left carousel-control" href="#productModalCarousel" role="button" data-slide="prev" id="modalCarouselPrev">
+                            <a class="left carousel-control" href="#productModalCarousel" role="button" data-slide="prev" id="modalCarouselPrev" aria-label="Previous product image">
                                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="right carousel-control" href="#productModalCarousel" role="button" data-slide="next" id="modalCarouselNext">
+                            <a class="right carousel-control" href="#productModalCarousel" role="button" data-slide="next" id="modalCarouselNext" aria-label="Next product image">
                                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
