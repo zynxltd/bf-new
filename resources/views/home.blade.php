@@ -466,7 +466,7 @@ $faqSchema = [
                         </ol>
                         
                         <!-- Carousel Items -->
-                        <div class="carousel-inner testimonials-carousel-inner" role="listbox">
+                        <div class="carousel-inner testimonials-carousel-inner" role="listbox" aria-live="polite">
                             <div class="item active">
                                 <div class="testimonial-card">
                                     <div class="testimonial-rating mb-15">
@@ -749,7 +749,7 @@ $faqSchema = [
                             </ol>
                             
                             <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox" id="modalCarouselInner">
+                            <div class="carousel-inner" role="listbox" id="modalCarouselInner" aria-live="polite">
                             </div>
                             
                             <!-- Controls -->
@@ -823,14 +823,14 @@ $faqSchema = [
                             
                             <!-- Application -->
                             <div class="panel panel-default" id="modalProductApplicationSection">
-                                <div class="panel-heading" role="tab">
+                                <div class="panel-heading" role="tab" id="modalProductApplicationHeading">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductApplicationCollapse" aria-expanded="false" class="collapsed">
+                                        <a role="button" id="modalProductApplicationButton" data-toggle="collapse" data-parent="#productModalAccordion" href="#modalProductApplicationCollapse" aria-expanded="false" aria-controls="modalProductApplicationCollapse" class="collapsed">
                                             Application <i class="fa fa-chevron-down pull-right"></i>
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="modalProductApplicationCollapse" class="panel-collapse collapse" role="tabpanel">
+                                <div id="modalProductApplicationCollapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="modalProductApplicationHeading">
                                     <div class="panel-body">
                                         <div id="modalProductApplicationText" class="product-modal-content-text"></div>
                                     </div>
