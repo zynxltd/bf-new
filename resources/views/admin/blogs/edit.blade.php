@@ -97,7 +97,10 @@
                 <div class="form-group-admin">
                     <label class="form-label-admin" for="published_date">Published Date *</label>
                     @php
-                        $publishedDate = old('published_date', $blog->published_date ? $blog->published_date->format('Y-m-d') : '');
+                        $publishedDate = old('published_date');
+                        if (!$publishedDate && $blog->published_date) {
+                            $publishedDate = $blog->published_date->format('Y-m-d');
+                        }
                     @endphp
                     <input type="date" class="form-control-admin @error('published_date') is-invalid @enderror" id="published_date" name="published_date" value="{{ $publishedDate }}" required>
                     @error('published_date')
@@ -151,7 +154,6 @@
 @push('scripts')
 <script>
 $(document).ready(function() {
-    // Auto-generate slug from title if slug is empty
     $('#title').on('input', function() {
         if ($('#slug').val() === '' || $('#slug').data('auto-generated')) {
             var title = $(this).val();
@@ -165,12 +167,10 @@ $(document).ready(function() {
         }
     });
     
-    // Allow manual slug editing
     $('#slug').on('input', function() {
         $(this).data('auto-generated', false);
     });
     
-    // Auto-generate category slug from category
     $('#category').on('input', function() {
         var category = $(this).val();
         var categorySlug = category.toLowerCase()
