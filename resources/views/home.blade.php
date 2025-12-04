@@ -1959,6 +1959,13 @@ From May to September feed your plants twice a week while watering.</p>
         setTimeout(reinitFeefo, 500);
     });
     
+    // Make sure openProductModal is accessible
+    if (typeof window.openProductModal === 'undefined') {
+        console.error('openProductModal function not defined!');
+    } else {
+        console.log('openProductModal function is available');
+    }
+    
     // Load Feefo product review widget script
     function loadFeefoProductReviewWidget() {
         // Load Feefo widget script if not already loaded
