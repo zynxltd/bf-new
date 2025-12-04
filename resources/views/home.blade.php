@@ -138,6 +138,9 @@ $faqSchema = [
 <!-- Start .header-section -->
 <div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section">
     
+    <!-- Hero Spotlight Animation -->
+    <div id="hero-spotlight-animation" class="hero-spotlight-bg"></div>
+    
     <!-- Gradient Overlay -->
     <div class="gradiant-background gradiant-overlay"></div>
     <div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">

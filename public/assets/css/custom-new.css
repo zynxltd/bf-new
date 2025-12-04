@@ -3484,6 +3484,37 @@ h2.heading {
     }
 }
 
+/* Hero Spotlight Animation - Unique ID to avoid conflicts */
+#hero-spotlight-animation.hero-spotlight-bg {
+    content: '' !important;
+    position: absolute !important;
+    top: -50% !important;
+    left: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background-image: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 30%,
+        transparent 70%
+    ) !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: 200% 200% !important;
+    background-color: transparent !important;
+    animation: heroLightRotate 20s linear infinite !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform-origin: center center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    bottom: auto !important;
+    right: auto !important;
+}
+
 /* Ensure gradient overlay is on top of background effects */
 .header-section .gradiant-overlay {
     z-index: 2 !important;
