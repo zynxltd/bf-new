@@ -1185,18 +1185,7 @@ h1, .h1 {
 }
 
 /* Hero Bottom Divider - ensure it's not cut off */
-.hero-bottom-divider {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 150px;
-    z-index: 1;
-    pointer-events: none;
-    overflow: visible;
-    display: block;
-}
+/* Old hero-bottom-divider definition removed - see line 3316 for current definition */
 
 .hero-bottom-divider svg {
     width: 100%;
