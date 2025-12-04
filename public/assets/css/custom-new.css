@@ -1419,12 +1419,17 @@ h1, .h1 {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 12px;
+    text-align: center;
+    width: 100%;
 }
 
 .size-badges {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .size-badge {
