@@ -3317,6 +3317,18 @@ h2.heading {
     visibility: visible !important;
     opacity: 1 !important;
     overflow: visible !important;
+    background: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
+}
+
+.hero-bottom-divider img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: bottom center !important;
+    display: block !important;
+    transform: scaleY(-1) !important;
+    mix-blend-mode: multiply;
+    opacity: 0.9;
 }
 
 .hero-bottom-divider img {
