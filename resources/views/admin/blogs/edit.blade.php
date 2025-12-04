@@ -150,34 +150,53 @@
 
 @push('scripts')
 <script>
-$(document).ready(function() {
-    $('#title').on('input', function() {
-        if ($('#slug').val() === '' || $('#slug').data('auto-generated')) {
-            var title = $(this).val();
-            var slug = title.toLowerCase()
-                .replace(/[^\w\s-]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/-+/g, '-')
-                .trim();
-            $('#slug').val(slug);
-            $('#slug').data('auto-generated', true);
+(function() {
+    // Wait for jQuery to be available
+    function initWhenReady() {
+        if (typeof jQuery === 'undefined') {
+            setTimeout(initWhenReady, 50);
+            return;
         }
-    });
+        
+        var $ = jQuery;
+        
+        $(document).ready(function() {
+            $('#title').on('input', function() {
+                if ($('#slug').val() === '' || $('#slug').data('auto-generated')) {
+                    var title = $(this).val();
+                    var slug = title.toLowerCase()
+                        .replace(/[^\w\s-]/g, '')
+                        .replace(/\s+/g, '-')
+                        .replace(/-+/g, '-')
+                        .trim();
+                    $('#slug').val(slug);
+                    $('#slug').data('auto-generated', true);
+                }
+            });
+            
+            $('#slug').on('input', function() {
+                $(this).data('auto-generated', false);
+            });
+            
+            $('#category').on('input', function() {
+                var category = $(this).val();
+                var categorySlug = category.toLowerCase()
+                    .replace(/[^\w\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-')
+                    .trim();
+                $('#category_slug').val(categorySlug);
+            });
+        });
+    }
     
-    $('#slug').on('input', function() {
-        $(this).data('auto-generated', false);
-    });
-    
-    $('#category').on('input', function() {
-        var category = $(this).val();
-        var categorySlug = category.toLowerCase()
-            .replace(/[^\w\s-]/g, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-')
-            .trim();
-        $('#category_slug').val(categorySlug);
-    });
-});
+    // Start initialization
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWhenReady);
+    } else {
+        initWhenReady();
+    }
+})();
 </script>
 @endpush
 
