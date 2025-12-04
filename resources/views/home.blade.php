@@ -222,7 +222,7 @@ $faqSchema = [
                         <!-- Hero Image - appears here on mobile -->
                         <div class="hero-image-mobile-placeholder">
                             <div class="wow fadeInUp confetti-burst-trigger" data-wow-duration="1s" data-wow-delay=".6s">
-                                {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['loading' => 'lazy', 'width' => '600', 'height' => '600', 'style' => 'max-width: 100%; height: auto;']) !!}
+                                {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['loading' => 'lazy', 'width' => '800', 'height' => '1062', 'style' => 'max-width: 100%; height: auto;']) !!}
                             </div>
                         </div>
                         <div class="hero-sizes wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
@@ -265,7 +265,7 @@ $faqSchema = [
                 </div><!-- .col -->
                 <div class="col-md-5 hero-image-column" style="z-index: 999;">
                     <div class="wow fadeInUp confetti-burst-trigger" data-wow-duration="1s" data-wow-delay=".6s" >
-                        {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['style' => 'z-index: 999;', 'loading' => 'eager', 'width' => '600', 'height' => '600']) !!}
+                        {!! webp_picture('images/superiorV4.png', 'Superior Plant Food', ['style' => 'z-index: 999;', 'loading' => 'eager', 'width' => '800', 'height' => '1062']) !!}
                     </div>
                 </div>
             </div><!-- .row -->

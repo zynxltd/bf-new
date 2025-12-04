@@ -63,7 +63,7 @@
     <!-- Preloader End -->
     
     <!-- Inline preloader script - runs immediately without jQuery -->
-    <script>
+    <script nonce="{{ $scriptNonce ?? '' }}">
     (function() {
         var preloader = document.getElementById('preloader');
         var hidden = false;
@@ -124,6 +124,13 @@
     <script src="https://api.feefo.com/api/javascript/you-garden" async></script>
     
     @stack('scripts')
+    
+    @if(isset($scriptNonce))
+    <script nonce="{{ $scriptNonce }}">
+        // Make nonce available for dynamically added scripts if needed
+        window.__CSP_NONCE__ = '{{ $scriptNonce }}';
+    </script>
+    @endif
     
     <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top" aria-label="Back to top" style="display: none;">

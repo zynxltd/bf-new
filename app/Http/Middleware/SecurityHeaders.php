@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
 
 class SecurityHeaders
 {
@@ -15,6 +16,14 @@ class SecurityHeaders
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Generate nonces for CSP
+        $scriptNonce = base64_encode(Str::random(32));
+        $styleNonce = base64_encode(Str::random(32));
+        
+        // Store nonces in view for use in templates
+        view()->share('scriptNonce', $scriptNonce);
+        view()->share('styleNonce', $styleNonce);
+        
         $response = $next($request);
 
         // Add security headers
@@ -32,8 +41,19 @@ class SecurityHeaders
             $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
         }
         
-        // CSP Header - improved for better XSS protection
-        $csp = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://register.feefo.com https://api.feefo.com https://fonts.googleapis.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com https://register.feefo.com; font-src 'self' https://fonts.gstatic.com https://maxcdn.bootstrapcdn.com data:; img-src 'self' data: https:; connect-src 'self' https://register.feefo.com https://api.feefo.com https://collect.feefo.com; frame-src https://register.feefo.com https://player.vimeo.com https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;";
+        // CSP Header - using nonces for better XSS protection
+        // Note: We still need 'unsafe-eval' for some third-party scripts (Feefo), but nonces are more secure than 'unsafe-inline'
+        $csp = "default-src 'self'; " .
+               "script-src 'self' 'nonce-{$scriptNonce}' 'strict-dynamic' 'unsafe-eval' https://register.feefo.com https://api.feefo.com https://fonts.googleapis.com https://maps.googleapis.com; " .
+               "style-src 'self' 'nonce-{$styleNonce}' 'unsafe-inline' https://fonts.googleapis.com https://maxcdn.bootstrapcdn.com https://register.feefo.com; " .
+               "font-src 'self' https://fonts.gstatic.com https://maxcdn.bootstrapcdn.com data:; " .
+               "img-src 'self' data: https:; " .
+               "connect-src 'self' https://register.feefo.com https://api.feefo.com https://collect.feefo.com; " .
+               "frame-src https://register.feefo.com https://player.vimeo.com https://www.youtube.com; " .
+               "object-src 'none'; " .
+               "base-uri 'self'; " .
+               "form-action 'self'; " .
+               "upgrade-insecure-requests;";
         $response->headers->set('Content-Security-Policy', $csp);
 
         return $response;
