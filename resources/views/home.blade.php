@@ -2142,6 +2142,25 @@ From May to September feed your plants twice a week while watering.</p>
         const cards = section.querySelectorAll('.feature-nutrient-card');
         const productImage = section.querySelector('.features-product-image');
         
+        // Ensure cards are visible immediately (don't wait for animation)
+        cards.forEach(card => {
+            card.style.opacity = '1';
+            card.style.visibility = 'visible';
+            card.style.transform = 'translateY(0)';
+            card.classList.add('animate-in');
+        });
+        
+        if (productImage) {
+            productImage.style.opacity = '1';
+            productImage.style.visibility = 'visible';
+            productImage.style.transform = 'translateY(0) scale(1)';
+            productImage.classList.add('animate-in');
+        }
+        
+        if (sectionHead) {
+            sectionHead.classList.add('animate-in');
+        }
+        
         // Check if already in view on page load
         const rect = section.getBoundingClientRect();
         const isInView = rect.top < window.innerHeight && rect.bottom > 0;
