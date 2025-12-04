@@ -3835,8 +3835,9 @@ h2.heading {
     justify-content: center;
     filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.2));
     z-index: 5;
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out, all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
