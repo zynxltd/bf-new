@@ -615,13 +615,11 @@ $faqSchema = [
                                 @if($product->yg_link)
                                 <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button btn-buy-yg" target="_blank" rel="noopener" onclick="event.stopPropagation();" aria-label="Buy {{ $product->title }} from YouGarden">
                                     {!! webp_picture('images/yglogosmall.png', 'YouGarden', ['loading' => 'lazy']) !!}
-                                    <span class="btn-text">Buy Now</span>
                                 </a></li>
                                 @endif
                                 @if($product->amazon_link)
                                 <li><a href="{{ $product->amazon_link }}" class="product-button btn-buy-amazon" target="_blank" rel="noopener" onclick="event.stopPropagation();" aria-label="Buy {{ $product->title }} from Amazon">
                                     {!! webp_picture('images/amazoncolour.png', 'Amazon', ['loading' => 'lazy']) !!}
-                                    <span class="btn-text">Buy Now</span>
                                 </a></li>
                                 @endif
                             </ul>
