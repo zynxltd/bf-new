@@ -307,7 +307,7 @@ $faqSchema = [
                 <div class="video about-section-video" style="margin-bottom: 40px;">
                     <img src="{{ asset('images/video.png') }}" alt="about-video" />
                     <div class="video-overlay gradiant-background"></div>
-                    <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold"><i class="fa fa-play"></i></a>
+                    <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                 </div>
             </div><!-- .col -->
         </div><!-- .row -->
