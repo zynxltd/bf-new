@@ -62,7 +62,7 @@
                 <h5 class="heading-light mb-20">Where to Buy</h5>
                 <ul class="footer-links-list">
                     <li><a href="https://www.yougarden.com?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">YouGarden</a></li>
-                    <li><a href="https://www.amazon.co.uk" class="heading-light" target="_blank" rel="noopener">Amazon</a></li>
+                    <li><a href="https://www.amazon.co.uk/stores/YouGarden/page/5D2120F1-F052-4812-AAF7-6FE644404EC7?lp_asin=B0FBX38VQT&ref_=ast_bln&store_ref=bl_ast_dp_brandLogo_sto" class="heading-light" target="_blank" rel="noopener">Amazon</a></li>
                     <li><a href="https://www.yougarden.com/item-p-820001/yg-discount-club-annual-membership?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener" style="font-weight: 600; color: #ffd700;">✨ YouGarden Discount Club</a></li>
                 </ul>
                 <div class="footer-social mt-30">
