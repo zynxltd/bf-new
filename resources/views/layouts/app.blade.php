@@ -120,6 +120,41 @@
     <script src="https://api.feefo.com/api/javascript/you-garden" async></script>
     
     @stack('scripts')
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top" style="display: none;">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+    
+    <script>
+    // Back to Top Button
+    (function() {
+        var backToTopBtn = document.getElementById('backToTop');
+        if (!backToTopBtn) return;
+        
+        // Show/hide button based on scroll position
+        function toggleBackToTop() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }
+        
+        // Scroll to top when clicked
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Listen for scroll events
+        window.addEventListener('scroll', toggleBackToTop);
+        toggleBackToTop(); // Check initial state
+    })();
+    </script>
 </body>
 </html>
 

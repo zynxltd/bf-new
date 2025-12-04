@@ -18,7 +18,9 @@
             <!-- Footer Brand Column -->
             <div class="col-md-3 col-sm-6 mb-40">
                 <div class="footer-brand">
-                    <img src="{{ asset('images/logo.png') }}" alt="Blooming Fast" class="footer-logo mb-20" style="max-width: 200px; filter: brightness(0) invert(1);" />
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('images/logo.png') }}" alt="Blooming Fast" class="footer-logo mb-20" style="max-width: 200px; filter: brightness(0) invert(1);" />
+                    </a>
                     <p class="heading-light">Premium plant foods and fertilisers for bigger, better blooms and healthier plants. Professional grade formulations for your garden.</p>
                 </div>
             </div><!-- .col -->

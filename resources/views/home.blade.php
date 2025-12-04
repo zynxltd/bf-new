@@ -1153,21 +1153,17 @@ From May to September feed your plants twice a week while watering.</p>
 
 
 <!-- Newsletter Signup Section -->
-<div class="newsletter-section section gradiant-background pt-80 pb-80">
+<div class="newsletter-section section pt-80 pb-80">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
-                <h2 class="heading heading-light mb-20">Stay Updated with Gardening Tips</h2>
-                <p class="lead heading-light mb-40">Subscribe to our newsletter for expert gardening advice, seasonal tips, and exclusive offers</p>
+                <h2 class="heading mb-20">Stay Updated with Gardening Tips</h2>
+                <p class="lead mb-40">Subscribe to our newsletter for expert gardening advice, seasonal tips, and exclusive offers</p>
                 <form id="newsletterForm" class="newsletter-form">
                     @csrf
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8">
-                            <input type="email" name="email" id="newsletterEmail" class="form-control newsletter-input" placeholder="Enter your email address" required aria-label="Email address">
-                        </div>
-                        <div class="col-md-4 col-sm-4">
-                            <button type="submit" class="btn btn-primary newsletter-btn" style="width: 100%;">Subscribe</button>
-                        </div>
+                    <div class="newsletter-form-group">
+                        <input type="email" name="email" id="newsletterEmail" class="form-control newsletter-input" placeholder="Enter your email address" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
                     </div>
                     <div id="newsletterMessage" class="newsletter-message mt-20" style="display: none;"></div>
                 </form>
