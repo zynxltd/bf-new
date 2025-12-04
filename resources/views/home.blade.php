@@ -1887,11 +1887,9 @@ From May to September feed your plants twice a week while watering.</p>
             if (typeof gtag !== 'undefined') {
                 var productTitle = $card.attr('data-product-title') || title;
                 var productSku = $card.attr('data-product-sku') || '';
-                var productPrice = $card.attr('data-product-price') || '';
                 
                 gtag('event', 'view_item', {
                     'currency': 'GBP',
-                    'value': productPrice ? parseFloat(productPrice) : 0,
                     'items': [{
                         'item_id': productSku || productTitle,
                         'item_name': productTitle,
@@ -1900,7 +1898,7 @@ From May to September feed your plants twice a week while watering.</p>
                     }]
                 });
                 
-                console.log('GA4 product view event tracked:', productTitle);
+                console.log('GA4 product view event tracked:', productTitle, 'SKU:', productSku);
             }
         } catch (error) {
             console.error('Error showing modal:', error);
