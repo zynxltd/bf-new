@@ -3441,7 +3441,9 @@ h2.heading {
     }
 }
 
-/* Subtle light rays effect */
+/* Subtle light rays effect - Spotlight animation */
+#home.header-section.gradiant-background::after,
+#home.header-section.half-header.gradiant-background::after,
 .header-section.gradiant-background::after,
 .header-section.half-header.gradiant-background::after {
     content: '' !important;
@@ -3462,11 +3464,16 @@ h2.heading {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
-    transform: none !important;
-    background-image: none !important;
-    background-position: initial !important;
-    background-repeat: initial !important;
-    background-size: initial !important;
+    transform-origin: center center !important;
+    background-image: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 30%,
+        transparent 70%
+    ) !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: 200% 200% !important;
     background-color: transparent !important;
     margin: 0 !important;
     padding: 0 !important;
