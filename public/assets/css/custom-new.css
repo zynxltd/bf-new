@@ -9255,6 +9255,17 @@ html {
     font-display: swap;
 }
 
+/* Hide carb images on mobile */
+@media (max-width: 767px) {
+    .carb-image-mobile-hide {
+        display: none !important;
+    }
+    
+    .section-divider-mobile-hide {
+        display: none !important;
+    }
+}
+
 /* Back to Top Button */
 .back-to-top {
     position: fixed;
