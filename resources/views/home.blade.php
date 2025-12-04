@@ -1882,6 +1882,26 @@ From May to September feed your plants twice a week while watering.</p>
         try {
             $modal.modal('show');
             console.log('Modal show called successfully');
+            
+            // Track GA4 product view event
+            if (typeof gtag !== 'undefined') {
+                var productTitle = $card.attr('data-product-title') || title;
+                var productSku = $card.attr('data-product-sku') || '';
+                var productPrice = $card.attr('data-product-price') || '';
+                
+                gtag('event', 'view_item', {
+                    'currency': 'GBP',
+                    'value': productPrice ? parseFloat(productPrice) : 0,
+                    'items': [{
+                        'item_id': productSku || productTitle,
+                        'item_name': productTitle,
+                        'item_category': 'Plant Food',
+                        'item_brand': 'Blooming Fast'
+                    }]
+                });
+                
+                console.log('GA4 product view event tracked:', productTitle);
+            }
         } catch (error) {
             console.error('Error showing modal:', error);
             alert('Error opening product modal: ' + error.message);
