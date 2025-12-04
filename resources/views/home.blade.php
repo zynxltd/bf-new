@@ -593,7 +593,7 @@ $faqSchema = [
                             @endif
                             {!! $product->image ? webp_picture($product->image, $product->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) : webp_picture('images/superiorV4.png', $product->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) !!}
                             <div class="product-quick-view-overlay">
-                                <a href="#" class="product-quick-view-btn" title="Quick View" aria-label="Quick view {{ $product->title }}">
+                                <a href="javascript:void(0);" class="product-quick-view-btn" title="Quick View" aria-label="Quick view {{ $product->title }}">
                                     <i class="fa fa-eye"></i>
                                 </a>
                             </div>
@@ -1255,13 +1255,15 @@ From May to September feed your plants twice a week while watering.</p>
         createConfettiBurst($(this));
     });
     // Quick view button click handler
-    $('.product-quick-view-btn').on('click', function(e) {
+    $(document).on('click', '.product-quick-view-btn', function(e) {
         e.preventDefault();
         e.stopPropagation();
+        e.stopImmediatePropagation();
         var $card = $(this).closest('.product-card-clickable');
         if ($card.length) {
             openProductModal($card);
         }
+        return false;
     });
     
     // Make product image clickable
