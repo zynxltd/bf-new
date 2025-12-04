@@ -6340,10 +6340,13 @@ h2.heading {
     width: auto;
     height: auto;
     max-width: 200px;
+    filter: brightness(0) invert(1) !important;
 }
 
 .footer-logo img,
-.footer-logo picture img {
+.footer-logo picture,
+.footer-logo picture img,
+.footer-logo picture source + img {
     display: block;
     width: auto;
     height: auto;
@@ -6351,6 +6354,11 @@ h2.heading {
     object-fit: contain;
     filter: brightness(0) invert(1) !important;
     opacity: 0.95;
+}
+
+.footer-logo picture {
+    filter: brightness(0) invert(1) !important;
+    display: block;
 }
 
 .pt-80 {
