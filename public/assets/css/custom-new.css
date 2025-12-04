@@ -1723,6 +1723,20 @@ h1, .h1 {
         margin-bottom: 30px;
         margin-top: 30px;
         text-align: center;
+        display: none; /* Hide desktop image column on mobile */
+    }
+    
+    /* Show mobile placeholder image */
+    .hero-image-mobile-placeholder {
+        display: block !important;
+        order: 4;
+        margin: 30px 0;
+        text-align: center;
+    }
+    
+    .hero-image-mobile-placeholder img {
+        max-width: 100%;
+        height: auto;
     }
     
     /* Mobile hero layout - reorder badge above title */
@@ -1754,22 +1768,22 @@ h1, .h1 {
         order: 3;
     }
     
-    /* Image appears after description via column order */
+    /* Image appears after description (order 4) */
     
     .hero-content-mobile .hero-sizes {
-        order: 4;
-    }
-    
-    .hero-content-mobile .hero-cta {
         order: 5;
     }
     
-    .hero-content-mobile .buttons {
+    .hero-content-mobile .hero-cta {
         order: 6;
     }
     
-    .hero-content-mobile .hero-feefo-badge {
+    .hero-content-mobile .buttons {
         order: 7;
+    }
+    
+    .hero-content-mobile .hero-feefo-badge {
+        order: 8;
         margin-top: 20px;
     }
     
@@ -1868,6 +1882,14 @@ h1, .h1 {
     
     .header-section .col-md-5 img {
         max-width: 60%;
+    }
+    
+    .hero-image-column {
+        display: none !important;
+    }
+    
+    .hero-image-mobile-placeholder {
+        display: block !important;
     }
     
     .header-section .button {
