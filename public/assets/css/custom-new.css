@@ -2331,8 +2331,9 @@ h2.heading {
 /* About section video animation is handled by .about-section-video class */
 
 .about-section-video {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -3677,8 +3678,9 @@ h2.heading {
 }
 
 .features-section .section-head {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 

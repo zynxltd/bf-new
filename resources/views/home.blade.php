@@ -1306,8 +1306,11 @@ From May to September feed your plants twice a week while watering.</p>
             return;
         }
         
+        e.preventDefault();
+        e.stopPropagation();
         var $card = $(this);
         openProductModal($card);
+        return false;
     });
     
     // Function to open product modal
@@ -2132,6 +2135,20 @@ From May to September feed your plants twice a week while watering.</p>
         observer.observe(video);
     }
     
+    // Ensure about section video is visible on page load
+    function initAboutSectionVideo() {
+        const aboutVideo = document.querySelector('.about-section-video');
+        if (aboutVideo) {
+            aboutVideo.style.opacity = '1';
+            aboutVideo.style.visibility = 'visible';
+            aboutVideo.style.transform = 'translateY(0) scale(1)';
+            aboutVideo.classList.add('animate-in');
+        }
+    }
+    
+    // Initialize about section video immediately
+    initAboutSectionVideo();
+    
     // Scroll-triggered animation for "What's in our Superior Plant Food" section
     function animateFeaturesSection() {
         const section = document.querySelector('.features-section');
@@ -2141,6 +2158,14 @@ From May to September feed your plants twice a week while watering.</p>
         const sectionHead = section.querySelector('.section-head');
         const cards = section.querySelectorAll('.feature-nutrient-card');
         const productImage = section.querySelector('.features-product-image');
+        
+        // Ensure section head is visible immediately
+        if (sectionHead) {
+            sectionHead.style.opacity = '1';
+            sectionHead.style.visibility = 'visible';
+            sectionHead.style.transform = 'translateY(0)';
+            sectionHead.classList.add('animate-in');
+        }
         
         // Ensure cards are visible immediately (don't wait for animation)
         cards.forEach(card => {
@@ -2155,10 +2180,6 @@ From May to September feed your plants twice a week while watering.</p>
             productImage.style.visibility = 'visible';
             productImage.style.transform = 'translateY(0) scale(1)';
             productImage.classList.add('animate-in');
-        }
-        
-        if (sectionHead) {
-            sectionHead.classList.add('animate-in');
         }
         
         // Check if already in view on page load
