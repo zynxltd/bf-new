@@ -8719,6 +8719,11 @@ html {
         font-size: 28px;
     }
     
+    /* Blog post section - push content below logo on mobile */
+    .blog-post-section {
+        padding-top: 140px !important; /* Increased to push content below logo */
+    }
+    
     .blog-post-content {
         font-size: 16px;
     }
