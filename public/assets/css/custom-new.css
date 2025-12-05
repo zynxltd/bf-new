@@ -10236,6 +10236,30 @@ html {
     
     .footer-links-list {
         margin-bottom: 25px !important;
+        text-align: center !important; /* Center align footer links on mobile */
+    }
+    
+    .footer-links-list li {
+        text-align: center !important;
+    }
+    
+    .footer-links-list a {
+        text-align: center !important;
+        display: inline-block !important;
+    }
+    
+    /* Footer logo slightly smaller on mobile */
+    .footer-logo,
+    .footer-logo img,
+    .footer-logo picture,
+    .footer-logo picture img,
+    .footer-logo picture source + img {
+        max-width: 160px !important; /* Reduced from 200px */
+    }
+    
+    /* Center footer brand on mobile */
+    .footer-brand {
+        text-align: center !important;
     }
     
     /* Newsletter Form Mobile */
