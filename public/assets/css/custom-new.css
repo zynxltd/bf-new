@@ -2902,6 +2902,14 @@ h2.heading {
         font-weight: 500;
     }
     
+    /* Hide Feefo logo in customer reviews section on mobile */
+    .customer-reviews-feefo-badge-mobile img[alt="Feefo"],
+    .customer-reviews-feefo-badge-mobile > div:last-child {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
     .customer-reviews-content {
         padding: 30px 15px;
     }
