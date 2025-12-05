@@ -1869,11 +1869,18 @@ h1, .h1 {
     }
     
     .size-badges {
-        flex-wrap: wrap;
+        flex-wrap: nowrap !important; /* Keep badges in a row, not stacked */
+        flex-direction: row !important; /* Ensure horizontal layout */
         gap: 8px;
         justify-content: center;
-        display: flex;
+        display: flex !important;
         align-items: center;
+    }
+    
+    .size-badge {
+        flex: 0 1 auto !important; /* Allow badges to shrink if needed but don't grow */
+        min-width: 0 !important; /* Allow shrinking below content size if necessary */
+        white-space: nowrap !important; /* Prevent text wrapping inside badges */
     }
     
     .size-label {
