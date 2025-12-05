@@ -9743,6 +9743,14 @@ html {
 
 /* Touch-Friendly Targets - Minimum 44x44px for all interactive elements */
 @media (max-width: 767px) {
+    /* Hide Hero Bottom Divider on Mobile */
+    .hero-bottom-divider {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+    }
+    
     /* Buttons - Ensure minimum touch target size */
     .button,
     .button-primary,
