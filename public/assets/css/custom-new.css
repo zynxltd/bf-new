@@ -1945,6 +1945,21 @@ h1, .h1 {
     
     .hero-cta {
         font-size: 16px !important; /* Increased from 14px by 2px */
+        text-align: center !important; /* Center align on mobile */
+    }
+    
+    /* Make reviews badge same size as buttons on smaller mobile */
+    .hero-feefo-link {
+        min-width: 140px !important;
+        max-width: 160px !important;
+        width: auto !important;
+    }
+    
+    .hero-feefo-link .feefo-fallback-badge {
+        min-width: 140px !important;
+        max-width: 160px !important;
+        width: 100% !important;
+        padding: 10px 16px !important; /* Match button padding */
     }
 }
 
