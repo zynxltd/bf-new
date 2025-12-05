@@ -135,6 +135,11 @@ $faqSchema = [
 @endpush
 
 @section('content')
+<!-- Reading Progress Bar -->
+<div class="reading-progress-container">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+</div>
+
 <!-- Start .header-section -->
 <div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section">
     
