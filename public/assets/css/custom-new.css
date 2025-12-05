@@ -4223,9 +4223,10 @@ h2.heading {
 }
 
 /* Fallback for checkmark if icon font doesn't load */
-.feature-nutrient-card i.ti-check:before {
-    content: '✓';
-    display: inline-block;
+/* Font Awesome check-circle icon styling - no fallback needed */
+.feature-nutrient-card i.fa-check-circle {
+    color: #70D969;
+    font-size: 24px;
 }
 
 .feature-nutrient-content {
