@@ -10246,6 +10246,20 @@ html {
         justify-content: center !important;
     }
     
+    /* Center footer social icons on mobile */
+    .footer-social {
+        text-align: center !important;
+    }
+    
+    .footer-social .social-links {
+        justify-content: center !important;
+        display: flex !important;
+    }
+    
+    .footer-social p {
+        text-align: center !important;
+    }
+    
     /* Footer Links */
     .footer-links-list a,
     .footer-links a {
