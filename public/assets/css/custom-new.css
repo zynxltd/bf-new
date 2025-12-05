@@ -6765,7 +6765,7 @@ html {
     }
     
     .products-section .section-head h2 {
-        font-size: 44px; /* Increased from 42px by 2px */
+        font-size: 38px !important; /* Same size as 'What's in our Superior Plant Food' heading */
         line-height: 1.3;
         word-wrap: break-word;
         overflow-wrap: break-word;
