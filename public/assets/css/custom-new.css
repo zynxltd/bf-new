@@ -2557,6 +2557,14 @@ h2.heading {
         display: block !important;
     }
     
+    /* Hide Feefo product review widget on mobile */
+    #feefo-product-review-widgetId,
+    .feefo-review-widget-product#feefo-product-review-widgetId {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
     /* Hide product review badges on mobile */
     .product-review-badge-desktop {
         display: none !important;
