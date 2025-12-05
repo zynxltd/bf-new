@@ -6784,6 +6784,11 @@ html {
         font-size: 16px;
     }
     
+    /* Videos Section Mobile */
+    .videos-section .section-head h2 {
+        font-size: 38px !important; /* Same size as 'What's in our Superior Plant Food' heading */
+    }
+    
     .products-content .row > [class*="col-"] {
         flex: 0 0 100%;
         max-width: 100%;
