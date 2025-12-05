@@ -8833,7 +8833,18 @@ html {
     
     /* Blog post section - push content below logo on mobile */
     .blog-post-section {
-        padding-top: 140px !important; /* Increased to push content below logo */
+        padding-top: 160px !important; /* Increased to push breadcrumbs and content below logo */
+    }
+    
+    /* Ensure breadcrumbs start below logo on mobile */
+    .blog-post-header {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    
+    .blog-post-header .breadcrumb {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
     
     .blog-post-content {
