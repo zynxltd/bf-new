@@ -6724,6 +6724,10 @@ html {
     }
     
     /* Features Section Mobile */
+    .features-section .section-head h2 {
+        font-size: 38px !important; /* Increased for mobile - bigger than default 32px */
+    }
+    
     .features-section .features-content {
         padding-bottom: 60px;
     }
