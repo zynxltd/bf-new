@@ -9759,6 +9759,17 @@ html {
         opacity: 0 !important;
     }
     
+    /* Hide Hero Spotlight ::after Pseudo-element on Mobile */
+    #home.header-section.gradiant-background::after,
+    #home.header-section.half-header.gradiant-background::after,
+    .header-section.gradiant-background::after,
+    .header-section.half-header.gradiant-background::after {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        content: none !important;
+    }
+    
     /* Buttons - Ensure minimum touch target size */
     .button,
     .button-primary,
