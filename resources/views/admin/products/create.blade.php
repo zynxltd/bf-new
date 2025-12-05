@@ -9,7 +9,9 @@
     <div class="admin-header">
         <div>
             <div class="logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Blooming Fast Logo">
+                <a href="/">
+                    <img src="{{ asset('images/logo.png') }}" alt="Blooming Fast Logo">
+                </a>
             </div>
         </div>
         <h1>Create New Product</h1>

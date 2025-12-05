@@ -53,6 +53,15 @@
             height: auto;
         }
         
+        .admin-header .logo a {
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .admin-header .logo a:hover {
+            opacity: 0.8;
+        }
+        
         .admin-actions {
             display: flex;
             gap: 10px;
