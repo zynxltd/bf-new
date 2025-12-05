@@ -1869,7 +1869,7 @@ h1, .h1 {
     }
     
     .size-badges {
-        flex-wrap: nowrap !important; /* Keep badges in a row, not stacked */
+        flex-wrap: wrap !important; /* Allow wrapping for 2+1 layout */
         flex-direction: row !important; /* Ensure horizontal layout */
         gap: 8px;
         justify-content: center;
@@ -1881,6 +1881,20 @@ h1, .h1 {
         flex: 0 1 auto !important; /* Allow badges to shrink if needed but don't grow */
         min-width: 0 !important; /* Allow shrinking below content size if necessary */
         white-space: nowrap !important; /* Prevent text wrapping inside badges */
+    }
+    
+    /* First two badges (1.25kg and 500g) on top row */
+    .size-badge:nth-child(1),
+    .size-badge:nth-child(2) {
+        flex-basis: calc(50% - 4px) !important; /* Each takes ~50% minus gap */
+        max-width: calc(50% - 4px) !important;
+    }
+    
+    /* Third badge (50g Trial) wraps to second row */
+    .size-badge:nth-child(3) {
+        flex-basis: 100% !important; /* Takes full width on second row */
+        max-width: 100% !important;
+        justify-content: center !important;
     }
     
     .size-label {
