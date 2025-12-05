@@ -9751,6 +9751,14 @@ html {
         height: 0 !important;
     }
     
+    /* Hide Hero Spotlight Animation on Mobile */
+    #hero-spotlight-animation.hero-spotlight-bg,
+    .hero-spotlight-bg {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
     /* Buttons - Ensure minimum touch target size */
     .button,
     .button-primary,
