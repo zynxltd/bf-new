@@ -167,6 +167,10 @@ $faqSchema = [
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="site-collapse-nav">
+                    <!-- Mobile Menu Close Button -->
+                    <button type="button" class="mobile-menu-close-btn" id="mobileMenuCloseBtn" aria-label="Close menu" style="display: none;">
+                        <span aria-hidden="true">✕</span>
+                    </button>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#home" class="nav-item" aria-label="Navigate to Home section">Home</a></li>
                         <li><a href="#about" class="nav-item" aria-label="Navigate to About section">About</a></li>
@@ -2393,26 +2397,55 @@ From May to September feed your plants twice a week while watering.</p>
         initMagnificPopup();
     });
     
-    // Mobile Navigation - Close menu when clicking outside
+    // Mobile Navigation - Full screen popup functionality
+    var $navbarCollapse = $('#site-collapse-nav');
+    var $navbarToggle = $('.navbar-toggle');
+    var $body = $('body');
+    
+    // Handle menu open/close and body scroll lock
+    $navbarCollapse.on('show.bs.collapse', function() {
+        if ($(window).width() <= 767) {
+            $body.addClass('mobile-menu-open');
+            $('#mobileMenuCloseBtn').show();
+        }
+    });
+    
+    $navbarCollapse.on('hide.bs.collapse', function() {
+        $body.removeClass('mobile-menu-open');
+        $('#mobileMenuCloseBtn').hide();
+    });
+    
+    // Close menu when clicking on close button
+    $('#mobileMenuCloseBtn').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if ($(window).width() <= 767) {
+            $navbarCollapse.collapse('hide');
+        }
+    });
+    
+    // Close menu when clicking outside (on menu background, not on nav links)
     $(document).on('click', function(e) {
-        var $navbarCollapse = $('#site-collapse-nav');
-        var $navbarToggle = $('.navbar-toggle');
-        
-        // Only handle on mobile (when navbar-collapse is visible)
         if ($(window).width() <= 767 && $navbarCollapse.hasClass('in')) {
-            // Check if click is outside the navbar and not on the toggle button
-            if (!$navbarCollapse.is(e.target) && 
-                $navbarCollapse.has(e.target).length === 0 && 
-                !$navbarToggle.is(e.target) && 
-                $navbarToggle.has(e.target).length === 0) {
-                // Close the mobile menu
+            // Don't close if clicking on nav links, toggle button, or close button
+            if ($navbarCollapse.find('.navbar-nav').is(e.target) || 
+                $navbarCollapse.find('.navbar-nav').has(e.target).length > 0 || 
+                $navbarToggle.is(e.target) || 
+                $navbarToggle.has(e.target).length > 0 ||
+                $('#mobileMenuCloseBtn').is(e.target) ||
+                $('#mobileMenuCloseBtn').has(e.target).length > 0) {
+                return;
+            }
+            
+            // Close menu when clicking on menu background
+            if ($navbarCollapse.is(e.target)) {
                 $navbarCollapse.collapse('hide');
             }
         }
     });
     
     // Prevent clicks inside the mobile menu from closing it
-    $('#site-collapse-nav').on('click', function(e) {
+    $('#site-collapse-nav .navbar-nav').on('click', function(e) {
         e.stopPropagation();
     });
     

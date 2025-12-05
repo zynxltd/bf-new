@@ -182,6 +182,10 @@ $breadcrumbSchema = [
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="site-collapse-nav">
+                <!-- Mobile Menu Close Button -->
+                <button type="button" class="mobile-menu-close-btn" id="mobileMenuCloseBtn" aria-label="Close menu" style="display: none;">
+                    <span aria-hidden="true">✕</span>
+                </button>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ route('home') }}#home" class="nav-item">Home</a></li>
                     <li><a href="{{ route('home') }}#about" class="nav-item">About</a></li>

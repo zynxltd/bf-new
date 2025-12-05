@@ -7050,9 +7050,9 @@ html {
         max-height: 100vh !important;
         margin: 0 !important;
         padding: 80px 30px 30px 30px !important;
-        background: rgba(255, 255, 255, 0.98) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
+        background: #ffffff !important; /* Changed from rgba to solid white */
+        backdrop-filter: none !important; /* Removed blur for solid white */
+        -webkit-backdrop-filter: none !important;
         border: none !important;
         border-radius: 0 !important;
         box-shadow: none !important;
@@ -7079,19 +7079,10 @@ html {
         visibility: visible !important;
     }
     
-    /* Mobile menu overlay background */
+    /* Mobile menu overlay background - removed dark overlay, using white background */
     .navbar-collapse.in::before,
     .navbar-collapse.show::before {
-        content: '' !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        background: rgba(0, 0, 0, 0.5) !important;
-        z-index: -1 !important;
+        display: none !important; /* Remove dark overlay */
     }
     
     /* Mobile menu navigation links */
@@ -7142,15 +7133,15 @@ html {
         box-shadow: none !important;
     }
     
-    /* Close button for mobile menu */
-    .navbar-collapse::after {
-        content: '✕' !important;
+    /* Close button for mobile menu - real button element */
+    .mobile-menu-close-btn {
         position: fixed !important;
         top: 25px !important;
         right: 25px !important;
         width: 50px !important;
         height: 50px !important;
         background: #ffffff !important;
+        border: none !important;
         border-radius: 12px !important;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
         display: flex !important;
@@ -7163,20 +7154,33 @@ html {
         font-weight: 300 !important;
         line-height: 1 !important;
         transition: all 0.3s ease !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        outline: none !important;
     }
     
-    .navbar-collapse.collapse::after {
+    .mobile-menu-close-btn:hover,
+    .mobile-menu-close-btn:focus {
+        background: #f8f9fa !important;
+        transform: scale(1.05) !important;
+        color: #333 !important;
+    }
+    
+    .mobile-menu-close-btn span {
+        display: block !important;
+        line-height: 1 !important;
+    }
+    
+    /* Show/hide close button based on menu state - handled by JavaScript */
+    .mobile-menu-close-btn {
         display: none !important;
     }
     
-    .navbar-collapse.in::after,
-    .navbar-collapse.show::after {
+    .navbar-collapse.in ~ .mobile-menu-close-btn,
+    .navbar-collapse.show ~ .mobile-menu-close-btn,
+    .mobile-menu-close-btn[style*="display: flex"],
+    .mobile-menu-close-btn[style*="display:block"] {
         display: flex !important;
-    }
-    
-    .navbar-collapse::after:hover {
-        background: #f8f9fa !important;
-        transform: scale(1.05) !important;
     }
     
     /* Prevent body scroll when menu is open */
