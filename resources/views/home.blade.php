@@ -2726,23 +2726,33 @@ From May to September feed your plants twice a week while watering.</p>
     initExitIntent();
     
     // Reading progress indicator for home page
-    var $progressBar = $('#readingProgress');
-    
-    if ($progressBar.length) {
-        $(window).on('scroll', function() {
-            var scrollTop = $(window).scrollTop();
-            var documentHeight = $(document).height();
-            var windowHeight = $(window).height();
-            var scrollableHeight = documentHeight - windowHeight;
-            var scrollPercent = 0;
-            
-            if (scrollableHeight > 0) {
-                scrollPercent = Math.min((scrollTop / scrollableHeight) * 100, 100);
-            }
-            
-            $progressBar.css('width', scrollPercent + '%');
-        });
+    function initReadingProgress() {
+        if (typeof jQuery === 'undefined' || typeof $ === 'undefined') {
+            setTimeout(initReadingProgress, 50);
+            return;
+        }
+        
+        var $ = jQuery;
+        var $progressBar = $('#readingProgress');
+        
+        if ($progressBar.length) {
+            $(window).on('scroll', function() {
+                var scrollTop = $(window).scrollTop();
+                var documentHeight = $(document).height();
+                var windowHeight = $(window).height();
+                var scrollableHeight = documentHeight - windowHeight;
+                var scrollPercent = 0;
+                
+                if (scrollableHeight > 0) {
+                    scrollPercent = Math.min((scrollTop / scrollableHeight) * 100, 100);
+                }
+                
+                $progressBar.css('width', scrollPercent + '%');
+            });
+        }
     }
+    
+    initReadingProgress();
 })();
 </script>
 @endpush
