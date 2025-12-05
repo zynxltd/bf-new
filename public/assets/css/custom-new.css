@@ -10262,6 +10262,16 @@ html {
         text-align: center !important;
     }
     
+    /* Center footer h5 headings and their separator lines on mobile */
+    .footer-section h5 {
+        text-align: center !important;
+    }
+    
+    .footer-section h5::after {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    
     /* Newsletter Form Mobile */
     .newsletter-form {
         width: 100% !important;
