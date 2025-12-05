@@ -7230,11 +7230,11 @@ html {
     }
     
     .hero-title-gradient {
-        font-size: 30px !important;
+        font-size: 32px !important; /* Increased from 30px by 2px */
     }
     
     .hero-description {
-        font-size: 16px !important;
+        font-size: 18px !important; /* Increased from 16px by 2px */
     }
     
     .section-head h2 {
