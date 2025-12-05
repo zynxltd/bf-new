@@ -458,6 +458,28 @@ $faqSchema = [
                 <div class="customer-reviews-content">
                     <h2 class="mb-50 text-center">What Our Customers Say</h2>
                     
+                    <!-- Feefo Rating Badge (Mobile Only - Same as Hero) -->
+                    <div class="customer-reviews-feefo-badge-mobile" style="display: none;">
+                        <div class="feefo-badge-widget" style="display: flex; justify-content: center; margin-bottom: 30px;">
+                            <div class="feefo-fallback-badge" style="display: block;">
+                                <div class="feefo-fallback-content">
+                                    <div class="feefo-stars">
+                                        <span class="feefo-star">★</span>
+                                        <span class="feefo-star">★</span>
+                                        <span class="feefo-star">★</span>
+                                        <span class="feefo-star">★</span>
+                                        <span class="feefo-star">★</span>
+                                    </div>
+                                    <div class="feefo-rating-text">4.8</div>
+                                    <span class="feefo-reviews-text">View our Reviews</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <img src="{{ asset('images/Feefo_White_and_yellow_logo.svg') }}" alt="Feefo" style="max-width: 120px; height: auto; filter: brightness(0) invert(0.3);" loading="lazy" />
+                        </div>
+                    </div>
+                    
                     <!-- Feefo Service Review Carousel Widget (Desktop - YouGarden Format) -->
                     <div id="feefo-service-review-carousel-widgetId" class="feefo-review-carousel-widget-service feefo-desktop-widget" data-merchant-identifier="you-garden"></div>
                     
@@ -651,7 +673,7 @@ $faqSchema = [
 </div><!-- .products-section  -->
 
 <div class="section-divider-wave section-divider-wave-product-bottom" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
-    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleX(-);">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleX(-1);">
 </div>
 
 <!-- Start .videos-section  -->
