@@ -8837,7 +8837,8 @@ html {
     
     /* Blog post section - push content below logo on mobile */
     .blog-post-section {
-        padding-top: 160px !important; /* Increased to push breadcrumbs and content below logo */
+        padding-top: 200px !important; /* Increased to push breadcrumbs and content below fixed navigation logo */
+        margin-top: 0 !important;
     }
     
     /* Ensure breadcrumbs start below logo on mobile */
@@ -8847,6 +8848,13 @@ html {
     }
     
     .blog-post-header .breadcrumb {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    /* Ensure container starts below navigation */
+    .blog-post-section .container {
         margin-top: 0 !important;
         padding-top: 0 !important;
     }
