@@ -1776,8 +1776,8 @@ h1, .h1 {
         order: 1;
         margin-top: 0 !important;
         margin-bottom: 15px;
-        font-size: 11px;
-        padding: 6px 12px;
+        font-size: 14px; /* Increased from 11px */
+        padding: 8px 16px; /* Increased from 6px 12px */
         display: inline-block;
         width: auto;
         max-width: fit-content;
@@ -6633,8 +6633,8 @@ html {
         order: 1;
         margin-top: 0 !important;
         margin-bottom: 15px;
-        font-size: 11px;
-        padding: 6px 12px;
+        font-size: 14px; /* Increased from 11px */
+        padding: 8px 16px; /* Increased from 6px 12px */
         display: inline-block;
         width: auto;
         max-width: fit-content;
