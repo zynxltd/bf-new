@@ -1711,7 +1711,7 @@ h1, .h1 {
     }
     
     .hero-title-gradient {
-        font-size: 32px !important;
+        font-size: 34px !important; /* Increased from 32px by 2px */
         line-height: 1.2 !important;
     }
     
@@ -1721,7 +1721,7 @@ h1, .h1 {
     }
     
     .hero-description {
-        font-size: 18px !important;
+        font-size: 20px !important; /* Increased from 18px by 2px */
         line-height: 1.6 !important;
     }
     
@@ -1827,7 +1827,7 @@ h1, .h1 {
     }
     
     .hero-description {
-        font-size: 18px !important;
+        font-size: 20px !important; /* Increased from 18px by 2px */
     }
     
     .hero-sizes {
@@ -1900,11 +1900,11 @@ h1, .h1 {
     }
     
     .hero-title-gradient {
-        font-size: 28px !important;
+        font-size: 30px !important; /* Increased from 28px by 2px */
     }
     
     .hero-description {
-        font-size: 16px !important;
+        font-size: 18px !important; /* Increased from 16px by 2px */
     }
     
     .header-section .col-md-5 img {
