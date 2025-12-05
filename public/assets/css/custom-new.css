@@ -1918,6 +1918,61 @@ h1, .h1 {
         justify-content: center;
         align-items: center;
     }
+    
+    /* Make reviews badge same size as buttons on mobile - improved spacing */
+    .hero-feefo-link {
+        min-width: 150px !important;
+        max-width: 180px !important;
+        width: auto !important;
+    }
+    
+    .hero-feefo-link .feefo-fallback-badge {
+        min-width: 150px !important;
+        max-width: 180px !important;
+        width: 100% !important;
+        padding: 12px 16px !important; /* Increased padding for better spacing */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Adjust text sizes and layout to fit better in badge on mobile */
+    .hero-feefo-link .feefo-fallback-content {
+        flex-wrap: nowrap !important; /* Keep content in one line */
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 6px !important; /* Increased gap for better spacing */
+        white-space: nowrap !important;
+    }
+    
+    .hero-feefo-link .feefo-stars {
+        font-size: 14px !important; /* Slightly larger stars */
+        gap: 2px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .hero-feefo-link .feefo-star {
+        font-size: 14px !important;
+    }
+    
+    .hero-feefo-link .feefo-rating-text {
+        font-size: 13px !important; /* Slightly larger rating */
+        flex-shrink: 0 !important;
+    }
+    
+    .hero-feefo-link .feefo-reviews-text {
+        font-size: 9px !important; /* Slightly larger text */
+        white-space: nowrap !important;
+        flex-shrink: 1 !important; /* Allow to shrink if needed */
+    }
+    
+    .hero-feefo-link .feefo-text {
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 4px !important;
+    }
 }
 
 @media (max-width: 480px) {
