@@ -3103,6 +3103,18 @@ h2.heading {
         height: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Hide feefo-mobile-widget child elements */
+    .feefo-mobile-widget #feefo-product-review-widgetId,
+    .feefo-mobile-widget .feefo-review-widget-product {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     #feefo-product-review-widgetId {
@@ -3110,6 +3122,8 @@ h2.heading {
         visibility: hidden !important;
         opacity: 0 !important;
         height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     .testimonials-carousel {
