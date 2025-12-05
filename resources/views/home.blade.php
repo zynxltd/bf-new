@@ -369,7 +369,7 @@ $faqSchema = [
                         <!-- Left column cards -->
                         <div class="features-cards-column features-cards-left">
                             <div class="feature-nutrient-card">
-                                <i class="ti ti-check"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                             <h4>Nitrogen</h4>
                                     <p>(the N in NPK), essential for making proteins and therefore cell growth</p>
@@ -377,7 +377,7 @@ $faqSchema = [
                             </div>
                             
                             <div class="feature-nutrient-card">
-                                <i class="ti ti-check"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                                     <h4>Potassium oxide</h4>
                             <p>(the K in NPK) for respiration and photosynthesis</p>
@@ -385,7 +385,7 @@ $faqSchema = [
                             </div>
                             
                             <div class="feature-nutrient-card">
-                                <i class="ti ti-check"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                             <h4>Boron</h4>
                             <p>for healthy cell growth</p>
@@ -393,7 +393,7 @@ $faqSchema = [
                             </div>
                             
                             <div class="feature-nutrient-card">
-                                <i class="ti ti-check"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                             <h4>Iron</h4>
                             <p>for chlorophyll production</p>
@@ -411,7 +411,7 @@ $faqSchema = [
                         <!-- Right column cards -->
                         <div class="features-cards-column features-cards-right">
                             <div class="feature-nutrient-card">
-                                <i class="ti ti-check"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                             <h4>Phosphorous pentoxide</h4>
                             <p>(the P in NPK) for respiration and growth</p>
@@ -419,7 +419,7 @@ $faqSchema = [
                             </div>
                             
                             <div class="feature-nutrient-card">
-                                <i class="ti ti-check"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                                     <h4>Magnesium oxide</h4>
                             <p>for photosynthesis (how plants get their energy)</p>
@@ -427,7 +427,7 @@ $faqSchema = [
                             </div>
                             
                             <div class="feature-nutrient-card">
-                                <i class="ti ti-check"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                             <h4>Copper</h4>
                                     <p>for metabolic and respiratory processes</p>
@@ -435,7 +435,7 @@ $faqSchema = [
                             </div>
                             
                             <div class="feature-nutrient-card">
-                                <i class="ti ti-check"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                             <h4>Manganese</h4>
                             <p>for photosynthesis</p>
