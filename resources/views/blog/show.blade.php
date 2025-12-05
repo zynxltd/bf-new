@@ -425,16 +425,16 @@ $breadcrumbSchema = [
             var $body = $('body');
             
             // Handle menu open/close and body scroll lock
-            $navbarCollapse.on('show.bs.collapse', function() {
+            $navbarCollapse.on('show.bs.collapse shown.bs.collapse', function() {
                 if ($(window).width() <= 767) {
                     $body.addClass('mobile-menu-open');
-                    $('#mobileMenuCloseBtn').show();
+                    $('#mobileMenuCloseBtn').css('display', 'flex');
                 }
             });
             
-            $navbarCollapse.on('hide.bs.collapse', function() {
+            $navbarCollapse.on('hide.bs.collapse hidden.bs.collapse', function() {
                 $body.removeClass('mobile-menu-open');
-                $('#mobileMenuCloseBtn').hide();
+                $('#mobileMenuCloseBtn').css('display', 'none');
             });
             
             // Close menu when clicking on close button

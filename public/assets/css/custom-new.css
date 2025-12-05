@@ -7144,7 +7144,6 @@ html {
         border: none !important;
         border-radius: 12px !important;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-        display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         font-size: 28px !important;
@@ -7157,6 +7156,16 @@ html {
         padding: 0 !important;
         margin: 0 !important;
         outline: none !important;
+        display: none !important; /* Hidden by default */
+    }
+    
+    /* Show close button when menu is open */
+    .navbar-collapse.in .mobile-menu-close-btn,
+    .navbar-collapse.show .mobile-menu-close-btn,
+    .navbar-collapse.collapsing .mobile-menu-close-btn,
+    .mobile-menu-close-btn[style*="display: flex"],
+    .mobile-menu-close-btn[style*="display: block"] {
+        display: flex !important;
     }
     
     .mobile-menu-close-btn:hover,
@@ -7169,18 +7178,6 @@ html {
     .mobile-menu-close-btn span {
         display: block !important;
         line-height: 1 !important;
-    }
-    
-    /* Show/hide close button based on menu state - handled by JavaScript */
-    .mobile-menu-close-btn {
-        display: none !important;
-    }
-    
-    .navbar-collapse.in ~ .mobile-menu-close-btn,
-    .navbar-collapse.show ~ .mobile-menu-close-btn,
-    .mobile-menu-close-btn[style*="display: flex"],
-    .mobile-menu-close-btn[style*="display:block"] {
-        display: flex !important;
     }
     
     /* Prevent body scroll when menu is open */
