@@ -6710,6 +6710,10 @@ html {
     }
     
     /* About Section Mobile */
+    .about-section .section-head h2 {
+        font-size: 38px !important; /* Increased for mobile - bigger than default 32px */
+    }
+    
     .about-section .section-head ul {
         padding: 0;
     }
