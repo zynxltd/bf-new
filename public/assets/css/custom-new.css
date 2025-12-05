@@ -6590,7 +6590,7 @@ html {
     }
     
     .faq-section .section-head h2 {
-        font-size: 32px; /* Increased from 28px by 4px */
+        font-size: 38px !important; /* Same size as 'What's in our Superior Plant Food' heading */
     }
     
     .faq-section .panel-title a {
@@ -6786,6 +6786,11 @@ html {
     
     /* Videos Section Mobile */
     .videos-section .section-head h2 {
+        font-size: 38px !important; /* Same size as 'What's in our Superior Plant Food' heading */
+    }
+    
+    /* Guides Section Mobile */
+    .guides-section .section-head h2 {
         font-size: 38px !important; /* Same size as 'What's in our Superior Plant Food' heading */
     }
     
