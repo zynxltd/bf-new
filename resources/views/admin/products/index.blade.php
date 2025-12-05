@@ -49,7 +49,7 @@
     <!-- Statistics Cards -->
     <div class="admin-stats-grid">
         <div class="admin-stat-card">
-            <div class="admin-stat-icon" style="background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);">
+            <div class="admin-stat-icon" style="background: #19B2EB;">
                 <i class="fa fa-cube"></i>
             </div>
             <div class="admin-stat-content">

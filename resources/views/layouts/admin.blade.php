@@ -100,7 +100,7 @@
         }
         
         .btn-admin-primary {
-            background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
+            background: #19B2EB;
             color: #ffffff;
         }
         

@@ -146,7 +146,7 @@
     padding: 20px;
     background: #f8f9fa;
     border-radius: 8px;
-    border-left: 4px solid #70D969;
+    border-left: 4px solid #19B2EB;
 }
 
 .admin-blog-excerpt h3 {
