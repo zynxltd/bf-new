@@ -2663,43 +2663,50 @@ h2.heading {
     display: none;
 }
 
-/* Mobile: Hide desktop widget, show mobile widget */
+/* Mobile: Hide desktop widget, hide mobile widget */
 @media (max-width: 767px) {
     .feefo-desktop-widget {
         display: none !important;
         visibility: hidden !important;
     }
     
+    /* Hide feefo-mobile-widget on mobile */
     .feefo-mobile-widget {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: 100%;
-        min-height: 300px;
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
     }
     
     .feefo-mobile-widget .feefo-review-widget-product {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 300px !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
-    /* Ensure customer reviews section shows mobile widget */
+    /* Hide customer reviews section mobile widget */
     #customer-reviews .feefo-mobile-widget {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        margin-top: 30px;
-        padding: 20px 0;
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     #customer-reviews .feefo-mobile-widget .feefo-review-widget-product {
-        width: 100% !important;
-        min-height: 300px !important;
-        display: block !important;
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     /* Hide Feefo product review widget on mobile */
@@ -2708,6 +2715,20 @@ h2.heading {
         display: none !important;
         visibility: hidden !important;
         opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Override inline styles for feefo-mobile-widget */
+    .feefo-mobile-widget[style*="display: block"],
+    .feefo-mobile-widget[style*="display:block"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     /* Hide product review badges on mobile */
