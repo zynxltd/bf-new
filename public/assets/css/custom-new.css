@@ -2549,6 +2549,7 @@ h2.heading {
     text-align: left;
 }
 
+.customer-reviews-content h2,
 .customer-reviews-content h3 {
     font-size: 36px;
     font-weight: 600;
