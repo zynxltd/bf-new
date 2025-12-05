@@ -2982,10 +2982,28 @@ h2.heading {
         padding: 30px 15px;
     }
     
+    .customer-reviews-content h2,
     .customer-reviews-content h3 {
-        font-size: 28px;
+        font-size: 38px !important; /* Same size as 'Our Complete Product Range' heading */
         margin-bottom: 30px;
         padding-top: 0;
+    }
+    
+    /* Hide feefo-mobile-widget on mobile */
+    .feefo-mobile-widget {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    #feefo-product-review-widgetId {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
     }
     
     .testimonials-carousel {
