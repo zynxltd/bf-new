@@ -9770,6 +9770,18 @@ html {
         content: none !important;
     }
     
+    /* Hide White Section Dividers on Mobile */
+    .section-divider-wave-bottom,
+    #divider-faq-bottom,
+    .section-divider-wave.section-divider-wave-bottom {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
     /* Buttons - Ensure minimum touch target size */
     .button,
     .button-primary,
