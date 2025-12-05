@@ -419,6 +419,58 @@ $breadcrumbSchema = [
         var $ = jQuery;
         
         $(document).ready(function() {
+            // Mobile Navigation - Full screen popup functionality
+            var $navbarCollapse = $('#site-collapse-nav');
+            var $navbarToggle = $('.navbar-toggle');
+            var $body = $('body');
+            
+            // Handle menu open/close and body scroll lock
+            $navbarCollapse.on('show.bs.collapse', function() {
+                if ($(window).width() <= 767) {
+                    $body.addClass('mobile-menu-open');
+                    $('#mobileMenuCloseBtn').show();
+                }
+            });
+            
+            $navbarCollapse.on('hide.bs.collapse', function() {
+                $body.removeClass('mobile-menu-open');
+                $('#mobileMenuCloseBtn').hide();
+            });
+            
+            // Close menu when clicking on close button
+            $('#mobileMenuCloseBtn').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if ($(window).width() <= 767) {
+                    $navbarCollapse.collapse('hide');
+                }
+            });
+            
+            // Close menu when clicking outside (on menu background, not on nav links)
+            $(document).on('click', function(e) {
+                if ($(window).width() <= 767 && $navbarCollapse.hasClass('in')) {
+                    // Don't close if clicking on nav links, toggle button, or close button
+                    if ($navbarCollapse.find('.navbar-nav').is(e.target) || 
+                        $navbarCollapse.find('.navbar-nav').has(e.target).length > 0 || 
+                        $navbarToggle.is(e.target) || 
+                        $navbarToggle.has(e.target).length > 0 ||
+                        $('#mobileMenuCloseBtn').is(e.target) ||
+                        $('#mobileMenuCloseBtn').has(e.target).length > 0) {
+                        return;
+                    }
+                    
+                    // Close menu when clicking on menu background
+                    if ($navbarCollapse.is(e.target)) {
+                        $navbarCollapse.collapse('hide');
+                    }
+                }
+            });
+            
+            // Prevent clicks inside the mobile menu from closing it
+            $('#site-collapse-nav .navbar-nav').on('click', function(e) {
+                e.stopPropagation();
+            });
+            
             // Initialize Desktop Hamburger Menu
             function initDesktopMenu() {
         var $desktopMenuToggle = $('#desktopMenuToggle');
