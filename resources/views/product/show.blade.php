@@ -1095,8 +1095,6 @@ body:has(.product-page-hero) .back-to-top:hover {
             <div class="row">
                 <!-- FAQ Content -->
                 <div class="col-md-10 col-md-offset-1">
-                    <!-- Product-specific FAQs if available -->
-                    @if($product->faqs)
                     @php
                         // Parse FAQs - can be JSON or pipe-separated format
                         $faqs = [];
