@@ -1254,12 +1254,27 @@ h1, .h1 {
 }
 
 /* Homepage hero title - make it pure white, not grey */
-body:not(:has(.product-page-hero)) .hero-title-gradient {
+body:not(:has(.product-page-hero)) .hero-title-gradient,
+#home .hero-title-gradient,
+.header-section#home .hero-title-gradient,
+#home.header-section .hero-title-gradient {
     background: #ffffff !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
     -webkit-text-fill-color: #ffffff !important;
     color: #ffffff !important;
+    /* Disable ALL animations including gradientShift from custom.css */
+    animation: fadeInDown 0.8s ease-out !important;
+    -webkit-animation: fadeInDown 0.8s ease-out !important;
+    /* Explicitly remove gradientShift animation */
+    animation-name: fadeInDown !important;
+    -webkit-animation-name: fadeInDown !important;
+    animation-duration: 0.8s !important;
+    -webkit-animation-duration: 0.8s !important;
+    animation-iteration-count: 1 !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-fill-mode: forwards !important;
+    -webkit-animation-fill-mode: forwards !important;
 }
 
 /* Product page hero title gradient - match page color theme - make it pure white */
@@ -1301,11 +1316,14 @@ body:not(:has(.product-page-hero)) .hero-title-gradient {
 
 /* Disable shine animation on homepage hero title - override custom.css */
 /* Target homepage specifically - #home is the homepage hero section */
+/* Use multiple selectors to ensure override of custom.css */
 #home .hero-title-gradient::before,
 .header-section#home .hero-title-gradient::before,
 .header-section.half-header:not(.product-page-hero) .hero-title-gradient::before,
 body:not(:has(.product-page-hero)) .header-section .hero-title-gradient::before,
-.header-section:not(.product-page-hero) .hero-title-gradient::before {
+.header-section:not(.product-page-hero) .hero-title-gradient::before,
+#home.header-section .hero-title-gradient::before,
+.header-section.gradiant-background:not(.product-page-hero) .hero-title-gradient::before {
     display: none !important;
     content: none !important;
     animation: none !important;
@@ -1316,6 +1334,8 @@ body:not(:has(.product-page-hero)) .header-section .hero-title-gradient::before,
     background-image: none !important;
     width: 0 !important;
     height: 0 !important;
+    left: -9999px !important;
+    pointer-events: none !important;
 }
 
 @keyframes shine {
@@ -4010,7 +4030,11 @@ body:has(.product-page-hero) .products-section.gradiant-background {
 }
 
 /* Hero section background - Homepage gradient (only for homepage, not product pages) */
-/* Ensure bright gradient with no dark overlays */
+/* Ensure bright gradient with no dark overlays and NO animations */
+#home.header-section.gradiant-background,
+#home.header-section.half-header.gradiant-background,
+.header-section#home.gradiant-background,
+.header-section#home.half-header.gradiant-background,
 body:not(:has(.product-page-hero)) .header-section.gradiant-background,
 body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-background,
 body:not(:has(.product-page-hero)) #home.header-section.gradiant-background,
@@ -4024,11 +4048,43 @@ body:not(:has(.product-page-hero)) #home .header-section.gradiant-background {
     filter: none !important;
     -webkit-filter: none !important;
     opacity: 1 !important;
-    /* Disable ALL animations */
+    /* Disable ALL animations - override custom.css */
     animation: none !important;
     -webkit-animation: none !important;
     background-position: 0% 50% !important;
     background-size: 100% 100% !important;
+    /* Prevent any gradient shift animations */
+    background-attachment: fixed !important;
+    /* Ensure bright colors - no darkening */
+    mix-blend-mode: normal !important;
+    isolation: isolate !important;
+}
+
+/* Additional override for any ::before or ::after overlays that might darken the background */
+#home.header-section.gradiant-background::before,
+#home.header-section.half-header.gradiant-background::before,
+.header-section#home.gradiant-background::before,
+.header-section#home.half-header.gradiant-background::before,
+body:not(:has(.product-page-hero)) .header-section.gradiant-background::before,
+body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-background::before,
+body:not(:has(.product-page-hero)) #home.header-section.gradiant-background::before,
+body:not(:has(.product-page-hero)) #home .header-section.gradiant-background::before,
+#home.header-section.gradiant-background::after,
+#home.header-section.half-header.gradiant-background::after,
+.header-section#home.gradiant-background::after,
+.header-section#home.half-header.gradiant-background::after,
+body:not(:has(.product-page-hero)) .header-section.gradiant-background::after,
+body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-background::after,
+body:not(:has(.product-page-hero)) #home.header-section.gradiant-background::after,
+body:not(:has(.product-page-hero)) #home .header-section.gradiant-background::after {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    background: none !important;
+    background-image: none !important;
+    animation: none !important;
+    -webkit-animation: none !important;
 }
 
 /* Enhanced hero background with animated gradient - REMOVED to match features section */

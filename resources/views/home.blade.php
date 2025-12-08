@@ -2141,19 +2141,33 @@ From May to September feed your plants twice a week while watering.</p>
     
     // Disable ALL hero animations on homepage
     function disableHeroAnimations() {
-        var heroSection = document.querySelector('.header-section.gradiant-background:not(.product-page-hero)');
+        var heroSection = document.querySelector('.header-section.gradiant-background:not(.product-page-hero), #home.header-section.gradiant-background, .header-section#home.gradiant-background');
         if (heroSection) {
             heroSection.style.setProperty('animation', 'none', 'important');
             heroSection.style.setProperty('-webkit-animation', 'none', 'important');
             heroSection.style.setProperty('background-position', '0% 50%', 'important');
             heroSection.style.setProperty('background-size', '100% 100%', 'important');
-            
-            // Disable any ::before and ::after animations
-            var style = document.createElement('style');
-            style.id = 'disable-hero-animations';
-            style.textContent = '.header-section.gradiant-background:not(.product-page-hero) { animation: none !important; -webkit-animation: none !important; background-position: 0% 50% !important; background-size: 100% 100% !important; } .header-section.gradiant-background:not(.product-page-hero)::before, .header-section.gradiant-background:not(.product-page-hero)::after { animation: none !important; -webkit-animation: none !important; }';
-            document.head.appendChild(style);
+            heroSection.style.setProperty('background-color', '#70D969', 'important');
+            heroSection.style.setProperty('background-image', 'linear-gradient(293deg, #70D969 0%, #19B2EB 100%)', 'important');
+            heroSection.style.setProperty('background', 'linear-gradient(293deg, #70D969 0%, #19B2EB 100%)', 'important');
+            heroSection.style.setProperty('filter', 'none', 'important');
+            heroSection.style.setProperty('opacity', '1', 'important');
         }
+        
+        // Disable shine animation on hero title
+        var heroTitle = document.querySelector('#home .hero-title-gradient, .header-section#home .hero-title-gradient, #home.header-section .hero-title-gradient');
+        if (heroTitle) {
+            heroTitle.style.setProperty('animation', 'fadeInDown 0.8s ease-out', 'important');
+            heroTitle.style.setProperty('-webkit-animation', 'fadeInDown 0.8s ease-out', 'important');
+            heroTitle.style.setProperty('animation-iteration-count', '1', 'important');
+            heroTitle.style.setProperty('-webkit-animation-iteration-count', '1', 'important');
+        }
+        
+        // Disable any ::before and ::after animations and overlays
+        var style = document.createElement('style');
+        style.id = 'disable-hero-animations';
+        style.textContent = '#home.header-section.gradiant-background, .header-section#home.gradiant-background, .header-section.gradiant-background:not(.product-page-hero) { animation: none !important; -webkit-animation: none !important; background-position: 0% 50% !important; background-size: 100% 100% !important; background-color: #70D969 !important; background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; filter: none !important; opacity: 1 !important; } #home.header-section.gradiant-background::before, .header-section#home.gradiant-background::before, .header-section.gradiant-background:not(.product-page-hero)::before, #home.header-section.gradiant-background::after, .header-section#home.gradiant-background::after, .header-section.gradiant-background:not(.product-page-hero)::after { display: none !important; content: none !important; animation: none !important; -webkit-animation: none !important; visibility: hidden !important; opacity: 0 !important; background: none !important; } #home .hero-title-gradient::before, .header-section#home .hero-title-gradient::before, #home.header-section .hero-title-gradient::before { display: none !important; content: none !important; animation: none !important; -webkit-animation: none !important; visibility: hidden !important; opacity: 0 !important; width: 0 !important; height: 0 !important; } #home .hero-title-gradient, .header-section#home .hero-title-gradient, #home.header-section .hero-title-gradient { animation: fadeInDown 0.8s ease-out !important; -webkit-animation: fadeInDown 0.8s ease-out !important; animation-iteration-count: 1 !important; -webkit-animation-iteration-count: 1 !important; }';
+        document.head.appendChild(style);
     }
     
     // Run on page load
