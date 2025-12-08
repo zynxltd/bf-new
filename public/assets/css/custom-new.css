@@ -2453,6 +2453,31 @@ body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-backgrou
     padding-right: 15px;
 }
 
+/* Mobile: Force single column layout for product cards */
+@media (max-width: 767px) {
+    .products-content .row,
+    .products-section .row,
+    #products .row {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .products-content .row > [class*="col-"],
+    .products-section .row > [class*="col-"],
+    #products .row > [class*="col-"],
+    .products-content .row > div,
+    .products-section .row > div,
+    #products .row > div {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        float: none !important;
+        clear: both !important;
+    }
+}
+
 .product-card {
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
