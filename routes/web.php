@@ -33,6 +33,15 @@ Route::get('/cookie-policy', [\App\Http\Controllers\LegalController::class, 'coo
 // Sitemap
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
 
+// Serve blocked images through Laravel (bypasses web server security rules)
+Route::get('/images/clematis-feed-p1-n-bg-front.png', function () {
+    $path = public_path('images/clematis-feed-p1-n-bg-front.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.clematis-feed-hero');
+
 // Newsletter
 Route::post('/newsletter/subscribe', [\App\Http\Controllers\NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 

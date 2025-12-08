@@ -46,8 +46,8 @@ if (!empty($packageColor) && $packageColor[0] !== '#') {
 if ($isUltimateRose) {
     $heroImagePath = 'images/bloom-booster-p1.jpg';
 } elseif ($isClematisFeed) {
-    // Using clematis-feed-p1.png as workaround - original filename blocked by web server
-    $heroImagePath = 'images/clematis-feed-p1.png';
+    // Using route to serve PNG - original filename blocked by web server security rules
+    $heroImagePath = route('image.clematis-feed-hero');
 } elseif ($isSwellGellFeed) {
     $heroImagePath = 'images/bf-swelgel-p3.jpg';
 } elseif ($isCitrusFeed) {
