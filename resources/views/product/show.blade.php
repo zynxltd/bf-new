@@ -90,10 +90,9 @@ if ($isUltimateRose) {
     $sizeLabel = 'Available in 1 size:';
 } elseif ($isAcerFeed) {
     $availableSizes = [
-        ['label' => '900g', 'scroll' => 'products'],
-        ['label' => '50g Trial', 'scroll' => 'products']
+        ['label' => '900g', 'scroll' => 'products']
     ];
-    $sizeLabel = 'Available in 2 sizes:';
+    $sizeLabel = 'Available in 1 size:';
 } elseif ($isCitrusFeed) {
     $availableSizes = [
         ['label' => '150g', 'scroll' => 'products']
@@ -561,7 +560,7 @@ body:has(.product-page-hero) .back-to-top:hover {
 </div><!-- .header-section -->
 
 <!-- Start .about-section - Product Specific Content -->
-<div id="about" class="about-section section pb-80 white-bg half-header-about about-section-bottom-curved about-section-top-curved">
+<div id="about" class="about-section section pt-120 pb-120 white-bg half-header-about about-section-bottom-curved about-section-top-curved">
     <div class="container tab-fix">
         <!-- Enhanced Header Section -->
         <div class="section-head text-center" style="margin-bottom: 50px;">
@@ -751,7 +750,7 @@ body:has(.product-page-hero) .back-to-top:hover {
 </div>
 
 <!-- Start .features-section  -->
-<div id="features" class="features-section section gradiant-background header-curbed confetti-section">
+<div id="features" class="features-section section pt-120 pb-120 gradiant-background header-curbed confetti-section">
     <div class="container tab-fix">
         <div class="section-head heading-light text-center">
             <div class="row">
@@ -871,7 +870,7 @@ body:has(.product-page-hero) .back-to-top:hover {
 </div>
 
 <!-- Start .customer-reviews-section  -->
-<div id="customer-reviews" class="customer-reviews-section customer-reviews-curved-top customer-reviews-curved-bottom section white-bg pt-80 pb-80">
+<div id="customer-reviews" class="customer-reviews-section customer-reviews-curved-top customer-reviews-curved-bottom section white-bg pt-120 pb-120">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -1561,7 +1560,7 @@ body:has(.product-page-hero) .back-to-top:hover {
 <!-- End .guides-section  -->
 
 <!-- Newsletter Signup Section -->
-<div class="newsletter-section section pt-80 pb-80">
+<div class="newsletter-section section pt-120 pb-120">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
