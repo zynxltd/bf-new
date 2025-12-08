@@ -10726,10 +10726,10 @@ body:has(.product-page-hero) .section-divider-wave-product-bottom::after {
 }
 
 /* Ensure divider background matches the section below for seamless blending */
-/* Homepage dividers default to blue */
+/* Homepage dividers default to hero gradient */
 body:not(:has(.product-page-hero)) .section-divider-wave {
-    background: var(--divider-gradient, #519cb8) !important;
-    background-color: var(--divider-bg-color, #519cb8) !important;
+    background: var(--divider-gradient, linear-gradient(293deg, #70D969 0%, #19B2EB 100%)) !important;
+    background-color: var(--divider-bg-color, #70D969) !important;
 }
 
 /* Product page dividers - override default gradient */
