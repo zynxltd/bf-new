@@ -694,3 +694,4 @@ Frequency:
 *This guide provides step-by-step instructions for configuring Fresh Relevance experiences for new customers who have browsed but not purchased. Adjust time windows and rules based on your specific business needs and performance data.*
 
 
+

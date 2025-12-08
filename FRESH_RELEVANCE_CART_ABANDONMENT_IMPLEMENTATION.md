@@ -717,3 +717,4 @@ After Cart Abandonment is live and performing:
 *Follow this guide step-by-step to implement the Cart Abandonment experience in Fresh Relevance. This is your first solution with the highest expected ROI.*
 
 
+

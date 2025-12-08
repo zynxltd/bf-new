@@ -588,7 +588,7 @@ $faqSchema = [
                     <div class="product-card white-bg text-center wow fadeInUp" 
                          data-wow-duration=".5s" 
                          data-wow-delay="{{ ($index * 0.1) }}s">
-                        <a href="{{ route('product.show', $product->slug ?? $product->sku ?? $product->id) }}" class="product-card-link" aria-label="View {{ $product->title }}">
+                        <a href="{{ route('product.show', $product->slug) }}" class="product-card-link" aria-label="View {{ $product->title }}">
                             <div class="product-image mb-20" style="position: relative;">
                                 @if($index < 2)
                                 <span class="best-seller-badge">Best Seller</span>

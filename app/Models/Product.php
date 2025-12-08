@@ -44,6 +44,36 @@ class Product extends Model
         'sort_order' => 'integer',
     ];
 
+    /**
+     * Get the slug attribute, generating it if missing
+     */
+    public function getSlugAttribute($value)
+    {
+        if (empty($value) && !empty($this->attributes['title'])) {
+            // Generate slug from title if missing
+            $slug = Str::slug($this->attributes['title']);
+            // Ensure uniqueness
+            $originalSlug = $slug;
+            $count = 1;
+            while (static::where('slug', $slug)->where('id', '!=', $this->id)->exists()) {
+                $slug = $originalSlug . '-' . $count;
+                $count++;
+            }
+            // Store in attributes to avoid saving on every access
+            $this->attributes['slug'] = $slug;
+            // Save only once using a flag to prevent multiple saves
+            if (!isset($this->attributes['_slug_generated'])) {
+                $this->attributes['_slug_generated'] = true;
+                // Use updateQuietly to avoid triggering events
+                static::withoutEvents(function () use ($slug) {
+                    $this->updateQuietly(['slug' => $slug]);
+                });
+            }
+            return $slug;
+        }
+        return $value;
+    }
+
     protected static function boot()
     {
         parent::boot();

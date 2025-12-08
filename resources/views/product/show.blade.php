@@ -946,7 +946,7 @@ body:has(.product-page-hero) .back-to-top:hover {
                     <div class="product-card white-bg text-center wow fadeInUp" 
                          data-wow-duration=".5s" 
                          data-wow-delay="{{ ($index * 0.1) }}s">
-                        <a href="{{ route('product.show', $prod->slug ?? $prod->sku ?? $prod->id) }}" class="product-card-link" aria-label="View {{ $prod->title }}">
+                        <a href="{{ route('product.show', $prod->slug) }}" class="product-card-link" aria-label="View {{ $prod->title }}">
                             <div class="product-image mb-20" style="position: relative;">
                                 @if($index < 2)
                                 <span class="best-seller-badge">Best Seller</span>

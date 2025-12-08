@@ -386,3 +386,4 @@ Rules:
 *Use this guide to configure the "Cart Abandoners - Active Cart" segment in Fresh Relevance. The key addition is the "Has NOT Purchased" exclusion rule to ensure you're only targeting users who haven't completed a purchase.*
 
 
+
