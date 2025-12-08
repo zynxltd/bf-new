@@ -423,7 +423,7 @@ body:has(.product-page-hero) .back-to-top:hover {
 </div>
 
 <!-- Start .header-section - Product Page Hero -->
-<div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section product-page-hero">
+<div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section product-page-hero" style="background-color: {{ $productColor }} !important; background-image: none !important; background: {{ $productColor }} !important;">
     
     <!-- Gradient Overlay -->
     <div class="gradiant-background gradiant-overlay"></div>
@@ -749,7 +749,7 @@ body:has(.product-page-hero) .back-to-top:hover {
 </div>
 
 <!-- Start .features-section  -->
-<div id="features" class="features-section section pt-120 pb-120 gradiant-background header-curbed confetti-section">
+<div id="features" class="features-section section pt-120 pb-120 gradiant-background header-curbed confetti-section" style="background-color: {{ $productColor }} !important; background-image: none !important; background: {{ $productColor }} !important;">
     <div class="container tab-fix">
         <div class="section-head heading-light text-center">
             <div class="row">
@@ -923,7 +923,7 @@ body:has(.product-page-hero) .back-to-top:hover {
 </div>
 
 <!-- Start .products-section  -->
-<div id="products" class="products-section section gradiant-background pt-120 pb-120 products-section-bottom-curved">
+<div id="products" class="products-section section gradiant-background pt-120 pb-120 products-section-bottom-curved" style="background-color: {{ $productColor }} !important; background-image: none !important; background: {{ $productColor }} !important;">
     <div class="container">
         <div class="section-head heading-light text-center">
             <div class="row">
