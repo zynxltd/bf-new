@@ -3937,16 +3937,21 @@ body:not(:has(.product-page-hero)) .section-head h2 span,
 }
 
 /* Override style.css rule for homepage sections - must be more specific */
-.header-section.gradiant-background:not(.product-page-hero),
-.features-section.gradiant-background,
-.products-section.gradiant-background {
+/* Use even more specific selectors to ensure they override style.css */
+body .header-section.gradiant-background:not(.product-page-hero),
+body .features-section.gradiant-background,
+body .products-section.gradiant-background,
+body #home.header-section.gradiant-background,
+body #home .header-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
 }
 
 /* Hero section background - Homepage gradient (only for homepage, not product pages) */
-.header-section.gradiant-background:not(.product-page-hero),
-.header-section.half-header.gradiant-background:not(.product-page-hero) {
+body .header-section.gradiant-background:not(.product-page-hero),
+body .header-section.half-header.gradiant-background:not(.product-page-hero),
+body #home.header-section.gradiant-background,
+body #home .header-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     position: relative;
@@ -4487,7 +4492,8 @@ body:not(:has(.product-page-hero)) .section-head h2 span,
 }
 
 /* Ensure features section uses same gradient background as hero and products */
-.features-section.gradiant-background {
+body .features-section.gradiant-background,
+body #home .features-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     position: relative;
@@ -5216,7 +5222,8 @@ body:not(:has(.product-page-hero)) .section-head h2 span,
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.products-section.gradiant-background {
+body .products-section.gradiant-background,
+body #home .products-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
 }
