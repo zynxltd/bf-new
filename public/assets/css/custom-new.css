@@ -10663,9 +10663,9 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Use CSS variable set by JavaScript, or fallback to homepage blue */
-    background: var(--divider-gradient, #519cb8) !important;
-    background-color: var(--divider-bg-color, #519cb8) !important;
+    /* Use CSS variable set by JavaScript, or fallback to homepage hero gradient */
+    background: var(--divider-gradient, linear-gradient(293deg, #70D969 0%, #19B2EB 100%)) !important;
+    background-color: var(--divider-bg-color, #70D969) !important;
     -webkit-mask-image: url('/images/carb.png');
     mask-image: url('/images/carb.png');
     -webkit-mask-size: 100% 100%;
