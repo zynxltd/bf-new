@@ -1300,9 +1300,12 @@ body:not(:has(.product-page-hero)) .hero-title-gradient {
 }
 
 /* Disable shine animation on homepage hero title - override custom.css */
-body:not(:has(.product-page-hero)) .hero-title-gradient::before,
-.header-section:not(.product-page-hero) .hero-title-gradient::before,
-#home .hero-title-gradient::before {
+/* Target homepage specifically - #home is the homepage hero section */
+#home .hero-title-gradient::before,
+.header-section#home .hero-title-gradient::before,
+.header-section.half-header:not(.product-page-hero) .hero-title-gradient::before,
+body:not(:has(.product-page-hero)) .header-section .hero-title-gradient::before,
+.header-section:not(.product-page-hero) .hero-title-gradient::before {
     display: none !important;
     content: none !important;
     animation: none !important;
@@ -1311,6 +1314,8 @@ body:not(:has(.product-page-hero)) .hero-title-gradient::before,
     opacity: 0 !important;
     background: none !important;
     background-image: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
 @keyframes shine {
