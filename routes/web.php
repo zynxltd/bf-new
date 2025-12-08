@@ -76,7 +76,7 @@ Route::get('/hero-images/clematis-feed', function () {
 })->name('image.clematis-feed-hero');
 
 Route::get('/hero-images/fish-blood-bone', function () {
-    $path = public_path('images/fish-blood-bone-hero.png');
+    $path = public_path('images/fish-blood-bone-hero-no-bg.png');
     if (file_exists($path)) {
         return response()->file($path, ['Content-Type' => 'image/png']);
     }
