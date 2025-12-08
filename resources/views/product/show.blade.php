@@ -1387,6 +1387,22 @@ body:has(.product-page-hero) .back-to-top:hover {
                             
                             $faqs = mergeFAQs($faqs, $genericFAQs);
                         }
+                        
+                        // Final check: ensure we have at least 5 FAQs (add more generic if still less than 5)
+                        if(count($faqs) < 5) {
+                            // If still less than 5, add more generic FAQs
+                            $additionalGenericFAQs = [
+                                [
+                                    'question' => 'What makes this product effective?',
+                                    'answer' => 'This product is professionally formulated with a balanced blend of essential nutrients designed to support healthy plant growth, strong roots, and abundant flowering.'
+                                ],
+                                [
+                                    'question' => 'Can I use this product with other fertilisers?',
+                                    'answer' => 'It\'s generally best to use one fertiliser at a time to avoid over-feeding. Follow the product instructions and avoid mixing with other fertilisers unless specifically recommended.'
+                                ]
+                            ];
+                            $faqs = mergeFAQs($faqs, $additionalGenericFAQs);
+                        }
                     @endphp
                     @if(!empty($faqs))
                     <!-- Accordion -->
@@ -1408,56 +1424,6 @@ body:has(.product-page-hero) .back-to-top:hover {
                             </div>
                         </div>
                         @endforeach
-                    </div>
-                    @endif
-                    @else
-                    <!-- Default FAQs -->
-                    <div class="panel-group accordion" id="faq-new-accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="faq-new-accordion-i1">
-                                <h6 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#faq-new-accordion" href="#faq-new-accordion-pane-i1" aria-expanded="false">
-                                        How often should I use it?
-                                        <span class="plus-minus"><span></span></span>
-                                    </a>
-                                </h6>
-                            </div>
-                            <div id="faq-new-accordion-pane-i1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="faq-new-accordion-i1">
-                                <div class="panel-body">
-                                    <p>From March to April feed your plants once a week while watering. From May to September feed your plants twice a week while watering.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="faq-new-accordion-i2">
-                                <h6 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-new-accordion" href="#faq-new-accordion-pane-i2" aria-expanded="false">
-                                        What is the NPK ratio?
-                                        <span class="plus-minus"><span></span></span>
-                                    </a>
-                                </h6>
-                            </div>
-                            <div id="faq-new-accordion-pane-i2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-new-accordion-i2">
-                                <div class="panel-body">
-                                    <p>Superior plant food has a ratio of 18:18:24 NPK with trace elements</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="faq-new-accordion-i3">
-                                <h6 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#faq-new-accordion" href="#faq-new-accordion-pane-i3" aria-expanded="false">
-                                        How do I store it?
-                                        <span class="plus-minus"><span></span></span>
-                                    </a>
-                                </h6>
-                            </div>
-                            <div id="faq-new-accordion-pane-i3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq-new-accordion-i3">
-                                <div class="panel-body">
-                                    <p>Store Superior Plant Food in a cool, dry place with the pack closed.</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     @endif
                 </div><!-- .col-md-8  -->
