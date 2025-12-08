@@ -2494,12 +2494,40 @@ body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-backgrou
     #products .col-sm-6,
     .products-content .col-md-4.col-sm-6,
     .products-section .col-md-4.col-sm-6,
-    #products .col-md-4.col-sm-6 {
+    #products .col-md-4.col-sm-6,
+    .products-content .product-card-wrapper,
+    .products-section .product-card-wrapper,
+    #products .product-card-wrapper {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
         float: none !important;
         clear: both !important;
+        display: block !important;
+    }
+}
+
+/* Also force 1 column on tablets (768px-991px) for better mobile experience */
+@media (min-width: 768px) and (max-width: 991px) {
+    .products-content .row,
+    .products-section .row,
+    #products .row {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .products-content .row > [class*="col-"],
+    .products-section .row > [class*="col-"],
+    #products .row > [class*="col-"],
+    .products-content .col-sm-6,
+    .products-section .col-sm-6,
+    #products .col-sm-6,
+    .products-content .col-md-4,
+    .products-section .col-md-4,
+    #products .col-md-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
     }
 }
 
