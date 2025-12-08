@@ -36,9 +36,9 @@ if ($isUltimateRose) {
 } else {
     // Fallback to package color if available
     $packageColor = $product->package_color ?? '#70D969';
-    if (!empty($packageColor) && $packageColor[0] !== '#') {
-        $packageColor = '#' . $packageColor;
-    }
+if (!empty($packageColor) && $packageColor[0] !== '#') {
+    $packageColor = '#' . $packageColor;
+}
     $productColor = $packageColor;
 }
 
@@ -46,7 +46,8 @@ if ($isUltimateRose) {
 if ($isUltimateRose) {
     $heroImagePath = 'images/bloom-booster-p1.jpg';
 } elseif ($isClematisFeed) {
-    $heroImagePath = 'images/clematis-feed-p1.jpg';
+    // Using clematis-feed-p1.png as workaround - original filename blocked by web server
+    $heroImagePath = 'images/clematis-feed-p1.png';
 } elseif ($isSwellGellFeed) {
     $heroImagePath = 'images/bf-swelgel-p3.jpg';
 } elseif ($isCitrusFeed) {
@@ -714,7 +715,7 @@ body:has(.product-page-hero) .back-to-top:hover {
                         </div>
                         <div id="about-features-collapse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="about-features-heading">
                             <div class="panel-body" style="padding: 25px 25px 25px 70px; background: #ffffff; color: #555; line-height: 1.9; font-size: 16px;">
-                                {!! nl2br(e($product->features)) !!}
+                        {!! nl2br(e($product->features)) !!}
                             </div>
                         </div>
                     </div>
@@ -733,7 +734,7 @@ body:has(.product-page-hero) .back-to-top:hover {
                         </div>
                         <div id="about-application-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="about-application-heading">
                             <div class="panel-body" style="padding: 25px 25px 25px 70px; background: #ffffff; color: #555; line-height: 1.9; font-size: 16px;">
-                                {!! nl2br(e($product->application)) !!}
+                        {!! nl2br(e($product->application)) !!}
                             </div>
                         </div>
                     </div>
@@ -831,9 +832,9 @@ body:has(.product-page-hero) .back-to-top:hover {
                                     {!! webp_picture('images/fish-bone-back-1.jpg', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @else
                                     {!! $product->image_2 ? webp_picture($product->image_2, $product->title, ['loading' => 'lazy', 'decoding' => 'async']) : ($product->image ? webp_picture($product->image, $product->title, ['loading' => 'lazy', 'decoding' => 'async']) : webp_picture('images/superiorback.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async'])) !!}
-                                @endif
-                            </div>
-                        </div>
+                        @endif
+                    </div>
+                </div>
                         
                         <!-- Right column cards -->
                         <div class="features-cards-column features-cards-right">
@@ -842,17 +843,17 @@ body:has(.product-page-hero) .back-to-top:hover {
                                 <div class="feature-nutrient-content">
                             <h4>Phosphorous pentoxide</h4>
                             <p>(the P in NPK) for respiration and growth</p>
-                        </div>
-                            </div>
+            </div>
+        </div>
                             
                             <div class="feature-nutrient-card">
                                 <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
                                     <h4>Magnesium oxide</h4>
                             <p>for photosynthesis (how plants get their energy)</p>
-                        </div>
-                            </div>
-                            
+    </div>
+</div>
+
                             <div class="feature-nutrient-card">
                                 <i class="fa fa-check-circle"></i>
                                 <div class="feature-nutrient-content">
@@ -960,8 +961,8 @@ body:has(.product-page-hero) .back-to-top:hover {
                                 <span class="best-seller-badge">Best Seller</span>
                                 @endif
                                 {!! $prod->image ? webp_picture($prod->image, $prod->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) : webp_picture('images/superiorV4.png', $prod->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) !!}
-                            </div>
-                            <div class="product-details p-30">
+                        </div>
+                        <div class="product-details p-30">
                                 <h4 class="product-title mb-15">{{ $prod->title }}</h4>
                                 <p class="product-description mb-20">{{ $prod->description ?? '' }}</p>
                                 @if($prod->badge_1 || $prod->badge_2)
@@ -972,9 +973,9 @@ body:has(.product-page-hero) .back-to-top:hover {
                                     @if($prod->badge_2)
                                         <span class="badge">{{ strtoupper(trim($prod->badge_2)) }}</span>
                                     @endif
-                                </div>
+                        </div>
                                 @endif
-                            </div>
+                    </div>
                         </a>
                         <ul class="product-buttons">
                             @if($prod->yg_link)
@@ -992,9 +993,9 @@ body:has(.product-page-hero) .back-to-top:hover {
                         <!-- Feefo Review Badge (Desktop Only) -->
                         <div class="product-review-badge-desktop">
                             <div class="feefo-review-badge-wrapper-product" data-product-sku="{{ $prod->sku }}"></div>
-                        </div>
+                </div>
                         @endif
-                    </div>
+            </div>
                 </div>
                 @empty
                 <div class="col-md-12">
@@ -1040,11 +1041,11 @@ body:has(.product-page-hero) .back-to-top:hover {
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">{{ $product->title }}</h4>
                             <p class="video-description">Learn how to use {{ $product->title }} for incredible results in your garden.</p>
-                        </div>
-                    </div>
-                </div>
-                @endif
-                
+        </div>
+    </div>
+</div>
+@endif
+
                 <!-- Video 1: Superior Soluble Fertiliser -->
                 <div class="col-md-4 col-sm-6 mb-40">
                     <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s">
@@ -1107,29 +1108,29 @@ body:has(.product-page-hero) .back-to-top:hover {
             <div class="row">
                 <!-- FAQ Content -->
                 <div class="col-md-10 col-md-offset-1">
-                    @php
-                        // Parse FAQs - can be JSON or pipe-separated format
-                        $faqs = [];
-                        if (!empty($product->faqs)) {
-                            // Try to decode as JSON first
-                            $decoded = json_decode($product->faqs, true);
-                            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
-                                $faqs = $decoded;
-                            } else {
-                                // Fallback: parse as pipe-separated format (Question|Answer)
-                                $lines = explode("\n", trim($product->faqs));
-                                foreach ($lines as $line) {
-                                    $parts = explode('|', $line, 2);
-                                    if (count($parts) === 2) {
-                                        $faqs[] = [
-                                            'question' => trim($parts[0]),
-                                            'answer' => trim($parts[1])
-                                        ];
-                                    }
-                                }
-                            }
-                        }
-                    @endphp
+@php
+    // Parse FAQs - can be JSON or pipe-separated format
+    $faqs = [];
+    if (!empty($product->faqs)) {
+        // Try to decode as JSON first
+        $decoded = json_decode($product->faqs, true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+            $faqs = $decoded;
+        } else {
+            // Fallback: parse as pipe-separated format (Question|Answer)
+            $lines = explode("\n", trim($product->faqs));
+            foreach ($lines as $line) {
+                $parts = explode('|', $line, 2);
+                if (count($parts) === 2) {
+                    $faqs[] = [
+                        'question' => trim($parts[0]),
+                        'answer' => trim($parts[1])
+                    ];
+                }
+            }
+        }
+    }
+@endphp
                     @php
                         // Add default FAQs for Superior Soluble Fertiliser if none exist or add to existing ones
                         $defaultSuperiorSolubleFAQs = [
@@ -1485,7 +1486,7 @@ body:has(.product-page-hero) .back-to-top:hover {
         </defs>
         <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-faq-bottom)"></path>
     </svg>
-</div>
+                </div>
 
 <!-- Start .guides-section  -->
 <div id="guides" class="guides-section section white-bg pt-120 pb-120">
@@ -1495,9 +1496,9 @@ body:has(.product-page-hero) .back-to-top:hover {
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="heading">Latest <span>Guides</span></h2>
                     <p class="lead">Expert gardening guides and tips to help you achieve the best results in your garden</p>
-                </div>
             </div>
         </div>
+    </div>
 
         <div class="row">
             @php
@@ -1533,13 +1534,13 @@ body:has(.product-page-hero) .back-to-top:hover {
                         @if($article->category)
                         <div class="blog-category">{{ $article->category }}</div>
                         @endif
-                    </div>
+</div>
                     <div class="blog-content p-30">
                         <div class="blog-meta mb-15">
                             <span class="blog-date"><i class="fa fa-calendar"></i> {{ $article->published_date ? $article->published_date->format('F jS, Y') : 'Not published' }}</span>
                             @if($article->reading_time)
                             <span class="blog-reading-time"><i class="fa fa-clock-o"></i> {{ $article->reading_time }} min read</span>
-                            @endif
+@endif
                         </div>
                         <h3 class="blog-title mb-15">
                             <a href="{{ route('blog.show', ['category_slug' => $article->category_slug, 'slug' => $article->slug]) }}">{{ $article->title }}</a>
@@ -1804,7 +1805,7 @@ body:has(.product-page-hero) .back-to-top:hover {
                         if (diff > 30) {
                             // Right side is different enough, use it
                             color2 = rgbToHex(rightAvg.r, rightAvg.g, rightAvg.b);
-                        } else {
+                } else {
                             // Right side too similar, create a darker/lighter variation
                             var endColor = createGradientEndColor(centerAvg, true);
                             color2 = rgbToHex(endColor.r, endColor.g, endColor.b);
@@ -2405,9 +2406,9 @@ body:has(.product-page-hero) .back-to-top:hover {
                 $('html, body').stop().animate({
                     scrollTop: target.offset().top - 100
                 }, 800, 'swing');
-            }
-        });
-    }
+                }
+            });
+        }
     
     // Initialize when jQuery is ready
     if (typeof jQuery !== 'undefined') {
