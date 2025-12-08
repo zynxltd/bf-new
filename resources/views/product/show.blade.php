@@ -597,9 +597,19 @@ body:has(.product-page-hero) .back-to-top:hover {
                             
                             // Remove swell-gell-feed specific instructions
                             if ($isSwellGellFeed) {
-                                // Remove everything from "Making Up Pots" to the end of growbag instructions
-                                $text = preg_replace('/\s*Making Up Pots and Containers.*?Growbags\s+\d+-\d+g\s+measure\s+per\s+plant\.\s*/is', '', $text);
-                                // Also try a more flexible pattern to catch variations
+                                // Remove "For best results, mix in at planting out..." paragraph
+                                $text = preg_replace('/\s*For best results[^.]*season\.\s*/is', '', $text);
+                                // Remove "Making Up Pots and Containers" section (including Ready Plants)
+                                $text = preg_replace('/\s*Making Up Pots and Containers.*?Ready Plants Pots and Containers.*?measures as directed below\.\s*/is', '', $text);
+                                // Remove "Growbags Work into the soil around each plant."
+                                $text = preg_replace('/\s*Growbags\s+Work into the soil around each plant\.\s*/is', '', $text);
+                                // Remove "After Planting Water well..." section
+                                $text = preg_replace('/\s*After Planting\s+Water well[^.]*when watered\.\s*/is', '', $text);
+                                // Remove detailed measurement instructions (Pots, containers, baskets...)
+                                $text = preg_replace('/\s*Pots, containers, baskets[^.]*per\s+30cm\s+in\s+length\s+Growbags\s+\d+-\d+g\s+measure\s+per\s+plant\.\s*/is', '', $text);
+                                // More comprehensive pattern to catch all the text in one go
+                                $text = preg_replace('/\s*For best results[^.]*season\.\s*Making Up Pots and Containers[^.]*Growbags\s+\d+-\d+g\s+measure\s+per\s+plant\.\s*/is', '', $text);
+                                // Catch any remaining variations
                                 $text = preg_replace('/\s*Making Up Pots.*?Never exceed.*?Growbags.*?per\s+plant\.\s*/is', '', $text);
                             }
                             
@@ -1148,20 +1158,237 @@ body:has(.product-page-hero) .back-to-top:hover {
                             ]
                         ];
                         
-                        // If Superior Soluble page and no FAQs exist, use defaults
-                        if($isSuperiorSoluble && empty($faqs)) {
-                            $faqs = $defaultSuperiorSolubleFAQs;
-                        } elseif($isSuperiorSoluble && !empty($faqs)) {
-                            // Merge with defaults, avoiding duplicates
+                        // Default FAQs for Swell Gell & Feed
+                        $defaultSwellGellFAQs = [
+                            [
+                                'question' => 'What is Swell Gell & Feed and how does it work?',
+                                'answer' => 'Swell Gell & Feed is a revolutionary water-storing gel that expands when watered, holding up to 400 times its weight in water. It gradually releases both water and nutrients to your plants, reducing the need for frequent watering while providing essential plant food.'
+                            ],
+                            [
+                                'question' => 'How do I use Swell Gell & Feed?',
+                                'answer' => 'Mix the gel granules thoroughly with your compost when planting. For pots 15-25cm in diameter, use 20g. For 30-40cm pots, use 30-40g. For 45-60cm pots, use 50-60g. Water well twice, a few hours apart, to fully charge the granules.'
+                            ],
+                            [
+                                'question' => 'How long does Swell Gell & Feed last?',
+                                'answer' => 'A 250g resealable pouch treats approximately 12 standard hanging baskets or similar sized pots for one season. The gel continues to work throughout the growing season, reducing watering frequency significantly.'
+                            ],
+                            [
+                                'question' => 'Can I use Swell Gell & Feed in all types of containers?',
+                                'answer' => 'Yes! Swell Gell & Feed works in pots, containers, hanging baskets, growbags, window boxes, and houseplants. It\'s perfect for both indoor and outdoor use.'
+                            ],
+                            [
+                                'question' => 'What happens if I use too much Swell Gell & Feed?',
+                                'answer' => 'Never exceed the recommended amounts as this can cause compost to over-expand when watered. Always follow the measurement guidelines provided on the pack for best results.'
+                            ],
+                            [
+                                'question' => 'Is Swell Gell & Feed safe for all plants?',
+                                'answer' => 'Yes, Swell Gell & Feed is safe for all plants including vegetables, flowers, and houseplants. It provides both water retention and essential nutrients to support healthy growth.'
+                            ]
+                        ];
+                        
+                        // Default FAQs for Clematis Feed
+                        $defaultClematisFAQs = [
+                            [
+                                'question' => 'When should I feed my clematis?',
+                                'answer' => 'Feed your clematis in early spring when new growth appears, and continue feeding every 4-6 weeks throughout the growing season until late summer. This supports healthy growth and abundant flowering.'
+                            ],
+                            [
+                                'question' => 'How do I apply Clematis Feed?',
+                                'answer' => 'Apply the feed around the base of the plant, avoiding direct contact with the stems. Water well after application to help the nutrients reach the roots. Follow the dosage instructions on the pack.'
+                            ],
+                            [
+                                'question' => 'Can I use Clematis Feed on other plants?',
+                                'answer' => 'While specifically formulated for clematis, this feed can also benefit other climbing plants and flowering perennials that prefer similar nutrient levels. However, for best results, use it primarily for clematis.'
+                            ],
+                            [
+                                'question' => 'How much Clematis Feed should I use?',
+                                'answer' => 'The amount depends on the size and age of your clematis. For established plants, follow the recommended dosage on the pack. For newly planted clematis, use a slightly reduced amount in the first year.'
+                            ],
+                            [
+                                'question' => 'What makes Clematis Feed special?',
+                                'answer' => 'Clematis Feed is specially formulated with the right balance of nutrients that clematis need for strong root development, healthy foliage, and prolific flowering. It\'s designed to meet the specific nutritional requirements of these beautiful climbing plants.'
+                            ],
+                            [
+                                'question' => 'Can I use Clematis Feed in containers?',
+                                'answer' => 'Yes! Clematis Feed works excellently for clematis grown in containers. Ensure you water regularly and feed according to the instructions, as container-grown plants may need more frequent feeding.'
+                            ]
+                        ];
+                        
+                        // Default FAQs for Citrus Feed
+                        $defaultCitrusFAQs = [
+                            [
+                                'question' => 'How often should I feed my citrus plants?',
+                                'answer' => 'Feed your citrus plants every 2-4 weeks during the growing season (spring through summer). Reduce feeding in autumn and stop during winter when plants are dormant.'
+                            ],
+                            [
+                                'question' => 'Can I use Citrus Feed on all citrus varieties?',
+                                'answer' => 'Yes! Citrus Feed is suitable for all citrus varieties including lemons, oranges, limes, grapefruits, and kumquats. It provides the essential nutrients that all citrus plants need for healthy growth and fruit production.'
+                            ],
+                            [
+                                'question' => 'How do I apply Citrus Feed?',
+                                'answer' => 'Apply the feed around the base of the plant, keeping it away from the trunk. Water thoroughly after application. For potted citrus, apply according to the container size and follow the pack instructions.'
+                            ],
+                            [
+                                'question' => 'What nutrients does Citrus Feed provide?',
+                                'answer' => 'Citrus Feed contains a balanced blend of nitrogen, phosphorus, and potassium, plus essential micronutrients like iron, magnesium, and zinc that citrus plants need for healthy leaves, strong roots, and abundant fruit production.'
+                            ],
+                            [
+                                'question' => 'Can I use Citrus Feed on indoor citrus trees?',
+                                'answer' => 'Yes! Citrus Feed is perfect for indoor citrus trees. Feed regularly during the growing season and ensure your plant receives adequate light and water. The feed will help maintain healthy foliage and encourage fruiting.'
+                            ],
+                            [
+                                'question' => 'When should I start feeding a new citrus plant?',
+                                'answer' => 'Wait 4-6 weeks after planting before starting to feed, allowing the plant to establish its root system first. Then begin regular feeding according to the instructions.'
+                            ]
+                        ];
+                        
+                        // Default FAQs for Acer Feed
+                        $defaultAcerFAQs = [
+                            [
+                                'question' => 'When is the best time to feed my acer?',
+                                'answer' => 'Feed your acer in early spring when new leaves begin to emerge, and again in mid-summer. Avoid feeding in late summer or autumn as this can encourage new growth that won\'t harden before winter.'
+                            ],
+                            [
+                                'question' => 'How do I apply Acer Feed?',
+                                'answer' => 'Apply the feed around the base of the tree, spreading it evenly over the root area. Water well after application. For potted acers, follow the container size guidelines on the pack.'
+                            ],
+                            [
+                                'question' => 'Can I use Acer Feed on other trees?',
+                                'answer' => 'While specifically formulated for acers (Japanese maples), this feed can also benefit other ornamental trees and shrubs that prefer similar soil conditions and nutrient levels.'
+                            ],
+                            [
+                                'question' => 'What makes Acer Feed different from general plant food?',
+                                'answer' => 'Acer Feed is specially balanced for acers, which prefer slightly acidic soil and specific nutrient ratios. It helps maintain the vibrant leaf colours and healthy growth that acers are known for.'
+                            ],
+                            [
+                                'question' => 'How much Acer Feed should I use?',
+                                'answer' => 'The amount depends on the size of your acer. For small trees (under 1m), use the minimum recommended amount. For larger trees, increase accordingly. Always follow the instructions on the pack for best results.'
+                            ],
+                            [
+                                'question' => 'Can I use Acer Feed for potted acers?',
+                                'answer' => 'Yes! Acer Feed works excellently for potted acers. Ensure your container has good drainage and feed regularly during the growing season. Potted acers may need more frequent feeding than those in the ground.'
+                            ]
+                        ];
+                        
+                        // Default FAQs for Ultimate Rose Bloom Booster
+                        $defaultUltimateRoseFAQs = [
+                            [
+                                'question' => 'When should I feed my roses?',
+                                'answer' => 'Start feeding in early spring (March) when new growth appears. Continue feeding every 4-6 weeks throughout the growing season until late summer. This supports healthy growth and continuous flowering.'
+                            ],
+                            [
+                                'question' => 'How do I apply Ultimate Rose Bloom Booster?',
+                                'answer' => 'For established roses, sprinkle 30g evenly around the base of the plant, about 15cm away from the stem. Work it into the topsoil and water well. For climbing roses, use 60g per plant.'
+                            ],
+                            [
+                                'question' => 'Can I use this when planting new roses?',
+                                'answer' => 'Yes! When planting new roses, sprinkle 30g evenly into the prepared planting hole and mix it in at the outside of the hole before placing the rose. This gives new plants a great start.'
+                            ],
+                            [
+                                'question' => 'What makes Ultimate Rose Bloom Booster special?',
+                                'answer' => 'This feed is specifically formulated for roses with a balanced NPK ratio (8-4-9.2) plus essential trace elements, mycorrhizal friendly fungi, and humic acid. It promotes strong root development, healthy foliage, and abundant blooms.'
+                            ],
+                            [
+                                'question' => 'How long does a 750g pack last?',
+                                'answer' => 'A 750g pack provides approximately 25 feeds based on 30g per plant. This is enough for regular feeding throughout the growing season for most rose gardens.'
+                            ],
+                            [
+                                'question' => 'Can I use this on all types of roses?',
+                                'answer' => 'Yes! Ultimate Rose Bloom Booster is suitable for all types of roses including shrub roses, climbing roses, patio roses, and standard roses. It provides the balanced nutrition all roses need.'
+                            ]
+                        ];
+                        
+                        // Default FAQs for Fish Blood & Bone
+                        $defaultFishBloodBoneFAQs = [
+                            [
+                                'question' => 'What is Fish Blood & Bone fertiliser?',
+                                'answer' => 'Fish Blood & Bone is an organic fertiliser made from fish waste products. It provides a balanced source of nitrogen, phosphorus, and calcium that promotes strong root development and healthy plant growth.'
+                            ],
+                            [
+                                'question' => 'How do I apply Fish Blood & Bone?',
+                                'answer' => 'Sprinkle the fertiliser evenly around the base of plants, avoiding direct contact with stems or leaves. Work it gently into the topsoil and water well. Follow the recommended dosage on the pack.'
+                            ],
+                            [
+                                'question' => 'When should I use Fish Blood & Bone?',
+                                'answer' => 'Apply in early spring when plants are starting to grow, and again in mid-summer. It\'s particularly beneficial when planting new plants or preparing beds for the growing season.'
+                            ],
+                            [
+                                'question' => 'Is Fish Blood & Bone safe for vegetables?',
+                                'answer' => 'Yes! Fish Blood & Bone is excellent for vegetables and is often preferred by organic gardeners. It provides slow-release nutrients that support healthy vegetable growth and good yields.'
+                            ],
+                            [
+                                'question' => 'How long does Fish Blood & Bone last in the soil?',
+                                'answer' => 'Fish Blood & Bone provides slow-release nutrition that feeds plants over several months. The nutrients are gradually released as the organic matter breaks down, providing sustained feeding throughout the growing season.'
+                            ],
+                            [
+                                'question' => 'Can I use Fish Blood & Bone in containers?',
+                                'answer' => 'Yes, but use it sparingly in containers as it\'s quite concentrated. Mix a small amount into the compost when planting, or apply a light top dressing during the growing season. Always follow the recommended amounts.'
+                            ]
+                        ];
+                        
+                        // Helper function to merge FAQs avoiding duplicates
+                        function mergeFAQs($existingFAQs, $defaultFAQs) {
+                            if(empty($existingFAQs)) {
+                                return $defaultFAQs;
+                            }
+                            
                             $existingQuestions = array_map(function($faq) {
                                 return strtolower(trim($faq['question'] ?? $faq['q'] ?? ''));
-                            }, $faqs);
+                            }, $existingFAQs);
                             
-                            foreach($defaultSuperiorSolubleFAQs as $defaultFaq) {
+                            foreach($defaultFAQs as $defaultFaq) {
                                 if(!in_array(strtolower(trim($defaultFaq['question'])), $existingQuestions)) {
-                                    $faqs[] = $defaultFaq;
+                                    $existingFAQs[] = $defaultFaq;
                                 }
                             }
+                            
+                            return $existingFAQs;
+                        }
+                        
+                        // Apply default FAQs based on product page
+                        if($isSuperiorSoluble) {
+                            $faqs = mergeFAQs($faqs, $defaultSuperiorSolubleFAQs);
+                        } elseif($isSwellGellFeed) {
+                            $faqs = mergeFAQs($faqs, $defaultSwellGellFAQs);
+                        } elseif($isClematisFeed) {
+                            $faqs = mergeFAQs($faqs, $defaultClematisFAQs);
+                        } elseif($isCitrusFeed) {
+                            $faqs = mergeFAQs($faqs, $defaultCitrusFAQs);
+                        } elseif($isAcerFeed) {
+                            $faqs = mergeFAQs($faqs, $defaultAcerFAQs);
+                        } elseif($isUltimateRose) {
+                            $faqs = mergeFAQs($faqs, $defaultUltimateRoseFAQs);
+                        } elseif($isFishBloodBone) {
+                            $faqs = mergeFAQs($faqs, $defaultFishBloodBoneFAQs);
+                        }
+                        
+                        // Ensure at least 5 FAQs for any product page
+                        if(count($faqs) < 5) {
+                            // Add generic FAQs if needed
+                            $genericFAQs = [
+                                [
+                                    'question' => 'How often should I use this product?',
+                                    'answer' => 'Follow the instructions on the pack for best results. Generally, feed during the growing season (spring through summer) and reduce or stop feeding in autumn and winter.'
+                                ],
+                                [
+                                    'question' => 'Is this product safe for all plants?',
+                                    'answer' => 'This product is specifically formulated for its intended use. Always check the product label and follow the instructions carefully for best results and plant safety.'
+                                ],
+                                [
+                                    'question' => 'How should I store this product?',
+                                    'answer' => 'Store in a cool, dry place away from direct sunlight. Keep away from pets and children. Ensure the pack is sealed properly to maintain freshness.'
+                                ],
+                                [
+                                    'question' => 'Can I use this product in containers?',
+                                    'answer' => 'Yes, this product can be used in containers. Follow the recommended dosage for container size and ensure adequate watering after application.'
+                                ],
+                                [
+                                    'question' => 'When is the best time to start feeding?',
+                                    'answer' => 'Start feeding in spring when plants are actively growing. Continue through the growing season according to the product instructions for optimal results.'
+                                ]
+                            ];
+                            
+                            $faqs = mergeFAQs($faqs, $genericFAQs);
                         }
                     @endphp
                     @if(!empty($faqs))
