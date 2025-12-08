@@ -5866,6 +5866,17 @@ body:not(:has(.product-page-hero)) #products.products-section-bottom-curved::aft
     width: 0 !important;
 }
 
+/* Hide products-section-bottom-curved::after on product pages - divider removed */
+body:has(.product-page-hero) .products-section-bottom-curved::after,
+.product-page-hero ~ .products-section-bottom-curved::after {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
 /* Force blue-green gradient if ::after is not hidden (fallback) */
 body:not(:has(.product-page-hero)) .products-section-bottom-curved::after {
     background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
