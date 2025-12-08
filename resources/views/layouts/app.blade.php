@@ -45,13 +45,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" id="google-fonts-css">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Google Analytics 4 -->
+    <!-- Cookiebot - Auto Blocking Mode (GDPR Compliant) -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="1b14093a-5243-4fdf-9a56-455f93e17d85" data-blockingmode="auto" type="text/javascript"></script>
+    
+    <!-- Google Analytics 4 - Will be managed by Cookiebot -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH00CZ6T7P"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-NH00CZ6T7P');
+        gtag('config', 'G-NH00CZ6T7P', {
+            'anonymize_ip': true
+        });
     </script>
     
     <!-- Font Awesome - Load asynchronously -->

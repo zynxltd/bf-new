@@ -16,6 +16,9 @@ Route::get('/', function () {
     return view('home', compact('products'));
 })->name('home');
 
+// Product Landing Pages
+Route::get('/product/{slug}', [\App\Http\Controllers\ProductController::class, 'show'])->name('product.show');
+
 // Blog Routes
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{category_slug}/{slug}', [BlogController::class, 'show'])->name('blog.show');

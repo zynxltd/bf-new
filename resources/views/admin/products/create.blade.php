@@ -29,6 +29,12 @@
                 </div>
 
                 <div class="form-group-admin">
+                    <label for="slug" class="form-label-admin">Slug (URL)</label>
+                    <input type="text" class="form-control-admin" id="slug" name="slug" value="{{ old('slug') }}" placeholder="auto-generated-from-title">
+                    <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">URL-friendly version of the title. Auto-generated if left empty. Example: "superior-plant-food"</small>
+                </div>
+
+                <div class="form-group-admin">
                     <label for="description" class="form-label-admin">Description</label>
                     <textarea class="form-control-admin" id="description" name="description" rows="3">{{ old('description') }}</textarea>
                 </div>
@@ -63,6 +69,12 @@
                             <input type="text" class="form-control-admin" id="image_4" name="image_4" value="{{ old('image_4') }}" placeholder="images/product4.jpg">
                         </div>
                     </div>
+                </div>
+
+                <div class="form-group-admin">
+                    <label for="package_color" class="form-label-admin">Package Color (Hex)</label>
+                    <input type="text" class="form-control-admin" id="package_color" name="package_color" value="{{ old('package_color') }}" placeholder="#537550" pattern="^#?[0-9A-Fa-f]{6}$" maxlength="7">
+                    <small style="color: #666; font-size: 13px; margin-top: 5px; display: block;">Hex color code for product package (e.g., #537550). Used for hero background on product landing page.</small>
                 </div>
 
                 <div class="form-group-admin">

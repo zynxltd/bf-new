@@ -143,8 +143,8 @@ $faqSchema = [
 <!-- Start .header-section -->
 <div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section">
     
-    <!-- Hero Spotlight Animation -->
-    <div id="hero-spotlight-animation" class="hero-spotlight-bg"></div>
+    <!-- Hero Spotlight Animation - REMOVED on home page -->
+    <!-- <div id="hero-spotlight-animation" class="hero-spotlight-bg"></div> -->
     
     <!-- Gradient Overlay -->
     <div class="gradiant-background gradiant-overlay"></div>
@@ -229,7 +229,7 @@ $faqSchema = [
                         <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
                             <span><i class="fa fa-star hero-star-icon"></i> Premium Quality</span>
                         </div>
-                        <h2 class="hero-title-gradient wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">Superior Plant Food</h2>
+                        <h2 class="hero-title-gradient wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="animation-timing-function: ease-out; font-size: 56px; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none !important;">Superior Plant Food</h2>
                         <p class="lead hero-description wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">Our best-ever formulation for use all round the garden for <strong>more flowers</strong>, <strong>more fruit</strong>, <strong>better roots</strong> and <strong>better shoots</strong>.</p>
                         <!-- Hero Image - appears here on mobile -->
                         <div class="hero-image-mobile-placeholder">
@@ -240,9 +240,9 @@ $faqSchema = [
                         <div class="hero-sizes wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
                             <span class="size-label">Available in 3 sizes:</span>
                             <div class="size-badges">
-                                <span class="size-badge" data-scroll-to="products">1.25kg</span>
+                                <span class="size-badge" data-scroll-to="products">100g</span>
                                 <span class="size-badge" data-scroll-to="products">500g</span>
-                                <span class="size-badge" data-scroll-to="products">50g Trial</span>
+                                <span class="size-badge" data-scroll-to="products">1.25kg</span>
                             </div>
                         </div>
                         <p class="heading-light hero-cta wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s" style="font-size: 18px; font-weight: 500;">Click below to buy it from one of our stockists</p>
@@ -349,11 +349,10 @@ $faqSchema = [
     </div><!-- .container -->
 </div><!-- .about-section  -->
 
-<!-- Curved divider between white and gradient sections -->
-<div class="section-divider-wave section-divider-mobile-hide" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(90deg, #537550 0%, #713841 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
-    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
+<!-- Curved divider between white and gradient sections - Top divider for "What's in our Superior Plant Food" -->
+<div class="section-divider-wave section-divider-mobile-hide" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1);">
 </div>
-
 
 <!-- Start .features-section  -->
 <div id="features" class="features-section section gradiant-background header-curbed confetti-section">
@@ -454,9 +453,9 @@ $faqSchema = [
     </div><!-- .container -->
 </div><!-- .features-section  -->
 
-<!-- Curved divider at bottom of features section -->
-<div class="section-divider-wave section-divider-wave-bottom" style="height: 450px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
-    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleY(-1);">
+<!-- Curved divider at bottom of features section - Bottom divider for "What's in our Superior Plant Food" -->
+<div class="section-divider-wave section-divider-wave-bottom" style="height: 450px; width: 100%; overflow: hidden; background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-divider-image" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleY(-1);">
 </div>
 
 <!-- Start .customer-reviews-section  -->
@@ -565,25 +564,11 @@ $faqSchema = [
     </div><!-- .container -->
 </div><!-- .customer-reviews-section  -->
 
-
-
-<!-- Products Section Top Divider -->
-<!-- <div class="section-divider-wave" id="divider-products">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
-        <defs>
-            <linearGradient id="gradient-divider-products-top" x1="100%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#404040;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-products-top)"></path>
-    </svg>
-</div> -->
-
-<!-- Curved divider between white and gradient sections -->
-<div class="section-divider-wave section-divider-mobile-hide" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(90deg, #537550 0%, #713841 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
-    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1); filter: brightness(0) invert(1);">
+<!-- Products Section Top Divider - Top divider for "Our Complete Product Range" -->
+<div class="section-divider-wave section-divider-mobile-hide" style="height: 200px; width: 100%; overflow: visible; background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%); margin-top: 0px; position: relative; z-index: 1; padding-top: 0px;">
+    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%; height: 100%; object-fit: fill; object-position: top center; display: block; transform: scaleY(-1);">
 </div>
+
 <!-- Start .products-section  -->
 <div id="products" class="products-section section gradiant-background pt-120 pb-120 products-section-bottom-curved">
     <div class="container">
@@ -600,73 +585,51 @@ $faqSchema = [
             <div class="row">
                 @forelse($products ?? [] as $index => $product)
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="product-card white-bg text-center wow fadeInUp product-card-clickable" 
+                    <div class="product-card white-bg text-center wow fadeInUp" 
                          data-wow-duration=".5s" 
-                         data-wow-delay="{{ ($index * 0.1) }}s"
-                         data-product-title="{{ $product->title }}"
-                         data-product-image="{{ $product->image ? asset($product->image) : '' }}"
-                         data-product-image-2="{{ $product->image_2 ? asset($product->image_2) : ($product->image ? asset($product->image) : '') }}"
-                         data-product-image-3="{{ $product->image_3 ? asset($product->image_3) : '' }}"
-                         data-product-image-4="{{ $product->image_4 ? asset($product->image_4) : '' }}"
-                         data-product-video="{{ $product->video ?? '' }}"
-                         data-product-description="{{ $product->description ?? '' }}"
-                         data-product-full-description="{{ htmlspecialchars($product->full_description ?? '', ENT_QUOTES) }}"
-                         data-product-videos="{{ htmlspecialchars($product->videos ?? '', ENT_QUOTES) }}"
-                         data-product-reviews="{{ htmlspecialchars($product->reviews ?? '', ENT_QUOTES) }}"
-                         data-product-delivery="{{ htmlspecialchars($product->delivery_info ?? '', ENT_QUOTES) }}"
-                         data-product-specs="{{ $product->specs ?? '' }}"
-                         data-product-yg="{{ $product->yg_link ?? '' }}"
-                         data-product-amazon="{{ $product->amazon_link ?? '' }}"
-                         data-product-npk="{{ $product->npk ?? '' }}"
-                         data-product-features="{{ $product->features ?? '' }}"
-                         data-product-application="{{ htmlspecialchars($product->application ?? '', ENT_QUOTES) }}"
-                         data-product-makes="{{ $product->makes ?? '' }}"
-                         data-product-sku="{{ $product->sku ?? '' }}">
-                        <div class="product-image mb-20" style="position: relative;">
-                            @if($index < 2)
-                            <span class="best-seller-badge">Best Seller</span>
-                            @endif
-                            {!! $product->image ? webp_picture($product->image, $product->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) : webp_picture('images/superiorV4.png', $product->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) !!}
-                            <div class="product-quick-view-overlay">
-                                <a href="javascript:void(0);" class="product-quick-view-btn" title="Quick View" aria-label="Quick view {{ $product->title }}">
-                                    <i class="fa fa-eye"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-details p-30">
-                            <h4 class="product-title mb-15">{{ $product->title }}</h4>
-                            <p class="product-description mb-20">{{ $product->description ?? '' }}</p>
-                            @if($product->badge_1 || $product->badge_2)
-                            <div class="product-specs mb-20">
-                                @if($product->badge_1)
-                                    <span class="badge">{{ strtoupper(trim($product->badge_1)) }}</span>
+                         data-wow-delay="{{ ($index * 0.1) }}s">
+                        <a href="{{ route('product.show', $product->slug ?? $product->sku ?? $product->id) }}" class="product-card-link" aria-label="View {{ $product->title }}">
+                            <div class="product-image mb-20" style="position: relative;">
+                                @if($index < 2)
+                                <span class="best-seller-badge">Best Seller</span>
                                 @endif
-                                @if($product->badge_2)
-                                    <span class="badge">{{ strtoupper(trim($product->badge_2)) }}</span>
+                                {!! $product->image ? webp_picture($product->image, $product->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) : webp_picture('images/superiorV4.png', $product->title, ['class' => 'img-responsive', 'loading' => 'lazy', 'decoding' => 'async']) !!}
+                            </div>
+                            <div class="product-details p-30">
+                                <h4 class="product-title mb-15">{{ $product->title }}</h4>
+                                <p class="product-description mb-20">{{ $product->description ?? '' }}</p>
+                                @if($product->badge_1 || $product->badge_2)
+                                <div class="product-specs mb-20">
+                                    @if($product->badge_1)
+                                        <span class="badge">{{ strtoupper(trim($product->badge_1)) }}</span>
+                                    @endif
+                                    @if($product->badge_2)
+                                        <span class="badge">{{ strtoupper(trim($product->badge_2)) }}</span>
+                                    @endif
+                                </div>
                                 @endif
                             </div>
+                        </a>
+                        <ul class="product-buttons">
+                            @if($product->yg_link)
+                            <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button btn-buy-yg" target="_blank" rel="noopener" aria-label="Buy {{ $product->title }} from YouGarden">
+                                {!! webp_picture('images/yglogosmall.png', 'YouGarden', ['loading' => 'lazy']) !!}
+                            </a></li>
                             @endif
-                            <ul class="product-buttons">
-                                @if($product->yg_link)
-                                <li><a href="{{ $product->yg_link }}{{ strpos($product->yg_link, '?') !== false ? '&' : '?' }}source=bloomingfast.com" class="product-button btn-buy-yg" target="_blank" rel="noopener" onclick="event.stopPropagation();" aria-label="Buy {{ $product->title }} from YouGarden">
-                                    {!! webp_picture('images/yglogosmall.png', 'YouGarden', ['loading' => 'lazy']) !!}
-                                </a></li>
-                                @endif
-                                @if($product->amazon_link)
-                                <li><a href="{{ $product->amazon_link }}" class="product-button btn-buy-amazon" target="_blank" rel="noopener" onclick="event.stopPropagation();" aria-label="Buy {{ $product->title }} from Amazon">
-                                    {!! webp_picture('images/amazoncolour.png', 'Amazon', ['loading' => 'lazy']) !!}
-                                </a></li>
-                                @endif
-                            </ul>
-                            @if($product->sku)
-                            <!-- Feefo Review Badge (Desktop Only) -->
-                            <div class="product-review-badge-desktop">
-                                <div class="feefo-review-badge-wrapper-product" data-product-sku="{{ $product->sku }}"></div>
+                            @if($product->amazon_link)
+                            <li><a href="{{ $product->amazon_link }}" class="product-button btn-buy-amazon" target="_blank" rel="noopener" aria-label="Buy {{ $product->title }} from Amazon">
+                                {!! webp_picture('images/amazoncolour.png', 'Amazon', ['loading' => 'lazy']) !!}
+                            </a></li>
+                            @endif
+                        </ul>
+                        @if($product->sku)
+                        <!-- Feefo Review Badge (Desktop Only) -->
+                        <div class="product-review-badge-desktop">
+                            <div class="feefo-review-badge-wrapper-product" data-product-sku="{{ $product->sku }}"></div>
                         </div>
-                            @endif
+                        @endif
                     </div>
                 </div>
-                        </div>
                 @empty
                 <div class="col-md-12">
                     <div class="text-center" style="padding: 60px 20px; color: rgba(255, 255, 255, 0.9);">
@@ -681,7 +644,8 @@ $faqSchema = [
     </div><!-- .container -->
 </div><!-- .products-section  -->
 
-<div class="section-divider-wave section-divider-wave-product-bottom" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(90deg, #537550 0%, #713841 100%);">
+<!-- Bottom divider for "Our Complete Product Range" -->
+<div class="section-divider-wave section-divider-wave-product-bottom section-divider-mobile-hide" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);">
     <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleX(-1);">
 </div>
 
@@ -918,7 +882,7 @@ $faqSchema = [
 </div>
 
 
-<div class="section-divider-wave">
+<div class="section-divider-wave" id="divider-faq-top" style="height: 120px; width: 100%; overflow: hidden; background: #f8f9fa; display: block !important; visibility: visible !important;">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
         <defs>
             <linearGradient id="gradient-divider-faq" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
@@ -1099,7 +1063,7 @@ From May to September feed your plants twice a week while watering.</p>
     </div><!-- .container  -->
 </div><!-- .faq-section  -->
 
-<div class="section-divider-wave section-divider-wave-bottom" id="divider-faq-bottom">
+<div class="section-divider-wave section-divider-wave-bottom" id="divider-faq-bottom" style="height: 120px; width: 100%; overflow: hidden; background: #f8f9fa; display: block !important; visibility: visible !important;">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
         <defs>
             <linearGradient id="gradient-divider-faq-bottom" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
@@ -1289,739 +1253,7 @@ From May to September feed your plants twice a week while watering.</p>
     $('.confetti-burst-trigger').on('mouseenter', function() {
         createConfettiBurst($(this));
     });
-    // Quick view button click handler
-    $(document).on('click', '.product-quick-view-btn', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        console.log('Quick view button clicked');
-        var $card = $(this).closest('.product-card-clickable');
-        console.log('Card found:', $card.length);
-        if ($card.length) {
-            openProductModal($card);
-        } else {
-            console.error('Product card not found');
-        }
-        return false;
-    });
-    
-    // Make product image clickable
-    $(document).on('click', '.product-card-clickable .product-image img', function(e) {
-        // Don't trigger if clicking on the quick view button
-        if ($(e.target).closest('.product-quick-view-btn').length || 
-            $(e.target).is('.product-quick-view-btn')) {
-            return;
-        }
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('Product image clicked');
-        var $card = $(this).closest('.product-card-clickable');
-        console.log('Card found:', $card.length);
-        if ($card.length) {
-            openProductModal($card);
-        } else {
-            console.error('Product card not found');
-        }
-        return false;
-    });
-    
-    // Also make the entire product-image div clickable (but not if clicking on overlay/button)
-    $(document).on('click', '.product-card-clickable .product-image', function(e) {
-        // Don't trigger if clicking on the quick view button
-        if ($(e.target).closest('.product-quick-view-btn').length || 
-            $(e.target).is('.product-quick-view-btn') ||
-            $(e.target).closest('a.product-quick-view-btn').length) {
-            return;
-        }
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('Product image container clicked');
-        var $card = $(this).closest('.product-card-clickable');
-        console.log('Card found:', $card.length);
-        if ($card.length) {
-            openProductModal($card);
-        } else {
-            console.error('Product card not found');
-        }
-        return false;
-    });
-    
-    // Handle product card clicks (for clicking on card itself, not buttons/links)
-    $(document).on('click', '.product-card-clickable', function(e) {
-        // Don't trigger if clicking on buttons, links, or quick view overlay
-        if ($(e.target).closest('.product-button').length || 
-            $(e.target).closest('.product-quick-view-overlay').length ||
-            $(e.target).closest('.product-image').length ||
-            $(e.target).closest('a').length ||
-            $(e.target).is('a')) {
-            return;
-        }
-        
-        e.preventDefault();
-        e.stopPropagation();
-        console.log('Product card clicked');
-        var $card = $(this);
-        openProductModal($card);
-        return false;
-    });
-    
-    // Function to open product modal - define it first so it's available to all handlers
-    window.openProductModal = function($card) {
-        console.log('openProductModal called with card:', $card);
-        if (!$card || !$card.length) {
-            console.error('Invalid card passed to openProductModal');
-            return;
-        }
-        var title = $card.data('product-title');
-        var image = $card.data('product-image');
-        var image2 = $card.data('product-image-2');
-        var image3 = $card.data('product-image-3');
-        var image4 = $card.data('product-image-4');
-        var video = $card.attr('data-product-video');
-        var description = $card.data('product-description');
-        // Use attr() instead of data() to get raw attribute values
-        var fullDescription = $card.attr('data-product-full-description');
-        var videos = $card.attr('data-product-videos');
-        var reviews = $card.attr('data-product-reviews');
-        var deliveryInfo = $card.attr('data-product-delivery');
-        var specs = $card.attr('data-product-specs');
-        var ygLink = $card.attr('data-product-yg');
-        var amazonLink = $card.attr('data-product-amazon');
-        var npk = $card.attr('data-product-npk');
-        var features = $card.attr('data-product-features');
-        var application = $card.attr('data-product-application');
-        var makes = $card.attr('data-product-makes');
-        var sku = $card.attr('data-product-sku');
-        
-        // Debug: Log all data - also log raw attributes BEFORE decoding
-        console.log('=== PRODUCT MODAL DATA (RAW) ===');
-        console.log('Title:', title);
-        console.log('Description:', description);
-        console.log('Image:', image);
-        console.log('Image2:', image2);
-        console.log('Video:', video);
-        console.log('Full Description (raw):', $card.attr('data-product-full-description'));
-        console.log('Features (raw):', $card.attr('data-product-features'));
-        console.log('Videos (raw):', $card.attr('data-product-videos'));
-        console.log('Application (raw):', $card.attr('data-product-application'));
-        console.log('Delivery Info (raw):', $card.attr('data-product-delivery'));
-        console.log('================================');
-        
-        // Decode HTML entities for text fields (preserve HTML formatting)
-        // Use a helper function to decode HTML entities while preserving HTML tags
-        function decodeHtmlEntities(html) {
-            if (!html || html.trim() === '') return '';
-            var textarea = document.createElement('textarea');
-            textarea.innerHTML = html;
-            return textarea.value;
-        }
-        
-        // Decode but preserve HTML structure
-        if (fullDescription && fullDescription.trim() !== '') {
-            fullDescription = decodeHtmlEntities(fullDescription);
-        }
-        if (deliveryInfo && deliveryInfo.trim() !== '') {
-            deliveryInfo = decodeHtmlEntities(deliveryInfo);
-        }
-        if (application && application.trim() !== '') {
-            application = decodeHtmlEntities(application);
-        }
-        if (features && features.trim() !== '') {
-            features = decodeHtmlEntities(features);
-        }
-        
-        // Populate basic modal fields
-        $('#modalProductTitle').text(title);
-        $('#modalProductDescription').text(description);
-        
-        // Add source parameter to YouGarden links only
-        var ygLinkWithSource = ygLink;
-        if (ygLink) {
-            var separator = ygLink.indexOf('?') !== -1 ? '&' : '?';
-            ygLinkWithSource = ygLink + separator + 'source=bloomingfast.com';
-        }
-        
-        $('#modalProductYG').attr('href', ygLinkWithSource);
-        $('#modalProductAmazon').attr('href', amazonLink);
-        $('#modalProductYGTop').attr('href', ygLinkWithSource);
-        $('#modalProductAmazonTop').attr('href', amazonLink);
-        
-        // Reset collapse states for accordion - all start collapsed (do this first)
-        $('#productModalAccordion .panel-collapse').removeClass('in').addClass('collapse');
-        $('#productModalAccordion .panel-title a').addClass('collapsed').attr('aria-expanded', 'false');
-        
-        // Always show Full Description section - use description as fallback if full_description is empty
-        var fullDescContent = '';
-        
-        // Check raw attribute first (before any decoding)
-        var rawFullDesc = $card.attr('data-product-full-description');
-        console.log('Raw full description:', rawFullDesc, 'Length:', rawFullDesc ? rawFullDesc.length : 0);
-        console.log('Description:', description, 'Length:', description ? description.length : 0);
-        
-        // Use full_description if it exists and has content
-        if (rawFullDesc && rawFullDesc.trim() !== '' && rawFullDesc !== 'null' && rawFullDesc !== 'undefined') {
-            // Decode HTML entities but preserve HTML structure
-            var decodedFullDesc = decodeHtmlEntities(rawFullDesc);
-            console.log('Decoded full description preview:', decodedFullDesc.substring(0, 200));
-            
-            // If decoded content has HTML tags, use it as-is, otherwise convert newlines to <br>
-            if (decodedFullDesc.indexOf('<') !== -1) {
-                fullDescContent = decodedFullDesc;
-            } else {
-                // Convert newlines to <br> and preserve paragraph breaks
-                fullDescContent = decodedFullDesc.replace(/\n\n+/g, '</p><p>').replace(/\n/g, '<br>');
-                if (fullDescContent && !fullDescContent.startsWith('<p>')) {
-                    fullDescContent = '<p>' + fullDescContent + '</p>';
-                }
-            }
-            console.log('Using full_description, raw length:', rawFullDesc.length, 'decoded length:', fullDescContent.length);
-        }
-        
-        // ONLY use description as fallback if fullDescContent is still empty (not if full_description exists)
-        if (!fullDescContent || fullDescContent.trim() === '') {
-            if (description && description.trim() !== '') {
-                fullDescContent = description.replace(/\n/g, '<br>');
-                console.log('Using description as fallback for Full Description, length:', description.length);
-            }
-        } else {
-            console.log('Full description found, NOT using description fallback');
-        }
-        
-        // Always show Full Description if we have any content
-        if (fullDescContent && fullDescContent.trim() !== '') {
-            $('#modalProductFullDescriptionText').html(fullDescContent);
-            $('#modalProductFullDescriptionSection').show();
-            console.log('✓ Showing Full Description section, content length:', fullDescContent.length);
-        } else {
-            $('#modalProductFullDescriptionSection').hide();
-            console.log('✗ Full Description section hidden. Description exists:', !!description, 'Description length:', description ? description.length : 0);
-        }
-        
-        // Populate videos if available (collapsible)
-        var hasVideos = videos && 
-                       videos !== 'null' && 
-                       videos !== 'undefined' && 
-                       videos.trim() !== '';
-        
-        // Also check if there's a single video field (URL only)
-        if (!hasVideos && video && video.trim() !== '') {
-            // If video is a URL, convert it to embed code
-            var videoUrl = video.trim();
-            if (videoUrl.indexOf('vimeo.com') !== -1) {
-                // Extract Vimeo video ID
-                var vimeoMatch = videoUrl.match(/(?:vimeo\.com\/)(\d+)/);
-                if (vimeoMatch && vimeoMatch[1]) {
-                    var vimeoId = vimeoMatch[1];
-                    videos = '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://player.vimeo.com/video/' + vimeoId + '?color=ffffff&title=0&byline=0&portrait=0" allowfullscreen></iframe></div>';
-                    hasVideos = true;
-                }
-            } else if (videoUrl.indexOf('youtube.com') !== -1 || videoUrl.indexOf('youtu.be') !== -1) {
-                // Extract YouTube video ID
-                var youtubeMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
-                if (youtubeMatch && youtubeMatch[1]) {
-                    var youtubeId = youtubeMatch[1];
-                    videos = '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + youtubeId + '" allowfullscreen></iframe></div>';
-                    hasVideos = true;
-                }
-            }
-        }
-        
-        if (hasVideos) {
-            // Get the raw attribute value to avoid jQuery's automatic decoding
-            var rawVideos = $card.attr('data-product-videos');
-            var decodedVideos = '';
-            
-            if (rawVideos && rawVideos.trim() !== '' && rawVideos !== 'null' && rawVideos !== 'undefined') {
-                // Create a temporary textarea element to decode HTML entities
-                // This is the most reliable way to decode HTML entities
-                var textarea = document.createElement('textarea');
-                textarea.innerHTML = rawVideos;
-                decodedVideos = textarea.value;
-                
-                // If still contains entities, try another method
-                if (decodedVideos.indexOf('&lt;') !== -1 || decodedVideos.indexOf('&quot;') !== -1) {
-                    // Use a div with textContent to set, then innerHTML to get decoded
-                    var tempDiv = document.createElement('div');
-                    tempDiv.textContent = rawVideos;
-                    decodedVideos = tempDiv.innerHTML;
-                }
-            } else if (videos && typeof videos === 'string' && videos.trim() !== '') {
-                // Use the videos variable directly if rawVideos is not available
-                decodedVideos = videos;
-            }
-            
-            // Set the decoded HTML content
-            if (decodedVideos && decodedVideos.trim() !== '') {
-                $('#modalProductVideosContent').html(decodedVideos);
-                $('#modalProductVideosSection').show();
-                console.log('✓ Showing Videos section');
-            } else {
-                $('#modalProductVideosSection').hide();
-                console.log('✗ Videos content is empty after decoding');
-            }
-        } else {
-            $('#modalProductVideosSection').hide();
-            console.log('✗ Videos not available. Value:', videos, 'Type:', typeof videos, 'Video:', video);
-        }
-        
-        // Populate delivery info if available (collapsible)
-        var rawDeliveryInfo = $card.attr('data-product-delivery');
-        var hasDeliveryInfo = rawDeliveryInfo && 
-                             rawDeliveryInfo !== 'null' && 
-                             rawDeliveryInfo !== 'undefined' && 
-                             rawDeliveryInfo.trim() !== '';
-        
-        if (hasDeliveryInfo) {
-            var decodedDeliveryInfo = decodeHtmlEntities(rawDeliveryInfo);
-            // If decoded content has HTML tags, use it as-is, otherwise convert newlines to <br>
-            if (decodedDeliveryInfo.indexOf('<') !== -1) {
-                $('#modalProductDeliveryContent').html(decodedDeliveryInfo);
-            } else {
-                $('#modalProductDeliveryContent').html(decodedDeliveryInfo.replace(/\n/g, '<br>'));
-            }
-            $('#modalProductDeliverySection').show();
-            console.log('✓ Showing Delivery Information section, length:', decodedDeliveryInfo.length);
-        } else {
-            $('#modalProductDeliverySection').hide();
-            console.log('✗ Delivery Info not available. Value:', rawDeliveryInfo, 'Type:', typeof rawDeliveryInfo);
-        }
-        
-        // Build carousel items - ORDER: Image 1, Image 2, Video (3rd)
-        var carouselInner = $('#modalCarouselInner');
-        var carouselIndicators = $('#modalCarouselIndicators');
-        carouselInner.empty();
-        carouselIndicators.empty();
-        
-        var itemIndex = 0;
-        var firstItemAdded = false;
-        
-        // Add first image (always first, always active if it exists)
-        if (image && image.trim() !== '' && image !== 'null' && image !== 'undefined') {
-            var activeClass = !firstItemAdded ? 'active' : '';
-            if (!firstItemAdded) firstItemAdded = true;
-            carouselInner.append(
-                '<div class="item ' + activeClass + '" data-zoom-image="' + image + '">' +
-                '<img src="' + image + '" alt="' + title + '" class="img-responsive product-zoom-image" loading="eager" decoding="async" />' +
-                '</div>'
-            );
-            carouselIndicators.append(
-                '<li data-target="#productModalCarousel" data-slide-to="' + itemIndex + '" class="' + activeClass + '"></li>'
-            );
-            itemIndex++;
-        }
-        
-        // Add second image if available (second position)
-        if (image2 && image2.trim() !== '' && image2 !== 'null' && image2 !== 'undefined') {
-            var activeClass = !firstItemAdded ? 'active' : '';
-            if (!firstItemAdded) firstItemAdded = true;
-            carouselInner.append(
-                '<div class="item ' + activeClass + '" data-zoom-image="' + image2 + '">' +
-                '<img src="' + image2 + '" alt="' + title + '" class="img-responsive product-zoom-image" loading="lazy" decoding="async" />' +
-                '</div>'
-            );
-            carouselIndicators.append(
-                '<li data-target="#productModalCarousel" data-slide-to="' + itemIndex + '" class="' + activeClass + '"></li>'
-            );
-            itemIndex++;
-        }
-        
-        // Add third image if available (third position)
-        if (image3 && image3.trim() !== '' && image3 !== 'null' && image3 !== 'undefined') {
-            var activeClass = !firstItemAdded ? 'active' : '';
-            if (!firstItemAdded) firstItemAdded = true;
-            carouselInner.append(
-                '<div class="item ' + activeClass + '" data-zoom-image="' + image3 + '">' +
-                '<img src="' + image3 + '" alt="' + title + '" class="img-responsive product-zoom-image" loading="lazy" decoding="async" />' +
-                '</div>'
-            );
-            carouselIndicators.append(
-                '<li data-target="#productModalCarousel" data-slide-to="' + itemIndex + '" class="' + activeClass + '"></li>'
-            );
-            itemIndex++;
-        }
-        
-        // Add fourth image if available (fourth position)
-        if (image4 && image4.trim() !== '' && image4 !== 'null' && image4 !== 'undefined') {
-            var activeClass = !firstItemAdded ? 'active' : '';
-            if (!firstItemAdded) firstItemAdded = true;
-            carouselInner.append(
-                '<div class="item ' + activeClass + '" data-zoom-image="' + image4 + '">' +
-                '<img src="' + image4 + '" alt="' + title + '" class="img-responsive product-zoom-image" loading="lazy" decoding="async" />' +
-                '</div>'
-            );
-            carouselIndicators.append(
-                '<li data-target="#productModalCarousel" data-slide-to="' + itemIndex + '" class="' + activeClass + '"></li>'
-            );
-            itemIndex++;
-        }
-        
-        // Video is NOT added to carousel - it's only shown in the collapsible "Videos" section
-        console.log('Total carousel items:', itemIndex);
-        
-        // Show/hide carousel controls based on number of items
-        if (itemIndex > 1) {
-            $('#modalCarouselPrev, #modalCarouselNext').show();
-        } else {
-            $('#modalCarouselPrev, #modalCarouselNext').hide();
-        }
-        
-        // Reset carousel to first slide (image 1) and reinitialize
-        // Remove all active classes first
-        $('#modalCarouselInner .item').removeClass('active');
-        $('#modalCarouselIndicators li').removeClass('active');
-        
-        // Set first item as active
-        var $firstItem = $('#modalCarouselInner .item').first();
-        var $firstIndicator = $('#modalCarouselIndicators li').first();
-        if ($firstItem.length) {
-            $firstItem.addClass('active');
-            $firstIndicator.addClass('active');
-        }
-        
-        // Reset carousel to first slide
-        $('#productModalCarousel').carousel(0);
-        // Force carousel to refresh after adding items
-        $('#productModalCarousel').carousel('pause');
-        // Ensure we're on the first slide (image 1, not video)
-        setTimeout(function() {
-            $('#productModalCarousel').carousel(0);
-            // Double-check first item is active
-            $('#modalCarouselInner .item').removeClass('active');
-            $('#modalCarouselIndicators li').removeClass('active');
-            $('#modalCarouselInner .item').first().addClass('active');
-            $('#modalCarouselIndicators li').first().addClass('active');
-        }, 150);
-        
-        // Function to shorten badge text to 5-15 characters
-        function shortenBadge(text) {
-            text = text.trim();
-            
-            // Common abbreviations
-            var abbreviations = {
-                'supplied as': '',
-                'supplied': '',
-                'as a': '',
-                'as': '',
-                'a': '',
-                'resealable': 'Reseal',
-                'which treats': '',
-                'which': '',
-                'treats': '',
-                'about': '~',
-                'or so': '',
-                'or': '',
-                'so': '',
-                'standard': 'Std',
-                'grams': 'g',
-                'gram': 'g',
-                'kilograms': 'kg',
-                'kilogram': 'kg',
-                'litres': 'L',
-                'litre': 'L',
-                'millilitres': 'ml',
-                'millilitre': 'ml'
-            };
-            
-            // Replace common words/phrases
-            for (var full in abbreviations) {
-                var regex = new RegExp('\\b' + full + '\\b', 'gi');
-                text = text.replace(regex, abbreviations[full]);
-            }
-            
-            // Remove extra spaces and clean up
-            text = text.replace(/\s+/g, ' ');
-            text = text.trim();
-            
-            // Extract key information (numbers, units, important words)
-            // First check for "gallons" and skip it (don't convert to "g")
-            if (/\d+\s*gallons?/i.test(text)) {
-                return ''; // Return empty to filter out
-            }
-            var numberMatch = text.match(/\d+\s*(g|kg|L|ml|cm|m)/i);
-            if (numberMatch) {
-                text = numberMatch[0];
-            } else {
-                var numberOnly = text.match(/\d+/);
-                if (numberOnly) {
-                    text = numberOnly[0];
-                } else {
-                    // Get first word if no numbers
-                    var words = text.split(' ');
-                    text = words[0] || text;
-                }
-            }
-            
-            // Limit to 15 characters max
-            if (text.length > 15) {
-                text = text.substring(0, 15);
-            }
-            
-            return text;
-        }
-        
-        // Parse and display specs
-        var specsArray = specs.split(',').map(function(s) { return s.trim(); }).filter(function(s) { 
-            // Filter out badges that are just numbers or too short/meaningless
-            if (s.length === 0) return false;
-            // Skip if it contains "100 gallons" or similar (before shortening)
-            if (/\d+\s*gallons?/i.test(s)) {
-                return false;
-            }
-            // Skip if it's just a number (like "12")
-            if (/^\d+$/.test(s)) {
-                return false;
-            }
-            // Skip if shortened version would be just a number (like "12" from "12 or so")
-            var shortened = shortenBadge(s);
-            if (shortened === '' || /^\d+$/.test(shortened)) {
-                return false;
-            }
-            // Skip if shortened is "100g" (from "100 gallons")
-            if (shortened === '100g' || shortened === '100G') {
-                return false;
-            }
-            // Skip if shortened is "ready" (from "ready to use")
-            if (shortened.toLowerCase() === 'ready') {
-                return false;
-            }
-            // Skip if it's too short and meaningless
-            if (s.length < 3) {
-                return false;
-            }
-            return true;
-        });
-        // Limit to max 2 badges
-        specsArray = specsArray.slice(0, 2);
-        var specsHtml = '<div class="product-specs">';
-        specsArray.forEach(function(spec) {
-            var shortened = shortenBadge(spec);
-            // Double-check: don't display if shortened is just a number, "100g", or "ready"
-            if (!/^\d+$/.test(shortened) && shortened !== '100g' && shortened !== '100G' && shortened.toLowerCase() !== 'ready') {
-                specsHtml += '<span class="badge">' + shortened + '</span> ';
-            }
-        });
-        specsHtml += '</div>';
-        $('#modalProductSpecs').html(specsHtml);
-        
-        // Populate NPK if available
-        if (npk) {
-            $('#modalProductNPKValue').text(npk);
-            $('#modalProductNPK').show();
-        } else {
-            $('#modalProductNPK').hide();
-        }
-        
-        // Populate features - extract from description if features field is empty
-        var rawFeatures = $card.attr('data-product-features');
-        var hasFeatures = rawFeatures && 
-                         rawFeatures !== 'null' && 
-                         rawFeatures !== 'undefined' && 
-                         rawFeatures.trim() !== '';
-        
-        if (hasFeatures) {
-            // Decode HTML entities first
-            var decodedFeatures = decodeHtmlEntities(rawFeatures);
-            
-            // Split by newline, bullet point, or pipe separator
-            var featuresArray = [];
-            if (decodedFeatures.indexOf('\n') !== -1) {
-                featuresArray = decodedFeatures.split('\n').filter(function(f) { return f.trim().length > 0; });
-            } else if (decodedFeatures.indexOf('•') !== -1) {
-                featuresArray = decodedFeatures.split('•').filter(function(f) { return f.trim().length > 0; });
-            } else if (decodedFeatures.indexOf('|') !== -1) {
-                featuresArray = decodedFeatures.split('|').filter(function(f) { return f.trim().length > 0; });
-            } else {
-                featuresArray = [decodedFeatures];
-            }
-            
-            var featuresHtml = '';
-            featuresArray.forEach(function(feature) {
-                var cleanFeature = feature.trim();
-                cleanFeature = cleanFeature.replace(/^[•\-\*]\s*/, '');
-                if (cleanFeature.length > 0) {
-                    featuresHtml += '<li>' + cleanFeature + '</li>';
-                }
-            });
-            if (featuresHtml) {
-                $('#modalProductFeaturesList').html(featuresHtml);
-                $('#modalProductFeaturesSection').show();
-                console.log('✓ Showing Features section with', featuresArray.length, 'features');
-            } else {
-                $('#modalProductFeaturesSection').hide();
-            }
-        } else if (description && description.trim() !== '') {
-            // Fallback: extract key points from description
-            var descFeatures = description.split(/[.,;]/).filter(function(s) {
-                return s.trim().length > 20; // Only sentences longer than 20 chars
-            }).slice(0, 3); // Max 3 features
-            
-            if (descFeatures.length > 0) {
-                var featuresHtml = '';
-                descFeatures.forEach(function(feature) {
-                    featuresHtml += '<li>' + feature.trim() + '</li>';
-                });
-                $('#modalProductFeaturesList').html(featuresHtml);
-                $('#modalProductFeaturesSection').show();
-                console.log('✓ Showing Features section (extracted from description)');
-            } else {
-                $('#modalProductFeaturesSection').hide();
-            }
-        } else {
-            $('#modalProductFeaturesSection').hide();
-        }
-        
-        // Populate application if available (collapsible)
-        var rawApplication = $card.attr('data-product-application');
-        var hasApplication = rawApplication && 
-                            rawApplication !== 'null' && 
-                            rawApplication !== 'undefined' && 
-                            rawApplication.trim() !== '';
-        
-        if (hasApplication) {
-            var decodedApplication = decodeHtmlEntities(rawApplication);
-            // If decoded content has HTML tags, use it as-is, otherwise convert newlines to <br>
-            if (decodedApplication.indexOf('<') !== -1) {
-                $('#modalProductApplicationText').html(decodedApplication);
-            } else {
-                $('#modalProductApplicationText').html(decodedApplication.replace(/\n/g, '<br>'));
-            }
-            $('#modalProductApplicationSection').show();
-            console.log('✓ Showing Application section, length:', decodedApplication.length);
-        } else {
-            $('#modalProductApplicationSection').hide();
-            console.log('✗ Application not available. Value:', rawApplication, 'Type:', typeof rawApplication);
-        }
-        
-        // Populate makes/coverage if available
-        if (makes) {
-            $('#modalProductMakesValue').text(makes);
-            $('#modalProductMakes').show();
-        } else {
-            $('#modalProductMakes').hide();
-        }
-        
-        // Show modal
-        console.log('Attempting to show modal');
-        var $modal = $('#productModal');
-        console.log('Modal element found:', $modal.length);
-        
-        if ($modal.length === 0) {
-            console.error('Product modal element not found in DOM!');
-            alert('Product modal not found. Please refresh the page.');
-            return;
-        }
-        
-        if (typeof $.fn.modal === 'undefined') {
-            console.error('Bootstrap modal not loaded! jQuery version:', typeof $, 'Bootstrap modal:', typeof $.fn.modal);
-            alert('Modal functionality not available. Please refresh the page.');
-            return;
-        }
-        
-        console.log('Calling Bootstrap modal show...');
-        try {
-            $modal.modal('show');
-            console.log('Modal show called successfully');
-            
-            // Track GA4 product view event
-            if (typeof gtag !== 'undefined') {
-                var productTitle = $card.attr('data-product-title') || title;
-                var productSku = $card.attr('data-product-sku') || '';
-                
-                gtag('event', 'view_item', {
-                    'currency': 'GBP',
-                    'items': [{
-                        'item_id': productSku || productTitle,
-                        'item_name': productTitle,
-                        'item_category': 'Plant Food',
-                        'item_brand': 'Blooming Fast'
-                    }]
-                });
-                
-                console.log('GA4 product view event tracked:', productTitle, 'SKU:', productSku);
-            }
-        } catch (error) {
-            console.error('Error showing modal:', error);
-            alert('Error opening product modal: ' + error.message);
-        }
-        
-        // Force show sections after modal is shown (double-check visibility)
-        $('#productModal').one('shown.bs.modal', function() {
-            setTimeout(function() {
-                console.log('=== FINAL CHECK: Sections after modal shown ===');
-                // Check each section and show if it has content
-                var fullDescContent = $('#modalProductFullDescriptionText').html();
-                if (fullDescContent && fullDescContent.trim() !== '') {
-                    $('#modalProductFullDescriptionSection').show();
-                    console.log('✓ Full Description shown, length:', fullDescContent.length);
-                } else {
-                    console.log('✗ Full Description empty');
-                }
-                
-                var featuresContent = $('#modalProductFeaturesList').html();
-                if (featuresContent && featuresContent.trim() !== '') {
-                    $('#modalProductFeaturesSection').show();
-                    console.log('✓ Features shown, length:', featuresContent.length);
-                } else {
-                    console.log('✗ Features empty');
-                }
-                
-                var videosContent = $('#modalProductVideosContent').html();
-                if (videosContent && videosContent.trim() !== '') {
-                    $('#modalProductVideosSection').show();
-                    console.log('✓ Videos shown, length:', videosContent.length);
-                } else {
-                    console.log('✗ Videos empty');
-                }
-                
-                var applicationContent = $('#modalProductApplicationText').html();
-                if (applicationContent && applicationContent.trim() !== '') {
-                    $('#modalProductApplicationSection').show();
-                    console.log('✓ Application shown, length:', applicationContent.length);
-                } else {
-                    console.log('✗ Application empty');
-                }
-                
-                var deliveryContent = $('#modalProductDeliveryContent').html();
-                if (deliveryContent && deliveryContent.trim() !== '') {
-                    $('#modalProductDeliverySection').show();
-                    console.log('✓ Delivery shown, length:', deliveryContent.length);
-                } else {
-                    console.log('✗ Delivery empty');
-                }
-                console.log('==============================================');
-            }, 200);
-        });
-    }
-    
-    // Reinitialize Feefo widgets when modal is fully shown
-    $('#productModal').on('shown.bs.modal', function() {
-        // Reinitialize Feefo widgets after modal is fully displayed
-        var reinitFeefo = function() {
-            if (typeof Feefo !== 'undefined') {
-                try {
-                    Feefo.init();
-                    // Also initialize when reviews section is expanded
-                    setTimeout(function() {
-                        if (typeof Feefo !== 'undefined') {
-                            Feefo.init();
-                        }
-                    }, 500);
-                } catch (e) {
-                    console.error('Feefo reinitialization error:', e);
-                }
-            } else {
-                setTimeout(reinitFeefo, 200);
-            }
-        };
-        setTimeout(reinitFeefo, 500);
-    });
-    
-    // Make sure openProductModal is accessible
-    if (typeof window.openProductModal === 'undefined') {
-        console.error('openProductModal function not defined!');
-    } else {
-        console.log('openProductModal function is available');
-    }
+    // Product cards now link directly to product pages - modal functionality removed
     
     // Load Feefo product review widget script
     function loadFeefoProductReviewWidget() {
@@ -2753,6 +1985,281 @@ From May to September feed your plants twice a week while watering.</p>
     }
     
     initReadingProgress();
+})();
+
+// Match carb.png image gradient to match the appropriate section
+// Dividers BEFORE a section should match that section
+// Dividers AFTER a section (like -bottom) should match the section above them
+(function() {
+    function updateDividerGradients() {
+        // Don't run on product pages - they have their own color logic
+        if (document.querySelector('.product-page-hero')) {
+            return;
+        }
+        
+        // Homepage dividers should use hero gradient (same as hero and sections)
+        var homepageGradient = 'linear-gradient(293deg, #70D969 0%, #19B2EB 100%)';
+        var homepageBlue = '#70D969'; // For solid color fallback
+        
+        // Handle all section-divider-wave elements including section-divider-wave-bottom
+        // Exclude FAQ dividers which should always be grey, and footer divider which should always be white
+        var dividers = document.querySelectorAll('.section-divider-wave:not(#divider-faq-top):not(#divider-faq-bottom), .section-divider-wave-bottom:not(#divider-faq-top):not(#divider-faq-bottom), .section-divider-wave-product-bottom');
+        dividers.forEach(function(divider) {
+            // Skip FAQ dividers - they should always be grey
+            if (divider.id === 'divider-faq-top' || divider.id === 'divider-faq-bottom') {
+                return;
+            }
+            // Skip footer divider - it should always be white
+            var isFooterDivider = divider.nextElementSibling && divider.nextElementSibling.classList && divider.nextElementSibling.classList.contains('footer-section');
+            if (isFooterDivider) {
+                return;
+            }
+            
+            // For homepage, force hero gradient (same as hero and sections)
+            divider.style.setProperty('background', homepageGradient, 'important');
+            divider.style.setProperty('background-color', homepageBlue, 'important');
+            divider.style.setProperty('background-image', homepageGradient, 'important');
+            divider.style.setProperty('--divider-bg-color', homepageBlue, 'important');
+            divider.style.setProperty('--divider-gradient', homepageGradient, 'important');
+            
+            // Update ::after pseudo-element to use hero gradient
+            var dividerId = divider.id || 'divider-' + Math.random().toString(36).substr(2, 9);
+            if (!divider.id) {
+                divider.id = dividerId;
+            }
+            var styleId = 'homepage-divider-style-' + dividerId;
+            var existingStyle = document.getElementById(styleId);
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            var style = document.createElement('style');
+            style.id = styleId;
+            style.textContent = '#' + dividerId + '::after { background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; background-image: ' + homepageGradient + ' !important; }';
+            document.head.appendChild(style);
+            
+            return; // Skip the rest of the logic for homepage dividers
+            var targetSection = null;
+            var computedStyle = null;
+            var backgroundImage = null;
+            var backgroundColor = null;
+            
+            // Save inline background before we modify it (for fallback)
+            var inlineBackground = divider.style.background || divider.style.backgroundImage;
+            
+            // Check if this is a bottom divider (comes AFTER a section)
+            var isBottomDivider = divider.classList.contains('section-divider-wave-bottom') || 
+                                  divider.classList.contains('section-divider-wave-product-bottom');
+            
+            if (isBottomDivider) {
+                // For bottom dividers, get gradient from the PREVIOUS section (the one above)
+                var prevSection = divider.previousElementSibling;
+                
+                // Keep looking for the previous section element (skip comments, text nodes, etc.)
+                while (prevSection && (!prevSection.classList || !prevSection.classList.contains('section'))) {
+                    prevSection = prevSection.previousElementSibling;
+                }
+                
+                if (prevSection) {
+                    targetSection = prevSection;
+                }
+            } else {
+                // For top dividers, get gradient from the NEXT section (the one below)
+                var nextSection = divider.nextElementSibling;
+                
+                // Keep looking for the next section element (skip comments, text nodes, etc.)
+                while (nextSection && (!nextSection.classList || !nextSection.classList.contains('section'))) {
+                    nextSection = nextSection.nextElementSibling;
+                }
+                
+                if (nextSection) {
+                    targetSection = nextSection;
+                }
+            }
+            
+            if (targetSection) {
+                // Get the background from the target section
+                computedStyle = window.getComputedStyle(targetSection);
+                backgroundImage = computedStyle.backgroundImage;
+                backgroundColor = computedStyle.backgroundColor;
+                
+                // Check if the section has a gradient background
+                if (backgroundImage && backgroundImage !== 'none' && backgroundImage !== 'rgba(0, 0, 0, 0)') {
+                    // Use the exact gradient from the section
+                    divider.style.setProperty('--divider-gradient', backgroundImage);
+                    
+                    // Extract first color from gradient for background-color
+                    var colorMatch = backgroundImage.match(/#[0-9A-Fa-f]{6}|#[0-9A-Fa-f]{3}/);
+                    if (colorMatch) {
+                        divider.style.setProperty('--divider-bg-color', colorMatch[0]);
+                    } else if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)') {
+                        divider.style.setProperty('--divider-bg-color', backgroundColor);
+                    }
+                    
+                    // Remove inline background style - CSS will set it via variables
+                    divider.style.removeProperty('background');
+                    divider.style.removeProperty('background-color');
+                } else if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)') {
+                    // If no gradient, use solid color
+                    divider.style.setProperty('--divider-gradient', 'none');
+                    divider.style.setProperty('--divider-bg-color', backgroundColor);
+                    divider.style.removeProperty('background');
+                    divider.style.removeProperty('background-color');
+                }
+            }
+            
+            // Fallback: use divider's inline style if no target section found or if section has no background
+            // This ensures the divider always has a gradient, even if section lookup fails
+            if ((!targetSection || !backgroundImage || backgroundImage === 'none') && 
+                inlineBackground && inlineBackground !== 'none' && inlineBackground !== '' && inlineBackground !== 'transparent') {
+                divider.style.setProperty('--divider-gradient', inlineBackground);
+                var colorMatch = inlineBackground.match(/#[0-9A-Fa-f]{6}|#[0-9A-Fa-f]{3}/);
+                if (colorMatch) {
+                    divider.style.setProperty('--divider-bg-color', colorMatch[0]);
+                }
+                // Remove inline background - CSS will set it via variables
+                divider.style.removeProperty('background');
+                divider.style.removeProperty('background-color');
+            }
+        });
+        
+        // Also handle products-section-bottom-curved (same element as products-section)
+        var productsSections = document.querySelectorAll('.products-section-bottom-curved');
+        productsSections.forEach(function(section) {
+            // Get the background from the same element (it has both classes)
+            var computedStyle = window.getComputedStyle(section);
+            var backgroundImage = computedStyle.backgroundImage;
+            var backgroundColor = computedStyle.backgroundColor;
+            
+            if (backgroundImage && backgroundImage !== 'none') {
+                section.style.setProperty('--divider-gradient', backgroundImage);
+            }
+            if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)') {
+                section.style.setProperty('--divider-bg-color', backgroundColor);
+            }
+        });
+    }
+    
+    // Run on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateDividerGradients);
+    } else {
+        updateDividerGradients();
+    }
+    
+    // Also run after a short delay to ensure styles are computed
+    setTimeout(updateDividerGradients, 100);
+    setTimeout(updateDividerGradients, 500);
+    
+    // Ensure FAQ dividers stay grey and are visible
+    function ensureFaqDividersGrey() {
+        var faqTopDivider = document.getElementById('divider-faq-top');
+        var faqBottomDivider = document.getElementById('divider-faq-bottom');
+        if (faqTopDivider) {
+            faqTopDivider.style.setProperty('background', '#f8f9fa', 'important');
+            faqTopDivider.style.setProperty('background-color', '#f8f9fa', 'important');
+            faqTopDivider.style.setProperty('--divider-gradient', 'none', 'important');
+            faqTopDivider.style.setProperty('--divider-bg-color', '#f8f9fa', 'important');
+            faqTopDivider.style.setProperty('display', 'block', 'important');
+            faqTopDivider.style.setProperty('visibility', 'visible', 'important');
+            faqTopDivider.style.setProperty('height', '120px', 'important');
+            // Update SVG gradient
+            var svg = faqTopDivider.querySelector('svg');
+            if (svg) {
+                var gradient = svg.querySelector('#gradient-divider-faq');
+                if (gradient) {
+                    var stops = gradient.querySelectorAll('stop');
+                    stops.forEach(function(stop) {
+                        stop.setAttribute('style', 'stop-color:#f8f9fa;stop-opacity:1');
+                    });
+                }
+            }
+        }
+        if (faqBottomDivider) {
+            faqBottomDivider.style.setProperty('background', '#f8f9fa', 'important');
+            faqBottomDivider.style.setProperty('background-color', '#f8f9fa', 'important');
+            faqBottomDivider.style.setProperty('--divider-gradient', 'none', 'important');
+            faqBottomDivider.style.setProperty('--divider-bg-color', '#f8f9fa', 'important');
+            faqBottomDivider.style.setProperty('display', 'block', 'important');
+            faqBottomDivider.style.setProperty('visibility', 'visible', 'important');
+            faqBottomDivider.style.setProperty('height', '120px', 'important');
+            // Update SVG gradient
+            var svg = faqBottomDivider.querySelector('svg');
+            if (svg) {
+                var gradient = svg.querySelector('#gradient-divider-faq-bottom');
+                if (gradient) {
+                    var stops = gradient.querySelectorAll('stop');
+                    stops.forEach(function(stop) {
+                        stop.setAttribute('style', 'stop-color:#f8f9fa;stop-opacity:1');
+                    });
+                }
+            }
+        }
+    }
+    ensureFaqDividersGrey();
+    setTimeout(ensureFaqDividersGrey, 100);
+    setTimeout(ensureFaqDividersGrey, 500);
+    
+    // Ensure footer divider uses white-to-#404040 gradient (visible transition from white section to dark footer)
+    function ensureFooterDividerColor() {
+        var footerDividers = document.querySelectorAll('.section-divider-wave, #footer-top-divider');
+        footerDividers.forEach(function(divider) {
+            var isFooterDivider = divider.nextElementSibling && divider.nextElementSibling.classList && divider.nextElementSibling.classList.contains('footer-section');
+            if (isFooterDivider || divider.id === 'footer-top-divider') {
+                divider.style.setProperty('background', 'transparent', 'important');
+                divider.style.setProperty('background-color', 'transparent', 'important');
+                divider.style.setProperty('background-image', 'none', 'important');
+                divider.style.setProperty('filter', 'none', 'important');
+                divider.style.setProperty('-webkit-filter', 'none', 'important');
+                divider.style.setProperty('backdrop-filter', 'none', 'important');
+                divider.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+                divider.style.setProperty('transform', 'none', 'important');
+                divider.style.setProperty('will-change', 'auto', 'important');
+                divider.style.setProperty('display', 'block', 'important');
+                divider.style.setProperty('visibility', 'visible', 'important');
+                divider.style.setProperty('height', '120px', 'important');
+                divider.style.setProperty('opacity', '1', 'important');
+                // Update SVG gradient to white-to-#404040
+                var svg = divider.querySelector('svg');
+                if (svg) {
+                    svg.style.setProperty('filter', 'none', 'important');
+                    svg.style.setProperty('-webkit-filter', 'none', 'important');
+                    svg.style.setProperty('transform', 'none', 'important');
+                    svg.style.setProperty('will-change', 'auto', 'important');
+                    var path = svg.querySelector('path');
+                    if (path) {
+                        path.setAttribute('fill', 'url(#gradient-divider-footer)');
+                        path.style.setProperty('filter', 'none', 'important');
+                        path.style.setProperty('-webkit-filter', 'none', 'important');
+                    }
+                    // Update gradient stops to white-to-#404040
+                    var gradient = svg.querySelector('#gradient-divider-footer');
+                    if (gradient) {
+                        gradient.setAttribute('x1', '0%');
+                        gradient.setAttribute('y1', '0%');
+                        gradient.setAttribute('x2', '0%');
+                        gradient.setAttribute('y2', '100%');
+                        var stops = gradient.querySelectorAll('stop');
+                        if (stops.length >= 2) {
+                            stops[0].setAttribute('style', 'stop-color:#ffffff;stop-opacity:1');
+                            stops[1].setAttribute('style', 'stop-color:#404040;stop-opacity:1');
+                        }
+                    }
+                }
+                // Ensure ::after pseudo-element is disabled
+                var styleId = 'footer-divider-no-after';
+                var existingStyle = document.getElementById(styleId);
+                if (!existingStyle) {
+                    var style = document.createElement('style');
+                    style.id = styleId;
+                    style.textContent = '#footer-top-divider::after { display: none !important; content: none !important; -webkit-mask-image: none !important; mask-image: none !important; }';
+                    document.head.appendChild(style);
+                }
+            }
+        });
+    }
+    ensureFooterDividerColor();
+    setTimeout(ensureFooterDividerColor, 100);
+    setTimeout(ensureFooterDividerColor, 500);
 })();
 </script>
 @endpush

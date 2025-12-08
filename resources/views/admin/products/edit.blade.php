@@ -28,6 +28,12 @@
                 </div>
 
                 <div class="form-group-admin">
+                    <label class="form-label-admin" for="slug">Slug (URL)</label>
+                    <input type="text" class="form-control-admin" id="slug" name="slug" value="{{ old('slug', $product->slug) }}" placeholder="auto-generated-from-title">
+                    <small class="form-text text-muted">URL-friendly version of the title. Auto-generated if left empty. Example: "superior-plant-food"</small>
+                </div>
+
+                <div class="form-group-admin">
                     <label class="form-label-admin" for="description">Description</label>
                     <textarea class="form-control-admin" id="description" name="description" rows="3">{{ old('description', $product->description) }}</textarea>
                 </div>
@@ -66,6 +72,12 @@
                 </div>
 
                 <div class="form-group-admin">
+                    <label class="form-label-admin" for="package_color">Package Color (Hex)</label>
+                    <input type="text" class="form-control-admin" id="package_color" name="package_color" value="{{ old('package_color', $product->package_color) }}" placeholder="#537550" pattern="^#?[0-9A-Fa-f]{6}$" maxlength="7">
+                    <small class="form-text text-muted">Hex color code for product package (e.g., #537550). Used for hero background on product landing page.</small>
+                </div>
+
+                <div class="form-group-admin">
                     <label class="form-label-admin" for="video">Video URL</label>
                     <input type="text" class="form-control-admin" id="video" name="video" value="{{ old('video', $product->video) }}" placeholder="https://vimeo.com/123456">
                 </div>
@@ -80,6 +92,16 @@
                     <label class="form-label-admin" for="reviews">Reviews</label>
                     <textarea class="form-control-admin" id="reviews" name="reviews" rows="3">{{ old('reviews', $product->reviews) }}</textarea>
                     <small class="form-text text-muted">HTML or Feefo embed URL (feefo-embed:URL or feefo:PRODUCT_ID)</small>
+                </div>
+
+                <div class="form-group-admin">
+                    <label class="form-label-admin" for="faqs">FAQs</label>
+                    <textarea class="form-control-admin" id="faqs" name="faqs" rows="10" style="font-family: monospace; font-size: 13px;">{{ old('faqs', $product->faqs) }}</textarea>
+                    <small class="form-text text-muted">
+                        <strong>Format:</strong> One FAQ per line, use pipe (|) to separate question and answer.<br>
+                        Example: <code>How often should I use it?|From March to April feed your plants once a week while watering.</code><br>
+                        Or use JSON format: <code>[{"question":"Question 1","answer":"Answer 1"},{"question":"Question 2","answer":"Answer 2"}]</code>
+                    </small>
                 </div>
 
                 <div class="form-group-admin">

@@ -87,11 +87,19 @@
 				return;
 			}
 			
+			// Flag to prevent document click from closing menu immediately after opening
+			var menuJustOpened = false;
+			
 			function openDesktopMenu() {
+				menuJustOpened = true;
 				$desktopMenuToggle.addClass('active');
 				$desktopSlideMenu.addClass('active');
 				$desktopMenuOverlay.addClass('active');
 				$('body').css('overflow', 'hidden');
+				// Reset flag after a short delay
+				setTimeout(function() {
+					menuJustOpened = false;
+				}, 200);
 			}
 			
 			function closeDesktopMenu() {
@@ -105,12 +113,14 @@
 			$desktopMenuToggle.off('click').on('click', function(e) {
 				e.preventDefault();
 				e.stopPropagation();
+				e.stopImmediatePropagation();
 				console.log('Hamburger clicked');
 				if ($desktopSlideMenu.hasClass('active')) {
 					closeDesktopMenu();
 				} else {
 					openDesktopMenu();
 				}
+				return false;
 			});
 			
 			if ($desktopMenuClose.length > 0) {
@@ -131,13 +141,19 @@
 			
 			// Close menu when clicking outside (on the page/document)
 			$(document).off('click.desktopMenu').on('click.desktopMenu', function(e) {
+				// Skip if menu was just opened
+				if (menuJustOpened) {
+					return;
+				}
+				
 				// Only close if menu is active and click is outside the menu
 				if ($desktopSlideMenu.hasClass('active')) {
 					// Check if click is outside the menu and not on the toggle button
 					if (!$desktopSlideMenu.is(e.target) && 
 						$desktopSlideMenu.has(e.target).length === 0 && 
 						!$desktopMenuToggle.is(e.target) && 
-						$desktopMenuToggle.has(e.target).length === 0) {
+						$desktopMenuToggle.has(e.target).length === 0 &&
+						!$(e.target).closest('#desktopMenuToggle').length) {
 						closeDesktopMenu();
 					}
 				}
@@ -177,6 +193,7 @@
 		$(document).off('click', '#desktopMenuToggle').on('click', '#desktopMenuToggle', function(e) {
 			e.preventDefault();
 			e.stopPropagation();
+			e.stopImmediatePropagation();
 			console.log('Hamburger clicked via delegation');
 			
 			var $menu = $('#desktopSlideMenu');
@@ -187,7 +204,7 @@
 			
 			if ($menu.length === 0 || $overlay.length === 0) {
 				console.error('Menu elements not found!');
-				return;
+				return false;
 			}
 			
 			if ($menu.hasClass('active')) {
@@ -203,6 +220,8 @@
 				$overlay.addClass('active');
 				$('body').css('overflow', 'hidden');
 			}
+			
+			return false;
 		});
 		
 		// Also add vanilla JS fallback
@@ -215,6 +234,7 @@
 				toggle.addEventListener('click', function(e) {
 					e.preventDefault();
 					e.stopPropagation();
+					e.stopImmediatePropagation();
 					console.log('Hamburger clicked via vanilla JS');
 					
 					if (menu.classList.contains('active')) {
@@ -228,7 +248,9 @@
 						overlay.classList.add('active');
 						document.body.style.overflow = 'hidden';
 					}
-				});
+					
+					return false;
+				}, true); // Use capture phase
 			}
 		});
 	});

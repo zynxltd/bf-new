@@ -963,10 +963,14 @@ h1, .h1 {
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         overflow-y: auto;
         pointer-events: auto !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .desktop-slide-menu.active {
-        right: 0;
+        right: 0 !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .desktop-slide-menu-overlay {
@@ -1065,7 +1069,9 @@ h1, .h1 {
     
     .desktop-slide-menu-nav li a:hover,
     .desktop-slide-menu-nav li a.active {
-        background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
+        background: #2c3e50 !important;
+        background-color: #2c3e50 !important;
+        background-image: none !important;
         color: #fff;
         transform: translateX(8px);
     }
@@ -1108,9 +1114,11 @@ h1, .h1 {
     }
     
     .desktop-slide-menu-nav li.desktop-menu-store-links .store-link:hover {
-        background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
+        background: #2c3e50 !important;
+        background-color: #2c3e50 !important;
+        background-image: none !important;
         transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(25, 178, 235, 0.3);
+        box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
         border-color: transparent;
     }
     
@@ -1203,30 +1211,75 @@ h1, .h1 {
     padding: 40px 0;
 }
 
+/* Product pages use same natural document flow as homepage on desktop */
+/* Flexbox ordering only applies on mobile via media queries */
+
 .header-texts h2 {
     font-size: 56px;
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 30px;
     color: #fff;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Ensure hero title appears below badge on product pages */
+.product-page-hero .header-texts .hero-badge {
+    display: inline-block !important;
+    width: fit-content !important;
+    margin-bottom: 20px !important;
+}
+
+.product-page-hero .header-texts .hero-title-gradient {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 0 !important;
 }
 
 .hero-title-gradient {
     font-family: 'Josefin Sans', sans-serif !important;
-    background: linear-gradient(90deg, #ffffff 0%, #e8e8e8 50%, #ffffff 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    -webkit-text-fill-color: #ffffff;
+    color: #ffffff;
     text-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
     position: relative;
-    animation: fadeInDown 0.8s ease-out, gradientShift 3s ease-in-out infinite;
+    animation: fadeInDown 1s ease-out;
     overflow: hidden;
     font-weight: 600;
 }
 
+/* Homepage hero title - make it pure white, not grey */
+body:not(:has(.product-page-hero)) .hero-title-gradient {
+    background: #ffffff !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Product page hero title gradient - match page color theme - make it pure white */
+.product-page-hero .hero-title-gradient {
+    background: #ffffff !important;
+    background-color: transparent !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure no white background shows on product page hero title */
+.product-page-hero .hero-title-gradient::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* More subtle animation - reduced intensity */
 .hero-title-gradient::before {
     content: '';
     position: absolute;
@@ -1237,11 +1290,11 @@ h1, .h1 {
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.15),
         transparent
     );
     transform: skewX(-20deg);
-    animation: shine 4s ease-in-out infinite;
+    animation: none;
     z-index: 1;
     pointer-events: none;
 }
@@ -1255,6 +1308,51 @@ h1, .h1 {
     }
     100% {
         left: 150%;
+    }
+}
+
+/* Product page hero with dynamic background color */
+.product-page-hero {
+    position: relative;
+}
+
+.product-page-hero .gradiant-background {
+    background: var(--product-hero-bg, linear-gradient(135deg, #537550 0%, #2d5016 100%)) !important;
+}
+
+.product-page-hero .gradiant-background::before,
+.product-page-hero .gradiant-background::after {
+    background: var(--product-hero-bg, var(--product-color, #537550)) !important;
+    background-image: none !important;
+}
+
+/* Hide gradient overlay on product pages - it shows green/blue gradients */
+.product-page-hero .gradiant-overlay {
+    display: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/* Hero title size adjustments */
+.hero-title-gradient {
+    font-size: 56px !important; /* Default size - can be overridden inline */
+}
+
+@media (max-width: 991px) {
+    .hero-title-gradient {
+        font-size: 42px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-title-gradient {
+        font-size: 34px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-gradient {
+        font-size: 30px !important;
     }
 }
 
@@ -1325,7 +1423,7 @@ h1, .h1 {
     display: inline-block;
     margin-top: 100px;
     margin-bottom: 20px;
-    padding: 12px 28px;
+    padding: 12px 24px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -1340,8 +1438,9 @@ h1, .h1 {
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    width: auto;
+    width: fit-content;
     min-width: auto;
+    max-width: 100%;
 }
 
 .hero-badge::before {
@@ -1384,7 +1483,7 @@ h1, .h1 {
     position: relative;
     display: inline-block;
     white-space: nowrap;
-    width: 100%;
+    width: auto;
 }
 
 /* Removed static star - using Font Awesome icon instead */
@@ -1454,34 +1553,81 @@ h1, .h1 {
 
 .size-badges {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 20px;
+    flex-wrap: nowrap !important; /* Desktop: no wrapping, keep in one row */
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .size-badge {
     display: inline-flex;
     align-items: center;
-    padding: 10px 18px;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 8px;
+    justify-content: center;
+    padding: 14px 24px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 12px !important;
     font-size: 15px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.95);
     transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    line-height: normal !important;
+    min-width: auto !important; /* Desktop: allow flexible width */
+    width: auto !important; /* Desktop: auto width */
+    max-width: none !important; /* Desktop: no max width restriction */
+    flex: 0 1 auto !important; /* Desktop: allow flex but don't grow */
+    text-align: center;
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.size-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.size-badge:hover::before {
+    left: 100%;
 }
 
 .size-badge:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.size-badge span {
+    position: relative;
+    z-index: 2;
+}
+
+.size-badge span {
+    position: relative;
+    z-index: 2;
 }
 
 /* Hero CTA heading */
@@ -2122,7 +2268,26 @@ h1, .h1 {
     display: none;
 }
 
-/* Clickable product cards */
+/* Product card link - replaces modal functionality */
+.product-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.product-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-card-link:focus {
+    outline: 2px solid rgba(25, 178, 235, 0.5);
+    outline-offset: 4px;
+    border-radius: 20px;
+}
+
+/* Clickable product cards - legacy support */
 .product-card-clickable {
     cursor: pointer;
 }
@@ -2227,6 +2392,10 @@ h1, .h1 {
     height: auto;
     object-fit: contain;
     display: block;
+    cursor: pointer;
+}
+
+.product-card-link .product-image img {
     cursor: pointer;
 }
 
@@ -2344,6 +2513,7 @@ h1, .h1 {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: auto;
+    margin-bottom: 20px; /* Add padding below buttons */
 }
 
 .product-buttons li {
@@ -2425,13 +2595,49 @@ h2.heading {
 }
 
 .section-head h2 span {
-    background: linear-gradient(135deg, #70D969 0%, #19B2EB 100%);
+    background: linear-gradient(135deg, #519cb8 0%, #519cb8 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     position: relative;
     font-weight: 700;
+}
+
+/* Mobile optimization for section titles - match FAQ style */
+@media (max-width: 767px) {
+    .section-head h2,
+    .section-head .heading,
+    h2.heading {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .section-head .lead {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* Homepage sections below hero - use homepage blue color theme for title spans */
+body:not(:has(.product-page-hero)) .section-head h2 span,
+:not(.product-page-hero) ~ .section .section-head h2 span {
+    background: linear-gradient(135deg, #519cb8 0%, #519cb8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Product page section headings - use product-specific solid color */
+/* Only apply to sections with white backgrounds (not gradient backgrounds) */
+.product-page-hero ~ .section:not(.gradiant-background) .section-head h2 span,
+.product-page-hero ~ .section:not(.gradiant-background) .section-head .heading span {
+    color: var(--product-color, #70D969) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: var(--product-color, #70D969) !important;
 }
 
 .section-head .lead {
@@ -3224,10 +3430,77 @@ h2.heading {
     z-index: 0;
     overflow: hidden;
     display: block !important;
-    background: transparent;
+    /* Background will be set by CSS variable to match next section */
+    background: var(--divider-gradient, linear-gradient(293deg, #70D969 0%, #19B2EB 100%));
+    background-color: var(--divider-bg-color, #70D969);
     animation: none !important;
     line-height: 0;
     font-size: 0;
+}
+
+/* Footer divider should use visible overflow to show SVG wave */
+#footer-top-divider {
+    overflow: visible !important;
+}
+
+/* Footer top divider should transition from white (section above) to #404040 (footer) */
+#footer-top-divider,
+.section-divider-wave:has(+ .footer-section) {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    display: block !important;
+    visibility: visible !important;
+    height: 120px !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    will-change: auto !important;
+    overflow: visible !important;
+}
+
+#footer-top-divider::after,
+.section-divider-wave:has(+ .footer-section)::after {
+    display: none !important;
+    content: none !important;
+}
+
+#footer-top-divider svg {
+    display: block !important;
+    visibility: visible !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    will-change: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+#footer-top-divider svg path {
+    filter: none !important;
+    -webkit-filter: none !important;
+    shape-rendering: geometricPrecision !important;
+}
+
+/* Ensure footer divider doesn't use mask approach - use SVG directly */
+#footer-top-divider::after {
+    display: none !important;
+    content: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 /* Remove gap between divider and footer in Safari */
@@ -3259,9 +3532,8 @@ h2.heading {
     transform: scaleY(-1);
 }
 
-/* Blur divider to eliminate visible line */
+/* Remove gap between features section and divider */
 .features-section + .section-divider-wave-bottom {
-    filter: blur(0.5px);
     margin-top: -1px;
 }
 
@@ -3305,12 +3577,35 @@ h2.heading {
     z-index: 1 !important;
 }
 
+/* Product page dividers should use solid product color */
+.product-page-hero ~ .section-divider-wave,
+.product-page-hero ~ .section-divider-wave-bottom,
+.product-page-hero ~ .section-divider-wave-product-bottom,
+.section-divider-wave:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)),
+.section-divider-wave-bottom:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)),
+.section-divider-wave-product-bottom:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)) {
+    background-image: none !important;
+}
+
+/* Ensure product page dividers use CSS variable for color */
+.product-page-hero ~ .section-divider-wave:not(#divider-faq-top):not(#divider-faq-bottom),
+.product-page-hero ~ .section-divider-wave-bottom:not(#divider-faq-top):not(#divider-faq-bottom),
+.product-page-hero ~ .section-divider-wave-product-bottom:not(#divider-faq-top):not(#divider-faq-bottom),
+.section-divider-wave:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)),
+.section-divider-wave-bottom:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)),
+.section-divider-wave-product-bottom:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)) {
+    background: var(--product-color, #70D969) !important;
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+}
+
 .features-section.gradiant-background {
-    background-color: #537550 !important;
-    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     position: relative;
-    overflow: hidden;
+    overflow: visible !important;
     padding-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 /* Ensure features section matches hero darkness - remove any lightening effects */
@@ -3467,7 +3762,7 @@ h2.heading {
 .hero-star-icon {
     display: inline-block;
     margin-right: 8px;
-    color: #FFD700;
+    color: #ffffff !important;
     animation: starTwinkle 2s ease-in-out infinite;
 }
 
@@ -3484,7 +3779,7 @@ h2.heading {
 
 .hero-badge:hover .hero-star-icon {
     animation: starTwinkle 0.5s ease-in-out infinite;
-    color: #FFA500;
+    color: #ffffff !important;
 }
 
 /* Feefo Stars Animation */
@@ -3642,35 +3937,21 @@ h2.heading {
     background-image: none !important;
 }
 
-/* Hero section background - match product image colors (green packaging to pink/red product) */
-.header-section.gradiant-background,
-.header-section.half-header.gradiant-background {
-    background-color: #537550 !important;
-    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
+/* Hero section background - Homepage gradient (only for homepage, not product pages) */
+.header-section.gradiant-background:not(.product-page-hero),
+.header-section.half-header.gradiant-background:not(.product-page-hero) {
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     position: relative;
     overflow: visible;
 }
 
-/* Enhanced hero background with animated gradient */
-.header-section.gradiant-background::before,
-.header-section.half-header.gradiant-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        rgba(83, 117, 80, 0.8) 0%,
-        rgba(113, 56, 65, 0.8) 50%,
-        rgba(83, 117, 80, 0.8) 100%
-    );
-    background-size: 200% 100% !important;
-    -webkit-animation: heroGradientShift 8s ease-in-out infinite !important;
-    animation: heroGradientShift 8s ease-in-out infinite !important;
-    z-index: 0 !important;
-    opacity: 0.6 !important;
+/* Enhanced hero background with animated gradient - REMOVED to match features section */
+/* The ::before overlay was causing the hero to look different from the features section */
+.header-section.gradiant-background:not(.product-page-hero)::before,
+.header-section.half-header.gradiant-background:not(.product-page-hero)::before {
+    display: none !important;
+    content: none !important;
 }
 
 /* Animated gradient shift */
@@ -3782,10 +4063,30 @@ h2.heading {
     right: auto !important;
 }
 
+/* Remove hero background animations on product pages */
+.product-page-hero #hero-spotlight-animation.hero-spotlight-bg,
+.product-page-hero .hero-spotlight-bg {
+    display: none !important;
+    visibility: hidden !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+}
+
+.product-page-hero .gradiant-background {
+    animation: none !important;
+    -webkit-animation: none !important;
+}
+
 /* Ensure gradient overlay is on top of background effects */
 .header-section .gradiant-overlay {
     z-index: 2 !important;
     position: relative;
+}
+
+/* Hide gradient overlay on homepage hero to match features section background */
+.header-section.gradiant-background:not(.product-page-hero) .gradiant-overlay,
+.header-section.half-header.gradiant-background:not(.product-page-hero) .gradiant-overlay {
+    display: none !important;
 }
 
 /* Animated gold/yellow line at top - ensure it's visible */
@@ -4180,11 +4481,12 @@ h2.heading {
 
 /* Ensure features section uses same gradient background as hero and products */
 .features-section.gradiant-background {
-    background-color: #537550 !important;
-    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     position: relative;
-    overflow: hidden;
+    overflow: visible !important;
     padding-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 /* Ensure features section matches hero darkness - remove any lightening effects */
@@ -4908,8 +5210,8 @@ h2.heading {
 }
 
 .products-section.gradiant-background {
-    background-color: #537550 !important;
-    background-image: linear-gradient(90deg, #537550 0%, #713841 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
 }
 
 /* Add curved top pattern matching hero bottom */
@@ -4979,7 +5281,9 @@ h2.heading {
     content: '';
     height: 200px;
     width: 100%;
-    background: linear-gradient(90deg, #537450 0%, #68333c 100%);
+    /* Use CSS variable set by JavaScript, or fallback to default gradient */
+    background-color: var(--divider-bg-color, #70D969) !important;
+    background: var(--divider-gradient, linear-gradient(293deg, #70D969 0%, #19B2EB 100%)) !important;
     -webkit-mask-image: url(../images/carb.png);
     -webkit-mask-position: bottom center;
     -webkit-mask-repeat: no-repeat;
@@ -5316,6 +5620,42 @@ h2.heading {
     overflow: hidden;
 }
 
+/* Ensure FAQ dividers are always grey (#f8f9fa) on all pages */
+#divider-faq-top,
+#divider-faq-bottom,
+.section-divider-wave:has(+ .faq-section),
+.faq-section + .section-divider-wave,
+.section-divider-wave-bottom:has(+ .faq-section),
+.faq-section + .section-divider-wave-bottom {
+    background: #f8f9fa !important;
+    background-color: #f8f9fa !important;
+    background-image: none !important;
+}
+
+/* Target FAQ dividers by their position relative to FAQ section */
+.section-divider-wave:has(+ .faq-section)::after,
+.faq-section + .section-divider-wave::after,
+.section-divider-wave-bottom:has(+ .faq-section)::after,
+.faq-section + .section-divider-wave-bottom::after {
+    background: #f8f9fa !important;
+    background-color: #f8f9fa !important;
+    background-image: none !important;
+    --divider-gradient: none !important;
+    --divider-bg-color: #f8f9fa !important;
+}
+
+/* Fallback for browsers that don't support :has() - use ID selectors */
+#divider-faq-top,
+#divider-faq-top::after,
+#divider-faq-bottom,
+#divider-faq-bottom::after {
+    background: #f8f9fa !important;
+    background-color: #f8f9fa !important;
+    background-image: none !important;
+    --divider-gradient: none !important;
+    --divider-bg-color: #f8f9fa !important;
+}
+
 .faq-section.white-bg {
     background: #ffffff !important;
 }
@@ -5467,7 +5807,15 @@ h2.heading {
     background: rgba(255, 255, 255, 0.5);
 }
 
-.features-section.gradiant-background .section-head::after {
+.features-section.gradiant-background .section-head::after,
+.products-section.gradiant-background .section-head::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Also hide ::before lines on gradient sections */
+.features-section.gradiant-background .section-head h2::before,
+.products-section.gradiant-background .section-head h2::before {
     display: none !important;
     content: none !important;
 }
@@ -5725,8 +6073,20 @@ h2.heading {
     left: 0;
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, #19B2EB, #70D969);
+    background: linear-gradient(90deg, #519cb8, #519cb8);
     transition: width 0.5s ease;
+}
+
+/* Homepage sections below hero - use homepage blue color theme for gradient lines */
+body:not(:has(.product-page-hero)) .section-head h2::before,
+:not(.product-page-hero) ~ .section .section-head h2::before {
+    background: linear-gradient(90deg, #519cb8, #519cb8);
+}
+
+/* Product pages - use product color for animated lines below headings on white backgrounds */
+body:has(.product-page-hero) .section:not(.gradiant-background) .section-head h2::before,
+.product-page-hero ~ .section:not(.gradiant-background) .section-head h2::before {
+    background: linear-gradient(90deg, var(--product-color, #70D969), var(--product-color, #70D969)) !important;
 }
 
 .section-head:hover h2::before {
@@ -6109,13 +6469,25 @@ h2.heading {
     content: '';
     width: 50px;
     height: 4px;
-    background: linear-gradient(90deg, #19B2EB, #70D969);
+    background: linear-gradient(90deg, #519cb8, #519cb8);
     border-radius: 2px;
     display: inline-block;
 }
 
+/* Homepage sections below hero - use homepage blue color theme */
+body:not(:has(.product-page-hero)) .section-head h2::before,
+:not(.product-page-hero) ~ .section .section-head h2::before {
+    background: linear-gradient(90deg, #519cb8, #519cb8);
+}
+
 .white-bg .section-head h2::before {
-    background: linear-gradient(90deg, #19B2EB, #70D969);
+    background: linear-gradient(90deg, #519cb8, #519cb8);
+}
+
+/* Product pages - use product color for animated lines below headings on white backgrounds */
+body:has(.product-page-hero) .section:not(.gradiant-background) .section-head h2::before,
+.product-page-hero ~ .section:not(.gradiant-background) .section-head h2::before {
+    background: linear-gradient(90deg, var(--product-color, #70D969), var(--product-color, #70D969)) !important;
 }
 
 .gradiant-background .section-head h2::before {
@@ -6637,6 +7009,10 @@ h2.heading {
     margin-top: 0 !important;
     padding-top: 0 !important;
     background-color: #404040 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
 }
 
 .footer-section::before {
@@ -7005,10 +7381,18 @@ html {
     }
     
     .product-image {
-        height: 220px;
-        min-height: 220px;
-        max-height: 220px;
-        padding: 15px;
+        height: 200px !important;
+        min-height: 200px !important;
+        max-height: 200px !important;
+        padding: 15px !important;
+    }
+    
+    .product-image img {
+        max-height: 180px !important;
+        max-width: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
     }
     
     .product-details {
@@ -7016,15 +7400,29 @@ html {
     }
     
     .product-title {
-        font-size: 22px;
-        margin-bottom: 12px;
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
+        line-height: 1.3 !important;
+        font-weight: 600 !important;
     }
     
     .product-description {
-        font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 15px;
-        min-height: auto;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 15px !important;
+        min-height: auto !important;
+    }
+    
+    .product-image {
+        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
+        padding: 15px;
+    }
+    
+    .product-image img {
+        max-height: 180px;
+        max-width: 100%;
     }
     
     .product-specs {
@@ -10132,6 +10530,200 @@ html {
         display: none !important;
     }
     
+/* Make carb.png image match gradient background - hide original and use pseudo-element */
+.section-divider-wave {
+    position: relative;
+}
+
+.section-divider-wave .carb-image-mobile-hide,
+.section-divider-wave img[src*="carb.png"] {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Use pseudo-element with gradient and image as mask to match section gradient */
+.section-divider-wave:not(#footer-top-divider):not(:has(+ .footer-section))::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use CSS variable set by JavaScript, or fallback to homepage blue */
+    background: var(--divider-gradient, #519cb8) !important;
+    background-color: var(--divider-bg-color, #519cb8) !important;
+    -webkit-mask-image: url('/images/carb.png');
+    mask-image: url('/images/carb.png');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-origin: content-box;
+    mask-origin: content-box;
+    transform: scaleY(-1);
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+}
+
+/* Footer divider should NOT use ::after pseudo-element - use SVG directly */
+#footer-top-divider::after,
+.section-divider-wave:has(+ .footer-section)::after {
+    display: none !important;
+    content: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    background: none !important;
+    background-image: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Homepage dividers - use blue color */
+body:not(:has(.product-page-hero)) .section-divider-wave::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom::after {
+    background: #519cb8 !important;
+    background-color: #519cb8 !important;
+    background-image: none !important;
+}
+
+/* Product page dividers - use solid product color, not gradient */
+body:has(.product-page-hero) .section-divider-wave::after,
+.product-page-hero ~ .section-divider-wave::after,
+.product-page-hero ~ .section-divider-wave-bottom::after,
+.product-page-hero ~ .section-divider-wave-product-bottom::after,
+body:has(.product-page-hero) .section-divider-wave-bottom::after,
+body:has(.product-page-hero) .section-divider-wave-product-bottom::after {
+    background: var(--product-color, #70D969) !important;
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+}
+
+/* More specific rules for all product page dividers */
+.product-page-hero ~ .section-divider-wave::after,
+.product-page-hero ~ .section-divider-wave-bottom::after,
+.product-page-hero ~ .section-divider-wave-product-bottom::after {
+    background: var(--product-color, #70D969) !important;
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+}
+
+/* Ensure divider background matches the section below for seamless blending */
+/* Homepage dividers default to blue */
+body:not(:has(.product-page-hero)) .section-divider-wave {
+    background: var(--divider-gradient, #519cb8) !important;
+    background-color: var(--divider-bg-color, #519cb8) !important;
+}
+
+/* Product page dividers - override default gradient */
+body:has(.product-page-hero) .section-divider-wave,
+body:has(.product-page-hero) .section-divider-wave-bottom,
+body:has(.product-page-hero) .section-divider-wave-product-bottom {
+    background: var(--product-color, var(--divider-bg-color, #70D969)) !important;
+    background-color: var(--product-color, var(--divider-bg-color, #70D969)) !important;
+    background-image: none !important;
+}
+
+/* Default divider - only for non-product pages */
+body:not(:has(.product-page-hero)) .section-divider-wave {
+    background: var(--divider-gradient, linear-gradient(293deg, #70D969 0%, #19B2EB 100%)) !important;
+    background-color: var(--divider-bg-color, #70D969) !important;
+}
+
+/* Handle scaleX(-1) transform for product bottom divider */
+.section-divider-wave-product-bottom::after {
+    transform: scaleX(-1);
+}
+
+/* Ensure product bottom divider background matches the section below */
+/* Product pages should use product color, not default green - high specificity */
+body:has(.product-page-hero) .section-divider-wave-product-bottom,
+.product-page-hero ~ .section-divider-wave-product-bottom,
+.products-section + .section-divider-wave-product-bottom,
+#divider-products-bottom {
+    background: var(--product-color, #70D969) !important;
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+}
+
+/* Product page products bottom divider ::after - force product color */
+body:has(.product-page-hero) .section-divider-wave-product-bottom::after,
+.product-page-hero ~ .section-divider-wave-product-bottom::after,
+.products-section + .section-divider-wave-product-bottom::after,
+#divider-products-bottom::after {
+    background: var(--product-color, #70D969) !important;
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+}
+
+/* Only apply default gradient to non-product pages */
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom {
+    background: var(--divider-gradient, linear-gradient(293deg, #70D969 0%, #19B2EB 100%)) !important;
+    background-color: var(--divider-bg-color, #70D969) !important;
+}
+
+/* Handle images without carb-image-mobile-hide class but with carb.png */
+.section-divider-wave-bottom img[src*="carb.png"],
+.section-divider-wave-bottom .carb-divider-image {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Default divider bottom ::after - only for non-product pages */
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 1px);
+    /* Use CSS variable set by JavaScript, or fallback to default gradient */
+    background: var(--divider-gradient, linear-gradient(293deg, #70D969 0%, #19B2EB 100%)) !important;
+    background-color: var(--divider-bg-color, #70D969) !important;
+    -webkit-mask-image: url('/images/carb.png');
+    mask-image: url('/images/carb.png');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transform: scaleY(-1);
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+}
+
+/* Product page dividers - override default gradient for ::after pseudo-elements */
+body:has(.product-page-hero) .section-divider-wave-bottom::after,
+body:has(.product-page-hero) .section-divider-wave-product-bottom::after {
+    background: var(--product-color, var(--divider-bg-color, #70D969)) !important;
+    background-color: var(--product-color, var(--divider-bg-color, #70D969)) !important;
+    background-image: none !important;
+    -webkit-mask-image: url('/images/carb.png');
+    mask-image: url('/images/carb.png');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transform: scaleY(-1);
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+}
+
+/* Ensure divider background matches the section above for seamless blending */
+.section-divider-wave-bottom {
+    background: var(--divider-gradient, linear-gradient(293deg, #70D969 0%, #19B2EB 100%)) !important;
+    background-color: var(--divider-bg-color, #70D969) !important;
+    position: relative;
+}
+    
     .section-divider-mobile-hide {
         display: none !important;
     }
@@ -10144,7 +10736,8 @@ html {
     right: 30px;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #537550 0%, #713841 100%);
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);
+    background-color: #70D969;
     color: white;
     border: none;
     border-radius: 50%;
@@ -10168,9 +10761,9 @@ html {
 }
 
 .back-to-top:hover {
-    background: linear-gradient(135deg, #5BC653 0%, #8B4A5A 100%);
+    background: linear-gradient(293deg, #7FE678 0%, #2AB8E8 100%);
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(83, 117, 80, 0.4);
+    box-shadow: 0 6px 20px rgba(112, 217, 105, 0.4);
 }
 
 .back-to-top:active {

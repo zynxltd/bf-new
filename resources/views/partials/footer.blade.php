@@ -1,13 +1,13 @@
 <!-- Footer Top Divider - Curved Wave -->
-<div class="section-divider-wave">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
+<div class="section-divider-wave" id="footer-top-divider" style="height: 120px; width: 100%; overflow: visible !important; background: transparent !important; background-color: transparent !important; background-image: none !important; display: block !important; visibility: visible !important; position: relative; z-index: 10; filter: none !important; -webkit-filter: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block !important; width: 100% !important; height: 100% !important; position: relative; z-index: 1; filter: none !important; -webkit-filter: none !important;">
         <defs>
-            <linearGradient id="gradient-divider-footer" x1="0%" y1="100%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#404040;stop-opacity:1" />
+            <linearGradient id="gradient-divider-footer" x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
                 <stop offset="100%" style="stop-color:#404040;stop-opacity:1" />
             </linearGradient>
         </defs>
-        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-footer)"></path>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-footer)" style="filter: none !important; -webkit-filter: none !important;"></path>
     </svg>
 </div>
 
@@ -49,10 +49,10 @@
             <div class="col-md-3 col-sm-6 mb-40">
                 <h5 class="heading-light mb-20">Our Products</h5>
                 <ul class="footer-links-list">
-                    <li><a href="https://www.yougarden.com/item-p-100062/blooming-fast-superior-soluble-fertiliser-500g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Superior Soluble Fertiliser</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100196/ultimate-rose-bloom-booster-complete-fertiliser-750g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Rose Bloom Booster</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100118/blooming-fast-swell-gel-and-feed-250g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Swell Gell & Feed</a></li>
-                    <li><a href="https://www.yougarden.com/item-p-100016/blooming-fast-citrus-feed-150g?source=bloomingfast.com" class="heading-light" target="_blank" rel="noopener">Citrus Feed</a></li>
+                    <li><a href="{{ route('product.show', 'superior-soluble-fertiliser') }}" class="heading-light">Superior Soluble Fertiliser</a></li>
+                    <li><a href="{{ route('product.show', 'ultimate-rose-bloom-booster') }}" class="heading-light">Rose Bloom Booster</a></li>
+                    <li><a href="{{ route('product.show', 'swell-gell-feed') }}" class="heading-light">Swell Gell & Feed</a></li>
+                    <li><a href="{{ route('product.show', 'citrus-feed') }}" class="heading-light">Citrus Feed</a></li>
                     <li><a href="{{ route('home') }}#products" class="heading-light">View All Products</a></li>
                 </ul>
             </div><!-- .col -->
