@@ -6207,11 +6207,11 @@ body:not(:has(.product-page-hero)) .products-section-bottom-curved::after {
 #divider-faq-top::after,
 #divider-faq-bottom,
 #divider-faq-bottom::after {
-    background: #f8f9fa !important;
-    background-color: #f8f9fa !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
     background-image: none !important;
     --divider-gradient: none !important;
-    --divider-bg-color: #f8f9fa !important;
+    --divider-bg-color: #ffffff !important;
 }
 
 .faq-section.white-bg {

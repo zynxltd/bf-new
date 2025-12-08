@@ -854,12 +854,12 @@ $faqSchema = [
 </div>
 
 
-<div class="section-divider-wave" id="divider-faq-top" style="height: 120px; width: 100%; overflow: hidden; background: #f8f9fa; display: block !important; visibility: visible !important;">
+<div class="section-divider-wave" id="divider-faq-top" style="height: 120px; width: 100%; overflow: hidden; background: #ffffff; display: block !important; visibility: visible !important;">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
         <defs>
             <linearGradient id="gradient-divider-faq" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
             </linearGradient>
         </defs>
         <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-faq)"></path>
@@ -1035,12 +1035,12 @@ From May to September feed your plants twice a week while watering.</p>
     </div><!-- .container  -->
 </div><!-- .faq-section  -->
 
-<div class="section-divider-wave section-divider-wave-bottom" id="divider-faq-bottom" style="height: 120px; width: 100%; overflow: hidden; background: #f8f9fa; display: block !important; visibility: visible !important;">
+<div class="section-divider-wave section-divider-wave-bottom" id="divider-faq-bottom" style="height: 120px; width: 100%; overflow: hidden; background: #ffffff; display: block !important; visibility: visible !important;">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
         <defs>
             <linearGradient id="gradient-divider-faq-bottom" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#f8f9fa;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
             </linearGradient>
         </defs>
         <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-faq-bottom)"></path>
@@ -2350,10 +2350,10 @@ From May to September feed your plants twice a week while watering.</p>
         var faqTopDivider = document.getElementById('divider-faq-top');
         var faqBottomDivider = document.getElementById('divider-faq-bottom');
         if (faqTopDivider) {
-            faqTopDivider.style.setProperty('background', '#f8f9fa', 'important');
-            faqTopDivider.style.setProperty('background-color', '#f8f9fa', 'important');
+            faqTopDivider.style.setProperty('background', '#ffffff', 'important');
+            faqTopDivider.style.setProperty('background-color', '#ffffff', 'important');
             faqTopDivider.style.setProperty('--divider-gradient', 'none', 'important');
-            faqTopDivider.style.setProperty('--divider-bg-color', '#f8f9fa', 'important');
+            faqTopDivider.style.setProperty('--divider-bg-color', '#ffffff', 'important');
             faqTopDivider.style.setProperty('display', 'block', 'important');
             faqTopDivider.style.setProperty('visibility', 'visible', 'important');
             faqTopDivider.style.setProperty('height', '120px', 'important');
@@ -2364,16 +2364,16 @@ From May to September feed your plants twice a week while watering.</p>
                 if (gradient) {
                     var stops = gradient.querySelectorAll('stop');
                     stops.forEach(function(stop) {
-                        stop.setAttribute('style', 'stop-color:#f8f9fa;stop-opacity:1');
+                        stop.setAttribute('style', 'stop-color:#ffffff;stop-opacity:1');
                     });
                 }
             }
         }
         if (faqBottomDivider) {
-            faqBottomDivider.style.setProperty('background', '#f8f9fa', 'important');
-            faqBottomDivider.style.setProperty('background-color', '#f8f9fa', 'important');
+            faqBottomDivider.style.setProperty('background', '#ffffff', 'important');
+            faqBottomDivider.style.setProperty('background-color', '#ffffff', 'important');
             faqBottomDivider.style.setProperty('--divider-gradient', 'none', 'important');
-            faqBottomDivider.style.setProperty('--divider-bg-color', '#f8f9fa', 'important');
+            faqBottomDivider.style.setProperty('--divider-bg-color', '#ffffff', 'important');
             faqBottomDivider.style.setProperty('display', 'block', 'important');
             faqBottomDivider.style.setProperty('visibility', 'visible', 'important');
             faqBottomDivider.style.setProperty('height', '120px', 'important');
@@ -2384,7 +2384,7 @@ From May to September feed your plants twice a week while watering.</p>
                 if (gradient) {
                     var stops = gradient.querySelectorAll('stop');
                     stops.forEach(function(stop) {
-                        stop.setAttribute('style', 'stop-color:#f8f9fa;stop-opacity:1');
+                        stop.setAttribute('style', 'stop-color:#ffffff;stop-opacity:1');
                     });
                 }
             }
