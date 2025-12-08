@@ -64,15 +64,56 @@
     <!-- Cookiebot - Auto Blocking Mode (GDPR Compliant) -->
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="1b14093a-5243-4fdf-9a56-455f93e17d85" data-blockingmode="auto" type="text/javascript"></script>
     
-    <!-- Google Analytics 4 - Will be managed by Cookiebot -->
-    <script type="text/plain" data-category="statistics" data-cookieconsent="statistics" data-src="https://www.googletagmanager.com/gtag/js?id=G-NH00CZ6T7P" async></script>
-    <script type="text/plain" data-category="statistics" data-cookieconsent="statistics">
+    <!-- Google Analytics 4 - Load only after Cookiebot consent -->
+    <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-NH00CZ6T7P', {
-            'anonymize_ip': true
-        });
+        
+        // Load Google Analytics only after Cookiebot consent
+        function loadGoogleAnalytics() {
+            if (typeof Cookiebot !== 'undefined' && Cookiebot.consent.statistics) {
+                // Load the gtag.js script
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-NH00CZ6T7P';
+                script.onerror = function() {
+                    console.warn('Google Analytics script failed to load');
+                };
+                document.head.appendChild(script);
+                
+                // Initialize GA4
+                gtag('js', new Date());
+                gtag('config', 'G-NH00CZ6T7P', {
+                    'anonymize_ip': true
+                });
+            }
+        }
+        
+        // Check consent when Cookiebot is ready
+        if (typeof Cookiebot !== 'undefined') {
+            if (Cookiebot.consent && Cookiebot.consent.statistics) {
+                loadGoogleAnalytics();
+            } else {
+                window.addEventListener('CookiebotOnAccept', function() {
+                    if (Cookiebot.consent.statistics) {
+                        loadGoogleAnalytics();
+                    }
+                }, false);
+            }
+        } else {
+            // Wait for Cookiebot to load
+            window.addEventListener('CookiebotOnLoad', function() {
+                if (Cookiebot.consent && Cookiebot.consent.statistics) {
+                    loadGoogleAnalytics();
+                } else {
+                    window.addEventListener('CookiebotOnAccept', function() {
+                        if (Cookiebot.consent.statistics) {
+                            loadGoogleAnalytics();
+                        }
+                    }, false);
+                }
+            }, false);
+        }
     </script>
     
     <!-- Font Awesome - Load asynchronously -->
