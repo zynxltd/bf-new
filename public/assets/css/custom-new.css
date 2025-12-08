@@ -3983,22 +3983,36 @@ body:has(.product-page-hero) .products-section.gradiant-background {
 }
 
 /* Hero section background - Homepage gradient (only for homepage, not product pages) */
-body .header-section.gradiant-background:not(.product-page-hero),
-body .header-section.half-header.gradiant-background:not(.product-page-hero),
-body #home.header-section.gradiant-background,
-body #home .header-section.gradiant-background {
+/* Ensure bright gradient with no dark overlays */
+body:not(:has(.product-page-hero)) .header-section.gradiant-background,
+body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-background,
+body:not(:has(.product-page-hero)) #home.header-section.gradiant-background,
+body:not(:has(.product-page-hero)) #home .header-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     position: relative;
     overflow: visible;
+    /* Ensure no dark overlays */
+    filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 1 !important;
 }
 
 /* Enhanced hero background with animated gradient - REMOVED to match features section */
-/* The ::before overlay was causing the hero to look different from the features section */
+/* The ::before and ::after overlays were causing the hero to look different from the features section */
 .header-section.gradiant-background:not(.product-page-hero)::before,
-.header-section.half-header.gradiant-background:not(.product-page-hero)::before {
+.header-section.half-header.gradiant-background:not(.product-page-hero)::before,
+.header-section.gradiant-background:not(.product-page-hero)::after,
+.header-section.half-header.gradiant-background:not(.product-page-hero)::after,
+#home.header-section.gradiant-background::before,
+#home.header-section.gradiant-background::after,
+#home.header-section.half-header.gradiant-background::before,
+#home.header-section.half-header.gradiant-background::after {
     display: none !important;
     content: none !important;
+    background: none !important;
+    background-image: none !important;
 }
 
 /* Animated gradient shift */
@@ -4014,11 +4028,12 @@ body #home .header-section.gradiant-background {
     }
 }
 
-/* Subtle light rays effect - Spotlight animation */
-#home.header-section.gradiant-background::after,
-#home.header-section.half-header.gradiant-background::after,
-.header-section.gradiant-background::after,
-.header-section.half-header.gradiant-background::after {
+/* Subtle light rays effect - Spotlight animation - DISABLED on homepage */
+/* Only apply to product pages if needed, but homepage should not have this */
+body:has(.product-page-hero) #home.header-section.gradiant-background::after,
+body:has(.product-page-hero) #home.header-section.half-header.gradiant-background::after,
+body:has(.product-page-hero) .header-section.gradiant-background::after,
+body:has(.product-page-hero) .header-section.half-header.gradiant-background::after {
     content: '' !important;
     position: absolute !important;
     top: -50% !important;
