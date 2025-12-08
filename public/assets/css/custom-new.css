@@ -7828,11 +7828,16 @@ html {
     }
     
     /* Buttons - order 2 (after product-card-link), even spacing */
-    .product-card .product-buttons {
+    .product-card > .product-buttons {
         order: 2 !important;
         width: 100% !important;
         margin: 0 !important;
         padding: 0 20px 20px 20px !important;
+    }
+    
+    /* Ensure product-card-link comes first, then buttons */
+    .product-card > .product-card-link {
+        order: 1 !important;
     }
     
     .product-buttons:not(.product-modal-buttons .product-buttons) {
