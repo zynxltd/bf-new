@@ -1493,7 +1493,8 @@ body:not(:has(.product-page-hero)) .hero-title-gradient,
 }
 
 /* More subtle animation - reduced intensity */
-.hero-title-gradient::before {
+/* Disable shine for homepage - only apply to product pages */
+body:has(.product-page-hero) .hero-title-gradient::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1510,6 +1511,14 @@ body:not(:has(.product-page-hero)) .hero-title-gradient,
     animation: none;
     z-index: 1;
     pointer-events: none;
+}
+
+/* Homepage - no shine */
+body:not(:has(.product-page-hero)) .hero-title-gradient::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 /* Disable shine animation on homepage hero title - override custom.css */
