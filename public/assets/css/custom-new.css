@@ -1,6 +1,24 @@
 /* Custom Styles for Enhanced Sections and Product Cards */
 /* Updated: Navigation and Feefo reviews fixes applied */
 
+/* ========================================
+   CRITICAL: PREVENT RED DIVIDERS ON HOMEPAGE
+   These rules MUST be at the top to override everything
+   ======================================== */
+/* Homepage dividers - ABSOLUTE PRIORITY - NEVER RED */
+body:not(:has(.product-page-hero)) .section-divider-wave,
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom,
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom,
+body:not(:has(.product-page-hero)) .section-divider-wave::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom::after {
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
 /* Custom Scrollbar - DISABLED - Using default browser scrollbar */
 ::-webkit-scrollbar {
     width: 15px;
@@ -3810,10 +3828,14 @@ body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom {
     background-image: none !important;
 }
 
-/* Homepage features section only - exclude product pages */
-body:not(:has(.product-page-hero)) .features-section.gradiant-background {
+/* Homepage features section only - exclude product pages - FORCE blue-green gradient, NEVER red */
+body:not(:has(.product-page-hero)) .features-section.gradiant-background,
+body:not(:has(.product-page-hero)) .features-section.gradiant-background.header-curbed,
+body:not(:has(.product-page-hero)) .section.gradiant-background.features-section,
+body:not(:has(.product-page-hero)) #features.features-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     position: relative;
     overflow: visible !important;
     padding-top: 0 !important;
@@ -4159,16 +4181,21 @@ body:has(.product-page-hero) .features-section.gradiant-background {
     background-image: none !important;
 }
 
-/* Override style.css rule for homepage sections - must be more specific */
-/* Use even more specific selectors to ensure they override style.css */
-/* Homepage only - exclude product pages */
+/* Override style.css and custom.css rules for homepage sections - must be more specific */
+/* Use even more specific selectors to ensure they override style.css and custom.css */
+/* Homepage only - exclude product pages - FORCE blue-green gradient, NEVER red */
 body:not(:has(.product-page-hero)) .header-section.gradiant-background,
 body:not(:has(.product-page-hero)) .features-section.gradiant-background,
 body:not(:has(.product-page-hero)) .products-section.gradiant-background,
 body:not(:has(.product-page-hero)) #home.header-section.gradiant-background,
-body:not(:has(.product-page-hero)) #home .header-section.gradiant-background {
+body:not(:has(.product-page-hero)) #home .header-section.gradiant-background,
+body:not(:has(.product-page-hero)) .features-section.gradiant-background.header-curbed,
+body:not(:has(.product-page-hero)) .products-section.gradiant-background.products-section-bottom-curved,
+body:not(:has(.product-page-hero)) .section.gradiant-background.features-section,
+body:not(:has(.product-page-hero)) .section.gradiant-background.products-section {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
 }
 
 /* Product page sections - use solid product color */
@@ -5544,11 +5571,15 @@ body #home .features-section.gradiant-background {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Homepage products section only */
+/* Homepage products section only - FORCE blue-green gradient, NEVER red */
 body:not(:has(.product-page-hero)) .products-section.gradiant-background,
-body:not(:has(.product-page-hero)) #home .products-section.gradiant-background {
+body:not(:has(.product-page-hero)) #home .products-section.gradiant-background,
+body:not(:has(.product-page-hero)) .products-section.gradiant-background.products-section-bottom-curved,
+body:not(:has(.product-page-hero)) .section.gradiant-background.products-section,
+body:not(:has(.product-page-hero)) #products.products-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
 }
 
 /* Product page products section - use solid product color */
@@ -10992,6 +11023,39 @@ html {
 }
 
 /* Use pseudo-element with gradient and image as mask to match section gradient */
+/* Homepage dividers - force blue-green gradient, NEVER red */
+body:not(:has(.product-page-hero)) .section-divider-wave:not(#footer-top-divider):not(:has(+ .footer-section))::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom:not(#footer-top-divider):not(:has(+ .footer-section))::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom:not(#footer-top-divider):not(:has(+ .footer-section))::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Force blue-green gradient for homepage - NEVER red */
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    -webkit-mask-image: url('/images/carb.png');
+    mask-image: url('/images/carb.png');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-origin: content-box;
+    mask-origin: content-box;
+    transform: scaleY(-1);
+    z-index: 1;
+    pointer-events: none;
+    display: block;
+    /* Explicitly prevent any red colors */
+    filter: none !important;
+}
+
+/* Fallback for other dividers (shouldn't be needed but just in case) */
 .section-divider-wave:not(#footer-top-divider):not(:has(+ .footer-section))::after {
     content: '';
     position: absolute;
@@ -11031,13 +11095,18 @@ html {
     visibility: hidden !important;
 }
 
-/* Homepage dividers - use blue-green gradient, NEVER red */
+/* Homepage dividers - use blue-green gradient, NEVER red - override ALL other rules */
 body:not(:has(.product-page-hero)) .section-divider-wave,
 body:not(:has(.product-page-hero)) .section-divider-wave-bottom,
-body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom {
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom,
+body:not(:has(.product-page-hero)) .section-divider-wave:not(#divider-faq-top):not(#divider-faq-bottom),
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom:not(#divider-faq-top):not(#divider-faq-bottom),
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom:not(#divider-faq-top):not(#divider-faq-bottom) {
     background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    /* Explicitly prevent any red colors */
+    filter: none !important;
 }
 
 /* Homepage dividers ::after pseudo-element - use blue-green gradient, NEVER red */
@@ -11187,10 +11256,9 @@ body:has(.product-page-hero) .section-divider-wave-product-bottom::after {
     background-color: var(--divider-bg-color, #70D969) !important;
     position: relative;
 }
-    
-    .section-divider-mobile-hide {
-        display: none !important;
-    }
+
+.section-divider-mobile-hide {
+    display: none !important;
 }
 
 /* Back to Top Button */
@@ -11794,5 +11862,60 @@ body:has(.product-page-hero) .section-divider-wave-product-bottom::after {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
+}
+
+/* FINAL CATCH-ALL: Prevent ANY red colors on homepage sections and dividers */
+/* This rule must be at the end to override everything else */
+body:not(:has(.product-page-hero)) .gradiant-background,
+body:not(:has(.product-page-hero)) .section.gradiant-background,
+body:not(:has(.product-page-hero)) .features-section,
+body:not(:has(.product-page-hero)) .products-section,
+body:not(:has(.product-page-hero)) .section-divider-wave,
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom,
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom {
+    /* Explicitly prevent red gradients - force blue-green gradient */
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    /* Prevent any red color values */
+    filter: hue-rotate(0deg) !important;
+}
+
+/* FINAL CATCH-ALL FOR PRODUCT PAGES: Prevent ANY red colors on product page dividers */
+/* This rule must be at the end to override everything else, including style.css and custom.css */
+body:has(.product-page-hero) .section-divider-wave,
+body:has(.product-page-hero) .section-divider-wave-bottom,
+body:has(.product-page-hero) .section-divider-wave-product-bottom,
+.product-page-hero ~ .section-divider-wave,
+.product-page-hero ~ .section-divider-wave-bottom,
+.product-page-hero ~ .section-divider-wave-product-bottom,
+.section-divider-wave:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)),
+.section-divider-wave-bottom:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)),
+.section-divider-wave-product-bottom:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section)) {
+    /* Explicitly prevent red gradients - force product color */
+    background: var(--product-color, #70D969) !important;
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+    /* Remove any red gradient backgrounds */
+    filter: none !important;
+}
+
+/* Product page dividers ::after pseudo-elements - prevent red */
+body:has(.product-page-hero) .section-divider-wave::after,
+body:has(.product-page-hero) .section-divider-wave-bottom::after,
+body:has(.product-page-hero) .section-divider-wave-product-bottom::after,
+.product-page-hero ~ .section-divider-wave::after,
+.product-page-hero ~ .section-divider-wave-bottom::after,
+.product-page-hero ~ .section-divider-wave-product-bottom::after,
+.section-divider-wave:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after,
+.section-divider-wave-bottom:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after,
+.section-divider-wave-product-bottom:not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after {
+    background: var(--product-color, #70D969) !important;
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+    /* Remove any red gradient backgrounds - explicitly override any red colors */
+    filter: none !important;
+    /* Prevent any red color values from appearing */
+    -webkit-filter: none !important;
 }
 

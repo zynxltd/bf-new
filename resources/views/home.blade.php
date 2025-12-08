@@ -663,65 +663,42 @@ $faqSchema = [
         
         <div class="videos-content pt-60">
             <div class="row">
-                <!-- Video 1: Superior Soluble Fertiliser -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s">
-                        <div class="video-thumbnail">
-                            {!! webp_picture('images/superiorV4.png', 'Superior Soluble Fertiliser', ['class' => 'img-responsive']) !!}
-                            <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/724836215?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
-                        </div>
-                        <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Superior Soluble Fertiliser</h4>
-                            <p class="video-description">Learn how to use our best-ever formulation for incredible results in your garden.</p>
-                        </div>
-                    </div>
-                </div>
+                @php
+                    // Filter products that have videos
+                    $productsWithVideos = $products->filter(function($product) {
+                        return !empty($product->video);
+                    })->sortBy('sort_order');
+                @endphp
                 
-                <!-- Video 2: Ultimate Rose Bloom Booster -->
+                @forelse($productsWithVideos as $index => $product)
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay="{{ ($index % 3) * 0.1 }}s">
                         <div class="video-thumbnail">
-                            {!! webp_picture('images/bloom-booster-p1.jpg', 'Ultimate Rose Bloom Booster', ['class' => 'img-responsive', 'width' => '400', 'height' => '400', 'loading' => 'lazy']) !!}
+                            @if($product->image)
+                                {!! webp_picture($product->image, $product->title, ['class' => 'img-responsive', 'width' => '400', 'height' => '400', 'loading' => 'lazy']) !!}
+                            @else
+                                {!! webp_picture('images/superiorV4.png', $product->title, ['class' => 'img-responsive', 'width' => '400', 'height' => '400', 'loading' => 'lazy']) !!}
+                            @endif
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://player.vimeo.com/video/1100825820" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Ultimate Rose Bloom Booster video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
+                            <a href="{{ $product->video }}" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play {{ $product->title }} video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
                         <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Ultimate Rose Bloom Booster</h4>
-                            <p class="video-description">Discover how to get bigger, better blooms from your roses with this complete fertiliser.</p>
+                            <h4 class="video-title mb-15">{{ $product->title }}</h4>
+                            <p class="video-description">
+                                @if(!empty($product->description))
+                                    {{ Str::limit(strip_tags($product->description), 100) }}
+                                @else
+                                    Learn how to use {{ $product->title }} for incredible results in your garden.
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Video 5: Acer Feed -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".4s">
-                        <div class="video-thumbnail">
-                            <img src="{{ asset('images/acer-feed-p1.jpg') }}" alt="Acer Feed" class="img-responsive" width="400" height="400" loading="lazy" />
-                            <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/1090498990?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Acer Feed video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
-                        </div>
-                        <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Acer Feed</h4>
-                            <p class="video-description">Find out how to enhance the beautiful colours of your Japanese maples and acer trees.</p>
-                        </div>
-                    </div>
+                @empty
+                <div class="col-md-12">
+                    <p class="text-center">No product videos available at this time.</p>
                 </div>
-                
-                <!-- Video 7: Fish Blood & Bone -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
-                        <div class="video-thumbnail">
-                            <img src="{{ asset('images/fish-blood-p1.jpg') }}" alt="Fish Blood & Bone" class="img-responsive" width="400" height="400" loading="lazy" />
-                            <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471587?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Fish Blood & Bone video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
-                        </div>
-                        <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Fish Blood & Bone</h4>
-                            <p class="video-description">Learn about this traditional organic fertiliser perfect for all-round garden use.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div><!-- .row -->
         </div><!-- .videos-content -->
     </div><!-- .container -->
@@ -1991,6 +1968,20 @@ From May to September feed your plants twice a week while watering.</p>
 // Dividers BEFORE a section should match that section
 // Dividers AFTER a section (like -bottom) should match the section above them
 (function() {
+    // IMMEDIATE FIX: Inject style tag to prevent red dividers before anything else loads
+    (function() {
+        var style = document.createElement('style');
+        style.id = 'prevent-red-dividers-immediate';
+        style.textContent = 'body:not(:has(.product-page-hero)) .section-divider-wave, body:not(:has(.product-page-hero)) .section-divider-wave-bottom, body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom { background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; background-color: #70D969 !important; background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; filter: none !important; } body:not(:has(.product-page-hero)) .section-divider-wave::after, body:not(:has(.product-page-hero)) .section-divider-wave-bottom::after, body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom::after { background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; background-color: #70D969 !important; background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; filter: none !important; }';
+        if (document.head) {
+            document.head.insertBefore(style, document.head.firstChild);
+        } else {
+            document.addEventListener('DOMContentLoaded', function() {
+                document.head.insertBefore(style, document.head.firstChild);
+            });
+        }
+    })();
+    
     function updateDividerGradients() {
         // Don't run on product pages - they have their own color logic
         if (document.querySelector('.product-page-hero')) {
@@ -2015,14 +2006,20 @@ From May to September feed your plants twice a week while watering.</p>
                 return;
             }
             
-            // For homepage, force hero gradient (same as hero and sections)
+            // For homepage, force hero gradient (same as hero and sections) - NEVER red
+            // Explicitly remove any red colors first
+            divider.style.removeProperty('background');
+            divider.style.removeProperty('background-color');
+            divider.style.removeProperty('background-image');
             divider.style.setProperty('background', homepageGradient, 'important');
             divider.style.setProperty('background-color', homepageBlue, 'important');
             divider.style.setProperty('background-image', homepageGradient, 'important');
             divider.style.setProperty('--divider-bg-color', homepageBlue, 'important');
             divider.style.setProperty('--divider-gradient', homepageGradient, 'important');
+            // Explicitly prevent any red color values
+            divider.style.setProperty('filter', 'none', 'important');
             
-            // Update ::after pseudo-element to use hero gradient
+            // Update ::after pseudo-element to use hero gradient - NEVER red
             var dividerId = divider.id || 'divider-' + Math.random().toString(36).substr(2, 9);
             if (!divider.id) {
                 divider.id = dividerId;
@@ -2034,7 +2031,7 @@ From May to September feed your plants twice a week while watering.</p>
             }
             var style = document.createElement('style');
             style.id = styleId;
-            style.textContent = '#' + dividerId + '::after { background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; background-image: ' + homepageGradient + ' !important; }';
+            style.textContent = '#' + dividerId + '::after { background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; background-image: ' + homepageGradient + ' !important; filter: none !important; }';
             document.head.appendChild(style);
             
             return; // Skip the rest of the logic for homepage dividers
@@ -2170,26 +2167,85 @@ From May to September feed your plants twice a week while watering.</p>
         document.head.appendChild(style);
     }
     
+    // Aggressive function to prevent red dividers - runs continuously
+    function preventRedDividers() {
+        var homepageGradient = 'linear-gradient(293deg, #70D969 0%, #19B2EB 100%)';
+        var homepageBlue = '#70D969';
+        
+        // Don't run on product pages
+        if (document.querySelector('.product-page-hero')) {
+            return;
+        }
+        
+        var dividers = document.querySelectorAll('.section-divider-wave:not(#divider-faq-top):not(#divider-faq-bottom), .section-divider-wave-bottom:not(#divider-faq-top):not(#divider-faq-bottom), .section-divider-wave-product-bottom');
+        dividers.forEach(function(divider) {
+            // Skip FAQ and footer dividers
+            if (divider.id === 'divider-faq-top' || divider.id === 'divider-faq-bottom') {
+                return;
+            }
+            var isFooterDivider = divider.nextElementSibling && divider.nextElementSibling.classList && divider.nextElementSibling.classList.contains('footer-section');
+            if (isFooterDivider) {
+                return;
+            }
+            
+            // Force blue-green gradient - check computed style and override if red
+            var computedStyle = window.getComputedStyle(divider);
+            var bgImage = computedStyle.backgroundImage;
+            var bgColor = computedStyle.backgroundColor;
+            
+            // Check if background contains red colors
+            if (bgImage && (bgImage.includes('#ed355b') || bgImage.includes('#ff6b6b') || bgImage.includes('ed355b') || bgImage.includes('ff6b6b') || bgImage.includes('rgb(237, 53, 91)') || bgImage.includes('rgb(255, 107, 107)'))) {
+                divider.style.setProperty('background', homepageGradient, 'important');
+                divider.style.setProperty('background-image', homepageGradient, 'important');
+            }
+            if (bgColor && (bgColor.includes('#ed355b') || bgColor.includes('#ff6b6b') || bgColor.includes('237, 53, 91') || bgColor.includes('255, 107, 107'))) {
+                divider.style.setProperty('background-color', homepageBlue, 'important');
+            }
+            
+            // Always force the correct gradient
+            divider.style.setProperty('background', homepageGradient, 'important');
+            divider.style.setProperty('background-color', homepageBlue, 'important');
+            divider.style.setProperty('background-image', homepageGradient, 'important');
+            divider.style.setProperty('--divider-bg-color', homepageBlue, 'important');
+            divider.style.setProperty('--divider-gradient', homepageGradient, 'important');
+        });
+    }
+    
     // Run on page load
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             updateDividerGradients();
             disableHeroAnimations();
+            preventRedDividers();
         });
     } else {
         updateDividerGradients();
         disableHeroAnimations();
+        preventRedDividers();
     }
     
     // Also run after a short delay to ensure styles are computed
     setTimeout(function() {
         updateDividerGradients();
         disableHeroAnimations();
+        preventRedDividers();
     }, 100);
     setTimeout(function() {
         updateDividerGradients();
         disableHeroAnimations();
+        preventRedDividers();
     }, 500);
+    setTimeout(function() {
+        preventRedDividers();
+    }, 1000);
+    setTimeout(function() {
+        preventRedDividers();
+    }, 2000);
+    
+    // Run periodically to catch any late-loading styles
+    setInterval(function() {
+        preventRedDividers();
+    }, 2000);
     
     // Ensure FAQ dividers stay grey and are visible
     function ensureFaqDividersGrey() {

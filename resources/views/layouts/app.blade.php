@@ -41,6 +41,16 @@
     <noscript><link rel="stylesheet" href="{{ asset('assets/css/theme-blue-green.css') }}"></noscript>
     <link href="{{ asset('assets/css/custom-new.css') }}" rel="stylesheet" media="all">
     
+    <!-- CRITICAL: Prevent red dividers - inject immediately before page renders -->
+    <script>
+    (function() {
+        var style = document.createElement('style');
+        style.id = 'prevent-red-dividers-critical';
+        style.textContent = 'body:not(:has(.product-page-hero)) .section-divider-wave, body:not(:has(.product-page-hero)) .section-divider-wave-bottom, body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom { background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; background-color: #70D969 !important; background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; filter: none !important; -webkit-filter: none !important; } body:not(:has(.product-page-hero)) .section-divider-wave::after, body:not(:has(.product-page-hero)) .section-divider-wave-bottom::after, body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom::after { background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; background-color: #70D969 !important; background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; filter: none !important; -webkit-filter: none !important; }';
+        document.head.appendChild(style);
+    })();
+    </script>
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" id="google-fonts-css">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
