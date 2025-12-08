@@ -100,10 +100,9 @@ if ($isUltimateRose) {
     $sizeLabel = 'Available in 1 size:';
 } elseif ($isSuperiorSoluble) {
     $availableSizes = [
-        ['label' => '500g', 'scroll' => 'products'],
-        ['label' => '50g Trial', 'scroll' => 'products']
+        ['label' => '500g', 'scroll' => 'products']
     ];
-    $sizeLabel = 'Available in 2 sizes:';
+    $sizeLabel = 'Available in 1 size:';
 } elseif ($isFishBloodBone) {
     $availableSizes = [
         ['label' => '1.5kg tub', 'scroll' => 'products']
