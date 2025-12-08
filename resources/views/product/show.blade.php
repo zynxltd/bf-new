@@ -1403,6 +1403,37 @@ body:has(.product-page-hero) .back-to-top:hover {
                             ];
                             $faqs = mergeFAQs($faqs, $additionalGenericFAQs);
                         }
+                        
+                        // Final safety check: if still less than 5, use product defaults or pad
+                        if(count($faqs) < 5) {
+                            // Get product-specific defaults if available
+                            $productDefaults = [];
+                            if($isSuperiorSoluble) {
+                                $productDefaults = $defaultSuperiorSolubleFAQs;
+                            } elseif($isSwellGellFeed) {
+                                $productDefaults = $defaultSwellGellFAQs;
+                            } elseif($isClematisFeed) {
+                                $productDefaults = $defaultClematisFAQs;
+                            } elseif($isCitrusFeed) {
+                                $productDefaults = $defaultCitrusFAQs;
+                            } elseif($isAcerFeed) {
+                                $productDefaults = $defaultAcerFAQs;
+                            } elseif($isUltimateRose) {
+                                $productDefaults = $defaultUltimateRoseFAQs;
+                            } elseif($isFishBloodBone) {
+                                $productDefaults = $defaultFishBloodBoneFAQs;
+                            }
+                            
+                            // If we have product defaults, use them, otherwise use generic
+                            if(!empty($productDefaults)) {
+                                $faqs = mergeFAQs($faqs, $productDefaults);
+                            }
+                            
+                            // If still less than 5, just take first 5 from whatever we have
+                            if(count($faqs) > 5) {
+                                $faqs = array_slice($faqs, 0, 5);
+                            }
+                        }
                     @endphp
                     @if(!empty($faqs))
                     <!-- Accordion -->
