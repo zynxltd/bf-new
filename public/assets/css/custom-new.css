@@ -7743,7 +7743,7 @@ html {
         gap: 0 !important;
     }
     
-    /* Ensure proper order: Image first */
+    /* Ensure proper order: Image, Title, Text, Buttons - 1 column layout */
     .product-card-link {
         display: flex !important;
         flex-direction: column !important;
@@ -7751,10 +7751,13 @@ html {
         margin: 0 !important;
         padding: 0 !important;
         text-decoration: none !important;
+        order: 1 !important;
     }
     
-    /* Image - even spacing top and bottom */
-    .product-image {
+    /* Image - order 1, even spacing */
+    .product-card-link .product-image,
+    .product-card .product-image {
+        order: 1 !important;
         height: 200px !important;
         min-height: 200px !important;
         max-height: 200px !important;
@@ -7776,8 +7779,10 @@ html {
         margin: 0 auto !important;
     }
     
-    /* Product details container - even spacing */
-    .product-details {
+    /* Product details container - order 2, even spacing */
+    .product-card-link .product-details,
+    .product-card .product-details {
+        order: 2 !important;
         padding: 20px !important;
         display: flex !important;
         flex-direction: column !important;
@@ -7786,8 +7791,11 @@ html {
         gap: 12px !important;
     }
     
-    /* Title - consistent spacing */
-    .product-title {
+    /* Title - order 1 within details, consistent spacing */
+    .product-details .product-title,
+    .product-card-link .product-title,
+    .product-card .product-title {
+        order: 1 !important;
         font-size: 18px !important;
         margin: 0 0 12px 0 !important;
         line-height: 1.3 !important;
@@ -7796,8 +7804,11 @@ html {
         width: 100% !important;
     }
     
-    /* Description - consistent spacing */
-    .product-description {
+    /* Description/Text - order 2 within details, consistent spacing */
+    .product-details .product-description,
+    .product-card-link .product-description,
+    .product-card .product-description {
+        order: 2 !important;
         font-size: 14px !important;
         line-height: 1.5 !important;
         margin: 0 0 12px 0 !important;
@@ -7812,21 +7823,16 @@ html {
         padding: 0 !important;
     }
     
-    /* Buttons - even spacing */
-    .product-buttons {
+    .product-specs .badge {
+        display: none !important;
+    }
+    
+    /* Buttons - order 2 (after product-card-link), even spacing */
+    .product-card .product-buttons {
+        order: 2 !important;
         width: 100% !important;
         margin: 0 !important;
         padding: 0 20px 20px 20px !important;
-    }
-    
-    .product-specs {
-        display: none !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    .product-specs .badge {
-        display: none !important;
     }
     
     .product-buttons:not(.product-modal-buttons .product-buttons) {
@@ -7834,7 +7840,7 @@ html {
         gap: 10px !important;
         justify-content: center !important;
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 0 20px 20px 20px !important;
         list-style: none !important;
     }
     
