@@ -91,6 +91,23 @@ Route::get('/hero-images/superior-soluble', function () {
     abort(404);
 })->name('image.superior-hero');
 
+// Serve blocked product section images through Laravel (bypasses web server security rules)
+Route::get('/product-images/citrus-feed-back', function () {
+    $path = public_path('images/cirtus-feed-back-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.citrus-feed-back');
+
+Route::get('/product-images/swelgel-back', function () {
+    $path = public_path('images/swelgel-product-back-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.swelgel-back');
+
 // Newsletter
 Route::post('/newsletter/subscribe', [\App\Http\Controllers\NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 

@@ -819,13 +819,13 @@ body:has(.product-page-hero) .back-to-top:hover {
                                 @if($isUltimateRose)
                                     {!! webp_picture('images/bloom-booster-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isSwellGellFeed)
-                                    {!! webp_picture('images/swelgel-product-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
+                                    {!! webp_picture(route('image.swelgel-back'), $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isClematisFeed)
                                     {!! webp_picture('images/clematis-feed-p2-no-bg-back.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isAcerFeed)
                                     {!! webp_picture('images/acer-feed-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isCitrusFeed)
-                                    {!! webp_picture('images/cirtus-feed-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
+                                    {!! webp_picture(route('image.citrus-feed-back'), $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isSuperiorSoluble)
                                     {!! webp_picture('images/superior-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isFishBloodBone)
