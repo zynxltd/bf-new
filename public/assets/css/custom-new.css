@@ -2514,6 +2514,13 @@ body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-backgrou
 
 /* Mobile: Force single column layout for product cards - MAXIMUM PRIORITY */
 @media (max-width: 767px) {
+    a:not(.button):not(.btn) {
+        min-height: 44px;
+        /* display: inline-flex; */
+        align-items: center;
+        padding: 8px 4px;
+    }
+    
     .products-content .row,
     .products-section .row,
     #products .row,
@@ -7897,6 +7904,14 @@ html {
     /* Guides Section Mobile */
     .guides-section .section-head h2 {
         font-size: 38px !important; /* Same size as 'What's in our Superior Plant Food' heading */
+    }
+    
+    /* Mobile link styling - touch-friendly */
+    a:not(.button):not(.btn) {
+        min-height: 44px;
+        /* display: inline-flex; */
+        align-items: center;
+        padding: 8px 4px;
     }
     
     /* Product Cards Mobile Optimization - 1 column layout with even spacing */
