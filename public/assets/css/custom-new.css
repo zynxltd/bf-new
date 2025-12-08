@@ -7773,7 +7773,10 @@ html {
     /* CRITICAL: Force single column layout - override ALL Bootstrap grid rules */
     .products-content .row,
     .products-section .row,
-    #products .row {
+    #products .row,
+    .products-content .container .row,
+    .products-section .container .row,
+    #products .container .row {
         display: flex !important;
         flex-direction: column !important;
         flex-wrap: nowrap !important;
@@ -7788,7 +7791,13 @@ html {
     #products .row > [class*="col-"],
     .products-content .row > div,
     .products-section .row > div,
-    #products .row > div {
+    #products .row > div,
+    .products-content .container .row > [class*="col-"],
+    .products-section .container .row > [class*="col-"],
+    #products .container .row > [class*="col-"],
+    .products-content .container .row > div,
+    .products-section .container .row > div,
+    #products .container .row > div {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
@@ -7797,6 +7806,7 @@ html {
         padding-right: 15px !important;
         float: none !important;
         clear: both !important;
+        display: block !important;
     }
     
     .product-card {
