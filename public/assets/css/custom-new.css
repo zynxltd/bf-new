@@ -12109,6 +12109,49 @@ body:has(.product-page-hero) .section-divider-wave-product-bottom::after {
     }
 }
 
+/* Tablet Optimizations (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Hide dividers and carb.png on tablets */
+    .section-divider-wave,
+    .section-divider-wave-bottom,
+    .section-divider-wave-product-bottom,
+    .hero-bottom-divider {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .carb-image-mobile-hide,
+    .carb-divider-image,
+    .section-divider-wave img[src*="carb.png"],
+    .hero-bottom-divider img[src*="carb.png"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+    
+    /* Reduce hero image size on tablets */
+    .hero-image-column img,
+    .hero-image-column picture,
+    .hero-image-column picture img,
+    .hero-image-mobile-placeholder img,
+    .hero-image-mobile-placeholder picture,
+    .hero-image-mobile-placeholder picture img {
+        max-width: 60% !important;
+        width: 60% !important;
+        height: auto !important;
+    }
+    
+    .col-md-5.hero-image-column {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+}
+
 /* Landscape Mobile Optimization */
 @media (max-width: 767px) and (orientation: landscape) {
     .header-content {
