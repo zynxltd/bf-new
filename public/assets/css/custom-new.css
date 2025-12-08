@@ -1317,7 +1317,10 @@ body:not(:has(.product-page-hero)) .hero-title-gradient {
 }
 
 /* Product page hero - use solid product color, not gradient */
+/* Target the hero section directly (it has both classes) */
 .product-page-hero.gradiant-background,
+.header-section.product-page-hero.gradiant-background,
+#home.product-page-hero.gradiant-background,
 .product-page-hero .gradiant-background {
     background: var(--product-color, #70D969) !important;
     background-color: var(--product-color, #70D969) !important;
