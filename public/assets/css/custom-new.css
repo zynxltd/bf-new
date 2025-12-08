@@ -1316,13 +1316,19 @@ body:not(:has(.product-page-hero)) .hero-title-gradient {
     position: relative;
 }
 
+/* Product page hero - use solid product color, not gradient */
+.product-page-hero.gradiant-background,
 .product-page-hero .gradiant-background {
-    background: var(--product-hero-bg, linear-gradient(135deg, #537550 0%, #2d5016 100%)) !important;
+    background: var(--product-color, #70D969) !important;
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
 }
 
+.product-page-hero.gradiant-background::before,
+.product-page-hero.gradiant-background::after,
 .product-page-hero .gradiant-background::before,
 .product-page-hero .gradiant-background::after {
-    background: var(--product-hero-bg, var(--product-color, #537550)) !important;
+    background: var(--product-color, #70D969) !important;
     background-image: none !important;
 }
 
