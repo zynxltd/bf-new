@@ -3943,13 +3943,22 @@ body:not(:has(.product-page-hero)) .section-head h2 span,
 
 /* Override style.css rule for homepage sections - must be more specific */
 /* Use even more specific selectors to ensure they override style.css */
-body .header-section.gradiant-background:not(.product-page-hero),
-body .features-section.gradiant-background,
-body .products-section.gradiant-background,
-body #home.header-section.gradiant-background,
-body #home .header-section.gradiant-background {
+/* Homepage only - exclude product pages */
+body:not(:has(.product-page-hero)) .header-section.gradiant-background,
+body:not(:has(.product-page-hero)) .features-section.gradiant-background,
+body:not(:has(.product-page-hero)) .products-section.gradiant-background,
+body:not(:has(.product-page-hero)) #home.header-section.gradiant-background,
+body:not(:has(.product-page-hero)) #home .header-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+}
+
+/* Product page sections - use solid product color */
+body:has(.product-page-hero) .features-section.gradiant-background,
+body:has(.product-page-hero) .products-section.gradiant-background {
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+    background: var(--product-color, #70D969) !important;
 }
 
 /* Hero section background - Homepage gradient (only for homepage, not product pages) */
@@ -5227,10 +5236,18 @@ body #home .features-section.gradiant-background {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-body .products-section.gradiant-background,
-body #home .products-section.gradiant-background {
+/* Homepage products section only */
+body:not(:has(.product-page-hero)) .products-section.gradiant-background,
+body:not(:has(.product-page-hero)) #home .products-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+}
+
+/* Product page products section - use solid product color */
+body:has(.product-page-hero) .products-section.gradiant-background {
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+    background: var(--product-color, #70D969) !important;
 }
 
 /* Add curved top pattern matching hero bottom */
