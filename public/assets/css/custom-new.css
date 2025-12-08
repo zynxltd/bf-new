@@ -2531,6 +2531,24 @@ body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-backgrou
     }
 }
 
+/* Desktop (992px+): Allow 3 columns for product cards */
+@media (min-width: 992px) {
+    .products-content .row,
+    .products-section .row,
+    #products .row {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .products-content .col-md-4,
+    .products-section .col-md-4,
+    #products .col-md-4 {
+        flex: 0 0 33.333333% !important;
+        max-width: 33.333333% !important;
+        width: 33.333333% !important;
+    }
+}
+
 .product-card {
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
