@@ -4,13 +4,18 @@
 use Illuminate\Support\Str;
 
 // Define specific solid colors for each product page
-$isUltimateRose = str_contains(request()->path(), 'ultimate-rose-bloom-booster');
-$isSwellGellFeed = str_contains(request()->path(), 'swell-gell-feed');
-$isSuperiorSoluble = str_contains(request()->path(), 'superior-soluble-fertiliser');
-$isClematisFeed = str_contains(request()->path(), 'clematis-feed');
-$isCitrusFeed = str_contains(request()->path(), 'citrus-feed');
-$isFishBloodBone = str_contains(request()->path(), 'fish-blood-bone');
-$isAcerFeed = str_contains(request()->path(), 'acer-feed');
+// Check both URL path and product slug/ID to handle numeric IDs
+$productSlug = $product->slug ?? '';
+$productId = $product->id ?? null;
+$currentPath = request()->path();
+
+$isUltimateRose = str_contains($currentPath, 'ultimate-rose-bloom-booster') || str_contains($productSlug, 'ultimate-rose-bloom-booster');
+$isSwellGellFeed = str_contains($currentPath, 'swell-gell-feed') || str_contains($productSlug, 'swell-gell-feed');
+$isSuperiorSoluble = str_contains($currentPath, 'superior-soluble-fertiliser') || str_contains($productSlug, 'superior-soluble-fertiliser');
+$isClematisFeed = str_contains($currentPath, 'clematis-feed') || str_contains($productSlug, 'clematis-feed');
+$isCitrusFeed = str_contains($currentPath, 'citrus-feed') || str_contains($productSlug, 'citrus-feed');
+$isFishBloodBone = str_contains($currentPath, 'fish-blood-bone') || str_contains($productSlug, 'fish-blood-bone');
+$isAcerFeed = str_contains($currentPath, 'acer-feed') || str_contains($productSlug, 'acer-feed');
 
 // Set product-specific solid color
 $productColor = '#70D969'; // Default
