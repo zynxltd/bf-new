@@ -1025,52 +1025,42 @@ body:has(.product-page-hero) .back-to-top:hover {
         
         <div class="videos-content pt-60">
             <div class="row">
-                <!-- Product Video (if available) -->
-                @if($product->video)
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s">
-                        <div class="video-thumbnail">
-                            {!! $product->image ? webp_picture($product->image, $product->title, ['class' => 'img-responsive']) : webp_picture('images/superiorV4.png', $product->title, ['class' => 'img-responsive']) !!}
-                            <div class="video-overlay gradiant-background"></div>
-                            <a href="{{ $product->video }}" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play {{ $product->title }} video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
-                        </div>
-                        <div class="video-details p-30">
-                            <h4 class="video-title mb-15">{{ $product->title }}</h4>
-                            <p class="video-description">Learn how to use {{ $product->title }} for incredible results in your garden.</p>
-        </div>
-    </div>
-</div>
-@endif
-
-                <!-- Video 1: Superior Soluble Fertiliser -->
-                <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s">
-                        <div class="video-thumbnail">
-                            {!! webp_picture('images/superiorV4.png', 'Superior Soluble Fertiliser', ['class' => 'img-responsive']) !!}
-                            <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/724836215?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
-                        </div>
-                        <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Superior Soluble Fertiliser</h4>
-                            <p class="video-description">Learn how to use our best-ever formulation for incredible results in your garden.</p>
-                        </div>
-                    </div>
-                </div>
+                @php
+                    // Filter products that have videos
+                    $productsWithVideos = $products->filter(function($prod) {
+                        return !empty($prod->video);
+                    })->sortBy('sort_order');
+                @endphp
                 
-                <!-- Video 2: Ultimate Rose Bloom Booster -->
+                @forelse($productsWithVideos as $index => $prod)
                 <div class="col-md-4 col-sm-6 mb-40">
-                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".1s">
+                    <div class="video-card white-bg text-center wow fadeInUp" data-wow-duration=".5s" data-wow-delay="{{ ($index % 3) * 0.1 }}s">
                         <div class="video-thumbnail">
-                            {!! webp_picture('images/bloom-booster-p1.jpg', 'Ultimate Rose Bloom Booster', ['class' => 'img-responsive', 'width' => '400', 'height' => '400', 'loading' => 'lazy']) !!}
+                            @if($prod->image)
+                                {!! webp_picture($prod->image, $prod->title, ['class' => 'img-responsive', 'width' => '400', 'height' => '400', 'loading' => 'lazy']) !!}
+                            @else
+                                {!! webp_picture('images/superiorV4.png', $prod->title, ['class' => 'img-responsive', 'width' => '400', 'height' => '400', 'loading' => 'lazy']) !!}
+                            @endif
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://player.vimeo.com/video/1100825820" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Ultimate Rose Bloom Booster video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
+                            <a href="{{ $prod->video }}" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play {{ $prod->title }} video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
                         <div class="video-details p-30">
-                            <h4 class="video-title mb-15">Ultimate Rose Bloom Booster</h4>
-                            <p class="video-description">Discover how to get bigger, better blooms from your roses with this complete fertiliser.</p>
+                            <h4 class="video-title mb-15">{{ $prod->title }}</h4>
+                            <p class="video-description">
+                                @if(!empty($prod->description))
+                                    {{ Str::limit(strip_tags($prod->description), 100) }}
+                                @else
+                                    Learn how to use {{ $prod->title }} for incredible results in your garden.
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
+                @empty
+                <div class="col-md-12">
+                    <p class="text-center">No product videos available at this time.</p>
+                </div>
+                @endforelse
             </div><!-- .row -->
         </div><!-- .videos-content -->
     </div><!-- .container -->
