@@ -11024,15 +11024,19 @@ html {
 
 /* Use pseudo-element with gradient and image as mask to match section gradient */
 /* Homepage dividers - force blue-green gradient, NEVER red - MAXIMUM SPECIFICITY */
+/* CRITICAL: This must override ALL other rules including style.css and custom.css */
 body:not(:has(.product-page-hero)) .section-divider-wave:not(#footer-top-divider):not(:has(+ .footer-section))::after,
 body:not(:has(.product-page-hero)) .section-divider-wave-bottom:not(#footer-top-divider):not(:has(+ .footer-section))::after,
 body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom:not(#footer-top-divider):not(:has(+ .footer-section))::after,
 body:not(:has(.product-page-hero)) div.section-divider-wave::after,
 body:not(:has(.product-page-hero)) div.section-divider-wave-bottom::after,
 body:not(:has(.product-page-hero)) div.section-divider-wave-product-bottom::after,
-.section-divider-wave:not(.product-page-hero ~ .section-divider-wave):not(#footer-top-divider):not(:has(+ .footer-section))::after,
-.section-divider-wave-bottom:not(.product-page-hero ~ .section-divider-wave-bottom):not(#footer-top-divider):not(:has(+ .footer-section))::after,
-.section-divider-wave-product-bottom:not(.product-page-hero ~ .section-divider-wave-product-bottom):not(#footer-top-divider):not(:has(+ .footer-section))::after {
+.section-divider-wave:not(.product-page-hero ~ .section-divider-wave):not(#footer-top-divider):not(:has(+ .footer-section)):not(#divider-faq-top):not(#divider-faq-bottom)::after,
+.section-divider-wave-bottom:not(.product-page-hero ~ .section-divider-wave-bottom):not(#footer-top-divider):not(:has(+ .footer-section)):not(#divider-faq-top):not(#divider-faq-bottom)::after,
+.section-divider-wave-product-bottom:not(.product-page-hero ~ .section-divider-wave-product-bottom):not(#footer-top-divider):not(:has(+ .footer-section)):not(#divider-faq-top):not(#divider-faq-bottom)::after,
+div.section-divider-wave:not(#footer-top-divider):not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after,
+div.section-divider-wave-bottom:not(#footer-top-divider):not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after,
+div.section-divider-wave-product-bottom:not(#footer-top-divider):not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after {
     content: '' !important;
     position: absolute !important;
     top: 0 !important;
@@ -11043,6 +11047,8 @@ body:not(:has(.product-page-hero)) div.section-divider-wave-product-bottom::afte
     background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    /* Remove any red gradient backgrounds - explicitly override */
+    background: linear-gradient(293deg, rgb(112, 217, 105) 0%, rgb(25, 178, 235) 100%) !important;
     -webkit-mask-image: url('/images/carb.png') !important;
     mask-image: url('/images/carb.png') !important;
     -webkit-mask-size: 100% 100% !important;
@@ -11057,11 +11063,16 @@ body:not(:has(.product-page-hero)) div.section-divider-wave-product-bottom::afte
     z-index: 1 !important;
     pointer-events: none !important;
     display: block !important;
-    /* Explicitly prevent any red colors - remove all filters */
+    /* Explicitly prevent any red colors - remove all filters and overlays */
     filter: none !important;
     -webkit-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     opacity: 1 !important;
     visibility: visible !important;
+    /* Prevent any color mixing or blending */
+    mix-blend-mode: normal !important;
+    isolation: isolate !important;
 }
 
 /* Override for divider overlay fix divs created by JavaScript */
@@ -11073,7 +11084,8 @@ body:not(:has(.product-page-hero)) .divider-overlay-fix {
     height: 100% !important;
     background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     background-color: #70D969 !important;
-    z-index: 2 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    z-index: 10 !important;
     pointer-events: none !important;
     -webkit-mask-image: url('/images/carb.png') !important;
     mask-image: url('/images/carb.png') !important;
@@ -11084,6 +11096,23 @@ body:not(:has(.product-page-hero)) .divider-overlay-fix {
     -webkit-mask-position: center !important;
     mask-position: center !important;
     transform: scaleY(-1) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+/* CRITICAL: Hide ::after pseudo-elements on homepage dividers and use overlay divs instead */
+body:not(:has(.product-page-hero)) .section-divider-wave:not(#footer-top-divider):not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom:not(#footer-top-divider):not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom:not(#footer-top-divider):not(#divider-faq-top):not(#divider-faq-bottom):not(:has(+ .footer-section))::after {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    background: none !important;
+    background-image: none !important;
 }
 
 /* Fallback for other dividers (shouldn't be needed but just in case) */

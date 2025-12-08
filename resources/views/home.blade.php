@@ -2042,12 +2042,18 @@ From May to September feed your plants twice a week while watering.</p>
             if (existingOverlay) {
                 existingOverlay.remove();
             }
-            // Create a visible overlay that forces the correct color
+            // Create a visible overlay that forces the correct color - this will replace the ::after
             var overlay = document.createElement('div');
             overlay.className = 'divider-overlay-fix';
-            overlay.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; z-index: 2; pointer-events: none; -webkit-mask-image: url("/images/carb.png"); mask-image: url("/images/carb.png"); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; transform: scaleY(-1);';
+            overlay.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; background-image: ' + homepageGradient + ' !important; z-index: 10; pointer-events: none; -webkit-mask-image: url("/images/carb.png"); mask-image: url("/images/carb.png"); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; transform: scaleY(-1); opacity: 1; visibility: visible; display: block; filter: none; -webkit-filter: none;';
             divider.style.position = 'relative';
             divider.appendChild(overlay);
+            
+            // Also hide the ::after pseudo-element completely
+            var hideAfterStyle = document.createElement('style');
+            hideAfterStyle.id = 'hide-after-' + dividerId;
+            hideAfterStyle.textContent = '#' + dividerId + '::after { display: none !important; content: none !important; visibility: hidden !important; opacity: 0 !important; background: none !important; background-image: none !important; }';
+            document.head.appendChild(hideAfterStyle);
             
             return; // Skip the rest of the logic for homepage dividers
             var targetSection = null;
