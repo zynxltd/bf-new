@@ -1265,7 +1265,10 @@ h1, .h1 {
 /* Ensure hero title appears below badge on product pages */
 .product-page-hero .header-texts,
 .header-section.product-page-hero .header-texts,
-#home.product-page-hero .header-texts {
+#home.product-page-hero .header-texts,
+.product-page-hero .hero-content-mobile,
+.header-section.product-page-hero .hero-content-mobile,
+#home.product-page-hero .hero-content-mobile {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -1273,24 +1276,32 @@ h1, .h1 {
 
 .product-page-hero .header-texts .hero-badge,
 .header-section.product-page-hero .header-texts .hero-badge,
-#home.product-page-hero .header-texts .hero-badge {
+#home.product-page-hero .header-texts .hero-badge,
+.product-page-hero .hero-content-mobile .hero-badge,
+.header-section.product-page-hero .hero-content-mobile .hero-badge,
+#home.product-page-hero .hero-content-mobile .hero-badge {
     display: inline-block !important;
     width: fit-content !important;
     margin-bottom: 20px !important;
     margin-top: 0 !important;
     order: 1 !important;
     position: relative !important;
+    z-index: 1 !important;
 }
 
 .product-page-hero .header-texts .hero-title-gradient,
 .header-section.product-page-hero .header-texts .hero-title-gradient,
-#home.product-page-hero .header-texts .hero-title-gradient {
+#home.product-page-hero .header-texts .hero-title-gradient,
+.product-page-hero .hero-content-mobile .hero-title-gradient,
+.header-section.product-page-hero .hero-content-mobile .hero-title-gradient,
+#home.product-page-hero .hero-content-mobile .hero-title-gradient {
     display: block !important;
     width: 100% !important;
     margin-top: 0 !important;
     margin-bottom: 30px !important;
     order: 2 !important;
     position: relative !important;
+    z-index: 1 !important;
 }
 
 .product-page-hero .header-texts .hero-description {
