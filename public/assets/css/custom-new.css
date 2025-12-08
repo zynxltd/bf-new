@@ -3443,11 +3443,11 @@ body:not(:has(.product-page-hero)) .section-head h2 span,
     overflow: visible !important;
 }
 
-/* Footer top divider should transition from white (section above) to #404040 (footer) */
+/* Footer top divider should be solid #404040 (no gradient, no fade) */
 #footer-top-divider,
 .section-divider-wave:has(+ .footer-section) {
-    background: transparent !important;
-    background-color: transparent !important;
+    background: #404040 !important;
+    background-color: #404040 !important;
     background-image: none !important;
     display: block !important;
     visibility: visible !important;
@@ -3462,6 +3462,11 @@ body:not(:has(.product-page-hero)) .section-head h2 span,
     transform: none !important;
     will-change: auto !important;
     overflow: visible !important;
+}
+
+/* Ensure footer divider SVG path is solid #404040 */
+#footer-top-divider svg path {
+    fill: #404040 !important;
 }
 
 #footer-top-divider::after,

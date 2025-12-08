@@ -1,13 +1,7 @@
 <!-- Footer Top Divider - Curved Wave -->
-<div class="section-divider-wave" id="footer-top-divider" style="height: 120px; width: 100%; overflow: visible !important; background: transparent !important; background-color: transparent !important; background-image: none !important; display: block !important; visibility: visible !important; position: relative; z-index: 10; filter: none !important; -webkit-filter: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;">
+<div class="section-divider-wave" id="footer-top-divider" style="height: 120px; width: 100%; overflow: visible !important; background: #404040 !important; background-color: #404040 !important; background-image: none !important; display: block !important; visibility: visible !important; position: relative; z-index: 10; filter: none !important; -webkit-filter: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important;">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block !important; width: 100% !important; height: 100% !important; position: relative; z-index: 1; filter: none !important; -webkit-filter: none !important;">
-        <defs>
-            <linearGradient id="gradient-divider-footer" x1="0%" y1="0%" x2="0%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#404040;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-footer)" style="filter: none !important; -webkit-filter: none !important;"></path>
+        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="#404040" style="filter: none !important; -webkit-filter: none !important;"></path>
     </svg>
 </div>
 

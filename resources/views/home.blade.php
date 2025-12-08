@@ -2199,15 +2199,17 @@ From May to September feed your plants twice a week while watering.</p>
     setTimeout(ensureFaqDividersGrey, 100);
     setTimeout(ensureFaqDividersGrey, 500);
     
-    // Ensure footer divider uses white-to-#404040 gradient (visible transition from white section to dark footer)
+    // Ensure footer divider uses solid #404040 color (no gradient, no fade)
     function ensureFooterDividerColor() {
         var footerDividers = document.querySelectorAll('.section-divider-wave, #footer-top-divider');
         footerDividers.forEach(function(divider) {
             var isFooterDivider = divider.nextElementSibling && divider.nextElementSibling.classList && divider.nextElementSibling.classList.contains('footer-section');
             if (isFooterDivider || divider.id === 'footer-top-divider') {
-                divider.style.setProperty('background', 'transparent', 'important');
-                divider.style.setProperty('background-color', 'transparent', 'important');
+                divider.style.setProperty('background', '#404040', 'important');
+                divider.style.setProperty('background-color', '#404040', 'important');
                 divider.style.setProperty('background-image', 'none', 'important');
+                divider.style.setProperty('--divider-gradient', 'none', 'important');
+                divider.style.setProperty('--divider-bg-color', '#404040', 'important');
                 divider.style.setProperty('filter', 'none', 'important');
                 divider.style.setProperty('-webkit-filter', 'none', 'important');
                 divider.style.setProperty('backdrop-filter', 'none', 'important');
@@ -2218,31 +2220,27 @@ From May to September feed your plants twice a week while watering.</p>
                 divider.style.setProperty('visibility', 'visible', 'important');
                 divider.style.setProperty('height', '120px', 'important');
                 divider.style.setProperty('opacity', '1', 'important');
-                // Update SVG gradient to white-to-#404040
+                // Update SVG to solid #404040 color (no gradient)
                 var svg = divider.querySelector('svg');
                 if (svg) {
+                    svg.style.setProperty('display', 'block', 'important');
                     svg.style.setProperty('filter', 'none', 'important');
                     svg.style.setProperty('-webkit-filter', 'none', 'important');
                     svg.style.setProperty('transform', 'none', 'important');
                     svg.style.setProperty('will-change', 'auto', 'important');
                     var path = svg.querySelector('path');
                     if (path) {
-                        path.setAttribute('fill', 'url(#gradient-divider-footer)');
+                        path.setAttribute('fill', '#404040');
                         path.style.setProperty('filter', 'none', 'important');
                         path.style.setProperty('-webkit-filter', 'none', 'important');
                     }
-                    // Update gradient stops to white-to-#404040
+                    // Remove or update gradient to solid color
                     var gradient = svg.querySelector('#gradient-divider-footer');
                     if (gradient) {
-                        gradient.setAttribute('x1', '0%');
-                        gradient.setAttribute('y1', '0%');
-                        gradient.setAttribute('x2', '0%');
-                        gradient.setAttribute('y2', '100%');
                         var stops = gradient.querySelectorAll('stop');
-                        if (stops.length >= 2) {
-                            stops[0].setAttribute('style', 'stop-color:#ffffff;stop-opacity:1');
-                            stops[1].setAttribute('style', 'stop-color:#404040;stop-opacity:1');
-                        }
+                        stops.forEach(function(stop) {
+                            stop.setAttribute('style', 'stop-color:#404040;stop-opacity:1');
+                        });
                     }
                 }
                 // Ensure ::after pseudo-element is disabled
