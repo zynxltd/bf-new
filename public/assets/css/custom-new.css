@@ -1215,7 +1215,7 @@ h1, .h1 {
 /* Flexbox ordering only applies on mobile via media queries */
 
 /* Ensure homepage also has proper ordering for Feefo badge */
-.header-texts:not(.product-page-hero .header-texts) {
+body:not(:has(.product-page-hero)) .header-texts {
     display: flex !important;
     flex-direction: column !important;
 }
