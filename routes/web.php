@@ -34,7 +34,8 @@ Route::get('/cookie-policy', [\App\Http\Controllers\LegalController::class, 'coo
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
 
 // Serve blocked hero images through Laravel (bypasses web server security rules)
-Route::get('/images/swel-gel-heor-no-bg.png', function () {
+// Using different URL paths that don't match actual filenames to avoid .htaccess rewrite conflicts
+Route::get('/hero-images/swell-gell', function () {
     $path = public_path('images/swel-gel-heor-no-bg.png');
     if (file_exists($path)) {
         return response()->file($path, ['Content-Type' => 'image/png']);
@@ -42,7 +43,7 @@ Route::get('/images/swel-gel-heor-no-bg.png', function () {
     abort(404);
 })->name('image.swell-gell-hero');
 
-Route::get('/images/cirtus-feed-hero-image-no-bg.png', function () {
+Route::get('/hero-images/citrus-feed', function () {
     $path = public_path('images/cirtus-feed-hero-image-no-bg.png');
     if (file_exists($path)) {
         return response()->file($path, ['Content-Type' => 'image/png']);
@@ -50,7 +51,7 @@ Route::get('/images/cirtus-feed-hero-image-no-bg.png', function () {
     abort(404);
 })->name('image.citrus-feed-hero');
 
-Route::get('/images/bloom-booster-hero-no-bg.png', function () {
+Route::get('/hero-images/bloom-booster', function () {
     $path = public_path('images/bloom-booster-hero-no-bg.png');
     if (file_exists($path)) {
         return response()->file($path, ['Content-Type' => 'image/png']);
@@ -58,7 +59,7 @@ Route::get('/images/bloom-booster-hero-no-bg.png', function () {
     abort(404);
 })->name('image.bloom-booster-hero');
 
-Route::get('/images/acer-feed-hero-no-bg.png', function () {
+Route::get('/hero-images/acer-feed', function () {
     $path = public_path('images/acer-feed-hero-no-bg.png');
     if (file_exists($path)) {
         return response()->file($path, ['Content-Type' => 'image/png']);
@@ -66,7 +67,7 @@ Route::get('/images/acer-feed-hero-no-bg.png', function () {
     abort(404);
 })->name('image.acer-feed-hero');
 
-Route::get('/images/clematis-feed-p1-n-bg-front.png', function () {
+Route::get('/hero-images/clematis-feed', function () {
     $path = public_path('images/clematis-feed-p1-n-bg-front.png');
     if (file_exists($path)) {
         return response()->file($path, ['Content-Type' => 'image/png']);
