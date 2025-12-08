@@ -11023,36 +11023,67 @@ html {
 }
 
 /* Use pseudo-element with gradient and image as mask to match section gradient */
-/* Homepage dividers - force blue-green gradient, NEVER red */
+/* Homepage dividers - force blue-green gradient, NEVER red - MAXIMUM SPECIFICITY */
 body:not(:has(.product-page-hero)) .section-divider-wave:not(#footer-top-divider):not(:has(+ .footer-section))::after,
 body:not(:has(.product-page-hero)) .section-divider-wave-bottom:not(#footer-top-divider):not(:has(+ .footer-section))::after,
-body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom:not(#footer-top-divider):not(:has(+ .footer-section))::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Force blue-green gradient for homepage - NEVER red */
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom:not(#footer-top-divider):not(:has(+ .footer-section))::after,
+body:not(:has(.product-page-hero)) div.section-divider-wave::after,
+body:not(:has(.product-page-hero)) div.section-divider-wave-bottom::after,
+body:not(:has(.product-page-hero)) div.section-divider-wave-product-bottom::after,
+.section-divider-wave:not(.product-page-hero ~ .section-divider-wave):not(#footer-top-divider):not(:has(+ .footer-section))::after,
+.section-divider-wave-bottom:not(.product-page-hero ~ .section-divider-wave-bottom):not(#footer-top-divider):not(:has(+ .footer-section))::after,
+.section-divider-wave-product-bottom:not(.product-page-hero ~ .section-divider-wave-product-bottom):not(#footer-top-divider):not(:has(+ .footer-section))::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    /* Force blue-green gradient for homepage - NEVER red - override everything */
     background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
-    -webkit-mask-image: url('/images/carb.png');
-    mask-image: url('/images/carb.png');
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-origin: content-box;
-    mask-origin: content-box;
-    transform: scaleY(-1);
-    z-index: 1;
-    pointer-events: none;
-    display: block;
-    /* Explicitly prevent any red colors */
+    -webkit-mask-image: url('/images/carb.png') !important;
+    mask-image: url('/images/carb.png') !important;
+    -webkit-mask-size: 100% 100% !important;
+    mask-size: 100% 100% !important;
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important;
+    mask-position: center !important;
+    -webkit-mask-origin: content-box !important;
+    mask-origin: content-box !important;
+    transform: scaleY(-1) !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    display: block !important;
+    /* Explicitly prevent any red colors - remove all filters */
     filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Override for divider overlay fix divs created by JavaScript */
+body:not(:has(.product-page-hero)) .divider-overlay-fix {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    -webkit-mask-image: url('/images/carb.png') !important;
+    mask-image: url('/images/carb.png') !important;
+    -webkit-mask-size: 100% 100% !important;
+    mask-size: 100% 100% !important;
+    -webkit-mask-repeat: no-repeat !important;
+    mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important;
+    mask-position: center !important;
+    transform: scaleY(-1) !important;
 }
 
 /* Fallback for other dividers (shouldn't be needed but just in case) */

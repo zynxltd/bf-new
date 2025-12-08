@@ -2029,10 +2029,25 @@ From May to September feed your plants twice a week while watering.</p>
             if (existingStyle) {
                 existingStyle.remove();
             }
+            // Create comprehensive style that overrides everything
             var style = document.createElement('style');
             style.id = styleId;
-            style.textContent = '#' + dividerId + '::after { background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; background-image: ' + homepageGradient + ' !important; filter: none !important; }';
+            style.textContent = '#' + dividerId + '::after { background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; background-image: ' + homepageGradient + ' !important; filter: none !important; -webkit-filter: none !important; opacity: 1 !important; visibility: visible !important; display: block !important; z-index: 1 !important; } ' +
+                '#' + dividerId + ' { background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; background-image: ' + homepageGradient + ' !important; filter: none !important; -webkit-filter: none !important; }';
             document.head.appendChild(style);
+            
+            // Also directly manipulate the ::after by creating an overlay if needed
+            // Remove any existing overlay
+            var existingOverlay = divider.querySelector('.divider-overlay-fix');
+            if (existingOverlay) {
+                existingOverlay.remove();
+            }
+            // Create a visible overlay that forces the correct color
+            var overlay = document.createElement('div');
+            overlay.className = 'divider-overlay-fix';
+            overlay.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; z-index: 2; pointer-events: none; -webkit-mask-image: url("/images/carb.png"); mask-image: url("/images/carb.png"); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; transform: scaleY(-1);';
+            divider.style.position = 'relative';
+            divider.appendChild(overlay);
             
             return; // Skip the rest of the logic for homepage dividers
             var targetSection = null;
@@ -2208,6 +2223,35 @@ From May to September feed your plants twice a week while watering.</p>
             divider.style.setProperty('background-image', homepageGradient, 'important');
             divider.style.setProperty('--divider-bg-color', homepageBlue, 'important');
             divider.style.setProperty('--divider-gradient', homepageGradient, 'important');
+            divider.style.setProperty('filter', 'none', 'important');
+            divider.style.setProperty('-webkit-filter', 'none', 'important');
+            
+            // Ensure divider has relative positioning for overlay
+            divider.style.setProperty('position', 'relative', 'important');
+            
+            // Create or update overlay div to force correct color
+            var overlay = divider.querySelector('.divider-overlay-fix');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.className = 'divider-overlay-fix';
+                divider.appendChild(overlay);
+            }
+            overlay.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; z-index: 2; pointer-events: none; -webkit-mask-image: url("/images/carb.png"); mask-image: url("/images/carb.png"); -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; transform: scaleY(-1);';
+            
+            // Also inject style for ::after pseudo-element
+            var dividerId = divider.id || 'divider-' + Math.random().toString(36).substr(2, 9);
+            if (!divider.id) {
+                divider.id = dividerId;
+            }
+            var styleId = 'prevent-red-divider-' + dividerId;
+            var existingStyle = document.getElementById(styleId);
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            var style = document.createElement('style');
+            style.id = styleId;
+            style.textContent = '#' + dividerId + '::after { background: ' + homepageGradient + ' !important; background-color: ' + homepageBlue + ' !important; background-image: ' + homepageGradient + ' !important; filter: none !important; -webkit-filter: none !important; opacity: 1 !important; visibility: visible !important; }';
+            document.head.appendChild(style);
         });
     }
     
