@@ -10699,9 +10699,9 @@ html {
 body:not(:has(.product-page-hero)) .section-divider-wave::after,
 body:not(:has(.product-page-hero)) .section-divider-wave-bottom::after,
 body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom::after {
-    background: #519cb8 !important;
-    background-color: #519cb8 !important;
-    background-image: none !important;
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
 }
 
 /* Product page dividers - use solid product color, not gradient */
