@@ -75,10 +75,9 @@ $sizeLabel = 'Available in 3 sizes:';
 
 if ($isUltimateRose) {
     $availableSizes = [
-        ['label' => '750g', 'scroll' => 'products'],
-        ['label' => '50g Trial', 'scroll' => 'products']
+        ['label' => '750g', 'scroll' => 'products']
     ];
-    $sizeLabel = 'Available in 2 sizes:';
+    $sizeLabel = 'Available in 1 size:';
 } elseif ($isSwellGellFeed) {
     $availableSizes = [
         ['label' => '250g', 'scroll' => 'products']
@@ -86,10 +85,9 @@ if ($isUltimateRose) {
     $sizeLabel = 'Available in 1 size:';
 } elseif ($isClematisFeed) {
     $availableSizes = [
-        ['label' => '900g', 'scroll' => 'products'],
-        ['label' => '50g Trial', 'scroll' => 'products']
+        ['label' => '900g', 'scroll' => 'products']
     ];
-    $sizeLabel = 'Available in 2 sizes:';
+    $sizeLabel = 'Available in 1 size:';
 } elseif ($isAcerFeed) {
     $availableSizes = [
         ['label' => '900g', 'scroll' => 'products'],
@@ -603,6 +601,22 @@ body:has(.product-page-hero) .back-to-top:hover {
                                 $text = preg_replace('/\s*Making Up Pots and Containers.*?Growbags\s+\d+-\d+g\s+measure\s+per\s+plant\.\s*/is', '', $text);
                                 // Also try a more flexible pattern to catch variations
                                 $text = preg_replace('/\s*Making Up Pots.*?Never exceed.*?Growbags.*?per\s+plant\.\s*/is', '', $text);
+                            }
+                            
+                            // Remove ultimate-rose-bloom-booster specific text
+                            if ($isUltimateRose) {
+                                // Remove "There's no risk, no guesswork, just proven results, or your money back."
+                                $text = preg_replace('/\s*There\'s no risk[^.]*\.\s*/is', '', $text);
+                                // Remove "Supplied as a 750g pack of fertiliser, for 25 feeds, based on 30g per plant."
+                                $text = preg_replace('/\s*Supplied as a 750g pack[^.]*\.\s*/is', '', $text);
+                                // Remove "To use: Shake the pack while closed to remix the product ingredients, as some settlement may have taken place while in storage or transport."
+                                $text = preg_replace('/\s*To use: Shake the pack[^.]*\.\s*/is', '', $text);
+                                // Remove "8-4-9.2 with trace elements."
+                                $text = preg_replace('/\s*8-4-9\.2\s+with\s+trace\s+elements\.\s*/is', '', $text);
+                                // Remove NPK breakdown from "Nitrogen (N) 8.8%" to "Humic Acid."
+                                $text = preg_replace('/\s*Nitrogen\s*\(N\)\s*8\.8%[^.]*Humic\s+Acid\.\s*/is', '', $text);
+                                // More flexible pattern to catch the entire NPK breakdown
+                                $text = preg_replace('/\s*Nitrogen\s*\(N\)\s*8\.8%[^.]*\.\s*Phosphorus\s+Pentoxide[^.]*\.\s*Of\s+which\s+soluble[^.]*\.\s*Potassium\s+Oxide[^.]*\.\s*Magnesium\s+Oxide[^.]*\.\s*Sulphur[^.]*\.\s*Iron[^.]*\.\s*Manganese[^.]*\.\s*Copper[^.]*\.\s*Molybdenum[^.]*\.\s*Zinc[^.]*\.\s*Boron[^.]*\.\s*Also\s+contains[^.]*\.\s*/is', '', $text);
                             }
                             
                             $text = trim($text);
@@ -2078,6 +2092,44 @@ body:has(.product-page-hero) .back-to-top:hover {
     window.addEventListener('load', function() {
         setTimeout(applyColorsNow, 100);
     });
+})();
+
+// Scroll to products section when clicking size badges
+(function() {
+    function initSizeBadgeScroll() {
+        if (typeof jQuery === 'undefined' || typeof $ === 'undefined') {
+            setTimeout(initSizeBadgeScroll, 50);
+            return;
+        }
+        
+        var $ = jQuery;
+        
+        // Handle size badge clicks - scroll to products section on same page
+        $('.size-badge[data-scroll-to]').on('click', function(e) {
+            e.preventDefault();
+            var targetId = $(this).data('scroll-to');
+            var target = $('#' + targetId);
+            if (target.length) {
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top - 100
+                }, 800, 'swing');
+            }
+        });
+    }
+    
+    // Initialize when jQuery is ready
+    if (typeof jQuery !== 'undefined') {
+        $(document).ready(function() {
+            initSizeBadgeScroll();
+        });
+    } else {
+        // Wait for jQuery to load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSizeBadgeScroll);
+        } else {
+            initSizeBadgeScroll();
+        }
+    }
 })();
 </script>
 @endpush

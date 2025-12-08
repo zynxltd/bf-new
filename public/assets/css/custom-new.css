@@ -7369,66 +7369,116 @@ html {
         font-size: 38px !important; /* Same size as 'What's in our Superior Plant Food' heading */
     }
     
+    /* Product Cards Mobile Optimization - 1 column layout with even spacing */
+    .products-content .row {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
     .products-content .row > [class*="col-"] {
-        flex: 0 0 100%;
-        max-width: 100%;
-        margin-bottom: 30px;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-bottom: 20px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
     
     .product-card {
-        margin-bottom: 0;
-        min-height: auto;
+        margin: 0 !important;
+        min-height: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 16px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 !important;
+        gap: 0 !important;
     }
     
+    /* Ensure proper order: Image first */
+    .product-card-link {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-decoration: none !important;
+    }
+    
+    /* Image - even spacing top and bottom */
     .product-image {
         height: 200px !important;
         min-height: 200px !important;
         max-height: 200px !important;
-        padding: 15px !important;
+        padding: 20px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
     
     .product-image img {
-        max-height: 180px !important;
+        max-height: 160px !important;
         max-width: 100% !important;
         width: auto !important;
         height: auto !important;
         object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto !important;
     }
     
+    /* Product details container - even spacing */
     .product-details {
         padding: 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+        gap: 12px !important;
     }
     
+    /* Title - consistent spacing */
     .product-title {
-        font-size: 20px !important;
-        margin-bottom: 10px !important;
+        font-size: 18px !important;
+        margin: 0 0 12px 0 !important;
         line-height: 1.3 !important;
         font-weight: 600 !important;
+        padding: 0 !important;
+        width: 100% !important;
     }
     
+    /* Description - consistent spacing */
     .product-description {
         font-size: 14px !important;
         line-height: 1.5 !important;
-        margin-bottom: 15px !important;
+        margin: 0 0 12px 0 !important;
         min-height: auto !important;
-    }
-    
-    .product-image {
-        height: 200px;
-        min-height: 200px;
-        max-height: 200px;
-        padding: 15px;
-    }
-    
-    .product-image img {
-        max-height: 180px;
-        max-width: 100%;
+        padding: 0 !important;
+        width: 100% !important;
     }
     
     .product-specs {
-        margin-bottom: 20px;
-        gap: 10px;
         display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Buttons - even spacing */
+    .product-buttons {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 20px 20px 20px !important;
+    }
+    
+    .product-specs {
+        display: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     .product-specs .badge {
@@ -7436,22 +7486,67 @@ html {
     }
     
     .product-buttons:not(.product-modal-buttons .product-buttons) {
-        flex-direction: row;
-        gap: 12px;
-        justify-content: center;
-        margin-top: 20px;
+        flex-direction: row !important;
+        gap: 10px !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
     }
     
     .product-button:not(.product-modal-buttons .product-button) {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        flex: 1 1 50%;
-        padding: 12px 16px;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        flex: 1 1 50% !important;
+        padding: 12px 10px !important;
+        margin: 0 !important;
     }
     
     .product-button:not(.product-modal-buttons .product-button) img {
-        max-height: 32px;
+        max-height: 28px !important;
+        width: auto !important;
+    }
+    
+    /* Ensure product cards are full width on mobile - override Bootstrap columns */
+    .products-content .col-md-4,
+    .products-content .col-sm-6,
+    .products-content .product-card-wrapper {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+    
+    /* Best seller badge mobile optimization */
+    .best-seller-badge {
+        top: 10px !important;
+        right: 10px !important;
+        padding: 6px 12px !important;
+        font-size: 10px !important;
+    }
+    
+    /* Remove any extra margins/padding that might cause spacing issues */
+    .product-card * {
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure product cards are full width on mobile - override Bootstrap columns */
+    .products-content .col-md-4,
+    .products-content .col-sm-6,
+    .products-content .product-card-wrapper {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-bottom: 25px !important;
+    }
+    
+    /* Best seller badge mobile optimization */
+    .best-seller-badge {
+        top: 8px !important;
+        right: 8px !important;
+        padding: 6px 12px !important;
+        font-size: 10px !important;
     }
     
     .product-button:hover::after {
