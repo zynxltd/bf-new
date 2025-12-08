@@ -33,7 +33,39 @@ Route::get('/cookie-policy', [\App\Http\Controllers\LegalController::class, 'coo
 // Sitemap
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
 
-// Serve blocked images through Laravel (bypasses web server security rules)
+// Serve blocked hero images through Laravel (bypasses web server security rules)
+Route::get('/images/swel-gel-heor-no-bg.png', function () {
+    $path = public_path('images/swel-gel-heor-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.swell-gell-hero');
+
+Route::get('/images/cirtus-feed-hero-image-no-bg.png', function () {
+    $path = public_path('images/cirtus-feed-hero-image-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.citrus-feed-hero');
+
+Route::get('/images/bloom-booster-hero-no-bg.png', function () {
+    $path = public_path('images/bloom-booster-hero-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.bloom-booster-hero');
+
+Route::get('/images/acer-feed-hero-no-bg.png', function () {
+    $path = public_path('images/acer-feed-hero-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.acer-feed-hero');
+
 Route::get('/images/clematis-feed-p1-n-bg-front.png', function () {
     $path = public_path('images/clematis-feed-p1-n-bg-front.png');
     if (file_exists($path)) {
