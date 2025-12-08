@@ -2297,6 +2297,39 @@ From May to September feed your plants twice a week while watering.</p>
         preventRedDividers();
     }, 2000);
     
+    // Force mobile product cards to 1 column - runs immediately and continuously
+    function forceMobileProductCards() {
+        if (window.innerWidth <= 767) {
+            var productRows = document.querySelectorAll('.products-content .row, .products-section .row, #products .row');
+            productRows.forEach(function(row) {
+                row.style.setProperty('display', 'flex', 'important');
+                row.style.setProperty('flex-direction', 'column', 'important');
+                row.style.setProperty('flex-wrap', 'nowrap', 'important');
+                
+                var columns = row.querySelectorAll('[class*="col-"], .product-card-wrapper');
+                columns.forEach(function(col) {
+                    col.style.setProperty('flex', '0 0 100%', 'important');
+                    col.style.setProperty('max-width', '100%', 'important');
+                    col.style.setProperty('width', '100%', 'important');
+                    col.style.setProperty('float', 'none', 'important');
+                    col.style.setProperty('clear', 'both', 'important');
+                    col.style.setProperty('display', 'block', 'important');
+                });
+            });
+        }
+    }
+    
+    // Run immediately
+    forceMobileProductCards();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', forceMobileProductCards);
+    }
+    window.addEventListener('load', forceMobileProductCards);
+    window.addEventListener('resize', forceMobileProductCards);
+    setTimeout(forceMobileProductCards, 100);
+    setTimeout(forceMobileProductCards, 500);
+    setInterval(forceMobileProductCards, 1000);
+    
     // Ensure FAQ dividers stay grey and are visible
     function ensureFaqDividersGrey() {
         var faqTopDivider = document.getElementById('divider-faq-top');
