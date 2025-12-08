@@ -12305,6 +12305,35 @@ body:not(:has(.product-page-hero)) [id*="divider"]:not(#divider-faq-top):not(#di
     -webkit-filter: none !important;
 }
 
+/* FINAL: Hide any red dividers on all pages - catch-all rule */
+.section-divider-wave[style*='red'],
+.section-divider-wave[style*='#ed355b'],
+.section-divider-wave[style*='#ff6b6b'],
+.section-divider-wave[style*='237, 53, 91'],
+.section-divider-wave[style*='255, 107, 107'],
+.section-divider-wave-bottom[style*='red'],
+.section-divider-wave-bottom[style*='#ed355b'],
+.section-divider-wave-bottom[style*='#ff6b6b'],
+.section-divider-wave-product-bottom[style*='red'],
+.section-divider-wave-product-bottom[style*='#ed355b'],
+.section-divider-wave-product-bottom[style*='#ff6b6b'] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Hide FAQ dividers completely */
+#divider-faq-top,
+#divider-faq-bottom {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
 /* ULTRA AGGRESSIVE: Force blue-green on ALL homepage dividers - override EVERYTHING including inline styles */
 body:not(:has(.product-page-hero)) .section-divider-wave,
 body:not(:has(.product-page-hero)) .section-divider-wave-bottom,
