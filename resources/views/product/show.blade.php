@@ -44,19 +44,19 @@ if ($isUltimateRose) {
 
 // Get product image path for color extraction
 if ($isUltimateRose) {
-    $heroImagePath = 'images/bloom-booster-hero-no-bg.png';
+    $heroImagePath = 'images/bloom-booster-main-no-bg.png';
 } elseif ($isClematisFeed) {
     $heroImagePath = 'images/clematis-feed-p1-n-bg-front.png';
 } elseif ($isSwellGellFeed) {
-    $heroImagePath = 'images/swell-gell-hero-no-bg.png';
+    $heroImagePath = 'images/swel-gel-main-no-bg.png';
 } elseif ($isCitrusFeed) {
-    $heroImagePath = 'images/cirtus-feed-hero-image-no-bg.png';
+    $heroImagePath = 'images/cirtus-feed-main-image-no-bg.png';
 } elseif ($isFishBloodBone) {
-    $heroImagePath = 'images/fish-blood-bone-hero-no-bg.png';
+    $heroImagePath = 'images/fish-blood-bone-main-no-bg.png';
 } elseif ($isAcerFeed) {
-    $heroImagePath = 'images/acer-feed-hero-no-bg.png';
+    $heroImagePath = 'images/acer-feed-main-no-bg.png';
 } elseif ($isSuperiorSoluble) {
-    $heroImagePath = 'images/superior-hero-no-bg.png';
+    $heroImagePath = 'images/superior-main-no-bg.png';
 } else {
     $heroImagePath = $product->image ?? 'images/superiorV4.png';
 }
