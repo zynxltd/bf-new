@@ -1214,6 +1214,44 @@ h1, .h1 {
 /* Product pages use same natural document flow as homepage on desktop */
 /* Flexbox ordering only applies on mobile via media queries */
 
+/* Ensure homepage also has proper ordering for Feefo badge */
+.header-texts:not(.product-page-hero .header-texts) {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.header-texts:not(.product-page-hero .header-texts) .hero-badge {
+    order: 1 !important;
+}
+
+.header-texts:not(.product-page-hero .header-texts) .hero-title-gradient {
+    order: 2 !important;
+}
+
+.header-texts:not(.product-page-hero .header-texts) .hero-description {
+    order: 3 !important;
+}
+
+.header-texts:not(.product-page-hero .header-texts) .hero-image-mobile-placeholder {
+    order: 4 !important;
+}
+
+.header-texts:not(.product-page-hero .header-texts) .hero-sizes {
+    order: 5 !important;
+}
+
+.header-texts:not(.product-page-hero .header-texts) .hero-cta {
+    order: 6 !important;
+}
+
+.header-texts:not(.product-page-hero .header-texts) .buttons {
+    order: 7 !important;
+}
+
+.header-texts:not(.product-page-hero .header-texts) .hero-feefo-badge {
+    order: 8 !important;
+}
+
 .header-texts h2 {
     font-size: 56px;
     font-weight: 800;
@@ -1262,6 +1300,10 @@ h1, .h1 {
 
 .product-page-hero .header-texts .buttons {
     order: 7 !important;
+}
+
+.product-page-hero .header-texts .hero-feefo-badge {
+    order: 8 !important;
 }
 
 .hero-title-gradient {
