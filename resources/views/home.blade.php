@@ -644,11 +644,6 @@ $faqSchema = [
     </div><!-- .container -->
 </div><!-- .products-section  -->
 
-<!-- Bottom divider for "Our Complete Product Range" -->
-<div class="section-divider-wave section-divider-wave-product-bottom section-divider-mobile-hide" style="height: 150px; width: 100%; overflow: hidden; background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%);">
-    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleX(-1);">
-</div>
-
 <!-- Start .videos-section  -->
 <div id="videos" class="videos-section section white-bg pt-120 pb-120 videos-curved-top videos-section-bottom-curved">
     <div class="container">
