@@ -1364,6 +1364,17 @@ body:not(:has(.product-page-hero)) .header-section .hero-title-gradient::before,
     background: var(--product-color, #70D969) !important;
     background-color: var(--product-color, #70D969) !important;
     background-image: none !important;
+    /* Disable ALL animations on product page hero */
+    animation: none !important;
+    -webkit-animation: none !important;
+    background-position: 0% 50% !important;
+    background-size: 100% 100% !important;
+    /* Ensure no dark overlays */
+    filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+    isolation: isolate !important;
 }
 
 .product-page-hero.gradiant-background::before,
@@ -1372,6 +1383,13 @@ body:not(:has(.product-page-hero)) .header-section .hero-title-gradient::before,
 .product-page-hero .gradiant-background::after {
     background: var(--product-color, #70D969) !important;
     background-image: none !important;
+    /* Disable animations on pseudo-elements */
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    animation: none !important;
+    -webkit-animation: none !important;
 }
 
 /* Hide gradient overlay on product pages - it shows green/blue gradients */
@@ -4244,6 +4262,8 @@ body:not(:has(.product-page-hero)) .hero-spotlight-bg {
 }
 
 .product-page-hero .gradiant-background,
+.product-page-hero.gradiant-background,
+.header-section.product-page-hero.gradiant-background,
 .header-section:not(.product-page-hero) .gradiant-background,
 #home.header-section.gradiant-background,
 .header-section#home.gradiant-background,
@@ -4252,6 +4272,11 @@ body:not(:has(.product-page-hero)) .header-section.gradiant-background {
     -webkit-animation: none !important;
     background-position: 0% 50% !important;
     background-size: 100% 100% !important;
+    /* Ensure no gradient shifts or animations */
+    background-attachment: fixed !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 1 !important;
 }
 
 /* Ensure gradient overlay is on top of background effects */

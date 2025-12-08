@@ -198,9 +198,17 @@ $productSchema = [
     -webkit-animation: none !important;
 }
 
-.product-page-hero .gradiant-background {
+.product-page-hero .gradiant-background,
+.product-page-hero.gradiant-background,
+.header-section.product-page-hero.gradiant-background {
     animation: none !important;
     -webkit-animation: none !important;
+    background-position: 0% 50% !important;
+    background-size: 100% 100% !important;
+    background-attachment: fixed !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 1 !important;
 }
 
 /* Section titles on white backgrounds - use product color */
