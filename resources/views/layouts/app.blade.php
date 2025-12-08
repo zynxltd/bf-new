@@ -65,8 +65,8 @@
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="1b14093a-5243-4fdf-9a56-455f93e17d85" data-blockingmode="auto" type="text/javascript"></script>
     
     <!-- Google Analytics 4 - Will be managed by Cookiebot -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH00CZ6T7P"></script>
-    <script>
+    <script type="text/plain" data-category="statistics" data-cookieconsent="statistics" data-src="https://www.googletagmanager.com/gtag/js?id=G-NH00CZ6T7P" async></script>
+    <script type="text/plain" data-category="statistics" data-cookieconsent="statistics">
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
