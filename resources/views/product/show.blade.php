@@ -53,11 +53,11 @@ if ($isUltimateRose) {
 } elseif ($isCitrusFeed) {
     $heroImagePath = route('image.citrus-feed-hero');
 } elseif ($isFishBloodBone) {
-    $heroImagePath = 'images/fish-blood-p1.jpg';
+    $heroImagePath = route('image.fish-blood-bone-hero');
 } elseif ($isAcerFeed) {
     $heroImagePath = route('image.acer-feed-hero');
 } elseif ($isSuperiorSoluble) {
-    $heroImagePath = 'images/superiorV4.png';
+    $heroImagePath = route('image.superior-hero');
 } else {
     $heroImagePath = $product->image ?? 'images/superiorV4.png';
 }

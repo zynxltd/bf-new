@@ -75,6 +75,22 @@ Route::get('/hero-images/clematis-feed', function () {
     abort(404);
 })->name('image.clematis-feed-hero');
 
+Route::get('/hero-images/fish-blood-bone', function () {
+    $path = public_path('images/fish-blood-bone-hero.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.fish-blood-bone-hero');
+
+Route::get('/hero-images/superior-soluble', function () {
+    $path = public_path('images/superior-hero-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.superior-hero');
+
 // Newsletter
 Route::post('/newsletter/subscribe', [\App\Http\Controllers\NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
