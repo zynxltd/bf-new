@@ -12256,3 +12256,32 @@ body:not(:has(.product-page-hero)) [id*="divider"]:not(#divider-faq-top):not(#di
     -webkit-filter: none !important;
 }
 
+/* ULTRA AGGRESSIVE: Force blue-green on ALL homepage dividers - override EVERYTHING including inline styles */
+body:not(:has(.product-page-hero)) .section-divider-wave,
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom,
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom,
+#home .section-divider-wave,
+#home .section-divider-wave-bottom,
+body.home .section-divider-wave,
+body.home .section-divider-wave-bottom {
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    filter: hue-rotate(0deg) !important;
+    -webkit-filter: hue-rotate(0deg) !important;
+    --divider-bg-color: #70D969 !important;
+    --divider-gradient: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+}
+
+body:not(:has(.product-page-hero)) .section-divider-wave::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-bottom::after,
+body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom::after,
+#home .section-divider-wave::after,
+#home .section-divider-wave-bottom::after {
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    filter: hue-rotate(0deg) !important;
+    -webkit-filter: hue-rotate(0deg) !important;
+}
+

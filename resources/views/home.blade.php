@@ -2100,6 +2100,26 @@ From May to September feed your plants twice a week while watering.</p>
                 backgroundImage = computedStyle.backgroundImage;
                 backgroundColor = computedStyle.backgroundColor;
                 
+                // CRITICAL: Never apply red colors - check for red and use homepage gradient instead
+                var isRed = false;
+                if (backgroundImage && (backgroundImage.includes('#ed355b') || backgroundImage.includes('#ff6b6b') || backgroundImage.includes('ed355b') || backgroundImage.includes('ff6b6b') || backgroundImage.includes('rgb(237, 53, 91)') || backgroundImage.includes('rgb(255, 107, 107)'))) {
+                    isRed = true;
+                }
+                if (backgroundColor && (backgroundColor.includes('#ed355b') || backgroundColor.includes('#ff6b6b') || backgroundColor.includes('237, 53, 91') || backgroundColor.includes('255, 107, 107'))) {
+                    isRed = true;
+                }
+                
+                // If red detected or on homepage, use homepage gradient
+                if (isRed || !document.querySelector('.product-page-hero')) {
+                    divider.style.setProperty('background', homepageGradient, 'important');
+                    divider.style.setProperty('background-color', homepageBlue, 'important');
+                    divider.style.setProperty('background-image', homepageGradient, 'important');
+                    divider.style.setProperty('--divider-bg-color', homepageBlue, 'important');
+                    divider.style.setProperty('--divider-gradient', homepageGradient, 'important');
+                    divider.style.setProperty('filter', 'none', 'important');
+                    return; // Skip rest of logic
+                }
+                
                 // Check if the section has a gradient background
                 if (backgroundImage && backgroundImage !== 'none' && backgroundImage !== 'rgba(0, 0, 0, 0)') {
                     // Use the exact gradient from the section
