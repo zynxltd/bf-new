@@ -3604,9 +3604,21 @@ body:not(:has(.product-page-hero)) .section-head h2 span,
     background-image: none !important;
 }
 
-.features-section.gradiant-background {
+/* Homepage features section only - exclude product pages */
+body:not(:has(.product-page-hero)) .features-section.gradiant-background {
     background-color: #70D969 !important;
     background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    position: relative;
+    overflow: visible !important;
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Product page features section - use solid product color */
+body:has(.product-page-hero) .features-section.gradiant-background {
+    background-color: var(--product-color, #70D969) !important;
+    background-image: none !important;
+    background: var(--product-color, #70D969) !important;
     position: relative;
     overflow: visible !important;
     padding-top: 0 !important;
