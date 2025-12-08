@@ -854,17 +854,6 @@ $faqSchema = [
 </div>
 
 
-<div class="section-divider-wave" id="divider-faq-top" style="height: 120px; width: 100%; overflow: hidden; background: #ffffff; display: block !important; visibility: visible !important;">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
-        <defs>
-            <linearGradient id="gradient-divider-faq" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-faq)"></path>
-    </svg>
-</div>
 <!-- Start .faq-section-new  -->
 <div id="faq" class="faq-section section pt-120 pb-120">
     <div class="container">
@@ -1034,18 +1023,6 @@ From May to September feed your plants twice a week while watering.</p>
         </div><!-- .faq  -->
     </div><!-- .container  -->
 </div><!-- .faq-section  -->
-
-<div class="section-divider-wave section-divider-wave-bottom" id="divider-faq-bottom" style="height: 120px; width: 100%; overflow: hidden; background: #ffffff; display: block !important; visibility: visible !important;">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style="display: block; width: 100%; height: 100%;">
-        <defs>
-            <linearGradient id="gradient-divider-faq-bottom" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
-                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-        <path d="M0,0 C150,80 350,80 600,40 C850,0 1050,0 1200,40 L1200,120 L0,120 Z" fill="url(#gradient-divider-faq-bottom)"></path>
-    </svg>
-</div>
 
 <!-- Start .guides-section  -->
 <div id="guides" class="guides-section section white-bg pt-120 pb-120">
