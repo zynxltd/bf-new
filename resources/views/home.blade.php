@@ -141,7 +141,7 @@ $faqSchema = [
 </div>
 
 <!-- Start .header-section -->
-<div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section">
+<div id="home" class="header-section half-header section gradiant-background header-curbed confetti-section" style="background-color: #70D969 !important; background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;">
     
     <!-- Hero Spotlight Animation - REMOVED on home page -->
     <!-- <div id="hero-spotlight-animation" class="hero-spotlight-bg"></div> -->
