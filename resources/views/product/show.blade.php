@@ -1011,10 +1011,6 @@ body:has(.product-page-hero) .back-to-top:hover {
     </div><!-- .container -->
 </div><!-- .products-section  -->
 
-<div class="section-divider-wave section-divider-wave-product-bottom" id="divider-products-bottom" style="height: 150px; width: 100%; overflow: hidden; background: {{ $productColor }} !important; background-color: {{ $productColor }} !important; background-image: none !important;">
-    <img src="/images/carb.png" alt="" role="presentation" aria-hidden="true" class="carb-image-mobile-hide" style="width: 100%;height: 100%;object-fit: cover;object-position: bottom center;display: block; transform: scaleX(-1);">
-</div>
-
 <!-- Start .videos-section  -->
 <div id="videos" class="videos-section section white-bg pt-120 pb-120 videos-curved-top videos-section-bottom-curved">
     <div class="container">

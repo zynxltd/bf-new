@@ -1519,9 +1519,11 @@ body:not(:has(.product-page-hero)) .hero-title-gradient,
 .header-section#home .hero-title-gradient::before,
 .header-section.half-header:not(.product-page-hero) .hero-title-gradient::before,
 body:not(:has(.product-page-hero)) .header-section .hero-title-gradient::before,
+body:not(:has(.product-page-hero)) .hero-title-gradient::before,
 .header-section:not(.product-page-hero) .hero-title-gradient::before,
 #home.header-section .hero-title-gradient::before,
-.header-section.gradiant-background:not(.product-page-hero) .hero-title-gradient::before {
+.header-section.gradiant-background:not(.product-page-hero) .hero-title-gradient::before,
+body:not(:has(.product-page-hero)) h2.hero-title-gradient::before {
     display: none !important;
     content: none !important;
     animation: none !important;
@@ -1534,6 +1536,12 @@ body:not(:has(.product-page-hero)) .header-section .hero-title-gradient::before,
     height: 0 !important;
     left: -9999px !important;
     pointer-events: none !important;
+}
+
+/* Also disable the shine animation keyframe for homepage */
+body:not(:has(.product-page-hero)) .hero-title-gradient {
+    animation: none !important;
+    -webkit-animation: none !important;
 }
 
 @keyframes shine {
