@@ -1299,6 +1299,20 @@ body:not(:has(.product-page-hero)) .hero-title-gradient {
     pointer-events: none;
 }
 
+/* Disable shine animation on homepage hero title - override custom.css */
+body:not(:has(.product-page-hero)) .hero-title-gradient::before,
+.header-section:not(.product-page-hero) .hero-title-gradient::before,
+#home .hero-title-gradient::before {
+    display: none !important;
+    content: none !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    background: none !important;
+    background-image: none !important;
+}
+
 @keyframes shine {
     0% {
         left: -100%;
