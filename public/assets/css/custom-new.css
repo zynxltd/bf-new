@@ -11670,7 +11670,6 @@ body:has(.product-page-hero) .section-divider-wave-product-bottom::after {
     /* Links - Ensure minimum touch target */
     a:not(.button):not(.btn) {
         min-height: 44px;
-        display: inline-flex;
         align-items: center;
         padding: 8px 4px;
     }
