@@ -59,11 +59,10 @@ class Product extends Model
                 $slug = $originalSlug . '-' . $count;
                 $count++;
             }
-            // Store in attributes to avoid saving on every access
+            // Store in attributes
             $this->attributes['slug'] = $slug;
-            // Save only once using a flag to prevent multiple saves
-            if (!isset($this->attributes['_slug_generated'])) {
-                $this->attributes['_slug_generated'] = true;
+            // Save only if not already saved (check if this is a fresh instance)
+            if ($this->exists && !$this->wasRecentlyCreated) {
                 // Use updateQuietly to avoid triggering events
                 static::withoutEvents(function () use ($slug) {
                     $this->updateQuietly(['slug' => $slug]);
