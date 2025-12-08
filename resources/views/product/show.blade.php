@@ -46,7 +46,7 @@ if ($isUltimateRose) {
 if ($isUltimateRose) {
     $heroImagePath = 'images/bloom-booster-p1.jpg';
 } elseif ($isClematisFeed) {
-    $heroImagePath = 'images/clematis-feed-p1-n-bg-front.png';
+    $heroImagePath = 'images/clematis-feed-p1.jpg';
 } elseif ($isSwellGellFeed) {
     $heroImagePath = 'images/bf-swelgel-p3.jpg';
 } elseif ($isCitrusFeed) {
