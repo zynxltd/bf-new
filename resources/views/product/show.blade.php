@@ -43,19 +43,19 @@ if (!empty($packageColor) && $packageColor[0] !== '#') {
 }
 
 // Get product image path for color extraction
+// Note: Hero images with "hero" in filename are served via Laravel routes to bypass web server security rules
 if ($isUltimateRose) {
-    $heroImagePath = 'images/bloom-booster-p1.jpg';
+    $heroImagePath = route('image.bloom-booster-hero');
 } elseif ($isClematisFeed) {
-    // Using route to serve PNG - original filename blocked by web server security rules
     $heroImagePath = route('image.clematis-feed-hero');
 } elseif ($isSwellGellFeed) {
-    $heroImagePath = 'images/bf-swelgel-p3.jpg';
+    $heroImagePath = route('image.swell-gell-hero');
 } elseif ($isCitrusFeed) {
-    $heroImagePath = 'images/cirtus-feed-p1.jpg';
+    $heroImagePath = route('image.citrus-feed-hero');
 } elseif ($isFishBloodBone) {
     $heroImagePath = 'images/fish-blood-p1.jpg';
 } elseif ($isAcerFeed) {
-    $heroImagePath = 'images/acer-feed-p1.jpg';
+    $heroImagePath = route('image.acer-feed-hero');
 } elseif ($isSuperiorSoluble) {
     $heroImagePath = 'images/superiorV4.png';
 } else {
