@@ -39,7 +39,7 @@
     <noscript><link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"></noscript>
     <link href="{{ asset('assets/css/theme-blue-green.css') }}" rel="stylesheet" media="print" id="theme-css">
     <noscript><link rel="stylesheet" href="{{ asset('assets/css/theme-blue-green.css') }}"></noscript>
-    <link href="{{ asset('assets/css/custom-new.css') }}?v={{ filemtime(public_path('assets/css/custom-new.css')) }}" rel="stylesheet" media="all">
+    <link href="{{ asset('assets/css/custom-new.css') }}" rel="stylesheet" media="all">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" id="google-fonts-css">

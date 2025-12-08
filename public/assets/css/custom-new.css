@@ -4123,37 +4123,35 @@ body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-backgrou
 }
 
 /* Subtle light rays effect - Spotlight animation - DISABLED on homepage */
-/* Only apply to product pages if needed, but homepage should not have this */
-body:has(.product-page-hero) #home.header-section.gradiant-background::after,
-body:has(.product-page-hero) #home.header-section.half-header.gradiant-background::after,
+/* DISABLED: Homepage should not have spotlight animations - only product pages if needed */
+/* This rule is disabled to prevent any spotlight animations on homepage */
+/*
 body:has(.product-page-hero) .header-section.gradiant-background::after,
 body:has(.product-page-hero) .header-section.half-header.gradiant-background::after {
-    content: '' !important;
-    position: absolute !important;
-    top: -50% !important;
-    left: -50% !important;
-    width: 200% !important;
-    height: 200% !important;
-    background-image: radial-gradient(
-        ellipse at center,
-        rgba(255, 255, 255, 0.15) 0%,
-        rgba(255, 255, 255, 0.08) 30%,
-        transparent 70%
-    ) !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    background-size: 200% 200% !important;
-    background-color: transparent !important;
-    animation: heroLightRotate 20s linear infinite !important;
-    z-index: 1 !important;
+    ... disabled ...
+}
+*/
+
+/* EXPLICITLY DISABLE spotlight animations on homepage ::after pseudo-elements */
+#home.header-section.gradiant-background::after,
+#home.header-section.half-header.gradiant-background::after,
+.header-section#home.gradiant-background::after,
+.header-section#home.half-header.gradiant-background::after,
+body:not(:has(.product-page-hero)) .header-section.gradiant-background::after,
+body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-background::after,
+body:not(:has(.product-page-hero)) #home.header-section.gradiant-background::after,
+body:not(:has(.product-page-hero)) #home.header-section.half-header.gradiant-background::after {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    background: none !important;
+    background-image: none !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    width: 0 !important;
+    height: 0 !important;
     pointer-events: none !important;
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform-origin: center center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    bottom: auto !important;
 }
 
 /* Rotating light effect */
@@ -4219,21 +4217,41 @@ body:has(.product-page-hero) .header-section.half-header.gradiant-background::af
     right: auto !important;
 }
 
-/* Remove hero background animations on product pages AND homepage */
+/* Remove hero background animations on product pages AND homepage - MORE SPECIFIC */
+#home #hero-spotlight-animation.hero-spotlight-bg,
+#home .hero-spotlight-bg,
+#home.header-section #hero-spotlight-animation.hero-spotlight-bg,
+#home.header-section .hero-spotlight-bg,
+.header-section#home #hero-spotlight-animation.hero-spotlight-bg,
+.header-section#home .hero-spotlight-bg,
 .product-page-hero #hero-spotlight-animation.hero-spotlight-bg,
 .product-page-hero .hero-spotlight-bg,
 .header-section:not(.product-page-hero) #hero-spotlight-animation.hero-spotlight-bg,
-.header-section:not(.product-page-hero) .hero-spotlight-bg {
+.header-section:not(.product-page-hero) .hero-spotlight-bg,
+body:not(:has(.product-page-hero)) #hero-spotlight-animation.hero-spotlight-bg,
+body:not(:has(.product-page-hero)) .hero-spotlight-bg {
     display: none !important;
     visibility: hidden !important;
+    opacity: 0 !important;
     animation: none !important;
     -webkit-animation: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
 }
 
 .product-page-hero .gradiant-background,
-.header-section:not(.product-page-hero) .gradiant-background {
+.header-section:not(.product-page-hero) .gradiant-background,
+#home.header-section.gradiant-background,
+.header-section#home.gradiant-background,
+body:not(:has(.product-page-hero)) .header-section.gradiant-background {
     animation: none !important;
     -webkit-animation: none !important;
+    background-position: 0% 50% !important;
+    background-size: 100% 100% !important;
 }
 
 /* Ensure gradient overlay is on top of background effects */
