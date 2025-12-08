@@ -7745,21 +7745,33 @@ html {
     }
     
     /* Product Cards Mobile Optimization - 1 column layout with even spacing */
-    .products-content .row {
+    /* CRITICAL: Force single column layout - override ALL Bootstrap grid rules */
+    .products-content .row,
+    .products-section .row,
+    #products .row {
         display: flex !important;
         flex-direction: column !important;
+        flex-wrap: nowrap !important;
         width: 100% !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
+        margin-bottom: 0 !important;
     }
     
-    .products-content .row > [class*="col-"] {
+    .products-content .row > [class*="col-"],
+    .products-section .row > [class*="col-"],
+    #products .row > [class*="col-"],
+    .products-content .row > div,
+    .products-section .row > div,
+    #products .row > div {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
         margin-bottom: 20px !important;
         padding-left: 15px !important;
         padding-right: 15px !important;
+        float: none !important;
+        clear: both !important;
     }
     
     .product-card {
@@ -7895,13 +7907,34 @@ html {
     }
     
     /* Ensure product cards are full width on mobile - override Bootstrap columns */
+    /* CRITICAL: Override ALL possible Bootstrap column classes to force 1 column */
     .products-content .col-md-4,
     .products-content .col-sm-6,
-    .products-content .product-card-wrapper {
+    .products-content .col-lg-4,
+    .products-content .col-xl-4,
+    .products-content .col-xs-12,
+    .products-content .col-12,
+    .products-content .product-card-wrapper,
+    .products-section .col-md-4,
+    .products-section .col-sm-6,
+    .products-section .col-lg-4,
+    .products-section .col-xl-4,
+    .products-section .col-xs-12,
+    .products-section .col-12,
+    #products .col-md-4,
+    #products .col-sm-6,
+    #products .col-lg-4,
+    #products .col-xl-4,
+    #products .col-xs-12,
+    #products .col-12 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
         margin-bottom: 20px !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        float: none !important;
+        clear: both !important;
     }
     
     /* Best seller badge mobile optimization */
