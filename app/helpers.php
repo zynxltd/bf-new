@@ -55,6 +55,16 @@ if (!function_exists('webp_picture')) {
      */
     function webp_picture($path, $alt = '', $attributes = [])
     {
+        // If path is already a full URL (route or external), use it directly
+        if (strpos($path, 'http://') === 0 || strpos($path, 'https://') === 0 || strpos($path, '//') === 0) {
+            // Build attributes string
+            $attrString = '';
+            foreach ($attributes as $key => $value) {
+                $attrString .= ' ' . $key . '="' . htmlspecialchars($value, ENT_QUOTES, 'UTF-8') . '"';
+            }
+            return '<img src="' . htmlspecialchars($path, ENT_QUOTES, 'UTF-8') . '" alt="' . htmlspecialchars($alt, ENT_QUOTES, 'UTF-8') . '"' . $attrString . '>';
+        }
+        
         $webpPath = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $path);
         $webpFullPath = public_path($webpPath);
         $originalPath = public_path($path);
