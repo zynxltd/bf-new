@@ -48,6 +48,12 @@
         style.id = 'prevent-red-dividers-critical';
         style.textContent = 'body:not(:has(.product-page-hero)) .section-divider-wave, body:not(:has(.product-page-hero)) .section-divider-wave-bottom, body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom { background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; background-color: #70D969 !important; background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; filter: none !important; -webkit-filter: none !important; } body:not(:has(.product-page-hero)) .section-divider-wave::after, body:not(:has(.product-page-hero)) .section-divider-wave-bottom::after, body:not(:has(.product-page-hero)) .section-divider-wave-product-bottom::after { background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; background-color: #70D969 !important; background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important; filter: none !important; -webkit-filter: none !important; }';
         document.head.appendChild(style);
+        
+        // CRITICAL: Force mobile product cards to 1 column
+        var mobileStyle = document.createElement('style');
+        mobileStyle.id = 'mobile-product-cards-critical';
+        mobileStyle.textContent = '@media (max-width: 767px) { .products-content .row, .products-section .row, #products .row { display: flex !important; flex-direction: column !important; flex-wrap: nowrap !important; } .products-content .row > *, .products-section .row > *, #products .row > *, .products-content .row > [class*="col-"], .products-section .row > [class*="col-"], #products .row > [class*="col-"], .products-content .col-md-4, .products-content .col-sm-6, .products-content .product-card-wrapper, .products-section .col-md-4, .products-section .col-sm-6, #products .col-md-4, #products .col-sm-6 { flex: 0 0 100% !important; max-width: 100% !important; width: 100% !important; float: none !important; clear: both !important; display: block !important; } }';
+        document.head.appendChild(mobileStyle);
     })();
     </script>
     

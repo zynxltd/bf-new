@@ -2,6 +2,65 @@
 /* Updated: Navigation and Feefo reviews fixes applied */
 
 /* ========================================
+   CRITICAL: MOBILE PRODUCT CARDS - 1 COLUMN ONLY
+   These rules MUST be at the top to override everything
+   ======================================== */
+@media (max-width: 767px) {
+    /* Force single column for product cards on mobile - MAXIMUM PRIORITY */
+    .products-content .row,
+    .products-section .row,
+    #products .row,
+    .products-content .container .row,
+    .products-section .container .row,
+    #products .container .row {
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .products-content .row > *,
+    .products-section .row > *,
+    #products .row > *,
+    .products-content .row > [class*="col-"],
+    .products-section .row > [class*="col-"],
+    #products .row > [class*="col-"],
+    .products-content .row > div,
+    .products-section .row > div,
+    #products .row > div,
+    .products-content .col-md-4,
+    .products-content .col-sm-6,
+    .products-content .col-lg-4,
+    .products-content .col-xl-4,
+    .products-content .col-xs-12,
+    .products-content .col-12,
+    .products-content .product-card-wrapper,
+    .products-section .col-md-4,
+    .products-section .col-sm-6,
+    .products-section .col-lg-4,
+    .products-section .col-xl-4,
+    .products-section .col-xs-12,
+    .products-section .col-12,
+    #products .col-md-4,
+    #products .col-sm-6,
+    #products .col-lg-4,
+    #products .col-xl-4,
+    #products .col-xs-12,
+    #products .col-12 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        float: none !important;
+        clear: both !important;
+        display: block !important;
+    }
+}
+
+/* ========================================
    CRITICAL: PREVENT RED DIVIDERS ON HOMEPAGE
    These rules MUST be at the top to override everything
    ======================================== */

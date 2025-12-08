@@ -582,9 +582,9 @@ $faqSchema = [
         </div><!-- .section-head -->
         
         <div class="products-content pt-60">
-            <div class="row">
+            <div class="row" style="display: flex; flex-wrap: wrap;">
                 @forelse($products ?? [] as $index => $product)
-                <div class="col-md-4 col-sm-6 mb-40 product-card-wrapper">
+                <div class="col-md-4 col-sm-6 mb-40 product-card-wrapper" style="width: 100%; max-width: 100%; flex: 0 0 100%;">
                     <div class="product-card white-bg text-center wow fadeInUp" 
                          data-wow-duration=".5s" 
                          data-wow-delay="{{ ($index * 0.1) }}s">
