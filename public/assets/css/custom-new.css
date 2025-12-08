@@ -2453,15 +2453,19 @@ body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-backgrou
     padding-right: 15px;
 }
 
-/* Mobile: Force single column layout for product cards */
+/* Mobile: Force single column layout for product cards - MAXIMUM PRIORITY */
 @media (max-width: 767px) {
     .products-content .row,
     .products-section .row,
-    #products .row {
+    #products .row,
+    .products-content .container .row,
+    .products-section .container .row,
+    #products .container .row {
         flex-direction: column !important;
         flex-wrap: nowrap !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
+        display: flex !important;
     }
     
     .products-content .row > [class*="col-"],
@@ -2469,7 +2473,28 @@ body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-backgrou
     #products .row > [class*="col-"],
     .products-content .row > div,
     .products-section .row > div,
-    #products .row > div {
+    #products .row > div,
+    .products-content .container .row > [class*="col-"],
+    .products-section .container .row > [class*="col-"],
+    #products .container .row > [class*="col-"],
+    .products-content .container .row > div,
+    .products-section .container .row > div,
+    #products .container .row > div {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        float: none !important;
+        clear: both !important;
+        display: block !important;
+    }
+    
+    /* CRITICAL: Override Bootstrap's col-sm-6 which creates 2 columns on small screens (576px+) */
+    .products-content .col-sm-6,
+    .products-section .col-sm-6,
+    #products .col-sm-6,
+    .products-content .col-md-4.col-sm-6,
+    .products-section .col-md-4.col-sm-6,
+    #products .col-md-4.col-sm-6 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         width: 100% !important;
