@@ -48,7 +48,7 @@ if ($isUltimateRose) {
 } elseif ($isClematisFeed) {
     $heroImagePath = 'images/clematis-feed-p1-n-bg-front.png';
 } elseif ($isSwellGellFeed) {
-    $heroImagePath = 'images/bf-swelgel-p3.webp';
+    $heroImagePath = 'images/swel-gel-heor-no-bg.png';
 } elseif ($isCitrusFeed) {
     $heroImagePath = 'images/cirtus-feed-hero-image-no-bg.png';
 } elseif ($isFishBloodBone) {
