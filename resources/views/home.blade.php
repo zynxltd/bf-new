@@ -2139,16 +2139,43 @@ From May to September feed your plants twice a week while watering.</p>
         });
     }
     
+    // Disable ALL hero animations on homepage
+    function disableHeroAnimations() {
+        var heroSection = document.querySelector('.header-section.gradiant-background:not(.product-page-hero)');
+        if (heroSection) {
+            heroSection.style.setProperty('animation', 'none', 'important');
+            heroSection.style.setProperty('-webkit-animation', 'none', 'important');
+            heroSection.style.setProperty('background-position', '0% 50%', 'important');
+            heroSection.style.setProperty('background-size', '100% 100%', 'important');
+            
+            // Disable any ::before and ::after animations
+            var style = document.createElement('style');
+            style.id = 'disable-hero-animations';
+            style.textContent = '.header-section.gradiant-background:not(.product-page-hero) { animation: none !important; -webkit-animation: none !important; background-position: 0% 50% !important; background-size: 100% 100% !important; } .header-section.gradiant-background:not(.product-page-hero)::before, .header-section.gradiant-background:not(.product-page-hero)::after { animation: none !important; -webkit-animation: none !important; }';
+            document.head.appendChild(style);
+        }
+    }
+    
     // Run on page load
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', updateDividerGradients);
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDividerGradients();
+            disableHeroAnimations();
+        });
     } else {
         updateDividerGradients();
+        disableHeroAnimations();
     }
     
     // Also run after a short delay to ensure styles are computed
-    setTimeout(updateDividerGradients, 100);
-    setTimeout(updateDividerGradients, 500);
+    setTimeout(function() {
+        updateDividerGradients();
+        disableHeroAnimations();
+    }, 100);
+    setTimeout(function() {
+        updateDividerGradients();
+        disableHeroAnimations();
+    }, 500);
     
     // Ensure FAQ dividers stay grey and are visible
     function ensureFaqDividersGrey() {
