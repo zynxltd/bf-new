@@ -1864,13 +1864,17 @@ body:has(.product-page-hero) .back-to-top:hover {
     
     function applyHeroColors(color1, color2) {
         // Use solid colors instead of gradients for product pages
-        var isUltimateRose = window.location.pathname.includes('ultimate-rose-bloom-booster');
-        var isSwellGellFeed = window.location.pathname.includes('swell-gell-feed');
-        var isSuperiorSoluble = window.location.pathname.includes('superior-soluble-fertiliser');
-        var isClematisFeed = window.location.pathname.includes('clematis-feed');
-        var isCitrusFeed = window.location.pathname.includes('citrus-feed');
-        var isFishBloodBone = window.location.pathname.includes('fish-blood-bone');
-        var isAcerFeed = window.location.pathname.includes('acer-feed');
+        // Check both URL path and product data attribute to handle numeric IDs
+        var productSlug = document.querySelector('[data-product-slug]')?.getAttribute('data-product-slug') || '';
+        var currentPath = window.location.pathname;
+        
+        var isUltimateRose = currentPath.includes('ultimate-rose-bloom-booster') || productSlug.includes('ultimate-rose-bloom-booster');
+        var isSwellGellFeed = currentPath.includes('swell-gell-feed') || productSlug.includes('swell-gell-feed');
+        var isSuperiorSoluble = currentPath.includes('superior-soluble-fertiliser') || productSlug.includes('superior-soluble-fertiliser');
+        var isClematisFeed = currentPath.includes('clematis-feed') || productSlug.includes('clematis-feed');
+        var isCitrusFeed = currentPath.includes('citrus-feed') || productSlug.includes('citrus-feed');
+        var isFishBloodBone = currentPath.includes('fish-blood-bone') || productSlug.includes('fish-blood-bone');
+        var isAcerFeed = currentPath.includes('acer-feed') || productSlug.includes('acer-feed');
         
         var productColor;
         if (isUltimateRose) {
