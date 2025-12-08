@@ -1903,20 +1903,35 @@ body:has(.product-page-hero) .back-to-top:hover {
             productColor = color1 || '#70D969';
         }
         
-        // Update hero section with solid color
-        var heroSection = document.querySelector('.product-page-hero.gradiant-background');
+        // Update hero section with solid color and DISABLE ALL ANIMATIONS
+        var heroSection = document.querySelector('.product-page-hero.gradiant-background, .header-section.product-page-hero.gradiant-background');
         var overlay = document.querySelector('.product-page-hero .gradiant-overlay');
         
         if (heroSection) {
             heroSection.style.setProperty('background', productColor, 'important');
             heroSection.style.setProperty('background-color', productColor, 'important');
             heroSection.style.setProperty('background-image', 'none', 'important');
+            // Disable ALL animations
+            heroSection.style.setProperty('animation', 'none', 'important');
+            heroSection.style.setProperty('-webkit-animation', 'none', 'important');
+            heroSection.style.setProperty('background-position', '0% 50%', 'important');
+            heroSection.style.setProperty('background-size', '100% 100%', 'important');
+            heroSection.style.setProperty('background-attachment', 'fixed', 'important');
+            heroSection.style.setProperty('filter', 'none', 'important');
+            heroSection.style.setProperty('-webkit-filter', 'none', 'important');
+            heroSection.style.setProperty('opacity', '1', 'important');
         }
         if (overlay) {
             overlay.style.setProperty('display', 'none', 'important');
             overlay.style.setProperty('background', 'none', 'important');
             overlay.style.setProperty('background-image', 'none', 'important');
         }
+        
+        // Disable any ::before and ::after pseudo-elements that might cause animations
+        var disableAnimationsStyle = document.createElement('style');
+        disableAnimationsStyle.id = 'disable-product-hero-animations';
+        disableAnimationsStyle.textContent = '.product-page-hero.gradiant-background, .header-section.product-page-hero.gradiant-background { animation: none !important; -webkit-animation: none !important; background-position: 0% 50% !important; background-size: 100% 100% !important; background-attachment: fixed !important; filter: none !important; -webkit-filter: none !important; opacity: 1 !important; } .product-page-hero.gradiant-background::before, .product-page-hero.gradiant-background::after, .header-section.product-page-hero.gradiant-background::before, .header-section.product-page-hero.gradiant-background::after { display: none !important; content: none !important; animation: none !important; -webkit-animation: none !important; visibility: hidden !important; opacity: 0 !important; background: none !important; background-image: none !important; }';
+        document.head.appendChild(disableAnimationsStyle);
         
         // Update features section with solid color
         var featuresSection = document.querySelector('.features-section.gradiant-background');
@@ -2312,17 +2327,57 @@ body:has(.product-page-hero) .back-to-top:hover {
         }
     }
     
+    // Disable ALL hero animations on product pages
+    function disableProductHeroAnimations() {
+        var heroSections = document.querySelectorAll('.product-page-hero.gradiant-background, .header-section.product-page-hero.gradiant-background');
+        heroSections.forEach(function(heroSection) {
+            if (heroSection) {
+                heroSection.style.setProperty('animation', 'none', 'important');
+                heroSection.style.setProperty('-webkit-animation', 'none', 'important');
+                heroSection.style.setProperty('background-position', '0% 50%', 'important');
+                heroSection.style.setProperty('background-size', '100% 100%', 'important');
+                heroSection.style.setProperty('background-attachment', 'fixed', 'important');
+                heroSection.style.setProperty('filter', 'none', 'important');
+                heroSection.style.setProperty('-webkit-filter', 'none', 'important');
+                heroSection.style.setProperty('opacity', '1', 'important');
+            }
+        });
+        
+        // Inject style to disable pseudo-elements
+        var styleId = 'disable-product-hero-animations-global';
+        if (!document.getElementById(styleId)) {
+            var style = document.createElement('style');
+            style.id = styleId;
+            style.textContent = '.product-page-hero.gradiant-background, .header-section.product-page-hero.gradiant-background { animation: none !important; -webkit-animation: none !important; background-position: 0% 50% !important; background-size: 100% 100% !important; background-attachment: fixed !important; filter: none !important; -webkit-filter: none !important; opacity: 1 !important; } .product-page-hero.gradiant-background::before, .product-page-hero.gradiant-background::after, .header-section.product-page-hero.gradiant-background::before, .header-section.product-page-hero.gradiant-background::after { display: none !important; content: none !important; animation: none !important; -webkit-animation: none !important; visibility: hidden !important; opacity: 0 !important; background: none !important; background-image: none !important; }';
+            document.head.appendChild(style);
+        }
+    }
+    
     // Apply immediately if DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
             applyColorsNow();
+            disableProductHeroAnimations();
             // One backup call after a short delay to catch any late-rendered elements
-            setTimeout(applyColorsNow, 200);
+            setTimeout(function() {
+                applyColorsNow();
+                disableProductHeroAnimations();
+            }, 200);
+            setTimeout(function() {
+                disableProductHeroAnimations();
+            }, 500);
         });
     } else {
         applyColorsNow();
+        disableProductHeroAnimations();
         // One backup call after a short delay
-        setTimeout(applyColorsNow, 200);
+        setTimeout(function() {
+            applyColorsNow();
+            disableProductHeroAnimations();
+        }, 200);
+        setTimeout(function() {
+            disableProductHeroAnimations();
+        }, 500);
     }
     
     // Also apply on window load as backup (only if not already applied)
