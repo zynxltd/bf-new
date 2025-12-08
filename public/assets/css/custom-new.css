@@ -1220,35 +1220,35 @@ body:not(:has(.product-page-hero)) .header-texts {
     flex-direction: column !important;
 }
 
-.header-texts:not(.product-page-hero .header-texts) .hero-badge {
+body:not(:has(.product-page-hero)) .header-texts .hero-badge {
     order: 1 !important;
 }
 
-.header-texts:not(.product-page-hero .header-texts) .hero-title-gradient {
+body:not(:has(.product-page-hero)) .header-texts .hero-title-gradient {
     order: 2 !important;
 }
 
-.header-texts:not(.product-page-hero .header-texts) .hero-description {
+body:not(:has(.product-page-hero)) .header-texts .hero-description {
     order: 3 !important;
 }
 
-.header-texts:not(.product-page-hero .header-texts) .hero-image-mobile-placeholder {
+body:not(:has(.product-page-hero)) .header-texts .hero-image-mobile-placeholder {
     order: 4 !important;
 }
 
-.header-texts:not(.product-page-hero .header-texts) .hero-sizes {
+body:not(:has(.product-page-hero)) .header-texts .hero-sizes {
     order: 5 !important;
 }
 
-.header-texts:not(.product-page-hero .header-texts) .hero-cta {
+body:not(:has(.product-page-hero)) .header-texts .hero-cta {
     order: 6 !important;
 }
 
-.header-texts:not(.product-page-hero .header-texts) .buttons {
+body:not(:has(.product-page-hero)) .header-texts .buttons {
     order: 7 !important;
 }
 
-.header-texts:not(.product-page-hero .header-texts) .hero-feefo-badge {
+body:not(:has(.product-page-hero)) .header-texts .hero-feefo-badge {
     order: 8 !important;
 }
 
@@ -1304,27 +1304,57 @@ body:not(:has(.product-page-hero)) .header-texts {
     z-index: 1 !important;
 }
 
-.product-page-hero .header-texts .hero-description {
+.product-page-hero .header-texts .hero-description,
+.product-page-hero .hero-content-mobile .hero-description,
+.header-section.product-page-hero .header-texts .hero-description,
+.header-section.product-page-hero .hero-content-mobile .hero-description,
+#home.product-page-hero .header-texts .hero-description,
+#home.product-page-hero .hero-content-mobile .hero-description {
     order: 3 !important;
 }
 
-.product-page-hero .header-texts .hero-image-mobile-placeholder {
+.product-page-hero .header-texts .hero-image-mobile-placeholder,
+.product-page-hero .hero-content-mobile .hero-image-mobile-placeholder,
+.header-section.product-page-hero .header-texts .hero-image-mobile-placeholder,
+.header-section.product-page-hero .hero-content-mobile .hero-image-mobile-placeholder,
+#home.product-page-hero .header-texts .hero-image-mobile-placeholder,
+#home.product-page-hero .hero-content-mobile .hero-image-mobile-placeholder {
     order: 4 !important;
 }
 
-.product-page-hero .header-texts .hero-sizes {
+.product-page-hero .header-texts .hero-sizes,
+.product-page-hero .hero-content-mobile .hero-sizes,
+.header-section.product-page-hero .header-texts .hero-sizes,
+.header-section.product-page-hero .hero-content-mobile .hero-sizes,
+#home.product-page-hero .header-texts .hero-sizes,
+#home.product-page-hero .hero-content-mobile .hero-sizes {
     order: 5 !important;
 }
 
-.product-page-hero .header-texts .hero-cta {
+.product-page-hero .header-texts .hero-cta,
+.product-page-hero .hero-content-mobile .hero-cta,
+.header-section.product-page-hero .header-texts .hero-cta,
+.header-section.product-page-hero .hero-content-mobile .hero-cta,
+#home.product-page-hero .header-texts .hero-cta,
+#home.product-page-hero .hero-content-mobile .hero-cta {
     order: 6 !important;
 }
 
-.product-page-hero .header-texts .buttons {
+.product-page-hero .header-texts .buttons,
+.product-page-hero .hero-content-mobile .buttons,
+.header-section.product-page-hero .header-texts .buttons,
+.header-section.product-page-hero .hero-content-mobile .buttons,
+#home.product-page-hero .header-texts .buttons,
+#home.product-page-hero .hero-content-mobile .buttons {
     order: 7 !important;
 }
 
-.product-page-hero .header-texts .hero-feefo-badge {
+.product-page-hero .header-texts .hero-feefo-badge,
+.product-page-hero .hero-content-mobile .hero-feefo-badge,
+.header-section.product-page-hero .header-texts .hero-feefo-badge,
+.header-section.product-page-hero .hero-content-mobile .hero-feefo-badge,
+#home.product-page-hero .header-texts .hero-feefo-badge,
+#home.product-page-hero .hero-content-mobile .hero-feefo-badge {
     order: 8 !important;
 }
 
