@@ -4110,16 +4110,19 @@ body #home .header-section.gradiant-background {
     right: auto !important;
 }
 
-/* Remove hero background animations on product pages */
+/* Remove hero background animations on product pages AND homepage */
 .product-page-hero #hero-spotlight-animation.hero-spotlight-bg,
-.product-page-hero .hero-spotlight-bg {
+.product-page-hero .hero-spotlight-bg,
+.header-section:not(.product-page-hero) #hero-spotlight-animation.hero-spotlight-bg,
+.header-section:not(.product-page-hero) .hero-spotlight-bg {
     display: none !important;
     visibility: hidden !important;
     animation: none !important;
     -webkit-animation: none !important;
 }
 
-.product-page-hero .gradiant-background {
+.product-page-hero .gradiant-background,
+.header-section:not(.product-page-hero) .gradiant-background {
     animation: none !important;
     -webkit-animation: none !important;
 }
