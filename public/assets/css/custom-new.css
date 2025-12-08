@@ -1365,6 +1365,7 @@ body:not(:has(.product-page-hero)) .hero-title-gradient {
     }
 }
 
+/* Gradient shift animation - DISABLED */
 @keyframes gradientShift {
     0% {
         background-position: 0% 50%;
@@ -1375,6 +1376,13 @@ body:not(:has(.product-page-hero)) .hero-title-gradient {
     100% {
         background-position: 0% 50%;
     }
+}
+/* Disable gradient shift animation on homepage hero */
+body:not(:has(.product-page-hero)) .header-section.gradiant-background,
+body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-background {
+    animation: none !important;
+    -webkit-animation: none !important;
+    background-position: 0% 50% !important;
 }
 
 .header-texts h2::after {
@@ -3997,6 +4005,11 @@ body:not(:has(.product-page-hero)) #home .header-section.gradiant-background {
     filter: none !important;
     -webkit-filter: none !important;
     opacity: 1 !important;
+    /* Disable ALL animations */
+    animation: none !important;
+    -webkit-animation: none !important;
+    background-position: 0% 50% !important;
+    background-size: 100% 100% !important;
 }
 
 /* Enhanced hero background with animated gradient - REMOVED to match features section */
@@ -4015,7 +4028,7 @@ body:not(:has(.product-page-hero)) #home .header-section.gradiant-background {
     background-image: none !important;
 }
 
-/* Animated gradient shift */
+/* Animated gradient shift - DISABLED */
 @keyframes heroGradientShift {
     0% {
         background-position: 0% 50%;
@@ -4026,6 +4039,12 @@ body:not(:has(.product-page-hero)) #home .header-section.gradiant-background {
     100% {
         background-position: 0% 50%;
     }
+}
+/* Disable hero gradient shift animation */
+body:not(:has(.product-page-hero)) .header-section.gradiant-background,
+body:not(:has(.product-page-hero)) .header-section.half-header.gradiant-background {
+    animation: none !important;
+    -webkit-animation: none !important;
 }
 
 /* Subtle light rays effect - Spotlight animation - DISABLED on homepage */
