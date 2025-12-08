@@ -817,17 +817,17 @@ body:has(.product-page-hero) .back-to-top:hover {
                         <div class="features-product-center">
                             <div class="features-product-image">
                                 @if($isUltimateRose)
-                                    {!! webp_picture('images/bloom-booster-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
+                                    {!! webp_picture(route('image.bloom-booster-back'), $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isSwellGellFeed)
                                     {!! webp_picture(route('image.swelgel-back'), $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isClematisFeed)
-                                    {!! webp_picture('images/clematis-feed-p2-no-bg-back.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
+                                    {!! webp_picture(route('image.clematis-feed-back'), $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isAcerFeed)
-                                    {!! webp_picture('images/acer-feed-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
+                                    {!! webp_picture(route('image.acer-feed-back'), $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isCitrusFeed)
                                     {!! webp_picture(route('image.citrus-feed-back'), $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isSuperiorSoluble)
-                                    {!! webp_picture('images/superior-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
+                                    {!! webp_picture(route('image.superior-back'), $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isFishBloodBone)
                                     {!! webp_picture('images/fish-blood-bone-hero-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @else

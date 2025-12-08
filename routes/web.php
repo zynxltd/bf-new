@@ -108,6 +108,38 @@ Route::get('/product-images/swelgel-back', function () {
     abort(404);
 })->name('image.swelgel-back');
 
+Route::get('/product-images/bloom-booster-back', function () {
+    $path = public_path('images/bloom-booster-back-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.bloom-booster-back');
+
+Route::get('/product-images/superior-back', function () {
+    $path = public_path('images/superior-back-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.superior-back');
+
+Route::get('/product-images/acer-feed-back', function () {
+    $path = public_path('images/acer-feed-back-no-bg.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.acer-feed-back');
+
+Route::get('/product-images/clematis-feed-back', function () {
+    $path = public_path('images/clematis-feed-p2-no-bg-back.png');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'image/png']);
+    }
+    abort(404);
+})->name('image.clematis-feed-back');
+
 // Newsletter
 Route::post('/newsletter/subscribe', [\App\Http\Controllers\NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
