@@ -5837,6 +5837,27 @@ body:has(.product-page-hero) .products-section.gradiant-background {
     pointer-events: none;
 }
 
+/* CRITICAL: Hide products-section-bottom-curved::after on homepage - prevent red divider */
+body:not(:has(.product-page-hero)) .products-section-bottom-curved::after,
+body:not(:has(.product-page-hero)) #products.products-section-bottom-curved::after,
+#home .products-section-bottom-curved::after {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+}
+
+/* Force blue-green gradient if ::after is not hidden (fallback) */
+body:not(:has(.product-page-hero)) .products-section-bottom-curved::after {
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    filter: hue-rotate(0deg) !important;
+    -webkit-filter: hue-rotate(0deg) !important;
+}
+
 /* Videos Section Enhancements */
 .videos-section {
     position: relative;
