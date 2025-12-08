@@ -11919,3 +11919,25 @@ body:has(.product-page-hero) .section-divider-wave-product-bottom::after,
     -webkit-filter: none !important;
 }
 
+/* ABSOLUTE FINAL OVERRIDE: Target ALL possible divider combinations on homepage */
+/* This must be the last rule to catch everything */
+body:not(:has(.product-page-hero)) [class*="section-divider"],
+body:not(:has(.product-page-hero)) [class*="divider-wave"],
+body:not(:has(.product-page-hero)) [id*="divider"]:not(#divider-faq-top):not(#divider-faq-bottom):not(#footer-top-divider) {
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+body:not(:has(.product-page-hero)) [class*="section-divider"]::after,
+body:not(:has(.product-page-hero)) [class*="divider-wave"]::after,
+body:not(:has(.product-page-hero)) [id*="divider"]:not(#divider-faq-top):not(#divider-faq-bottom):not(#footer-top-divider)::after {
+    background: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    background-color: #70D969 !important;
+    background-image: linear-gradient(293deg, #70D969 0%, #19B2EB 100%) !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
