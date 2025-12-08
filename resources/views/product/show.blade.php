@@ -815,7 +815,7 @@ body:has(.product-page-hero) .back-to-top:hover {
                                 @elseif($isSuperiorSoluble)
                                     {!! webp_picture('images/superior-back-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @elseif($isFishBloodBone)
-                                    {!! webp_picture('images/fish-blood-bone-hero-no-bg.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
+                                    {!! webp_picture('images/fish-bone-back-1.jpg', $product->title, ['loading' => 'lazy', 'decoding' => 'async']) !!}
                                 @else
                                     {!! $product->image_2 ? webp_picture($product->image_2, $product->title, ['loading' => 'lazy', 'decoding' => 'async']) : ($product->image ? webp_picture($product->image, $product->title, ['loading' => 'lazy', 'decoding' => 'async']) : webp_picture('images/superiorback.png', $product->title, ['loading' => 'lazy', 'decoding' => 'async'])) !!}
                                 @endif
