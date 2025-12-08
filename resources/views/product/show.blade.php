@@ -1052,7 +1052,7 @@ body:has(.product-page-hero) .back-to-top:hover {
                         <div class="video-thumbnail">
                             {!! webp_picture('images/superiorV4.png', 'Superior Soluble Fertiliser', ['class' => 'img-responsive']) !!}
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/170471588" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
+                            <a href="https://vimeo.com/724836215?fl=pl&fe=cm" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Superior Soluble Fertiliser video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">Superior Soluble Fertiliser</h4>
@@ -1067,7 +1067,7 @@ body:has(.product-page-hero) .back-to-top:hover {
                         <div class="video-thumbnail">
                             {!! webp_picture('images/bloom-booster-p1.jpg', 'Ultimate Rose Bloom Booster', ['class' => 'img-responsive', 'width' => '400', 'height' => '400', 'loading' => 'lazy']) !!}
                             <div class="video-overlay gradiant-background"></div>
-                            <a href="https://vimeo.com/1100825820" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Ultimate Rose Bloom Booster video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
+                            <a href="https://player.vimeo.com/video/1100825820" class="video-play" data-effect="mfp-3d-unfold" aria-label="Play Ultimate Rose Bloom Booster video"><i class="fa fa-play" aria-hidden="true"></i><span class="sr-only">Play video</span></a>
                         </div>
                         <div class="video-details p-30">
                             <h4 class="video-title mb-15">Ultimate Rose Bloom Booster</h4>
