@@ -503,11 +503,11 @@ body:has(.product-page-hero) .back-to-top:hover {
         <div class="container">
             <div class="row row-vm">
                 <div class="col-md-7 col-sm-12 hero-text-column">
-                    <div class="header-texts tab-center mobile-center hero-content-mobile">
-                        <div class="hero-badge wow fadeInUp" data-wow-duration=".5s">
+                    <div class="header-texts tab-center mobile-center hero-content-mobile" style="display: flex !important; flex-direction: column !important; align-items: flex-start !important;">
+                        <div class="hero-badge wow fadeInUp" data-wow-duration=".5s" style="order: 1 !important; margin-bottom: 20px !important; margin-top: 0 !important;">
                             <span><i class="fa fa-star hero-star-icon"></i> Premium Quality</span>
                         </div>
-                        <h2 class="hero-title-gradient wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="animation-timing-function: ease-out; font-size: 56px; background-color: transparent !important;">{{ $displayTitle }}</h2>
+                        <h2 class="hero-title-gradient wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="animation-timing-function: ease-out; font-size: 56px; background-color: transparent !important; order: 2 !important; margin-top: 0 !important; margin-bottom: 30px !important;">{{ $displayTitle }}</h2>
                         <p class="lead hero-description wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".2s">{{ $product->description ?? 'Premium plant food for bigger, better blooms and healthier plants.' }}</p>
                         <!-- Hero Image - appears here on mobile -->
                         <div class="hero-image-mobile-placeholder">
